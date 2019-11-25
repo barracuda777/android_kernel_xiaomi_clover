@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2019 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2011-2018 The Linux Foundation. All rights reserved.
  *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
@@ -28,6 +28,7 @@
 #include <qdf_nbuf.h>           /* qdf_nbuf_t */
 
 #include <cdp_txrx_cmn.h>      /* ol_txrx_pdev_handle */
+#include <ol_defines.h>
 
 #ifdef CONFIG_HL_SUPPORT
 static inline uint16_t *ol_tx_msdu_id_storage(qdf_nbuf_t msdu)
@@ -147,10 +148,6 @@ ol_tx_completion_handler(ol_txrx_pdev_handle pdev,
 			 int num_msdus,
 			 enum htt_tx_status status, void *msg_word);
 
-void
-ol_tx_offload_deliver_indication_handler(ol_txrx_pdev_handle,
-					 void *msg);
-
 void ol_tx_credit_completion_handler(ol_txrx_pdev_handle pdev, int credits);
 
 struct rate_report_t {
@@ -185,6 +182,7 @@ ol_txrx_peer_link_status_handler(
 	u_int16_t peer_num,
 	struct rate_report_t *peer_link_status);
 
+
 #else
 static inline void ol_txrx_peer_link_status_handler(
 	ol_txrx_pdev_handle pdev,
@@ -193,6 +191,7 @@ static inline void ol_txrx_peer_link_status_handler(
 {
 }
 #endif
+
 
 #ifdef FEATURE_HL_GROUP_CREDIT_FLOW_CONTROL
 
@@ -644,7 +643,6 @@ ol_txrx_peer_uapsdmask_get(struct ol_txrx_pdev_t *txrx_pdev, uint16_t peer_id);
 uint8_t
 ol_txrx_peer_qoscapable_get(struct ol_txrx_pdev_t *txrx_pdev, uint16_t peer_id);
 
-#ifndef CONFIG_HL_SUPPORT
 /**
  * @brief Process an rx indication message sent by the target.
  * @details
@@ -670,7 +668,6 @@ ol_rx_in_order_indication_handler(ol_txrx_pdev_handle pdev,
 				  qdf_nbuf_t rx_ind_msg,
 				  uint16_t peer_id,
 				  uint8_t tid, uint8_t is_offload);
-#endif
 
 #ifdef FEATURE_HL_GROUP_CREDIT_FLOW_CONTROL
 

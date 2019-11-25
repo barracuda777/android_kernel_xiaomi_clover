@@ -25,6 +25,7 @@
 #include "htc_api.h"
 #include "wmi.h"
 
+
 /* Following macro definitions use OS or platform specific functions */
 #define dummy_print(fmt, ...) {}
 #define wmi_tlv_print_verbose dummy_print

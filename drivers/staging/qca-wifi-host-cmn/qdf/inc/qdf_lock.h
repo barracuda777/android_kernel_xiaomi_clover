@@ -88,6 +88,7 @@ do { \
 	BEFORE_LOCK_time = qdf_get_log_timestamp(); \
 	do {} while (0)
 
+
 #define AFTER_LOCK(lock, func) \
 	lock->stats.acquired_by = func; \
 	AFTER_LOCK_time = qdf_get_log_timestamp(); \
@@ -221,6 +222,7 @@ struct qdf_spinlock {
  * @brief Platform spinlock object
  */
 typedef struct qdf_spinlock qdf_spinlock_t;
+
 
 /**
  * @brief Platform mutex object
@@ -477,11 +479,6 @@ QDF_STATUS qdf_wake_lock_timeout_acquire(qdf_wake_lock_t *lock,
 QDF_STATUS qdf_wake_lock_release(qdf_wake_lock_t *lock, uint32_t reason);
 
 QDF_STATUS qdf_wake_lock_destroy(qdf_wake_lock_t *lock);
-
-struct hif_pm_runtime_lock;
-typedef struct qdf_runtime_lock {
-	struct hif_pm_runtime_lock *lock;
-} qdf_runtime_lock_t;
 
 QDF_STATUS qdf_runtime_pm_get(void);
 QDF_STATUS qdf_runtime_pm_put(void);

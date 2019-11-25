@@ -1435,9 +1435,13 @@ exit:
 	return ret;
 }
 
-/*
- * Name: fts_ts_probe
- */
+/*****************************************************************************
+*  Name: fts_ts_probe
+*  Brief:
+*  Input:
+*  Output:
+*  Return:
+*****************************************************************************/
 static int fts_ts_probe(struct i2c_client *client, const struct i2c_device_id *id)
 {
 	int ret = 0;

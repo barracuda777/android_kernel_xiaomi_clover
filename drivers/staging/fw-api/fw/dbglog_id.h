@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -366,6 +367,7 @@ typedef enum {
     AP_PWRSAVE_EVENT_HANDLER_SLEEP_STA_UPDATE_MSGID,
     AP_PWRSAVE_MSGID_DEFINITION_END = 0x7fff,
 } AP_PWRSAVE_MSGID;
+
 
 /* INF debug identifier definitions */
 #define INF_DBGID_DEFINITION_START                    0
@@ -1183,6 +1185,7 @@ typedef enum {
 #define P2P_GO_BCN_TX_COMP                                  38
 #define P2P_DBGID_DEFINITION_END                            39
 
+
 //CSA modules DBGIDs
 #define CSA_DBGID_DEFINITION_START 0
 #define CSA_OFFLOAD_POOL_INIT 1
@@ -1242,6 +1245,7 @@ typedef enum {
 #define WOW_BEACON_OFFLOAD_CFG   22
 #define WOW_IBSS_VDEV_ALLOW      23
 #define WOW_DBGID_DEFINITION_END 24
+
 
 /* SWBMISS module DBGIDs */
 #define SWBMISS_DBGID_DEFINITION_START  0
@@ -2082,3 +2086,4 @@ typedef enum {
 #endif
 
 #endif /* _DBGLOG_ID_H_ */
+

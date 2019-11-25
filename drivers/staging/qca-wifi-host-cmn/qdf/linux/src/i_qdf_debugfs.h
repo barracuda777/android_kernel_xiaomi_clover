@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2017 The Linux Foundation. All rights reserved.
  *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
@@ -20,6 +20,7 @@
  * DOC: qdf_debugfs.h
  * Linux specific implementation for debug filesystem APIs.
  */
+
 
 #ifndef _I_QDF_DEBUGFS_H
 #define _I_QDF_DEBUGFS_H

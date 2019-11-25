@@ -43,7 +43,8 @@
 #include <ol_htt_tx_api.h>
 
 #include <htt_internal.h>
-#include <cds_concurrency.h>
+#include <wlan_policy_mgr_api.h>
+#include <ol_htt_rx_api.h>
 
 #define HTT_MSG_BUF_SIZE(msg_bytes) \
 	((msg_bytes) + HTC_HEADER_LEN + HTC_HDR_ALIGNMENT_PADDING)
@@ -63,6 +64,7 @@ do {                                                             \
 #define HTT_SEND_HTC_PKT(pdev, ppkt) \
 	htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt);
 #endif
+
 
 static void
 htt_h2t_send_complete_free_netbuf(void *pdev, QDF_STATUS status,
@@ -303,7 +305,7 @@ QDF_STATUS htt_h2t_rx_ring_rfs_cfg_msg_ll(struct htt_pdev_t *pdev)
 	uint32_t  msg_local;
 	struct cds_config_info *cds_cfg;
 
-	QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO,
+	QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO_LOW,
 		  "Receive flow steering configuration, disable gEnableFlowSteering(=0) in ini if FW doesnot support it\n");
 	pkt = htt_htc_pkt_alloc(pdev);
 	if (!pkt)
@@ -339,22 +341,22 @@ QDF_STATUS htt_h2t_rx_ring_rfs_cfg_msg_ll(struct htt_pdev_t *pdev)
 	HTT_H2T_MSG_TYPE_SET(msg_local, HTT_H2T_MSG_TYPE_RFS_CONFIG);
 	if (ol_cfg_is_flow_steering_enabled(pdev->ctrl_pdev)) {
 		HTT_RX_RFS_CONFIG_SET(msg_local, 1);
-		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO,
+		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO_LOW,
 			  "Enable Rx flow steering");
 	} else {
-	    QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO,
+	    QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO_LOW,
 		      "Disable Rx flow steering");
 	}
 	cds_cfg = cds_get_ini_config();
 	if (cds_cfg != NULL) {
 		msg_local |= ((cds_cfg->max_msdus_per_rxinorderind & 0xff)
 			      << 16);
-		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO,
+		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO_LOW,
 			  "Updated maxMSDUsPerRxInd");
 	}
 
 	*msg_word = msg_local;
-	QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO,
+	QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO_LOW,
 		  "%s: Sending msg_word: 0x%08x",
 		  __func__, *msg_word);
 
@@ -462,6 +464,7 @@ QDF_STATUS htt_h2t_rx_ring_cfg_msg_ll(struct htt_pdev_t *pdev)
 			tmp &= 0x01f;
 		}
 
+
 		msg_word++;
 		HTT_RX_RING_CFG_BASE_PADDR_HI_SET(*msg_word, tmp);
 	}
@@ -488,7 +491,7 @@ QDF_STATUS htt_h2t_rx_ring_cfg_msg_ll(struct htt_pdev_t *pdev)
 		enable_hdr = 1;
 		enable_ppdu_start = 1;
 		enable_ppdu_end = 1;
-		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO,
+		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO_LOW,
 			  "%s : %d Pkt log is enabled\n",  __func__, __LINE__);
 	} else {
 		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_INFO,
@@ -524,6 +527,7 @@ QDF_STATUS htt_h2t_rx_ring_cfg_msg_ll(struct htt_pdev_t *pdev)
 			  __func__, __LINE__);
 	}
 
+	htt_rx_enable_ppdu_end(&enable_ppdu_end);
 	HTT_RX_RING_CFG_ENABLED_802_11_HDR_SET(*msg_word, enable_hdr);
 	HTT_RX_RING_CFG_ENABLED_MSDU_PAYLD_SET(*msg_word, 1);
 	HTT_RX_RING_CFG_ENABLED_PPDU_START_SET(*msg_word, enable_ppdu_start);
@@ -769,6 +773,7 @@ htt_h2t_dbg_stats_get(struct htt_pdev_t *pdev,
 
 	if (stats_type_upload_mask >= 1 << HTT_DBG_NUM_STATS ||
 	    stats_type_reset_mask >= 1 << HTT_DBG_NUM_STATS) {
+		/* FIX THIS - add more details? */
 		QDF_TRACE(QDF_MODULE_ID_HTT, QDF_TRACE_LEVEL_ERROR,
 			  "%#x %#x stats not supported\n",
 			  stats_type_upload_mask, stats_type_reset_mask);
@@ -784,6 +789,7 @@ htt_h2t_dbg_stats_get(struct htt_pdev_t *pdev,
 	 */
 	pkt->msdu_id = HTT_TX_COMPL_INV_MSDU_ID;
 	pkt->pdev_ctxt = NULL;  /* not used during send-done callback */
+
 
 	msg = qdf_nbuf_alloc(pdev->osdev,
 			     HTT_MSG_BUF_SIZE(HTT_H2T_STATS_REQ_MSG_SZ),

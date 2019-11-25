@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -79,6 +80,8 @@ typedef PREPACK struct {
 #define EPPING_PING_MAGIC_2               0xCE
 #define EPPING_PING_MAGIC_3               0xEC
 
+
+
 #define IS_EPPING_PACKET(pPkt)   (((pPkt)->Magic_h[0] == EPPING_PING_MAGIC_0) && \
                                   ((pPkt)->Magic_h[1] == EPPING_PING_MAGIC_1) && \
                                   ((pPkt)->Magic_h[2] == EPPING_PING_MAGIC_2) && \
@@ -125,5 +128,6 @@ typedef PREPACK struct {
 #ifndef ATH_TARGET
 #include "athendpack.h"
 #endif
+
 
 #endif /*EPPING_TEST_H_*/

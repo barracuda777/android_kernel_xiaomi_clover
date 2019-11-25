@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -132,6 +133,7 @@ typedef struct {
     A_UINT8               buf[1];
 }  WMIX_DSETDATA_REPLY_CMD;
 
+
 /*
  * =============Error Detection support=================
  */
@@ -174,6 +176,7 @@ typedef struct {
     A_UINT32              addr;
     A_UINT32              count;
 }  WMIX_PROF_COUNT_EVENT;
+
 
 #ifdef __cplusplus
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2017 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2018 The Linux Foundation. All rights reserved.
  *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
@@ -39,6 +39,7 @@ static void usb_hif_post_recv_bundle_transfers
 						(struct HIF_USB_PIPE *recv_pipe,
 						int buffer_length);
 static void usb_hif_cleanup_recv_urb(struct HIF_URB_CONTEXT *urb_context);
+
 
 /**
  * usb_hif_free_urb_to_pipe() - add urb back to urb list of a pipe
@@ -115,6 +116,7 @@ void usb_hif_enqueue_pending_transfer(struct HIF_USB_PIPE *pipe,
 	dl_list_insert_tail(&pipe->urb_pending_list, &urb_context->link);
 	qdf_spin_unlock_irqrestore(&pipe->device->cs_lock);
 }
+
 
 /**
  * usb_hif_remove_pending_transfer() - remove urb from its own list
@@ -234,7 +236,7 @@ static void usb_hif_free_pipe_resources(struct HIF_USB_PIPE *pipe)
  * Return: uint8_t pipe number corresponding to ep_address
  */
 static uint8_t usb_hif_get_logical_pipe_num
-					(HIF_DEVICE_USB *device,
+					(struct HIF_DEVICE_USB *device,
 					uint8_t ep_address,
 					int *urb_count)
 {
@@ -287,7 +289,7 @@ static uint8_t usb_hif_get_logical_pipe_num
  *
  * Return: QDF_STATUS_SUCCESS if success else an appropriate QDF_STATUS error
  */
-QDF_STATUS usb_hif_setup_pipe_resources(HIF_DEVICE_USB *device)
+QDF_STATUS usb_hif_setup_pipe_resources(struct HIF_DEVICE_USB *device)
 {
 	struct usb_interface *interface = device->interface;
 	struct usb_host_interface *iface_desc = interface->cur_altsetting;
@@ -391,13 +393,14 @@ QDF_STATUS usb_hif_setup_pipe_resources(HIF_DEVICE_USB *device)
 	return status;
 }
 
+
 /**
  * usb_hif_cleanup_pipe_resources() - free urb resources for all pipes
  * @device: pointer to HIF_DEVICE_USB structure
  *
  * Return: none
  */
-void usb_hif_cleanup_pipe_resources(HIF_DEVICE_USB *device)
+void usb_hif_cleanup_pipe_resources(struct HIF_DEVICE_USB *device)
 {
 	int i;
 
@@ -441,7 +444,7 @@ static void usb_hif_flush_pending_transfers(struct HIF_USB_PIPE *pipe)
  *
  * Return: none
  */
-void usb_hif_flush_all(HIF_DEVICE_USB *device)
+void usb_hif_flush_all(struct HIF_DEVICE_USB *device)
 {
 	int i;
 	struct HIF_USB_PIPE *pipe;
@@ -999,7 +1002,7 @@ static void usb_hif_post_recv_bundle_transfers(struct HIF_USB_PIPE *recv_pipe,
  *
  * Return: none
  */
-void usb_hif_prestart_recv_pipes(HIF_DEVICE_USB *device)
+void usb_hif_prestart_recv_pipes(struct HIF_DEVICE_USB *device)
 {
 	struct HIF_USB_PIPE *pipe = &device->pipes[HIF_RX_DATA_PIPE];
 
@@ -1020,7 +1023,7 @@ void usb_hif_prestart_recv_pipes(HIF_DEVICE_USB *device)
  *
  * Return: none
  */
-void usb_hif_start_recv_pipes(HIF_DEVICE_USB *device)
+void usb_hif_start_recv_pipes(struct HIF_DEVICE_USB *device)
 {
 	struct HIF_USB_PIPE *pipe;
 	uint32_t buf_len;
@@ -1064,12 +1067,9 @@ void usb_hif_start_recv_pipes(HIF_DEVICE_USB *device)
  *
  * Return: QDF_STATUS_SUCCESS if success else an appropriate QDF_STATUS error
  */
-QDF_STATUS usb_hif_submit_ctrl_out(HIF_DEVICE_USB *device,
-						uint8_t req,
-						uint16_t value,
-						uint16_t index,
-						void *data,
-						uint32_t size)
+QDF_STATUS usb_hif_submit_ctrl_out(struct HIF_DEVICE_USB *device,
+				   uint8_t req, uint16_t value, uint16_t index,
+				   void *data, uint32_t size)
 {
 	int32_t result = 0;
 	QDF_STATUS ret = QDF_STATUS_SUCCESS;
@@ -1120,12 +1120,9 @@ QDF_STATUS usb_hif_submit_ctrl_out(HIF_DEVICE_USB *device,
  *
  * Return: QDF_STATUS_SUCCESS if success else an appropriate QDF_STATUS error
  */
-QDF_STATUS usb_hif_submit_ctrl_in(HIF_DEVICE_USB *device,
-						uint8_t req,
-						uint16_t value,
-						uint16_t index,
-						void *data,
-						uint32_t size)
+QDF_STATUS usb_hif_submit_ctrl_in(struct HIF_DEVICE_USB *device,
+				  uint8_t req, uint16_t value, uint16_t index,
+				  void *data, uint32_t size)
 {
 	int32_t result = 0;
 	QDF_STATUS ret = QDF_STATUS_SUCCESS;
@@ -1173,10 +1170,10 @@ QDF_STATUS usb_hif_submit_ctrl_in(HIF_DEVICE_USB *device,
  *
  * Return: none
  */
-void usb_hif_io_complete(struct HIF_USB_PIPE *pipe)
+static void usb_hif_io_complete(struct HIF_USB_PIPE *pipe)
 {
 	qdf_nbuf_t buf;
-	HIF_DEVICE_USB *device;
+	struct HIF_DEVICE_USB *device;
 	HTC_FRAME_HDR *HtcHdr;
 	uint8_t *data;
 	uint32_t len;

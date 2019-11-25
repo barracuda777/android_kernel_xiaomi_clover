@@ -24,6 +24,7 @@
 ;Date           Modified by    Modification Information
 ;--------------------------------------------------------------------
 
+
 ENTRY &FILE
 
 IF "&FILE"==""
@@ -33,6 +34,7 @@ ENTRY &FILE
 )
 
 OPEN #1 "&FILE" /Create /Write /Append
+
 
 Var.NEW  char [406][50] \halmsgtype
 
@@ -321,6 +323,7 @@ Var.SET \halmsgtype[0x193]="SIR_HAL_GET_RCPI_REQ"
 Var.SET \halmsgtype[0x194]="SIR_HAL_ENABLE_BCAST_FILTER"
 Var.SET \halmsgtype[0x195]="SIR_HAL_DISABLE_BCAST_FILTER"
 
+
 Var.NEW  char [256][100] \smecodetype
 
 Var.SET \smecodetype[0x00]="TRACE_CODE_SME_RX_HDD_MSG_SCAN_REQ"
@@ -436,6 +439,7 @@ Var.NEW  char [256][50] \cfgmsgtype
 Var.SET \cfgmsgtype[0xB0]="SIR_CFG_PARAM_UPDATE_IND"
 Var.SET \cfgmsgtype[0xB1]="SIR_CFG_DOWNLOAD_COMPLETE_IND"
 
+
 Var.NEW  char [256][50] \limmsgtype
 
 Var.SET \limmsgtype[0xB3]="SIR_LIM_RETRY_INTERRUPT_MSG"
@@ -488,6 +492,7 @@ Var.SET \limmsgtype[0xFC]="SIR_LIM_CONVERT_ACTIVE_CHANNEL_TO_PASSIVE"
 Var.SET \limmsgtype[0xFD]="SIR_LIM_AUTH_RETRY_TIMEOUT"
 Var.SET \limmsgtype[0xFF]="SIR_LIM_MSG_TYPES_END"
 
+
 Var.NEW  char [256][50] \schmsgtype
 
 Var.SET \schmsgtype[0x0]="SIR_SCH_CHANNEL_SWITCH_REQUEST"
@@ -501,6 +506,7 @@ Var.NEW  char [256][50] \pmmmsgtype
 Var.SET \pmmmsgtype[0x0]="SIR_PMM_CHANGE_PM_MODE"
 Var.SET \pmmmsgtype[0xFF]="SIR_PMM_MSG_TYPES_END"
 
+
 Var.NEW  char [256][50] \mntmsgtype
 
 Var.SET \mntmsgtype[0x0]="SIR_MNT_RELEASE_BD"
@@ -510,6 +516,7 @@ Var.NEW  char [0x301][50] \pttmsgtype
 
 Var.SET \pttmsgtype[0x0]="SIR_PTT_MSG_TYPES_BEGIN"
 Var.SET \pttmsgtype[0x300]="SIR_PTT_MSG_TYPES_END"
+
 
 Var.NEW  char [18][50] \code
 
@@ -531,6 +538,7 @@ Var.SET \code[14]="TRACE_CODE_RX_MGMT_DROP"
 Var.SET \code[15]="TRACE_CODE_TIMER_ACTIVATE"
 Var.SET \code[16]="TRACE_CODE_TIMER_DEACTIVATE"
 Var.SET \code[17]="TRACE_CODE_INFO_LOG"
+
 
 Var.NEW  char [13][50] \module
 
@@ -595,6 +603,8 @@ Var.SET \limtimertype[23]="eLIM_DEAUTH_ACK_TIMER"
 Var.SET \limtimertype[24]="eLIM_PERIODIC_JOIN_PROBE_REQ_TIMER"
 Var.SET \limtimertype[25]="eLIM_INSERT_SINGLESHOT_NOA_TIMER"
 Var.SET \limtimertype[26]="eLIM_CONVERT_ACTIVE_CHANNEL_TO_PASSIVE"
+
+
 
 Var.NEW  char [256][100] \hddcodetype
 
@@ -700,6 +710,7 @@ TRACESTART:
 &SESSION=v.value(g_qdf_trace_tbl[&INDEX].session)
 &DATA=v.value(g_qdf_trace_tbl[&INDEX].data)
 
+
   WRITE #1 "TIME: "  &TIME
   Var.Write #1 %STRING \module[&MODULE]
 
@@ -718,6 +729,7 @@ if (&CODE>=0)&&(&CODE<=0x12)
     (
       WRITE #1 "SESSION: " &SESSION
     )
+
 
 ;0 TRACE_CODE_MLM_STATE
 IF (&CODE==0x0)
@@ -776,6 +788,7 @@ IF (&CODE==0xE)
   Var.Set \dropreason=&DATA
   Var.Write #1 \dropreason " [" %Hex &DATA "]"
 )
+
 
 ;15 TRACE_CODE_TIMER_ACTIVATE/DEACTIVATE
 IF (&CODE==0xF)||(&CODE==0x10)
@@ -906,6 +919,7 @@ IF (&DATA>=0x1500)
 
 )
 
+
 IF (&MODULE==0x6)
 (
 
@@ -978,6 +992,8 @@ WRITE #1 " "
   (
     GOTO TRACESTART
   )
+
+
 
 ENDSCRIPT:
 CLOSE #1

@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -32,6 +33,7 @@
  * This file contains WLAN definitions that may be used across both
  * Host and Target software.
  */
+
 
 /*
  * MAX_SPATIAL_STREAM should be defined in a fwconfig_xxx.h file,
@@ -236,6 +238,7 @@ typedef enum {
         ((mode) == MODE_11AC_VHT40_2G) || \
         ((mode) == MODE_11AC_VHT80_2G))
 
+
 #define IS_MODE_11A(mode)       (((mode) == MODE_11A) || \
                                  ((mode) == MODE_11NA_HT20) || \
                                  ((mode) == MODE_11NA_HT40) || \
@@ -326,6 +329,7 @@ enum {
 #define REGDMN_CAP1_CHAN_QUARTER_RATE     0x00000002
 #define REGDMN_CAP1_CHAN_HAL49GHZ         0x00000004
 
+
 /* regulatory capabilities */
 #define REGDMN_EEPROM_EEREGCAP_EN_FCC_MIDBAND   0x0040
 #define REGDMN_EEPROM_EEREGCAP_EN_KK_U1_EVEN    0x0080
@@ -408,6 +412,7 @@ typedef struct {
     A_UINT32 bmap_tried_0_31; /* enqued bitmap 0..31 */
     A_UINT32 bmap_tried_32_63; /* enqued bitmap 32..63 */
 } RC_TX_DONE_PARAMS;
+
 
 #define RC_SET_TX_DONE_INFO(_dst, _rc, _f, _nq, _nr, _nf, _rssi, _ts) \
     do {                                                              \
@@ -1086,6 +1091,8 @@ typedef struct wlan_dbg_sifs_resp_stats {
     A_UINT32 sifs_resp_data;        /* num ppdus transmitted at SIFS interval */
     A_UINT32 sifs_resp_err;         /* num ppdus failed to meet SIFS resp timing */
 } wlan_dgb_sifs_resp_stats_t;
+
+
 
 /** wlan_dbg_wifi2_error_stats_t is not grouped with the
  *  following structure as it is allocated differently and only

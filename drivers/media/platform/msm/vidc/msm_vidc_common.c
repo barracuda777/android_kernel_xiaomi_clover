@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2019, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2018, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -24,20 +24,9 @@
 #include "msm_vidc_dcvs.h"
 #include "msm_vdec.h"
 
-#define IS_ALREADY_IN_STATE(__p, __d) ({\
-	int __rc = (__p >= __d);\
-	__rc; \
-})
-
-#define SUM_ARRAY(__arr, __start, __end) ({\
-		int __index;\
-		typeof((__arr)[0]) __sum = 0;\
-		for (__index = (__start); __index <= (__end); __index++) {\
-			if (__index >= 0 && __index < ARRAY_SIZE(__arr))\
-				__sum += __arr[__index];\
-		} \
-		__sum;\
-})
+#define IS_ALREADY_IN_STATE(__p, __d) (\
+	(__p >= __d)\
+)
 
 #define V4L2_EVENT_SEQ_CHANGED_SUFFICIENT \
 		V4L2_EVENT_MSM_VIDC_PORT_SETTINGS_CHANGED_SUFFICIENT
@@ -131,7 +120,7 @@ int msm_comm_g_ctrl_for_id(struct msm_vidc_inst *inst, int id)
 	};
 
 	rc = msm_comm_g_ctrl(inst, &ctrl);
-	return rc ?: ctrl.value;
+	return rc ? rc : ctrl.value;
 }
 
 static struct v4l2_ctrl **get_super_cluster(struct msm_vidc_inst *inst,
@@ -686,11 +675,13 @@ static void handle_sys_init_done(enum hal_command_response cmd, void *data)
 
 	/* This should come from sys_init_done */
 	core->resources.max_inst_count =
-		sys_init_msg->max_sessions_supported ? :
+		sys_init_msg->max_sessions_supported ?
+		sys_init_msg->max_sessions_supported :
 		MAX_SUPPORTED_INSTANCES;
 
 	core->resources.max_secure_inst_count =
-		core->resources.max_secure_inst_count ? :
+		core->resources.max_secure_inst_count ?
+		core->resources.max_secure_inst_count :
 		core->resources.max_inst_count;
 
 	if (core->id == MSM_VIDC_CORE_VENUS &&
@@ -712,16 +703,16 @@ static void handle_sys_init_done(enum hal_command_response cmd, void *data)
 	return;
 }
 
+static void put_inst_helper(struct kref *kref)
+{
+	struct msm_vidc_inst *inst = container_of(kref, struct msm_vidc_inst,
+			kref);
+
+	msm_vidc_destroy(inst);
+}
+
 static void put_inst(struct msm_vidc_inst *inst)
 {
-	void put_inst_helper(struct kref *kref)
-	{
-		struct msm_vidc_inst *inst = container_of(kref,
-				struct msm_vidc_inst, kref);
-
-		msm_vidc_destroy(inst);
-	}
-
 	if (!inst)
 		return;
 
@@ -1210,6 +1201,20 @@ static void handle_event_change(enum hal_command_response cmd, void *data)
 		break;
 	}
 
+	/*
+	 * Force output to linear format if it's interlaced UBWC format
+	 * to support interlaced clips playback
+	 */
+	if ((inst->allow_ubwc_linear_event) &&
+		(event_notify->pic_struct ==
+			MSM_VIDC_PIC_STRUCT_MAYBE_INTERLACED)) {
+		u32 fmt_fourcc = inst->fmts[CAPTURE_PORT].fourcc;
+
+		if ((fmt_fourcc == V4L2_PIX_FMT_NV12_TP10_UBWC) ||
+			(fmt_fourcc == V4L2_PIX_FMT_NV12_UBWC))
+			inst->fmts[CAPTURE_PORT].fourcc = V4L2_PIX_FMT_NV12;
+	}
+
 	/* Bit depth and pic struct changed event are combined into a single
 	 * event (insufficient event) for the userspace. Currently bitdepth
 	 * changes is only for HEVC and interlaced support is for all
@@ -1478,7 +1483,7 @@ void validate_output_buffers(struct msm_vidc_inst *inst)
 	}
 	mutex_lock(&inst->outputbufs.lock);
 	list_for_each_entry(binfo, &inst->outputbufs.list, list) {
-		if (binfo && binfo->buffer_ownership != DRIVER) {
+		if (binfo->buffer_ownership != DRIVER) {
 			dprintk(VIDC_DBG,
 				"This buffer is with FW %pa\n",
 				&binfo->handle->device_addr);
@@ -2061,6 +2066,7 @@ static void handle_fbd(enum hal_command_response cmd, void *data)
 	int extra_idx = 0;
 	int64_t time_usec = 0;
 	struct vb2_v4l2_buffer *vbuf = NULL;
+	struct buffer_info *buffer_info = NULL;
 
 	if (!response) {
 		dprintk(VIDC_ERR, "Invalid response from vidc_hal\n");
@@ -2102,6 +2108,26 @@ static void handle_fbd(enum hal_command_response cmd, void *data)
 				"fbd:Overflow bytesused = %d; length = %d\n",
 				vb->planes[0].bytesused,
 				vb->planes[0].length);
+
+		buffer_info = device_to_uvaddr(&inst->registeredbufs,
+			fill_buf_done->packet_buffer1);
+
+		if (!buffer_info) {
+			dprintk(VIDC_ERR,
+				"%s buffer not found in registered list\n",
+				__func__);
+			return;
+		}
+
+		buffer_info->crop_data.nLeft = fill_buf_done->start_x_coord;
+		buffer_info->crop_data.nTop = fill_buf_done->start_y_coord;
+		buffer_info->crop_data.nWidth = fill_buf_done->frame_width;
+		buffer_info->crop_data.nHeight = fill_buf_done->frame_height;
+		buffer_info->crop_data.width_height[0] =
+						inst->prop.width[CAPTURE_PORT];
+		buffer_info->crop_data.width_height[1] =
+						inst->prop.height[CAPTURE_PORT];
+
 		if (!(fill_buf_done->flags1 &
 			HAL_BUFFERFLAG_TIMESTAMPINVALID)) {
 			time_usec = fill_buf_done->timestamp_hi;
@@ -3175,7 +3201,8 @@ static int set_output_buffers(struct msm_vidc_inst *inst,
 			if (!handle) {
 				dprintk(VIDC_ERR,
 					"Failed to allocate output memory\n");
-				return -ENOMEM;
+				rc = -ENOMEM;
+				goto err_no_mem;
 			}
 			rc = msm_comm_smem_cache_operations(inst,
 					handle, SMEM_CACHE_CLEAN, -1);
@@ -3227,9 +3254,10 @@ static int set_output_buffers(struct msm_vidc_inst *inst,
 	}
 	return rc;
 fail_set_buffers:
+	msm_comm_smem_free(inst, handle);
+err_no_mem:
 	kfree(binfo);
 fail_kzalloc:
-	msm_comm_smem_free(inst, handle);
 	return rc;
 }
 
@@ -3821,17 +3849,17 @@ int msm_comm_qbuf(struct msm_vidc_inst *inst, struct vb2_buffer *vb)
 	 * Don't queue if:
 	 * 1) Hardware isn't ready (that's simple)
 	 */
-	defer = defer ?: inst->state != MSM_VIDC_START_DONE;
+	defer = defer ? defer : (inst->state != MSM_VIDC_START_DONE);
 
 	/*
 	 * 2) The client explicitly tells us not to because it wants this
 	 * buffer to be batched with future frames.  The batch size (on both
 	 * capabilities) is completely determined by the client.
 	 */
-	defer = defer ?: vbuf && vbuf->flags & V4L2_MSM_BUF_FLAG_DEFER;
+	defer = defer ? defer : (vbuf && vbuf->flags & V4L2_MSM_BUF_FLAG_DEFER);
 
 	/* 3) If we're in batch mode, we must have full batches of both types */
-	defer = defer ?: batch_mode && (!output_count || !capture_count);
+	defer = defer ? defer:(batch_mode && (!output_count || !capture_count));
 
 	if (defer) {
 		dprintk(VIDC_DBG, "Deferring queue of %pK\n", vb);

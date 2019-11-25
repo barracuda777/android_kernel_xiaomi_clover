@@ -25,6 +25,7 @@
  *  DO NOT CHANGE MANUALLY
 */
 
+
 #define ADRASTEA_A_WCSS_HM_A_WIFI_APB_1_A_WFSS_CE0_CE_CMD__SRC_FLUSH___S 1
 #define ADRASTEA_A_WCSS_HM_A_WIFI_APB_1_A_WFSS_CE10_MISC_IS__AXI_TIMEOUT_ERR___S 10
 #define ADRASTEA_A_WCSS_HM_A_WIFI_APB_1_A_WFSS_CE1_SR_BA_LOW (0x00241000)
@@ -1177,6 +1178,7 @@
 #define ADRASTEA_A_WCSS_HM_A_WIFI_APB_1_A_WFSS_CE0_MISC_IE__SRC_RING_HIGH_WATERMARK___S 1
 #define ADRASTEA_A_WCSS_SR_APSS_SHADOW_ADDRESS12__ADDRESS_REGISTER___S 0
 
+
 /* End auto-generated headers from register parser */
 
 #define A_WCSS_HM_A_WIFI_APB_1_A_WFSS_CE_COMMON_WRAPPER_CE_WRAPPER_INDEX_BASE_LOW	0x0024C004
@@ -2174,6 +2176,7 @@ struct hostdef_s adrastea_hostdef = {
 	.d_A_SOC_PCIE_PCIE_BAR0_START = ADRASTEA_A_SOC_PCIE_PCIE_BAR0_START,
 };
 
+
 struct ce_reg_def adrastea_ce_targetdef = {
 	/* copy_engine.c  */
 	.d_DST_WR_INDEX_ADDRESS = ADRASTEA_DST_WR_INDEX_OFFSET,
@@ -2260,6 +2263,7 @@ struct ce_reg_def adrastea_ce_targetdef = {
 	.d_A_WIFI_APB_3_A_WCMN_APPS_CE_INTR_STATUS =
 		MISSING_FOR_ADRASTEA,
 };
+
 
 struct host_shadow_regs_s adrastea_host_shadow_regs = {
 	.d_A_LOCAL_SHADOW_REG_VALUE_0  =

@@ -64,6 +64,7 @@
 #define HIF_MBOX0_EXTENDED_BASE_ADDR_AR6004     0x2800
 #define HIF_MBOX0_EXTENDED_WIDTH_AR6004         (18*1024)
 
+
 #if defined(SDIO_3_0)
 #define HIF_MBOX0_EXTENDED_BASE_ADDR_AR6320     0x5000
 #define HIF_MBOX0_EXTENDED_WIDTH_AR6320             (36*1024)
@@ -76,6 +77,7 @@
 #define HIF_MBOX1_EXTENDED_WIDTH_AR6320             (24*1024)
 #define HIF_MBOX_DUMMY_SPACE_SIZE_AR6320        0
 #endif
+
 
     /* GMBOX addresses */
 #define HIF_GMBOX_BASE_ADDR                0x7000

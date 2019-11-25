@@ -26,6 +26,9 @@
 #include <htt.h>
 #include <htt_stats.h>
 
+#define HTT_STATS_MAX_CHAINS 8
+#define HTT_STATS_NUM_SUPPORTED_BW_SMART_ANTENNA 4 /* 20, 40, 80, 160 MHz */
+
 #define HTT_BA_64_BIT_MAP_SIZE_DWORDS 2
 #define HTT_BA_256_BIT_MAP_SIZE_DWORDS 8
 enum htt_ppdu_stats_tlv_tag {
@@ -396,6 +399,7 @@ typedef enum HTT_STATS_FTYPE HTT_STATS_FTYPE;
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_COMMON_TLV_QTYPE, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_COMMON_TLV_QTYPE_S)); \
      } while (0)
+
 
 enum HTT_PPDU_STATS_BW {
     HTT_PPDU_STATS_BANDWIDTH_5MHZ   = 0,
@@ -769,6 +773,7 @@ typedef struct {
 #define HTT_PPDU_STATS_USER_RATE_TLV_RESERVED_M     0x0000ff00
 #define HTT_PPDU_STATS_USER_RATE_TLV_RESERVED_S              8
 
+
 #define HTT_PPDU_STATS_USER_RATE_TLV_SW_PEER_ID_M     0xffff0000
 #define HTT_PPDU_STATS_USER_RATE_TLV_SW_PEER_ID_S             16
 
@@ -847,6 +852,7 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_RATE_TLV_RESP_TYPE_VALID_S)); \
      } while (0)
 
+
 #define HTT_PPDU_STATS_BUF_ADDR_39_32_M     0x000000ff
 #define HTT_PPDU_STATS_BUF_ADDR_39_32_S              0
 
@@ -859,6 +865,7 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_BUF_ADDR_39_32, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_BUF_ADDR_39_32_S)); \
      } while (0)
+
 
 #define HTT_PPDU_STATS_RETURN_BUF_MANAGER_M     0x00000700
 #define HTT_PPDU_STATS_RETURN_BUF_MANAGER_S              8
@@ -873,6 +880,7 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_RETURN_BUF_MANAGER_S)); \
      } while (0)
 
+
 #define HTT_PPDU_STATS_SW_BUFFER_COOKIE_M     0xfffff800
 #define HTT_PPDU_STATS_SW_BUFFER_COOKIE_S             11
 
@@ -885,6 +893,7 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_SW_BUFFER_COOKIE, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_SW_BUFFER_COOKIE_S)); \
      } while (0)
+
 
 #define HTT_PPDU_STATS_HOST_OPAQUE_COOKIE_M     0x0000FFFF
 #define HTT_PPDU_STATS_HOST_OPAQUE_COOKIE_S              0
@@ -899,6 +908,7 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_HOST_OPAQUE_COOKIE_S)); \
      } while (0)
 
+
 #define HTT_PPDU_STATS_IS_OPAQUE_VALID_M        0x00010000
 #define HTT_PPDU_STATS_IS_OPAQUE_VALID_S                16
 
@@ -912,6 +922,7 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_IS_OPAQUE_VALID_S)); \
      } while (0)
 
+
 #define HTT_PPDU_STATS_IS_STANDALONE_M          0x00020000
 #define HTT_PPDU_STATS_IS_STANDALONE_S                  17
 
@@ -924,6 +935,7 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_IS_STANDALONE, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_IS_STANDALONE_S)); \
      } while (0)
+
 
 #define HTT_PPDU_STATS_IS_BUFF_INFO_VALID_M          0x000400000
 #define HTT_PPDU_STATS_IS_BUFF_INFO_VALID_S                   18
@@ -1102,6 +1114,7 @@ typedef enum HTT_PPDU_STATS_GI HTT_PPDU_STATS_GI;
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_RATE_TLV_GI_S)); \
      } while (0)
 
+
 #define HTT_PPDU_STATS_USER_RATE_TLV_DCM_M     0x10000000
 #define HTT_PPDU_STATS_USER_RATE_TLV_DCM_S             28
 
@@ -1146,6 +1159,7 @@ typedef enum HTT_PPDU_STATS_RESP_PPDU_TYPE HTT_PPDU_STATS_RESP_PPDU_TYPE;
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_RATE_TLV_RESP_PPDU_TYPE, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_RATE_TLV_RESP_PPDU_TYPE_S)); \
      } while (0)
+
 
 typedef struct {
     htt_tlv_hdr_t tlv_hdr;
@@ -1277,7 +1291,31 @@ typedef struct {
                      resp_ppdu_type:          2;
         };
     };
+
+    /* Note: This is for tracking a UL OFDMA packet */
+    union {
+        A_UINT32 trig_cookie_info;
+        struct {
+            A_UINT32 trig_cookie: 16,
+                     trig_cookie_rsvd: 15,
+                     trig_cookie_valid: 1;
+        };
+    };
 } htt_ppdu_stats_user_rate_tlv;
+
+#define HTT_PPDU_STATS_USR_RATE_COOKIE_M    0x0000ffff
+#define HTT_PPDU_STATS_USR_RATE_COOKIE_S    0
+
+#define HTT_PPDU_STATS_USR_RATE_VALID_M     0x80000000
+#define HTT_PPDU_STATS_USR_RATE_VALID_S     31
+
+#define HTT_PPDU_STATS_USR_RATE_COOKIE_GET(_val) \
+        (((_val) & HTT_PPDU_STATS_USR_RATE_COOKIE_M) >> \
+         HTT_PPDU_STATS_USR_RATE_COOKIE_S)
+
+#define HTT_PPDU_STATS_USR_RATE_VALID_GET(_val) \
+        (((_val) & HTT_PPDU_STATS_USR_RATE_VALID_M) >> \
+         HTT_PPDU_STATS_USR_RATE_VALID_S)
 
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_TID_NUM_M     0x000000ff
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_TID_NUM_S              0
@@ -1294,6 +1332,7 @@ typedef struct {
 
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_RESERVED_M     0x0000ff00
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_RESERVED_S              8
+
 
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_SW_PEER_ID_M     0xffff0000
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_SW_PEER_ID_S             16
@@ -1474,6 +1513,123 @@ typedef enum HTT_PPDU_STATS_RESP_TYPE HTT_PPDU_STATS_RESP_TYPE;
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RESP_TYPE_S)); \
      } while (0)
 
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE_M  0x0000e000
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE_S          13
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE_SET (_var , _val) \
+    do { \
+        HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE, _val); \
+        ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MPROT_TYPE_S)); \
+    } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS_M  0x00010000
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS_S          16
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS_SET (_var, _val) \
+    do { \
+        HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS, _val); \
+        ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_SUCCESS_S)); \
+    } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE_M  0x00020000
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE_S          17
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE_SET (_var , _val) \
+    do { \
+        HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE, _val); \
+        ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_RTS_FAILURE_S)); \
+    } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI_M     0xffffffff
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI_S              0
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI_SET(_var, _val) \
+     do { \
+         HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI, _val); \
+         ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CHAIN_RSSI_S)); \
+     } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK_M     0xffffffff
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK_S              0
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK_SET(_var, _val) \
+     do { \
+         HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK, _val); \
+         ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_TX_ANTENNA_MASK_S)); \
+     } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING_M     0x00010000
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING_S             16
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING_SET(_var, _val) \
+     do { \
+         HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING, _val); \
+         ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_IS_TRAINING_S)); \
+     } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS_M     0x0000ffff
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS_S              0
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS_SET(_var, _val) \
+     do { \
+         HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS, _val); \
+         ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_PENDING_TRAINING_PKTS_S)); \
+     } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES_M     0xffffffff
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES_S              0
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES_SET(_var, _val) \
+     do { \
+         HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES, _val); \
+         ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_MAX_RATES_S)); \
+     } while (0)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER_M     0xffffffff
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER_S              0
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER_M) >> \
+    HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER_S)
+
+#define HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER_SET(_var, _val) \
+     do { \
+         HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER, _val); \
+         ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_COMMON_TLV_CURRENT_RATE_PER_S)); \
+     } while (0)
+
 enum  HTT_PPDU_STATS_USER_COMPLETION_STATUS {
     HTT_PPDU_STATS_USER_STATUS_OK,
     HTT_PPDU_STATS_USER_STATUS_FILTERED,
@@ -1516,18 +1672,55 @@ typedef struct {
      * BIT [ 7 :   4]   :- short_retries
      * BIT [ 8 :   8]   :- is_ampdu
      * BIT [ 12:   9]   :- resp_type
-     * BIT [ 31:  13]   :- reserved0
+     * BIT [ 15:  13]   :- medium protection type
+     * BIT [ 16:  16]   :- rts_success
+     * BIT [ 17:  17]   :- rts_failure
+     * BIT [ 31:  18]   :- reserved
      */
     union {
-        A_UINT32 resp_type_is_ampdu__short_retry__long_retry;
-        struct {
+        A_UINT32 resp_type_is_ampdu__short_retry__long_retry; /* older name */
+        A_UINT32 resp_type__is_ampdu__short_retry__long_retry__mprot_type__rts_success__rts_failure; /* newer name */
+        struct { /* bitfield names */
             A_UINT32 long_retries:               4,
                      short_retries:              4,
                      is_ampdu:                   1,
                      resp_type:                  4,
-                     reserved0:                 19;
+                     mprot_type:                 3,
+                     rts_success:                1,
+                     rts_failure:                1,
+                     reserved0:                 14;
         };
     };
+
+    /*
+     * ack RSSI per chain for last transmission to the peer-TID
+     * (value in dB w.r.t noise floor)
+     */
+    A_UINT32 chain_rssi[HTT_STATS_MAX_CHAINS];
+
+    /* Tx Antenna mask for last packet transmission */
+    A_UINT32 tx_antenna_mask;
+
+    /* For SmartAntenna
+     * BIT [15:0]  :- pending_training_pkts
+     *                Holds number of pending training packets during training.
+     * BIT [16]    :- is_training
+     *                This flag indicates if peer is under training.
+     * BIT [31:17] :- reserved1
+     */
+    A_UINT32 pending_training_pkts:16,
+             is_training:1,
+             reserved1:15;
+
+    /*
+     * Max rates configured per BW:
+     * for BW supported by Smart Antenna - 20MHZ, 40MHZ and 80MHZ and 160MHZ
+     * (Note: 160 MHz is currently not supported by Smart Antenna)
+     */
+    A_UINT32 max_rates[HTT_STATS_NUM_SUPPORTED_BW_SMART_ANTENNA];
+
+    /* PER of the last transmission to the peer-TID (in percent) */
+    A_UINT32 current_rate_per;
 } htt_ppdu_stats_user_cmpltn_common_tlv;
 
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_TID_NUM_M     0x000000ff
@@ -1546,6 +1739,7 @@ typedef struct {
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_RESERVED_M     0x0000ff00
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_RESERVED_S              8
 
+
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID_M     0xffff0000
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID_S             16
 
@@ -1558,6 +1752,7 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID_S)); \
      } while (0)
+
 
 typedef struct {
     htt_tlv_hdr_t tlv_hdr;
@@ -1841,19 +2036,47 @@ typedef struct {
     };
 } htt_ppdu_stats_flush_tlv;
 
+#define HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH_M     0x0000ffff
+#define HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH_S              0
+
+#define HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH_GET(_var) \
+    (((_var) & HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH_M) >> \
+    HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH_S)
+
+#define HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH_SET(_var, _val) \
+     do { \
+         HTT_CHECK_SET_VAL(HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH, _val); \
+         ((_var) |= ((_val) << HTT_PPDU_STATS_TX_MGMTCTRL_TLV_FRAME_LENGTH_S)); \
+     } while (0)
+
 typedef struct {
     htt_tlv_hdr_t tlv_hdr;
 
+    /*
+     * BIT [ 15 :   0]   :- frame_length
+     * BIT [ 31 :  16]   :- reserved1
+     */
+    union {
+        A_UINT32 rsvd__frame_length;
+        struct {
+            A_UINT32 frame_length: 16,
+                     reserved1:    16; /* set to 0x0 */
+        };
+    };
+
     /* Future purpose */
-    A_UINT32 reserved1; /* set to 0x0 */
     A_UINT32 reserved2; /* set to 0x0 */
     A_UINT32 reserved3; /* set to 0x0 */
 
     /* mgmt/ctrl frame payload
-     * The size of payload (in bytes) can be derived from the length in
-     * tlv parametes, minus the 12 bytes of the above fields.
+     * The size of the actual mgmt payload (in bytes) can be obtained from
+     * the frame_length field.
+     * The size of entire payload including the padding for alignment
+     * (in bytes) can be derived from the length in tlv parametes,
+     * minus the 12 bytes of the above fields.
      */
     A_UINT32 payload[1];
 } htt_ppdu_stats_tx_mgmtctrl_payload_tlv;
+
 
 #endif //__HTT_PPDU_STATS_H__

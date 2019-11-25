@@ -31,7 +31,7 @@
 	hif_target_sleep_state_adjust(scn, false, true)
 #define Q_TARGET_ACCESS_END(scn) \
 	hif_target_sleep_state_adjust(scn, true, false)
-#define TARGET_REGISTER_ACCESS_ALLOW(scn)\
+#define TARGET_REGISTER_ACCESS_ALLOWED(scn)\
 		hif_is_target_register_access_allowed(scn)
 
 /*
@@ -69,6 +69,7 @@
 		unused = unused; \
 	} while (0)
 #endif /* CONFIG_ATH_PCIE_ACCESS_LIKELY */
+
 
 #ifdef HIF_PCI
 #include "hif_io32_pci.h"

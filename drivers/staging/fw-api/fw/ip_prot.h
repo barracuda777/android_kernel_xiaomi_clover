@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -27,6 +28,7 @@
 #ifndef _IP_PROT__H_
 #define _IP_PROT__H_
 
+
 #define IP_PROTOCOL_ICMP        0x01 /* Internet Control Message Protocol */
 #define IP_PROTOCOL_IGMP        0x02 /* Internet Group Management Protocol */
 #define IP_PROTOCOL_IPV4        0x04 /* IPv4 (encapsulation) */
@@ -50,6 +52,8 @@
 #define IP_PROTOCOL_SMP         0x79 /* Simple Message Protocol */
 #define IP_PROTOCOL_SCTP        0x84 /* Stream Control Transmission Protocol */
 #define IP_PROTOCOL_SHIM6       0x8C /* Site Multihoming by IPv6 Intermediation */
+
+
 
 /* IPv6 ICMP types */
 #define IPV6_ICMP_TYPE_MLD 0x8F

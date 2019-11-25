@@ -362,6 +362,7 @@ struct targetdef_s {
 #define SOC_LF_TIMER_CONTROL0_ENABLE_MASK \
 	(scn->targetdef->d_SOC_LF_TIMER_CONTROL0_ENABLE_MASK)
 
+
 #define CHIP_ID_ADDRESS           (scn->targetdef->d_SOC_CHIP_ID_ADDRESS)
 #define SOC_CHIP_ID_REVISION_MASK (scn->targetdef->d_SOC_CHIP_ID_REVISION_MASK)
 #define SOC_CHIP_ID_REVISION_LSB  (scn->targetdef->d_SOC_CHIP_ID_REVISION_LSB)
@@ -867,6 +868,7 @@ struct tgt_reg_section {
 	uint32_t start_addr;
 	uint32_t end_addr;
 };
+
 
 struct tgt_reg_table {
 	const struct tgt_reg_section *section;

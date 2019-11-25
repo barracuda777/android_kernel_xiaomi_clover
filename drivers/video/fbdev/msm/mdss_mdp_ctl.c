@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2018, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2019, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -27,6 +27,7 @@
 #include "mdss_mdp.h"
 #include "mdss_mdp_trace.h"
 #include "mdss_debug.h"
+#include "mdss_dsi.h"
 
 #define MDSS_MDP_QSEED3_VER_DOWNSCALE_LIM 2
 #define NUM_MIXERCFG_REGS 3
@@ -77,13 +78,15 @@ static inline u64 fudge_factor(u64 val, u32 numer, u32 denom)
 	u64 result = val;
 
 	if (val) {
-		u64 temp = -1UL;
+		u64 temp = U64_MAX;
 
 		do_div(temp, val);
 		if (temp > numer) {
 			/* no overflow, so we can do the operation*/
 			result = (val * (u64)numer);
 			do_div(result, denom);
+		} else {
+			pr_warn("Overflow, skip fudge factor\n");
 		}
 	}
 	return result;
@@ -4232,6 +4235,15 @@ int mdss_mdp_ctl_destroy(struct mdss_mdp_ctl *ctl)
 	return 0;
 }
 
+static void mdss_mdp_wait_for_panel_on(struct mdss_panel_data *pdata)
+{
+	struct mdss_dsi_ctrl_pdata *ctrl_pdata =
+		container_of(pdata, typeof(*ctrl_pdata), panel_data);
+
+	if (atomic_read(&ctrl_pdata->needs_wake))
+		wait_for_completion(&ctrl_pdata->wake_comp);
+}
+
 int mdss_mdp_ctl_intf_event(struct mdss_mdp_ctl *ctl, int event, void *arg,
 	u32 flags)
 {
@@ -4255,8 +4267,11 @@ int mdss_mdp_ctl_intf_event(struct mdss_mdp_ctl *ctl, int event, void *arg,
 	pr_debug("sending ctl=%d event=%d flag=0x%x\n", ctl->num, event, flags);
 
 	do {
-		if (pdata->event_handler)
+		if (pdata->event_handler) {
 			rc = pdata->event_handler(pdata, event, arg);
+			if (event == MDSS_EVENT_LINK_READY)
+				mdss_mdp_wait_for_panel_on(pdata);
+		}
 		pdata = pdata->next;
 	} while (rc == 0 && pdata && pdata->active &&
 		!(flags & CTL_INTF_EVENT_FLAG_SKIP_BROADCAST));
@@ -4893,7 +4908,8 @@ static inline void __mdss_mdp_mixer_write_layer(struct mdss_mdp_ctl *ctl,
 	u32 off[NUM_MIXERCFG_REGS];
 	int i;
 
-	BUG_ON(!values || count < NUM_MIXERCFG_REGS);
+	if (WARN_ON(!values || count < NUM_MIXERCFG_REGS))
+		return;
 
 	__mdss_mdp_mixer_get_offsets(mixer_num, off, ARRAY_SIZE(off));
 
@@ -6065,10 +6081,11 @@ int mdss_mdp_display_commit(struct mdss_mdp_ctl *ctl, void *arg,
 	    !bitmap_empty(mdata->bwc_enable_map, MAX_DRV_SUP_PIPES))
 		mdss_mdp_bwcpanic_ctrl(mdata, true);
 
-	ret = mdss_mdp_cwb_setup(ctl);
-	if (ret)
-		pr_warn("concurrent setup failed ctl=%d\n", ctl->num);
-
+	if (mdata->mdp_rev >= MDSS_MDP_HW_REV_300) {
+		ret = mdss_mdp_cwb_setup(ctl);
+		if (ret)
+			pr_warn("concurrent setup failed ctl=%d\n", ctl->num);
+	}
 	ctl_flush_bits |= ctl->flush_bits;
 
 	ATRACE_BEGIN("flush_kickoff");

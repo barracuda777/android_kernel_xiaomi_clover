@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -44,6 +45,7 @@
  */
 #define ATH_SUPPORT_FW_TX_DBG 1 /* enabled */
 //#undef ATH_SUPPORT_FW_TX_DBG /* disabled */
+
 
 #if defined(ATH_TARGET)
 #include <osapi.h>      /* A_UINT32 */
@@ -179,5 +181,6 @@ struct ol_fw_tx_dbg_ppdu_base {
     #define OL_FW_TX_DBG_PPDU_COMPLETE_M          0xff000000
     A_UINT8 complete;
 };
+
 
 #endif /* _OL_FW_TX_DBG__H_ */

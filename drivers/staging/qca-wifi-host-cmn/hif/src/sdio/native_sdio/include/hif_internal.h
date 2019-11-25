@@ -115,6 +115,7 @@
  */
 #define HIF_DUMMY_SPACE_MASK			0xFFFF0000
 
+
 #define HIF_WR_ASYNC_BYTE_FIX   \
 		(HIF_SDIO_WRITE | HIF_ASYNCHRONOUS | HIF_EXTENDED_IO | \
 				HIF_BYTE_BASIS | HIF_FIXED_ADDRESS)
@@ -169,20 +170,6 @@ enum hif_sdio_device_state {
 		HIF_DEVICE_STATE_DEEPSLEEP,
 		HIF_DEVICE_STATE_CUTPOWER,
 		HIF_DEVICE_STATE_WOW
-};
-
-/**
- * struct bus_request_record - basic bus request struct
- * @request: request info
- * @address: address of sdio register
- * @len: length of register that this request will read or write
- * @time: record time
- */
-struct bus_request_record {
-	u_int32_t request;
-	u_int32_t address;
-	u_int32_t len;
-	u_int64_t time;
 };
 
 struct bus_request {

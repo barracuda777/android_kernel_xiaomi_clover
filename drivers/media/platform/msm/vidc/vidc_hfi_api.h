@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2017, 2019 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2017,2019 The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -20,17 +20,15 @@
 #include <media/msm_vidc.h>
 #include "msm_vidc_resources.h"
 
-#define CONTAINS(__a, __sz, __t) ({\
-	int __rc = __t >= __a && \
-			__t < __a + __sz; \
-	__rc; \
-})
+#define CONTAINS(__a, __sz, __t) (\
+	(__t >= __a) && \
+	(__t < __a + __sz) \
+)
 
-#define OVERLAPS(__t, __tsz, __a, __asz) ({\
-	int __rc = __t <= __a && \
-			__t + __tsz >= __a + __asz; \
-	__rc; \
-})
+#define OVERLAPS(__t, __tsz, __a, __asz) (\
+	(__t <= __a) && \
+	(__t + __tsz >= __a + __asz) \
+)
 
 #define HAL_BUFFERFLAG_EOS              0x00000001
 #define HAL_BUFFERFLAG_STARTTIME        0x00000002

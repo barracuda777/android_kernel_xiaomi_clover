@@ -204,6 +204,11 @@
 #define CE_DEBUG_SEL_LSB          (scn->target_ce_def->d_CE_DEBUG_SEL_LSB)
 #define CE_DEBUG_SEL_MASK         (scn->target_ce_def->d_CE_DEBUG_SEL_MASK)
 #define HOST_IE_ADDRESS           (scn->target_ce_def->d_HOST_IE_ADDRESS)
+#define HOST_IE_REG1_CE_LSB       (scn->target_ce_def->d_HOST_IE_REG1_CE_LSB)
+#define HOST_IE_ADDRESS_2         (scn->target_ce_def->d_HOST_IE_ADDRESS_2)
+#define HOST_IE_REG2_CE_LSB       (scn->target_ce_def->d_HOST_IE_REG2_CE_LSB)
+#define HOST_IE_ADDRESS_3         (scn->target_ce_def->d_HOST_IE_ADDRESS_3)
+#define HOST_IE_REG3_CE_LSB       (scn->target_ce_def->d_HOST_IE_REG3_CE_LSB)
 #define HOST_IS_ADDRESS           (scn->target_ce_def->d_HOST_IS_ADDRESS)
 
 #define SRC_WATERMARK_LOW_SET(x) \
@@ -257,6 +262,9 @@
 	(((x) << CE_WRAPPER_DEBUG_SEL_LSB) & CE_WRAPPER_DEBUG_SEL_MASK)
 #define CE_DEBUG_SEL_GET(x) (((x) & CE_DEBUG_SEL_MASK) >> CE_DEBUG_SEL_LSB)
 #define CE_DEBUG_SEL_SET(x) (((x) << CE_DEBUG_SEL_LSB) & CE_DEBUG_SEL_MASK)
+#define HOST_IE_REG1_CE_BIT(_ce_id) (1 << (_ce_id + HOST_IE_REG1_CE_LSB))
+#define HOST_IE_REG2_CE_BIT(_ce_id) (1 << (_ce_id + HOST_IE_REG2_CE_LSB))
+#define HOST_IE_REG3_CE_BIT(_ce_id) (1 << (_ce_id + HOST_IE_REG3_CE_LSB))
 
 uint32_t DEBUG_CE_SRC_RING_READ_IDX_GET(struct hif_softc *scn,
 		uint32_t CE_ctrl_addr);
@@ -373,6 +381,7 @@ unsigned int hif_get_dst_ring_read_index(struct hif_softc *scn,
 		       (CE_ctrl_addr) + CE_CTRL1_ADDRESS) \
 		       & ~CE_CTRL1_DST_RING_BYTE_SWAP_EN_MASK) | \
 		       CE_CTRL1_DST_RING_BYTE_SWAP_EN_SET(n))
+
 
 #define CE_DEST_RING_BASE_ADDR_SET(scn, CE_ctrl_addr, addr) \
 	A_TARGET_WRITE(scn, (CE_ctrl_addr) + DR_BA_ADDRESS, (addr))
@@ -520,11 +529,13 @@ unsigned int hif_get_dst_ring_read_index(struct hif_softc *scn,
 #define CE0_BASE_ADDRESS         (scn->target_ce_def->d_CE0_BASE_ADDRESS)
 #define CE1_BASE_ADDRESS         (scn->target_ce_def->d_CE1_BASE_ADDRESS)
 
+
 #ifdef ADRASTEA_SHADOW_REGISTERS
 #define NUM_SHADOW_REGISTERS 24
 u32 shadow_sr_wr_ind_addr(struct hif_softc *scn, u32 ctrl_addr);
 u32 shadow_dst_wr_ind_addr(struct hif_softc *scn, u32 ctrl_addr);
 #endif
+
 
 #ifdef ADRASTEA_SHADOW_REGISTERS
 #define CE_SRC_RING_WRITE_IDX_SET(scn, CE_ctrl_addr, n) \

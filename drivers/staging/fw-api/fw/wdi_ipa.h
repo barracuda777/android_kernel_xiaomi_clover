@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -61,6 +62,7 @@ typedef unsigned char A_UINT8
 
 #endif /* ATH_TARGET */
 
+
 #ifndef offsetof
 #define offsetof(type, field)   ((unsigned int)(&((type *)0)->field))
 #endif
@@ -72,8 +74,12 @@ typedef unsigned char A_UINT8
 #define WDI_IPA_CURRENT_VERSION_MAJOR 1
 #define WDI_IPA_CURRENT_VERSION_MINOR 1
 
+
 #define WDI_IPA_CHECK_SET_VAL(field, val) \
     A_ASSERT(!((val) & ~((field ## _M) >> (field ## _S))))
+
+
+
 
 /**
  * @brief WDI_IPA TX_FRAG_DESC
@@ -139,6 +145,8 @@ PREPACK struct wdi_ipa_tx_frag_desc_t
     A_UINT32 fixed_val_zero; /* word 2 */
 } POSTPACK;
 
+
+
 /**
  * @brief WDI_IPA TX_HTT_DESC is same as HTT TX Msdu descriptor (defined in
  *        htt.h). TX_HTT_DESC fields are opaque to IPA uC, so we just need
@@ -147,6 +155,8 @@ PREPACK struct wdi_ipa_tx_frag_desc_t
  *
  */
 #define WDI_IPA_TX_HTT_DESC_SZ                         16 /* bytes */
+
+
 
 /**
  * @brief WDI_IPA TX_IPA_DESC
@@ -186,6 +196,7 @@ PREPACK struct wdi_ipa_tx_ipa_desc_t
         reserved:     24;
 } POSTPACK;
 
+
 #define WDI_IPA_TX_ETHR_PKT_MAX_SZ                  1518 /* bytes */
 
 PREPACK struct wdi_ipa_tx_pkt_buf_t
@@ -200,6 +211,8 @@ PREPACK struct wdi_ipa_tx_pkt_buf_t
 A_COMPILE_TIME_ASSERT(verify_pkt_buf_sz,
        sizeof(struct wdi_ipa_tx_pkt_buf_t)<=WDI_IPA_TX_PKT_BUF_MAX_SZ);
 #define WDI_IPA_TX_PKT_POOL_SZ                      1023 /* packets */
+
+
 
 /**
  * @brief WDI_IPA TX_CE_DESC
@@ -309,12 +322,14 @@ PREPACK struct wdi_ipa_tx_ce_desc_t
         meta_data:     14;
 } POSTPACK;
 
+
 #define WDI_IPA_TX_CE_RING_SZ                       1024 /* no. of desc */
 #define WDI_IPA_TX_INITIAL_PKT_HDR_SZ  28
 #define WDI_IPA_TX_CE_FIXED_BUF_LEN    (WDI_IPA_TX_FRAG_DESC_SZ + \
                                         WDI_IPA_TX_HTT_DESC_SZ + \
                                         WDI_IPA_TX_IPA_DESC_SZ + \
                                         WDI_IPA_TX_INITIAL_PKT_HDR_SZ)
+
 
 /* Verify that CE ring size is power of 2 */
 A_COMPILE_TIME_ASSERT(verify_ce_ring_sz,
@@ -323,6 +338,7 @@ A_COMPILE_TIME_ASSERT(verify_ce_ring_sz,
 
 A_COMPILE_TIME_ASSERT(verify_pkt_pool_sz,
       WDI_IPA_TX_PKT_POOL_SZ < WDI_IPA_TX_CE_RING_SZ);
+
 
 /**
  * @brief WDI_IPA TX_COMP_DESC
@@ -339,6 +355,7 @@ A_COMPILE_TIME_ASSERT(verify_pkt_pool_sz,
  *     Purpose: Specify pointer to Packet Buf, which is being freed
  *         after TX comp
  */
+
 
 #define WDI_IPA_TX_COMP_DESC_SZ                          4 /* bytes */
 
@@ -369,6 +386,8 @@ A_COMPILE_TIME_ASSERT(verify_tx_comp_ring_sz,
 A_COMPILE_TIME_ASSERT(verify_Pkt_pool_sz,
       WDI_IPA_TX_PKT_POOL_SZ < WDI_IPA_TX_COMP_RING_SZ);
 
+
+
 /**
  * @brief WDI_IPA RX_IND_DESC
  *
@@ -391,6 +410,7 @@ A_COMPILE_TIME_ASSERT(verify_Pkt_pool_sz,
  *     Bits 23:16
  *     Purpose: Specify the VDEV ID corrsponding the the packet
  */
+
 
 #define WDI_IPA_RX_IND_DESC_SZ                      8 /* bytes */
 
@@ -432,6 +452,7 @@ A_COMPILE_TIME_ASSERT(verify_Pkt_pool_sz,
             ((_var) &= (WDI_IPA_RX_IND_DESC_VDEV_ID_M)); \
             ((_var) |= ((_val) << WDI_IPA_RX_IND_DESC_VDEV_ID_S)); \
         } while(0)
+
 
 PREPACK struct wdi_ipa_rx_ind_desc_t
 {
@@ -643,6 +664,7 @@ A_COMPILE_TIME_ASSERT(verify_rx_ind_ring_sz,
 #define WLAN_WDI_IPA_DBG_STATS_RESERVED1_M                            0xffffffff
 #define WLAN_WDI_IPA_DBG_STATS_RESERVED1_S                            0x0
 
+
 #define WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_BASE_GET(_var)        \
         (((_var) & WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_BASE_M) >> \
           WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_BASE_S)
@@ -683,6 +705,7 @@ A_COMPILE_TIME_ASSERT(verify_rx_ind_ring_sz,
             ((_var) |= ((_val) << WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_DBELL_IND_VAL_S                    )); \
         } while(0)
 
+
 #define WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_DBELL_CACHED_VAL_GET(_var)        \
         (((_var) & WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_DBELL_CACHED_VAL_M) >> \
           WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_DBELL_CACHED_VAL_S)
@@ -692,6 +715,7 @@ A_COMPILE_TIME_ASSERT(verify_rx_ind_ring_sz,
             ((_var) &= (WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_DBELL_CACHED_VAL_M)); \
             ((_var) |= ((_val) << WLAN_WDI_IPA_DBG_STATS_TX_COMP_RING_DBELL_CACHED_VAL_S                    )); \
         } while(0)
+
 
 #define WLAN_WDI_IPA_DBG_STATS_TX_PKTS_ENQUEUED_GET(_var)        \
         (((_var) & WLAN_WDI_IPA_DBG_STATS_TX_PKTS_ENQUEUED_M) >> \
@@ -872,6 +896,7 @@ A_COMPILE_TIME_ASSERT(verify_rx_ind_ring_sz,
             ((_var) &= (WLAN_WDI_IPA_DBG_STATS_RESERVED1_M)); \
             ((_var) |= ((_val) << WLAN_WDI_IPA_DBG_STATS_RESERVED1_S                    )); \
         } while(0)
+
 
 PREPACK struct wlan_wdi_ipa_dbg_stats_t
 {

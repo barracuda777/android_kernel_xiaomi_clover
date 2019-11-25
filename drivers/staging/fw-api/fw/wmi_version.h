@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -35,7 +36,7 @@
 #define __WMI_VER_MINOR_    0
 /** WMI revision number has to be incremented when there is a
  *  change that may or may not break compatibility. */
-#define __WMI_REVISION_ 671
+#define __WMI_REVISION_ 720
 
 /** The Version Namespace should not be normally changed. Only
  *  host and firmware of the same WMI namespace will work
@@ -77,3 +78,4 @@
 #define WMI_ABI_VERSION_NS_1 __NAMESPACE_1_
 #define WMI_ABI_VERSION_NS_2 __NAMESPACE_2_
 #define WMI_ABI_VERSION_NS_3 __NAMESPACE_3_
+

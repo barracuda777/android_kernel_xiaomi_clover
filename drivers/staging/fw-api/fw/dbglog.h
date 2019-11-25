@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -76,6 +77,7 @@ extern "C" {
 #define DBGLOG_GET_TIME_STAMP(arg) \
     ((arg & DBGLOG_TIMESTAMP_MASK) >> DBGLOG_TIMESTAMP_OFFSET)
 
+
 /* Debug Log levels*/
 
 typedef enum {
@@ -108,5 +110,6 @@ PREPACK struct dbglog_hdr_s {
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif /* _DBGLOG_H_ */

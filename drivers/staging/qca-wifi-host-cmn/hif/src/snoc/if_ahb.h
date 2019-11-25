@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2016 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2017 The Linux Foundation. All rights reserved.
  *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
@@ -33,6 +33,7 @@
 #define GCC_FEPLL_PLL_CLK_WIFI_1_SEL_MASK 0x00003000
 #define GCC_FEPLL_PLL_CLK_WIFI_1_SEL_SHIFT 12
 
+
 /* These registers are outsize Wifi space. */
 /* TBD: Should we add these offsets as device tree properties? */
 #define TCSR_BASE 0x1900000
@@ -44,4 +45,8 @@
 #define TCSR_WCSS0_HALTACK 0x52010
 #define TCSR_WCSS1_HALTACK 0x52014
 #define ATH_AHB_RESET_WAIT_MAX 10 /* Ms */
+
+irqreturn_t hif_ahb_interrupt_handler(int irq, void *context);
+
 #endif
+

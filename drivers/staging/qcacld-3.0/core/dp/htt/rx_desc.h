@@ -180,6 +180,7 @@ struct rx_mpdu_end {
 		fcs_err:1; /* [31] */
 };
 
+
 #if defined(HELIUMPLUS)
 
 struct rx_mpdu_start {
@@ -199,6 +200,7 @@ struct rx_mpdu_start {
 		reserved_2:10, /* [27:18] */
 		tid:4; /* [31:28] */
 };
+
 
 struct rx_ppdu_start {
 	volatile

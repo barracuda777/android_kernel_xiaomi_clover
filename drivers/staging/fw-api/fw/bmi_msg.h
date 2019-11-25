@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -57,6 +58,7 @@
  *
  * BMI handles all required Target-side cache flushing.
  */
+
 
 /* Maximum data size used for BMI transfers */
 #define BMI_DATASZ_MAX                      256
@@ -308,6 +310,7 @@ PREPACK struct bmi_target_info {
          * Response format: none
          */
 
+
 #define BMI_LZ_STREAM_START                13
         /*
          * Semantics: Begin an LZ-compressed stream of input
@@ -355,15 +358,16 @@ PREPACK struct bmi_target_info {
 
 #define BMI_SIGN_STREAM_START		    17
         /*
-         * Semantics: Trigger target start/end binary signature verification
-         * flow.
-         * Request format:
-         *    A_UINT32      command (BMI_SIGN_STREAM_START)
-         *    A_UINT32      address
-         *    A_UINT32      length, at most BMI_DATASZ_MAX
-         *    A_UINT8       data[length]
-         * Response format: none
-         */
+	 * Semantics: Trigger target start/end binary signature verification
+	 * flow.
+	 * Request format:
+	 *    A_UINT32      command (BMI_SIGN_STREAM_START)
+	 *    A_UINT32      address
+	 *    A_UINT32      length, at most BMI_DATASZ_MAX
+	 *    A_UINT8       data[length]
+	 * Response format: none
+	 */
+
 
 #ifndef ATH_TARGET
 #include "athendpack.h"

@@ -3,6 +3,7 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
+ *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -26,6 +27,7 @@
 
 #ifndef _WAL_RX_DESC__H_
 #define _WAL_RX_DESC__H_
+
 
 #if defined(ATH_TARGET)
 #include <athdefs.h> /* A_UINT8 */
@@ -145,6 +147,7 @@ enum {
 #define FW_RX_DESC_EXT_SET(_var, _val) \
     ((_var) |= ((_val) << FW_RX_DESC_EXT_S))
 
+
 /*
  * This struct defines TCP_CHKSUM_OFFLOAD bit fields which are needed by host.
  */
@@ -228,14 +231,17 @@ struct fw_rx_msdu_info {
 #define FW_RX_MSDU_INFO_FIRST_WAKEUP_SET(_var, _val) \
     ((_var) |= ((_val) << FW_RX_MSDU_INFO_FIRST_WAKEUP_S))
 
+
 /* monitor mode flags */
 
 #define FW_RX_MSDU_INFO_MON_LAST_FRAG_M       0x1
 #define FW_RX_MSDU_INFO_MON_LAST_FRAG_S       0
 
+
 #define FW_RX_MSDU_INFO_MON_LAST_FRAG_GET(_var) \
     (((_var) & FW_RX_MSDU_INFO_MON_LAST_FRAG_M) >> FW_RX_MSDU_INFO_MON_LAST_FRAG_S)
 #define FW_RX_MSDU_INFO_MON_LAST_FRAG_SET(_var, _val) \
     ((_var) |= ((_val) << FW_RX_MSDU_INFO_MON_LAST_FRAG_S))
+
 
 #endif /* _WAL_RX_DESC__H_ */

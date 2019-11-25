@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2017 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2018 The Linux Foundation. All rights reserved.
  *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
@@ -23,6 +23,7 @@
  */
 
 #include "hif.h"
+#include "target_type.h"
 #include "hif_main.h"
 #include "hif_debug.h"
 #include "hif_io32.h"
@@ -80,6 +81,7 @@ static int clk_enable_disable(struct device *dev, const char *str, int enable)
 	}
 	return 0;
 }
+
 
 /**
  * hif_ahb_clk_enable_disable() - Enable/disable ahb clock
@@ -279,6 +281,7 @@ void hif_ahb_device_reset(struct hif_softc *scn)
 	uint32_t reg_value;
 	int wait_limit = ATH_AHB_RESET_WAIT_MAX;
 
+
 	wifi_core_id = hif_read32_mb(sc->mem + WLAN_SUBSYSTEM_CORE_ID_ADDRESS);
 	glb_cfg_offset = (wifi_core_id == 0) ? TCSR_WIFI0_GLB_CFG :
 							TCSR_WIFI1_GLB_CFG;
@@ -387,3 +390,6 @@ void hif_ahb_device_reset(struct hif_softc *scn)
 		  __func__, __LINE__);
 }
 #endif
+
+
+
