@@ -51,22 +51,6 @@ module_param_named(debug_mask, binder_alloc_debug_mask,
 			pr_info(x); \
 	} while (0)
 
-static struct kmem_cache *binder_buffer_pool;
-
-int binder_buffer_pool_create(void)
-{
-	binder_buffer_pool = KMEM_CACHE(binder_buffer, SLAB_HWCACHE_ALIGN);
-	if (!binder_buffer_pool)
-		return -ENOMEM;
-
-	return 0;
-}
-
-void binder_buffer_pool_destroy(void)
-{
-	kmem_cache_destroy(binder_buffer_pool);
-}
-
 static struct binder_buffer *binder_buffer_next(struct binder_buffer *buffer)
 {
 	return list_entry(buffer->entry.next, struct binder_buffer, entry);
@@ -165,14 +149,12 @@ static struct binder_buffer *binder_alloc_prepare_to_free_locked(
 		else {
 			/*
 			 * Guard against user threads attempting to
-			 * free the buffer twice
+			 * free the buffer when in use by kernel or
+			 * after it's already been freed.
 			 */
-			if (buffer->free_in_progress) {
-				pr_err("%d:%d FREE_BUFFER u%016llx user freed buffer twice\n",
-				       alloc->pid, current->pid, (u64)user_ptr);
-				return NULL;
-			}
-			buffer->free_in_progress = 1;
+			if (!buffer->allow_user_free)
+				return ERR_PTR(-EPERM);
+			buffer->allow_user_free = 0;
 			return buffer;
 		}
 	}
@@ -237,6 +219,11 @@ static int binder_update_page_range(struct binder_alloc *alloc, int allocate,
 
 	if (mm) {
 		down_read(&mm->mmap_sem);
+		if (!mmget_still_valid(mm)) {
+			if (allocate == 0)
+				goto free_range;
+			goto err_no_vma;
+		}
 		vma = alloc->vma;
 	}
 
@@ -465,7 +452,7 @@ static struct binder_buffer *binder_alloc_new_buf_locked(
 	if (buffer_size != size) {
 		struct binder_buffer *new_buffer;
 
-		new_buffer = kmem_cache_zalloc(binder_buffer_pool, GFP_KERNEL);
+		new_buffer = kzalloc(sizeof(*buffer), GFP_KERNEL);
 		if (!new_buffer) {
 			pr_err("%s: %d failed to alloc new buffer struct\n",
 			       __func__, alloc->pid);
@@ -479,7 +466,7 @@ static struct binder_buffer *binder_alloc_new_buf_locked(
 
 	rb_erase(best_fit, &alloc->free_buffers);
 	buffer->free = 0;
-	buffer->free_in_progress = 0;
+	buffer->allow_user_free = 0;
 	binder_insert_allocated_buffer_locked(alloc, buffer);
 	binder_alloc_debug(BINDER_DEBUG_BUFFER_ALLOC,
 		     "%d: binder_alloc_buf size %zd got %pK\n",
@@ -586,7 +573,7 @@ static void binder_delete_free_buffer(struct binder_alloc *alloc,
 					 buffer_start_page(buffer) + PAGE_SIZE);
 	}
 	list_del(&buffer->entry);
-	kmem_cache_free(binder_buffer_pool, buffer);
+	kfree(buffer);
 }
 
 static void binder_free_buf_locked(struct binder_alloc *alloc,
@@ -719,7 +706,7 @@ int binder_alloc_mmap_handler(struct binder_alloc *alloc,
 	}
 	alloc->buffer_size = vma->vm_end - vma->vm_start;
 
-	buffer = kmem_cache_zalloc(binder_buffer_pool, GFP_KERNEL);
+	buffer = kzalloc(sizeof(*buffer), GFP_KERNEL);
 	if (!buffer) {
 		ret = -ENOMEM;
 		failure_string = "alloc buffer struct";
@@ -782,7 +769,7 @@ void binder_alloc_deferred_release(struct binder_alloc *alloc)
 
 		list_del(&buffer->entry);
 		WARN_ON_ONCE(!list_empty(&alloc->buffers));
-		kmem_cache_free(binder_buffer_pool, buffer);
+		kfree(buffer);
 	}
 
 	page_count = 0;
@@ -942,15 +929,14 @@ enum lru_status binder_alloc_free_page(struct list_head *item,
 
 	index = page - alloc->pages;
 	page_addr = (uintptr_t)alloc->buffer + index * PAGE_SIZE;
+
+	mm = alloc->vma_vm_mm;
+	/* Same as mmget_not_zero() in later kernel versions */
+	if (!atomic_inc_not_zero(&alloc->vma_vm_mm->mm_users))
+		goto err_mmget;
+	if (!down_write_trylock(&mm->mmap_sem))
+		goto err_down_write_mmap_sem_failed;
 	vma = alloc->vma;
-	if (vma) {
-		/* Same as mmget_not_zero() in later kernel versions */
-		if (!atomic_inc_not_zero(&alloc->vma_vm_mm->mm_users))
-			goto err_mmget;
-		mm = alloc->vma_vm_mm;
-		if (!down_write_trylock(&mm->mmap_sem))
-			goto err_down_write_mmap_sem_failed;
-	}
 
 	list_lru_isolate(lru, item);
 	spin_unlock(lock);
@@ -964,10 +950,9 @@ enum lru_status binder_alloc_free_page(struct list_head *item,
 			       PAGE_SIZE, NULL);
 
 		trace_binder_unmap_user_end(alloc, index);
-
-		up_write(&mm->mmap_sem);
-		mmput(mm);
 	}
+	up_write(&mm->mmap_sem);
+	mmput(mm);
 
 	trace_binder_unmap_kernel_start(alloc, index);
 

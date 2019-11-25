@@ -459,10 +459,6 @@ static void kgsl_mem_entry_detach_process(struct kgsl_mem_entry *entry)
 
 	type = kgsl_memdesc_usermem_type(&entry->memdesc);
 	entry->priv->stats[type].cur -= entry->memdesc.size;
-
-	if (type != KGSL_MEM_ENTRY_ION)
-		entry->priv->gpumem_mapped -= entry->memdesc.mapsize;
-
 	spin_unlock(&entry->priv->mem_lock);
 
 	kgsl_mmu_put_gpuaddr(&entry->memdesc);
@@ -1415,6 +1411,45 @@ long kgsl_ioctl_device_getproperty(struct kgsl_device_private *dev_priv,
 		kgsl_context_put(context);
 		break;
 	}
+	case KGSL_PROP_SECURE_BUFFER_ALIGNMENT:
+	{
+		unsigned int align;
+
+		if (param->sizebytes != sizeof(unsigned int)) {
+			result = -EINVAL;
+			break;
+		}
+		/*
+		 * XPUv2 impose the constraint of 1MB memory alignment,
+		 * on the other hand Hypervisor does not have such
+		 * constraints. So driver should fulfill such
+		 * requirements when allocating secure memory.
+		 */
+		align = MMU_FEATURE(&dev_priv->device->mmu,
+				KGSL_MMU_HYP_SECURE_ALLOC) ? PAGE_SIZE : SZ_1M;
+
+		if (copy_to_user(param->value, &align, sizeof(align)))
+			result = -EFAULT;
+
+		break;
+	}
+	case KGSL_PROP_SECURE_CTXT_SUPPORT:
+	{
+		unsigned int secure_ctxt;
+
+		if (param->sizebytes != sizeof(unsigned int)) {
+			result = -EINVAL;
+			break;
+		}
+
+		secure_ctxt = dev_priv->device->mmu.secured ? 1 : 0;
+
+		if (copy_to_user(param->value, &secure_ctxt,
+				sizeof(secure_ctxt)))
+			result = -EFAULT;
+
+		break;
+	}
 	default:
 		if (is_compat_task())
 			result = dev_priv->device->ftbl->getproperty_compat(
@@ -2122,7 +2157,8 @@ static int memdesc_sg_virt(struct kgsl_memdesc *memdesc, struct file *vmfile)
 
 	if (ret == 0) {
 		npages = get_user_pages(current, current->mm, memdesc->useraddr,
-					sglen, write ? FOLL_WRITE : 0, pages, NULL);
+					sglen, write ? FOLL_WRITE : 0,
+					pages, NULL);
 		ret = (npages < 0) ? (int)npages : 0;
 	}
 	up_read(&current->mm->mmap_sem);
@@ -3306,10 +3342,14 @@ long kgsl_ioctl_sparse_phys_alloc(struct kgsl_device_private *dev_priv,
 	unsigned int cmd, void *data)
 {
 	struct kgsl_process_private *process = dev_priv->process_priv;
+	struct kgsl_device *device = dev_priv->device;
 	struct kgsl_sparse_phys_alloc *param = data;
 	struct kgsl_mem_entry *entry;
 	int ret;
 	int id;
+
+	if (!(device->flags & KGSL_FLAG_SPARSE))
+		return -ENOTSUPP;
 
 	ret = _sparse_alloc_param_sanity_check(param->size, param->pagesize);
 	if (ret)
@@ -3389,8 +3429,12 @@ long kgsl_ioctl_sparse_phys_free(struct kgsl_device_private *dev_priv,
 	unsigned int cmd, void *data)
 {
 	struct kgsl_process_private *process = dev_priv->process_priv;
+	struct kgsl_device *device = dev_priv->device;
 	struct kgsl_sparse_phys_free *param = data;
 	struct kgsl_mem_entry *entry;
+
+	if (!(device->flags & KGSL_FLAG_SPARSE))
+		return -ENOTSUPP;
 
 	entry = kgsl_sharedmem_find_id_flags(process, param->id,
 			KGSL_MEMFLAGS_SPARSE_PHYS);
@@ -3421,9 +3465,13 @@ long kgsl_ioctl_sparse_virt_alloc(struct kgsl_device_private *dev_priv,
 	unsigned int cmd, void *data)
 {
 	struct kgsl_process_private *private = dev_priv->process_priv;
+	struct kgsl_device *device = dev_priv->device;
 	struct kgsl_sparse_virt_alloc *param = data;
 	struct kgsl_mem_entry *entry;
 	int ret;
+
+	if (!(device->flags & KGSL_FLAG_SPARSE))
+		return -ENOTSUPP;
 
 	ret = _sparse_alloc_param_sanity_check(param->size, param->pagesize);
 	if (ret)
@@ -3464,8 +3512,12 @@ long kgsl_ioctl_sparse_virt_free(struct kgsl_device_private *dev_priv,
 	unsigned int cmd, void *data)
 {
 	struct kgsl_process_private *process = dev_priv->process_priv;
+	struct kgsl_device *device = dev_priv->device;
 	struct kgsl_sparse_virt_free *param = data;
 	struct kgsl_mem_entry *entry = NULL;
+
+	if (!(device->flags & KGSL_FLAG_SPARSE))
+		return -ENOTSUPP;
 
 	entry = kgsl_sharedmem_find_id_flags(process, param->id,
 			KGSL_MEMFLAGS_SPARSE_VIRT);
@@ -3813,6 +3865,7 @@ long kgsl_ioctl_sparse_bind(struct kgsl_device_private *dev_priv,
 		unsigned int cmd, void *data)
 {
 	struct kgsl_process_private *private = dev_priv->process_priv;
+	struct kgsl_device *device = dev_priv->device;
 	struct kgsl_sparse_bind *param = data;
 	struct kgsl_sparse_binding_object obj;
 	struct kgsl_mem_entry *virt_entry;
@@ -3820,6 +3873,9 @@ long kgsl_ioctl_sparse_bind(struct kgsl_device_private *dev_priv,
 	void __user *ptr;
 	int ret = 0;
 	int i = 0;
+
+	if (!(device->flags & KGSL_FLAG_SPARSE))
+		return -ENOTSUPP;
 
 	ptr = (void __user *) (uintptr_t) param->list;
 
@@ -3875,6 +3931,9 @@ long kgsl_ioctl_gpu_sparse_command(struct kgsl_device_private *dev_priv,
 	struct kgsl_drawobj_sparse *sparseobj;
 	long result;
 	unsigned int i = 0;
+
+	if (!(device->flags & KGSL_FLAG_SPARSE))
+		return -ENOTSUPP;
 
 	/* Make sure sparse and syncpoint count isn't too big */
 	if (param->numsparse > KGSL_MAX_SPARSE ||
@@ -4178,18 +4237,13 @@ static int
 kgsl_gpumem_vm_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
 {
 	struct kgsl_mem_entry *entry = vma->vm_private_data;
-	int ret;
 
 	if (!entry)
 		return VM_FAULT_SIGBUS;
 	if (!entry->memdesc.ops || !entry->memdesc.ops->vmfault)
 		return VM_FAULT_SIGBUS;
 
-	ret = entry->memdesc.ops->vmfault(&entry->memdesc, vma, vmf);
-	if ((ret == 0) || (ret == VM_FAULT_NOPAGE))
-		entry->priv->gpumem_mapped += PAGE_SIZE;
-
-	return ret;
+	return entry->memdesc.ops->vmfault(&entry->memdesc, vma, vmf);
 }
 
 static void
@@ -4689,6 +4743,9 @@ int kgsl_device_platform_probe(struct kgsl_device *device)
 	/* Initialize logging first, so that failures below actually print. */
 	kgsl_device_debugfs_init(device);
 
+	/* Disable the sparse ioctl invocation as they are not used */
+	device->flags &= ~KGSL_FLAG_SPARSE;
+
 	status = kgsl_pwrctrl_init(device);
 	if (status)
 		goto error;
@@ -4780,6 +4837,7 @@ int kgsl_device_platform_probe(struct kgsl_device *device)
 		device->id, device->reg_phys, device->reg_len);
 
 	rwlock_init(&device->context_lock);
+	spin_lock_init(&device->submit_lock);
 
 	setup_timer(&device->idle_timer, kgsl_timer, (unsigned long) device);
 
@@ -4915,7 +4973,7 @@ static void kgsl_core_exit(void)
 static int __init kgsl_core_init(void)
 {
 	int result = 0;
-	struct sched_param param = { .sched_priority = 16 };
+	struct sched_param param = { .sched_priority = 6 };
 
 	/* alloc major and minor device numbers */
 	result = alloc_chrdev_region(&kgsl_driver.major, 0, KGSL_DEVICE_MAX,

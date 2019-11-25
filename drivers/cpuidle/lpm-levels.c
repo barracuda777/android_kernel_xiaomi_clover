@@ -37,6 +37,7 @@
 #include <linux/sched.h>
 #include <linux/cpu_pm.h>
 #include <linux/arm-smccc.h>
+#include <linux/psci.h>
 #include <soc/qcom/spm.h>
 #include <soc/qcom/pm.h>
 #include <soc/qcom/rpm-notifier.h>
@@ -121,7 +122,7 @@ static DEFINE_PER_CPU(struct lpm_cluster*, cpu_cluster);
 static bool suspend_in_progress;
 static struct hrtimer lpm_hrtimer;
 static struct hrtimer histtimer;
-static struct lpm_debug *const lpm_debug = NULL;
+static struct lpm_debug *lpm_debug;
 static phys_addr_t lpm_debug_phys;
 static const int num_dbg_elements = 0x100;
 static int lpm_cpu_callback(struct notifier_block *cpu_nb,
@@ -1914,6 +1915,8 @@ static int lpm_probe(struct platform_device *pdev)
 	}
 
 	size = num_dbg_elements * sizeof(struct lpm_debug);
+	lpm_debug = dma_alloc_coherent(&pdev->dev, size,
+			&lpm_debug_phys, GFP_KERNEL);
 	register_cluster_lpm_stats(lpm_root_node, NULL);
 
 	ret = cluster_cpuidle_register(lpm_root_node);
