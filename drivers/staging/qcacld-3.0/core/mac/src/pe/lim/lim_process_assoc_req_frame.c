@@ -2053,7 +2053,6 @@ sendIndToSme:
 				pmf_connection, force_1x1))
 		goto error;
 
-
 	/* BTAMP: Storing the parsed assoc request in the session array */
 	if (session->parsedAssocReq)
 		session->parsedAssocReq[sta_ds->assocId] = assoc_req;

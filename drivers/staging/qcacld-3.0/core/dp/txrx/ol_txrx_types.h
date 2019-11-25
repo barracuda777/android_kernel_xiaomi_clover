@@ -154,7 +154,6 @@ struct tx_peer_threshold {
 };
 #endif
 
-
 struct ol_tx_desc_t {
 	qdf_nbuf_t netbuf;
 	void *htt_tx_desc;
@@ -370,7 +369,6 @@ struct ol_mac_addr {
 
 struct ol_tx_sched_t;
 
-
 #ifndef OL_TXRX_NUM_LOCAL_PEER_IDS
 /*
  * Each AP will occupy one ID, so it will occupy two IDs for AP-AP mode.
@@ -430,7 +428,6 @@ enum throttle_phase {
  * priority queue will be paused.
  */
 #define TX_STOP_PRIORITY_TH   (80)
-
 
 typedef void (*ipa_uc_op_cb_type)(uint8_t *op_msg, void *osif_ctxt);
 
@@ -1199,7 +1196,6 @@ struct ol_txrx_vdev_t {
 	uint32_t ocb_channel_count;
 	/* Default OCB TX parameter */
 	struct ocb_tx_ctrl_hdr_t *ocb_def_tx_param;
-
 
 #ifdef QCA_LL_TX_FLOW_CONTROL_V2
 	struct ol_tx_flow_pool_t *pool;

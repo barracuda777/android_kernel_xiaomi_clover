@@ -23,7 +23,6 @@
 #ifndef _CDP_TXRX_IPA_H_
 #define _CDP_TXRX_IPA_H_
 
-
 /**
  * ol_txrx_ipa_resources - Resources needed for IPA
  * @ce_sr: copyengine source ring resource
@@ -133,4 +132,3 @@ static inline int ol_txrx_rx_hash_smmu_map(ol_txrx_pdev_handle pdev, bool map)
 #endif /* IPA_OFFLOAD */
 
 #endif /* _CDP_TXRX_IPA_H_ */
-

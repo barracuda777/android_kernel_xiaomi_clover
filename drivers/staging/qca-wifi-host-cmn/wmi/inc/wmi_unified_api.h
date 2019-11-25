@@ -102,7 +102,6 @@ void *wmi_unified_attach(void *scn_handle,
 			 osdev_t osdev, enum wmi_target_type target_type,
 			 bool use_cookie, struct wmi_rx_ops *ops);
 
-
 /**
  * wmi_mgmt_cmd_record() - Wrapper function for mgmt command logging macro
  *
@@ -302,7 +301,6 @@ static inline bool wmi_get_runtime_pm_inprogress(wmi_unified_t wmi_handle)
 void wmi_process_fw_event(struct wmi_unified *wmi_handle, wmi_buf_t evt_buf);
 uint16_t wmi_get_max_msg_len(wmi_unified_t wmi_handle);
 
-
 QDF_STATUS wmi_unified_vdev_create_send(void *wmi_hdl,
 				 uint8_t macaddr[IEEE80211_ADDR_LEN],
 				 struct vdev_create_params *param);
@@ -363,7 +361,6 @@ QDF_STATUS wmi_d0wow_disable_send(void *wmi_hdl,
 				uint8_t mac_id);
 #endif
 
-
 QDF_STATUS wmi_unified_wow_enable_send(void *wmi_hdl,
 				struct wow_cmd_params *param,
 				uint8_t mac_id);
@@ -405,7 +402,6 @@ wmi_unified_pdev_param_send(void *wmi_hdl,
 QDF_STATUS wmi_unified_beacon_tmpl_send_cmd(void *wmi_hdl,
 				struct beacon_tmpl_params *param);
 
-
 QDF_STATUS wmi_unified_beacon_send_cmd(void *wmi_hdl,
 				struct beacon_params *param);
 
@@ -427,7 +423,6 @@ QDF_STATUS wmi_unified_scan_stop_cmd_send(void *wmi_hdl,
 
 QDF_STATUS wmi_unified_scan_chan_list_cmd_send(void *wmi_hdl,
 				struct scan_chan_list_params *param);
-
 
 QDF_STATUS wmi_crash_inject(void *wmi_hdl,
 				struct crash_inject *param);
@@ -510,7 +505,6 @@ QDF_STATUS wmi_unified_set_sta_sa_query_param_cmd(void *wmi_hdl,
 				       uint8_t vdev_id, uint32_t max_retries,
 					   uint32_t retry_interval);
 
-
 QDF_STATUS wmi_unified_set_sta_keep_alive_cmd(void *wmi_hdl,
 				struct sta_params *params);
 
@@ -522,7 +516,6 @@ QDF_STATUS wmi_unified_process_update_edca_param(void *wmi_hdl,
 		     uint8_t vdev_id,
 		     wmi_wmm_vparams gwmm_param[WMI_MAX_NUM_AC]);
 #endif
-
 
 QDF_STATUS wmi_unified_probe_rsp_tmpl_send_cmd(void *wmi_hdl,
 		   uint8_t vdev_id,
@@ -537,7 +530,6 @@ QDF_STATUS wmi_unified_encrypt_decrypt_send_cmd(void *wmi_hdl,
 
 QDF_STATUS wmi_unified_p2p_go_set_beacon_ie_cmd(void *wmi_hdl,
 				    A_UINT32 vdev_id, uint8_t *p2p_ie);
-
 
 QDF_STATUS wmi_unified_set_gateway_params_cmd(void *wmi_hdl,
 					struct gateway_update_req_param *req);
@@ -581,10 +573,8 @@ QDF_STATUS wmi_unified_extscan_get_capabilities_cmd(void *wmi_hdl,
 QDF_STATUS wmi_unified_extscan_get_cached_results_cmd(void *wmi_hdl,
 			  struct extscan_cached_result_params *pcached_results);
 
-
 QDF_STATUS wmi_unified_extscan_stop_change_monitor_cmd(void *wmi_hdl,
 			  struct extscan_capabilities_reset_params *reset_req);
-
 
 QDF_STATUS wmi_unified_extscan_start_change_monitor_cmd(void *wmi_hdl,
 				   struct extscan_set_sig_changereq_params *
@@ -1486,7 +1476,6 @@ QDF_STATUS wmi_unified_extract_sar_limit_event(void *wmi_hdl,
  */
 QDF_STATUS wmi_unified_extract_sar2_result_event(void *handle,
 						 uint8_t *event, uint32_t len);
-
 
 QDF_STATUS wmi_unified_send_adapt_dwelltime_params_cmd(void *wmi_hdl,
 				   struct wmi_adaptive_dwelltime_params *

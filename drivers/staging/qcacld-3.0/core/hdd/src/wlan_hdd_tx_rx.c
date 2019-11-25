@@ -38,7 +38,6 @@
 #include <net/cfg80211.h>
 #include <net/ieee80211_radiotap.h>
 #include "sap_api.h"
-#include "sme_power_save_api.h"
 #include "wlan_hdd_wmm.h"
 #include "wlan_hdd_tdls.h"
 #include <wlan_hdd_ipa.h>
@@ -337,7 +336,6 @@ static inline struct sk_buff *hdd_skb_orphan(hdd_adapter_t *pAdapter,
 }
 #endif /* QCA_LL_LEGACY_TX_FLOW_CONTROL */
 
-#ifdef FEATURE_WLAN_DIAG_SUPPORT
 /**
  * qdf_event_eapol_log() - send event to wlan diag
  * @skb: skb ptr
@@ -379,7 +377,6 @@ void hdd_event_eapol_log(struct sk_buff *skb, enum qdf_proto_dir dir)
 
 	WLAN_HOST_DIAG_EVENT_REPORT(&wlan_diag_event, EVENT_WLAN_EAPOL);
 }
-#endif
 
 /**
  * wlan_hdd_classify_pkt() - classify packet
@@ -546,7 +543,6 @@ void hdd_reset_all_adapters_connectivity_stats(hdd_context_t *hdd_ctx)
 	EXIT();
 
 }
-
 
 /**
  * hdd_tx_rx_is_dns_domain_name_match() - function to check whether dns
@@ -1576,9 +1572,11 @@ static inline void hdd_resolve_rx_ol_mode(hdd_context_t *hdd_ctx)
 {
 	if (!(hdd_ctx->config->lro_enable ^
 	    hdd_ctx->config->gro_enable)) {
-		hdd_ctx->config->lro_enable && hdd_ctx->config->gro_enable ?
-		hdd_err("Can't enable both LRO and GRO, disabling Rx offload") :
-		hdd_debug("LRO and GRO both are disabled");
+		if (hdd_ctx->config->lro_enable && hdd_ctx->config->gro_enable) {
+			hdd_err("Can't enable both LRO and GRO, disabling Rx offload");
+		} else {
+			hdd_debug("LRO and GRO both are disabled");
+		}
 		hdd_ctx->ol_enable = 0;
 	} else if (hdd_ctx->config->lro_enable) {
 		hdd_debug("Rx offload LRO is enabled");
@@ -1634,7 +1632,6 @@ out:
 	return status;
 }
 
-
 static inline int hdd_rxthread_napi_poll(struct napi_struct *napi, int budget)
 {
 	hdd_err("This napi_poll should not be polled as we dint schedule this napi");
@@ -1671,7 +1668,6 @@ static inline void hdd_gro_flush(void *data)
 	napi_gro_flush((struct napi_struct *)data, false);
 	local_bh_enable();
 }
-
 
 static inline void hdd_create_napi_for_rxthread(void)
 {
@@ -1725,7 +1721,6 @@ static void hdd_deinit_gro_mgr(void *data)
 	qdf_mem_free(napi);
 	qdf_mem_free(netdev);
 }
-
 
 void hdd_gro_destroy(void)
 {

@@ -374,7 +374,6 @@ unsigned int hif_get_dst_ring_read_index(struct hif_softc *scn,
 		       & ~CE_CTRL1_DST_RING_BYTE_SWAP_EN_MASK) | \
 		       CE_CTRL1_DST_RING_BYTE_SWAP_EN_SET(n))
 
-
 #define CE_DEST_RING_BASE_ADDR_SET(scn, CE_ctrl_addr, addr) \
 	A_TARGET_WRITE(scn, (CE_ctrl_addr) + DR_BA_ADDRESS, (addr))
 
@@ -521,13 +520,11 @@ unsigned int hif_get_dst_ring_read_index(struct hif_softc *scn,
 #define CE0_BASE_ADDRESS         (scn->target_ce_def->d_CE0_BASE_ADDRESS)
 #define CE1_BASE_ADDRESS         (scn->target_ce_def->d_CE1_BASE_ADDRESS)
 
-
 #ifdef ADRASTEA_SHADOW_REGISTERS
 #define NUM_SHADOW_REGISTERS 24
 u32 shadow_sr_wr_ind_addr(struct hif_softc *scn, u32 ctrl_addr);
 u32 shadow_dst_wr_ind_addr(struct hif_softc *scn, u32 ctrl_addr);
 #endif
-
 
 #ifdef ADRASTEA_SHADOW_REGISTERS
 #define CE_SRC_RING_WRITE_IDX_SET(scn, CE_ctrl_addr, n) \

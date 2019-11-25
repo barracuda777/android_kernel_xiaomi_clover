@@ -352,7 +352,6 @@ static uint32_t get_container_ies_len(tpAniSirGlobal pCtx,
 
 }
 
-
 static uint32_t unpack_core(tpAniSirGlobal pCtx,
 			    uint8_t *pBuf,
 			    uint32_t nBuf,
@@ -829,9 +828,7 @@ uint32_t dot11f_unpack_tlv_authorized_ma_cs(tpAniSirGlobal pCtx,
 
 #define SigTlvAuthorizedMACs (0x0001)
 
-
 #define SigTlvRequestToEnroll (0x0002)
-
 
 uint32_t dot11f_unpack_tlv_version2(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
@@ -857,18 +854,13 @@ uint32_t dot11f_unpack_tlv_version2(tpAniSirGlobal pCtx,
 
 #define SigTlvVersion2 (0x0003)
 
-
 #define SigTlvAPSetupLocked (0x0004)
-
 
 #define SigTlvAssociationState (0x0005)
 
-
 #define SigTlvConfigMethods (0x0006)
 
-
 #define SigTlvConfigurationError (0x0007)
-
 
 uint32_t dot11f_unpack_tlv_device_name(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
@@ -892,9 +884,7 @@ uint32_t dot11f_unpack_tlv_device_name(tpAniSirGlobal pCtx,
 
 #define SigTlvDeviceName (0x0008)
 
-
 #define SigTlvDevicePasswordID (0x0009)
-
 
 uint32_t dot11f_unpack_tlv_extended_listen_timing(tpAniSirGlobal pCtx,
 						 uint8_t *pBuf,
@@ -924,7 +914,6 @@ uint32_t dot11f_unpack_tlv_extended_listen_timing(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_tlv_extended_listen_timing. */
 
 #define SigTlvExtendedListenTiming (0x000a)
-
 
 uint32_t dot11f_unpack_tlv_listen_channel(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -963,7 +952,6 @@ uint32_t dot11f_unpack_tlv_listen_channel(tpAniSirGlobal pCtx,
 
 #define SigTlvListenChannel (0x000b)
 
-
 uint32_t dot11f_unpack_tlv_manufacturer(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint16_t tlvlen,
@@ -986,9 +974,7 @@ uint32_t dot11f_unpack_tlv_manufacturer(tpAniSirGlobal pCtx,
 
 #define SigTlvManufacturer (0x000c)
 
-
 #define SigTlvMinorReasonCode (0x000d)
-
 
 uint32_t dot11f_unpack_tlv_model_name(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
@@ -1012,7 +998,6 @@ uint32_t dot11f_unpack_tlv_model_name(tpAniSirGlobal pCtx,
 
 #define SigTlvModelName (0x000e)
 
-
 uint32_t dot11f_unpack_tlv_model_number(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint16_t tlvlen,
@@ -1034,7 +1019,6 @@ uint32_t dot11f_unpack_tlv_model_number(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_tlv_model_number. */
 
 #define SigTlvModelNumber (0x000f)
-
 
 uint32_t dot11f_unpack_tlv_notice_of_absence(tpAniSirGlobal pCtx,
 					   uint8_t *pBuf,
@@ -1074,7 +1058,6 @@ uint32_t dot11f_unpack_tlv_notice_of_absence(tpAniSirGlobal pCtx,
 
 #define SigTlvNoticeOfAbsence (0x0010)
 
-
 uint32_t dot11f_unpack_tlv_operating_channel(tpAniSirGlobal pCtx,
 					    uint8_t *pBuf,
 					    uint16_t tlvlen,
@@ -1112,7 +1095,6 @@ uint32_t dot11f_unpack_tlv_operating_channel(tpAniSirGlobal pCtx,
 
 #define SigTlvOperatingChannel (0x0011)
 
-
 uint32_t dot11f_unpack_tlv_p2_p_capability(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint16_t tlvlen,
@@ -1142,7 +1124,6 @@ uint32_t dot11f_unpack_tlv_p2_p_capability(tpAniSirGlobal pCtx,
 
 #define SigTlvP2PCapability (0x0012)
 
-
 uint32_t dot11f_unpack_tlv_p2_p_device_id(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint16_t tlvlen,
@@ -1163,7 +1144,6 @@ uint32_t dot11f_unpack_tlv_p2_p_device_id(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_tlv_p2_p_device_id. */
 
 #define SigTlvP2PDeviceId (0x0013)
-
 
 static const tTLVDefn TLVS_P2PDeviceInfo[] = {
 	{ offsetof(tDot11fTLVP2PDeviceInfo, DeviceName),
@@ -1215,7 +1195,6 @@ uint32_t dot11f_unpack_tlv_p2_p_device_info(tpAniSirGlobal pCtx,
 
 #define SigTlvP2PDeviceInfo (0x0014)
 
-
 uint32_t dot11f_unpack_tlv_p2_p_group_info(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint16_t tlvlen,
@@ -1233,9 +1212,7 @@ uint32_t dot11f_unpack_tlv_p2_p_group_info(tpAniSirGlobal pCtx,
 
 #define SigTlvP2PGroupInfo (0x0015)
 
-
 #define SigTlvP2PStatus (0x0016)
-
 
 uint32_t dot11f_unpack_tlv_primary_device_type(tpAniSirGlobal pCtx,
 					     uint8_t *pBuf,
@@ -1275,9 +1252,7 @@ uint32_t dot11f_unpack_tlv_primary_device_type(tpAniSirGlobal pCtx,
 
 #define SigTlvPrimaryDeviceType (0x0017)
 
-
 #define SigTlvRFBands (0x0018)
-
 
 uint32_t dot11f_unpack_tlv_request_device_type(tpAniSirGlobal pCtx,
 					     uint8_t *pBuf,
@@ -1316,18 +1291,13 @@ uint32_t dot11f_unpack_tlv_request_device_type(tpAniSirGlobal pCtx,
 
 #define SigTlvRequestDeviceType (0x0019)
 
-
 #define SigTlvRequestType (0x001a)
-
 
 #define SigTlvResponseType (0x001b)
 
-
 #define SigTlvSelectedRegistrar (0x001c)
 
-
 #define SigTlvSelectedRegistrarConfigMethods (0x001d)
-
 
 uint32_t dot11f_unpack_tlv_serial_number(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -1351,7 +1321,6 @@ uint32_t dot11f_unpack_tlv_serial_number(tpAniSirGlobal pCtx,
 
 #define SigTlvSerialNumber (0x001e)
 
-
 uint32_t dot11f_unpack_tlv_uuid_e(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint16_t tlvlen,
@@ -1373,7 +1342,6 @@ uint32_t dot11f_unpack_tlv_uuid_e(tpAniSirGlobal pCtx,
 
 #define SigTlvUUID_E (0x001f)
 
-
 uint32_t dot11f_unpack_tlv_uuid_r(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint16_t tlvlen,
@@ -1394,7 +1362,6 @@ uint32_t dot11f_unpack_tlv_uuid_r(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_tlv_uuid_r. */
 
 #define SigTlvUUID_R (0x0020)
-
 
 static const tTLVDefn TLVS_VendorExtension[] = {
 	{ offsetof(tDot11fTLVVendorExtension, Version2),
@@ -1437,7 +1404,6 @@ uint32_t dot11f_unpack_tlv_vendor_extension(tpAniSirGlobal pCtx,
 
 #define SigTlvVendorExtension (0x0021)
 
-
 uint32_t dot11f_unpack_tlv_version(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
 				   uint16_t tlvlen,
@@ -1462,24 +1428,17 @@ uint32_t dot11f_unpack_tlv_version(tpAniSirGlobal pCtx,
 
 #define SigTlvVersion (0x0022)
 
-
 #define SigTlvWPSState (0x0023)
-
 
 #define SigTlvassoc_disallowed (0x0024)
 
-
 #define SigTlvassoc_retry_delay (0x0025)
-
 
 #define SigTlvcellular_data_cap (0x0026)
 
-
 #define SigTlvcellular_data_con_pref (0x0027)
 
-
 #define SigTlvmbo_ap_cap (0x0028)
-
 
 uint32_t dot11f_unpack_tlv_non_prefferd_chan_rep(tpAniSirGlobal pCtx,
 						 uint8_t *pBuf,
@@ -1511,7 +1470,6 @@ uint32_t dot11f_unpack_tlv_non_prefferd_chan_rep(tpAniSirGlobal pCtx,
 
 #define SigTlvnon_prefferd_chan_rep (0x0029)
 
-
 uint32_t dot11f_unpack_tlv_oce_cap(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
 				   uint16_t tlvlen,
@@ -1538,7 +1496,6 @@ uint32_t dot11f_unpack_tlv_oce_cap(tpAniSirGlobal pCtx,
 
 #define SigTlvoce_cap (0x002a)
 
-
 uint32_t dot11f_unpack_tlv_reduced_wan_metrics(tpAniSirGlobal pCtx,
 					       uint8_t *pBuf,
 					       uint16_t tlvlen,
@@ -1562,7 +1519,6 @@ uint32_t dot11f_unpack_tlv_reduced_wan_metrics(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_tlv_reduced_wan_metrics. */
 
 #define SigTlvreduced_wan_metrics (0x002b)
-
 
 uint32_t dot11f_unpack_tlv_rssi_assoc_rej(tpAniSirGlobal pCtx,
 					  uint8_t *pBuf,
@@ -1593,12 +1549,9 @@ uint32_t dot11f_unpack_tlv_rssi_assoc_rej(tpAniSirGlobal pCtx,
 
 #define SigTlvrssi_assoc_rej (0x002c)
 
-
 #define SigTlvtransition_reason (0x002d)
 
-
 #define SigTlvtransition_reject_reason (0x002e)
-
 
 uint32_t dot11f_unpack_tlv_p2_p_interface(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -1621,9 +1574,7 @@ uint32_t dot11f_unpack_tlv_p2_p_interface(tpAniSirGlobal pCtx,
 
 #define SigTlvP2PInterface (0x002f)
 
-
 #define SigTlvP2PManageability (0x0030)
-
 
 uint32_t dot11f_unpack_ie_gtk(tpAniSirGlobal pCtx,
 			      uint8_t *pBuf,
@@ -1676,7 +1627,6 @@ uint32_t dot11f_unpack_ie_gtk(tpAniSirGlobal pCtx,
 
 #define SigIeGTK (0x0001)
 
-
 uint32_t dot11f_unpack_ie_igtk(tpAniSirGlobal pCtx,
 			       uint8_t *pBuf,
 			       uint8_t ielen,
@@ -1724,7 +1674,6 @@ uint32_t dot11f_unpack_ie_igtk(tpAniSirGlobal pCtx,
 
 #define SigIeIGTK (0x0002)
 
-
 uint32_t dot11f_unpack_ie_r0_kh_id(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint8_t ielen,
@@ -1749,7 +1698,6 @@ uint32_t dot11f_unpack_ie_r0_kh_id(tpAniSirGlobal pCtx,
 
 #define SigIeR0KH_ID (0x0003)
 
-
 uint32_t dot11f_unpack_ie_r1_kh_id(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint8_t ielen,
@@ -1772,7 +1720,6 @@ uint32_t dot11f_unpack_ie_r1_kh_id(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_r1_kh_id. */
 
 #define SigIeR1KH_ID (0x0004)
-
 
 uint32_t dot11f_unpack_ie_ap_channel_report(tpAniSirGlobal pCtx,
 					  uint8_t *pBuf,
@@ -1806,7 +1753,6 @@ uint32_t dot11f_unpack_ie_ap_channel_report(tpAniSirGlobal pCtx,
 
 #define SigIeAPChannelReport (0x0005)
 
-
 uint32_t dot11f_unpack_ie_bcn_reporting_detail(tpAniSirGlobal pCtx,
 					     uint8_t *pBuf,
 					     uint8_t ielen,
@@ -1829,7 +1775,6 @@ uint32_t dot11f_unpack_ie_bcn_reporting_detail(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_bcn_reporting_detail. */
 
 #define SigIeBcnReportingDetail (0x0006)
-
 
 uint32_t dot11f_unpack_ie_beacon_report_frm_body(tpAniSirGlobal pCtx,
 					      uint8_t *pBuf,
@@ -1854,7 +1799,6 @@ uint32_t dot11f_unpack_ie_beacon_report_frm_body(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_beacon_report_frm_body. */
 
 #define SigIeBeaconReportFrmBody (0x0007)
-
 
 uint32_t dot11f_unpack_ie_beacon_reporting(tpAniSirGlobal pCtx,
 					  uint8_t *pBuf,
@@ -1887,7 +1831,6 @@ uint32_t dot11f_unpack_ie_beacon_reporting(tpAniSirGlobal pCtx,
 
 #define SigIeBeaconReporting (0x0008)
 
-
 uint32_t dot11f_unpack_ie_condensed_country_str(tpAniSirGlobal pCtx,
 					      uint8_t *pBuf,
 					      uint8_t ielen,
@@ -1910,7 +1853,6 @@ uint32_t dot11f_unpack_ie_condensed_country_str(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_condensed_country_str. */
 
 #define SigIeCondensedCountryStr (0x0009)
-
 
 uint32_t dot11f_unpack_ie_measurement_pilot(tpAniSirGlobal pCtx,
 					   uint8_t *pBuf,
@@ -1939,7 +1881,6 @@ uint32_t dot11f_unpack_ie_measurement_pilot(tpAniSirGlobal pCtx,
 
 #define SigIeMeasurementPilot (0x000a)
 
-
 uint32_t dot11f_unpack_ie_multi_bssid(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
 				     uint8_t ielen,
@@ -1966,7 +1907,6 @@ uint32_t dot11f_unpack_ie_multi_bssid(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_multi_bssid. */
 
 #define SigIeMultiBssid (0x000b)
-
 
 uint32_t dot11f_unpack_ie_ric_data(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
@@ -2007,7 +1947,6 @@ uint32_t dot11f_unpack_ie_ric_data(tpAniSirGlobal pCtx,
 
 #define SigIeRICData (0x000c)
 
-
 uint32_t dot11f_unpack_ie_ric_descriptor(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -2034,7 +1973,6 @@ uint32_t dot11f_unpack_ie_ric_descriptor(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ric_descriptor. */
 
 #define SigIeRICDescriptor (0x000d)
-
 
 uint32_t dot11f_unpack_ie_rrm_enabled_cap(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -2127,7 +2065,6 @@ uint32_t dot11f_unpack_ie_rrm_enabled_cap(tpAniSirGlobal pCtx,
 
 #define SigIeRRMEnabledCap (0x000e)
 
-
 uint32_t dot11f_unpack_ie_requested_info(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -2146,7 +2083,6 @@ uint32_t dot11f_unpack_ie_requested_info(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_requested_info. */
 
 #define SigIeRequestedInfo (0x000f)
-
 
 uint32_t dot11f_unpack_ie_ssid(tpAniSirGlobal pCtx,
 			       uint8_t *pBuf,
@@ -2173,7 +2109,6 @@ uint32_t dot11f_unpack_ie_ssid(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ssid. */
 
 #define SigIeSSID (0x0010)
-
 
 uint32_t dot11f_unpack_ie_schedule(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
@@ -2234,7 +2169,6 @@ uint32_t dot11f_unpack_ie_schedule(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_schedule. */
 
 #define SigIeSchedule (0x0011)
-
 
 uint32_t dot11f_unpack_ie_tclas(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
@@ -2427,9 +2361,7 @@ uint32_t dot11f_unpack_ie_tclas(tpAniSirGlobal pCtx,
 
 #define SigIeTCLAS (0x0012)
 
-
 #define SigIeTCLASSPROC (0x0013)
-
 
 uint32_t dot11f_unpack_ie_ts_delay(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
@@ -2453,7 +2385,6 @@ uint32_t dot11f_unpack_ie_ts_delay(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ts_delay. */
 
 #define SigIeTSDelay (0x0014)
-
 
 uint32_t dot11f_unpack_ie_tsf_info(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
@@ -2485,7 +2416,6 @@ uint32_t dot11f_unpack_ie_tsf_info(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_tsf_info. */
 
 #define SigIeTSFInfo (0x0015)
-
 
 uint32_t dot11f_unpack_ie_tspec(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
@@ -2653,7 +2583,6 @@ uint32_t dot11f_unpack_ie_tspec(tpAniSirGlobal pCtx,
 
 #define SigIeTSPEC (0x0016)
 
-
 uint32_t dot11f_unpack_ie_vht_caps(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint8_t ielen,
@@ -2736,7 +2665,6 @@ uint32_t dot11f_unpack_ie_vht_caps(tpAniSirGlobal pCtx,
 
 #define SigIeVHTCaps (0x0017)
 
-
 uint32_t dot11f_unpack_ie_vht_operation(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint8_t ielen,
@@ -2783,7 +2711,6 @@ uint32_t dot11f_unpack_ie_vht_operation(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_vht_operation. */
 
 #define SigIeVHTOperation (0x0018)
-
 
 uint32_t dot11f_unpack_ie_wmm_schedule(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
@@ -2856,7 +2783,6 @@ uint32_t dot11f_unpack_ie_wmm_schedule(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wmm_schedule. */
 
 #define SigIeWMMSchedule (0x0019)
-
 
 uint32_t dot11f_unpack_ie_wmmtclas(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
@@ -3061,7 +2987,6 @@ uint32_t dot11f_unpack_ie_wmmtclas(tpAniSirGlobal pCtx,
 
 #define SigIeWMMTCLAS (0x001a)
 
-
 uint32_t dot11f_unpack_ie_wmmtclasproc(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint8_t ielen,
@@ -3097,7 +3022,6 @@ uint32_t dot11f_unpack_ie_wmmtclasproc(tpAniSirGlobal pCtx,
 
 #define SigIeWMMTCLASPROC (0x001b)
 
-
 uint32_t dot11f_unpack_ie_wmmts_delay(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
 				     uint8_t ielen,
@@ -3132,7 +3056,6 @@ uint32_t dot11f_unpack_ie_wmmts_delay(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wmmts_delay. */
 
 #define SigIeWMMTSDelay (0x001c)
-
 
 uint32_t dot11f_unpack_ie_wmmtspec(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
@@ -3312,7 +3235,6 @@ uint32_t dot11f_unpack_ie_wmmtspec(tpAniSirGlobal pCtx,
 
 #define SigIeWMMTSPEC (0x001d)
 
-
 uint32_t dot11f_unpack_ie_wider_bw_chan_switch_ann(tpAniSirGlobal pCtx,
 					       uint8_t *pBuf,
 					       uint8_t ielen,
@@ -3352,7 +3274,6 @@ uint32_t dot11f_unpack_ie_wider_bw_chan_switch_ann(tpAniSirGlobal pCtx,
 
 #define SigIeWiderBWChanSwitchAnn (0x001e)
 
-
 uint32_t dot11f_unpack_ie_azimuth_req(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
 				      uint8_t ielen,
@@ -3375,7 +3296,6 @@ uint32_t dot11f_unpack_ie_azimuth_req(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_azimuth_req. */
 
 #define SigIeazimuth_req (0x001f)
-
 
 uint32_t dot11f_unpack_ie_beacon_report_frm_body_fragment_id(tpAniSirGlobal pCtx,
 							     uint8_t *pBuf,
@@ -3404,7 +3324,6 @@ uint32_t dot11f_unpack_ie_beacon_report_frm_body_fragment_id(tpAniSirGlobal pCtx
 
 #define SigIebeacon_report_frm_body_fragment_id (0x0020)
 
-
 uint32_t dot11f_unpack_ie_last_beacon_report_indication(tpAniSirGlobal pCtx,
 							 uint8_t *pBuf,
 							 uint8_t ielen,
@@ -3428,7 +3347,6 @@ uint32_t dot11f_unpack_ie_last_beacon_report_indication(tpAniSirGlobal pCtx,
 
 #define SigIelast_beacon_report_indication (0x0021)
 
-
 uint32_t dot11f_unpack_ie_max_age(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint8_t ielen,
@@ -3451,7 +3369,6 @@ uint32_t dot11f_unpack_ie_max_age(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_max_age. */
 
 #define SigIemax_age (0x0022)
-
 
 static const tFFDefn FFS_neighbor_rpt[] = {
 	{ NULL, 0, 0, 0,},
@@ -3574,7 +3491,6 @@ uint32_t dot11f_unpack_ie_neighbor_rpt(tpAniSirGlobal pCtx,
 
 #define SigIeneighbor_rpt (0x0023)
 
-
 uint32_t dot11f_unpack_ie_req_mac_addr(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint8_t ielen,
@@ -3598,7 +3514,6 @@ uint32_t dot11f_unpack_ie_req_mac_addr(tpAniSirGlobal pCtx,
 
 #define SigIereq_mac_addr (0x0024)
 
-
 uint32_t dot11f_unpack_ie_tgt_mac_addr(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint8_t ielen,
@@ -3621,7 +3536,6 @@ uint32_t dot11f_unpack_ie_tgt_mac_addr(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_tgt_mac_addr. */
 
 #define SigIetgt_mac_addr (0x0025)
-
 
 uint32_t dot11f_unpack_ie_vht_transmit_power_env(tpAniSirGlobal pCtx,
 						 uint8_t *pBuf,
@@ -3647,7 +3561,6 @@ uint32_t dot11f_unpack_ie_vht_transmit_power_env(tpAniSirGlobal pCtx,
 
 #define SigIevht_transmit_power_env (0x0026)
 
-
 uint32_t dot11f_unpack_ie_aid(tpAniSirGlobal pCtx,
 			      uint8_t *pBuf,
 			      uint8_t ielen,
@@ -3670,7 +3583,6 @@ uint32_t dot11f_unpack_ie_aid(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_aid. */
 
 #define SigIeAID (0x0027)
-
 
 uint32_t dot11f_unpack_ie_cf_params(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
@@ -3719,7 +3631,6 @@ uint32_t dot11f_unpack_ie_cf_params(tpAniSirGlobal pCtx,
 
 #define SigIeCFParams (0x0028)
 
-
 uint32_t dot11f_unpack_ie_challenge_text(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -3743,7 +3654,6 @@ uint32_t dot11f_unpack_ie_challenge_text(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_challenge_text. */
 
 #define SigIeChallengeText (0x0029)
-
 
 uint32_t dot11f_unpack_ie_chan_switch_ann(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -3783,7 +3693,6 @@ uint32_t dot11f_unpack_ie_chan_switch_ann(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_chan_switch_ann. */
 
 #define SigIeChanSwitchAnn (0x002a)
-
 
 static const tFFDefn FFS_ChannelSwitchWrapper[] = {
 	{ NULL, 0, 0, 0,},
@@ -3826,7 +3735,6 @@ uint32_t dot11f_unpack_ie_channel_switch_wrapper(tpAniSirGlobal pCtx,
 
 #define SigIeChannelSwitchWrapper (0x002b)
 
-
 uint32_t dot11f_unpack_ie_country(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint8_t ielen,
@@ -3864,9 +3772,7 @@ uint32_t dot11f_unpack_ie_country(tpAniSirGlobal pCtx,
 
 #define SigIeCountry (0x002c)
 
-
 #define SigIeDSParams (0x002d)
-
 
 uint32_t dot11f_unpack_ie_edca_param_set(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
@@ -4027,7 +3933,6 @@ uint32_t dot11f_unpack_ie_edca_param_set(tpAniSirGlobal pCtx,
 
 #define SigIeEDCAParamSet (0x002e)
 
-
 uint32_t dot11f_unpack_ie_erp_info(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint8_t ielen,
@@ -4056,7 +3961,6 @@ uint32_t dot11f_unpack_ie_erp_info(tpAniSirGlobal pCtx,
 
 #define SigIeERPInfo (0x002f)
 
-
 uint32_t dot11f_unpack_ie_ese_cckm_opaque(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -4080,7 +3984,6 @@ uint32_t dot11f_unpack_ie_ese_cckm_opaque(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ese_cckm_opaque. */
 
 #define SigIeESECckmOpaque (0x0030)
-
 
 uint32_t dot11f_unpack_ie_ese_rad_mgmt_cap(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -4115,7 +4018,6 @@ uint32_t dot11f_unpack_ie_ese_rad_mgmt_cap(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ese_rad_mgmt_cap. */
 
 #define SigIeESERadMgmtCap (0x0031)
-
 
 uint32_t dot11f_unpack_ie_ese_traf_strm_met(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -4156,7 +4058,6 @@ uint32_t dot11f_unpack_ie_ese_traf_strm_met(tpAniSirGlobal pCtx,
 
 #define SigIeESETrafStrmMet (0x0032)
 
-
 uint32_t dot11f_unpack_ie_ese_traf_strm_rate_set(tpAniSirGlobal pCtx,
 					     uint8_t *pBuf,
 					     uint8_t ielen,
@@ -4189,7 +4090,6 @@ uint32_t dot11f_unpack_ie_ese_traf_strm_rate_set(tpAniSirGlobal pCtx,
 
 #define SigIeESETrafStrmRateSet (0x0033)
 
-
 uint32_t dot11f_unpack_ie_ese_txmit_power(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -4221,7 +4121,6 @@ uint32_t dot11f_unpack_ie_ese_txmit_power(tpAniSirGlobal pCtx,
 
 #define SigIeESETxmitPower (0x0034)
 
-
 uint32_t dot11f_unpack_ie_ese_version(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
 				     uint8_t ielen,
@@ -4244,7 +4143,6 @@ uint32_t dot11f_unpack_ie_ese_version(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ese_version. */
 
 #define SigIeESEVersion (0x0035)
-
 
 uint32_t dot11f_unpack_ie_ESP_information(tpAniSirGlobal pCtx,
 					  uint8_t *pBuf,
@@ -4269,7 +4167,6 @@ uint32_t dot11f_unpack_ie_ESP_information(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ESP_information. */
 
 #define SigIeESP_information (0x0036)
-
 
 uint32_t dot11f_unpack_ie_ext_cap(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
@@ -4299,7 +4196,6 @@ endUnpackIeExtCap:
 } /* End dot11f_unpack_ie_ext_cap. */
 
 #define SigIeExtCap (0x0037)
-
 
 uint32_t dot11f_unpack_ie_ext_supp_rates(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
@@ -4332,7 +4228,6 @@ uint32_t dot11f_unpack_ie_ext_supp_rates(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ext_supp_rates. */
 
 #define SigIeExtSuppRates (0x0038)
-
 
 uint32_t dot11f_unpack_ie_fh_param_set(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
@@ -4381,7 +4276,6 @@ uint32_t dot11f_unpack_ie_fh_param_set(tpAniSirGlobal pCtx,
 
 #define SigIeFHParamSet (0x0039)
 
-
 uint32_t dot11f_unpack_ie_fh_params(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
 				   uint8_t ielen,
@@ -4412,7 +4306,6 @@ uint32_t dot11f_unpack_ie_fh_params(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_fh_params. */
 
 #define SigIeFHParams (0x003a)
-
 
 uint32_t dot11f_unpack_ie_fh_patt_table(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
@@ -4469,7 +4362,6 @@ uint32_t dot11f_unpack_ie_fh_patt_table(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_fh_patt_table. */
 
 #define SigIeFHPattTable (0x003b)
-
 
 static const tFFDefn FFS_FTInfo[] = {
 	{ NULL, 0, 0, 0,},
@@ -4549,7 +4441,6 @@ uint32_t dot11f_unpack_ie_ft_info(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ft_info. */
 
 #define SigIeFTInfo (0x003c)
-
 
 uint32_t dot11f_unpack_ie_ht_caps(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
@@ -4674,7 +4565,6 @@ uint32_t dot11f_unpack_ie_ht_caps(tpAniSirGlobal pCtx,
 
 #define SigIeHTCaps (0x003d)
 
-
 uint32_t dot11f_unpack_ie_ht_info(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
 				 uint8_t ielen,
@@ -4759,7 +4649,6 @@ uint32_t dot11f_unpack_ie_ht_info(tpAniSirGlobal pCtx,
 
 #define SigIeHTInfo (0x003e)
 
-
 uint32_t dot11f_unpack_ie_ibss_params(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
 				     uint8_t ielen,
@@ -4782,7 +4671,6 @@ uint32_t dot11f_unpack_ie_ibss_params(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ibss_params. */
 
 #define SigIeIBSSParams (0x003f)
-
 
 uint32_t dot11f_unpack_ie_link_identifier(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -4822,7 +4710,6 @@ uint32_t dot11f_unpack_ie_link_identifier(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_link_identifier. */
 
 #define SigIeLinkIdentifier (0x0040)
-
 
 static const tTLVDefn TLVS_MBO_IE[] = {
 	{ offsetof(tDot11fIEMBO_IE, mbo_ap_cap), offsetof(tDot11fTLVmbo_ap_cap,
@@ -4885,7 +4772,6 @@ uint32_t dot11f_unpack_ie_MBO_IE(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_MBO_IE. */
 
 #define SigIeMBO_IE (0x0041)
-
 
 static const tFFDefn FFS_reportBeacon[] = {
 	{ NULL, 0, 0, 0,},
@@ -5221,7 +5107,6 @@ uint32_t dot11f_unpack_ie_measurement_report(tpAniSirGlobal pCtx,
 
 #define SigIeMeasurementReport (0x0042)
 
-
 static const tFFDefn FFS_measurement_requestBeacon[] = {
 	{ NULL, 0, 0, 0,},
 };
@@ -5525,7 +5410,6 @@ uint32_t dot11f_unpack_ie_measurement_request(tpAniSirGlobal pCtx,
 
 #define SigIeMeasurementRequest (0x0043)
 
-
 uint32_t dot11f_unpack_ie_mobility_domain(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -5560,7 +5444,6 @@ uint32_t dot11f_unpack_ie_mobility_domain(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_mobility_domain. */
 
 #define SigIeMobilityDomain (0x0044)
-
 
 static const tFFDefn FFS_NeighborReport[] = {
 	{ NULL, 0, 0, 0,},
@@ -5683,7 +5566,6 @@ uint32_t dot11f_unpack_ie_neighbor_report(tpAniSirGlobal pCtx,
 
 #define SigIeNeighborReport (0x0045)
 
-
 uint32_t dot11f_unpack_ie_obss_scan_parameters(tpAniSirGlobal pCtx,
 					     uint8_t *pBuf,
 					     uint8_t ielen,
@@ -5755,7 +5637,6 @@ uint32_t dot11f_unpack_ie_obss_scan_parameters(tpAniSirGlobal pCtx,
 
 #define SigIeOBSSScanParameters (0x0046)
 
-
 uint32_t dot11f_unpack_ie_operating_mode(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -5783,7 +5664,6 @@ uint32_t dot11f_unpack_ie_operating_mode(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_operating_mode. */
 
 #define SigIeOperatingMode (0x0047)
-
 
 static const tTLVDefn TLVS_P2PAssocReq[] = {
 	{ offsetof(tDot11fIEP2PAssocReq, P2PCapability),
@@ -5816,7 +5696,6 @@ uint32_t dot11f_unpack_ie_p2_p_assoc_req(tpAniSirGlobal pCtx,
 
 #define SigIeP2PAssocReq (0x0048)
 
-
 static const tTLVDefn TLVS_P2PAssocRes[] = {
 	{ offsetof(tDot11fIEP2PAssocRes, P2PStatus),
 	offsetof(tDot11fTLVP2PStatus, present), "P2PStatus", SigTlvP2PStatus,
@@ -5844,7 +5723,6 @@ uint32_t dot11f_unpack_ie_p2_p_assoc_res(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_p2_p_assoc_res. */
 
 #define SigIeP2PAssocRes (0x0049)
-
 
 static const tTLVDefn TLVS_P2PBeacon[] = {
 	{ offsetof(tDot11fIEP2PBeacon, P2PCapability),
@@ -5876,7 +5754,6 @@ uint32_t dot11f_unpack_ie_p2_p_beacon(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_p2_p_beacon. */
 
 #define SigIeP2PBeacon (0x004a)
-
 
 static const tTLVDefn TLVS_P2PBeaconProbeRes[] = {
 	{ offsetof(tDot11fIEP2PBeaconProbeRes, P2PCapability),
@@ -5919,7 +5796,6 @@ uint32_t dot11f_unpack_ie_p2_p_beacon_probe_res(tpAniSirGlobal pCtx,
 
 #define SigIeP2PBeaconProbeRes (0x004b)
 
-
 static const tTLVDefn TLVS_P2PDeAuth[] = {
 	{ offsetof(tDot11fIEP2PDeAuth, MinorReasonCode),
 	offsetof(tDot11fTLVMinorReasonCode, present), "MinorReasonCode",
@@ -5944,7 +5820,6 @@ uint32_t dot11f_unpack_ie_p2_p_de_auth(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_p2_p_de_auth. */
 
 #define SigIeP2PDeAuth (0x004c)
-
 
 static const tTLVDefn TLVS_P2PDisAssoc[] = {
 	{ offsetof(tDot11fIEP2PDisAssoc, MinorReasonCode),
@@ -5971,7 +5846,6 @@ uint32_t dot11f_unpack_ie_p2_p_dis_assoc(tpAniSirGlobal pCtx,
 
 #define SigIeP2PDisAssoc (0x004d)
 
-
 uint32_t dot11f_unpack_ie_p2_pie_opaque(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
 				      uint8_t ielen,
@@ -5995,7 +5869,6 @@ uint32_t dot11f_unpack_ie_p2_pie_opaque(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_p2_pie_opaque. */
 
 #define SigIeP2PIEOpaque (0x004e)
-
 
 static const tTLVDefn TLVS_P2PProbeReq[] = {
 	{ offsetof(tDot11fIEP2PProbeReq, P2PCapability),
@@ -6035,7 +5908,6 @@ uint32_t dot11f_unpack_ie_p2_p_probe_req(tpAniSirGlobal pCtx,
 
 #define SigIeP2PProbeReq (0x004f)
 
-
 static const tTLVDefn TLVS_P2PProbeRes[] = {
 	{ offsetof(tDot11fIEP2PProbeRes, P2PCapability),
 	offsetof(tDot11fTLVP2PCapability, present), "P2PCapability",
@@ -6074,7 +5946,6 @@ uint32_t dot11f_unpack_ie_p2_p_probe_res(tpAniSirGlobal pCtx,
 
 #define SigIeP2PProbeRes (0x0050)
 
-
 uint32_t dot11f_unpack_ie_pti_control(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
 				     uint8_t ielen,
@@ -6106,7 +5977,6 @@ uint32_t dot11f_unpack_ie_pti_control(tpAniSirGlobal pCtx,
 
 #define SigIePTIControl (0x0051)
 
-
 uint32_t dot11f_unpack_ie_pu_buffer_status(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
 					 uint8_t ielen,
@@ -6135,7 +6005,6 @@ uint32_t dot11f_unpack_ie_pu_buffer_status(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_pu_buffer_status. */
 
 #define SigIePUBufferStatus (0x0052)
-
 
 uint32_t dot11f_unpack_ie_power_caps(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
@@ -6168,7 +6037,6 @@ uint32_t dot11f_unpack_ie_power_caps(tpAniSirGlobal pCtx,
 
 #define SigIePowerCaps (0x0053)
 
-
 uint32_t dot11f_unpack_ie_power_constraints(tpAniSirGlobal pCtx,
 					   uint8_t *pBuf,
 					   uint8_t ielen,
@@ -6191,7 +6059,6 @@ uint32_t dot11f_unpack_ie_power_constraints(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_power_constraints. */
 
 #define SigIePowerConstraints (0x0054)
-
 
 uint32_t dot11f_unpack_ie_qbss_load(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
@@ -6232,7 +6099,6 @@ uint32_t dot11f_unpack_ie_qbss_load(tpAniSirGlobal pCtx,
 
 #define SigIeQBSSLoad (0x0055)
 
-
 uint32_t dot11f_unpack_ie_QCN_IE(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
 				 uint8_t ielen,
@@ -6255,7 +6121,6 @@ uint32_t dot11f_unpack_ie_QCN_IE(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_QCN_IE. */
 
 #define SigIeQCN_IE (0x0056)
-
 
 uint32_t dot11f_unpack_ie_QComVendorIE(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
@@ -6288,7 +6153,6 @@ uint32_t dot11f_unpack_ie_QComVendorIE(tpAniSirGlobal pCtx,
 
 #define SigIeQComVendorIE (0x0057)
 
-
 uint32_t dot11f_unpack_ie_qos_caps_ap(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
 				    uint8_t ielen,
@@ -6317,7 +6181,6 @@ uint32_t dot11f_unpack_ie_qos_caps_ap(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_qos_caps_ap. */
 
 #define SigIeQOSCapsAp (0x0058)
-
 
 uint32_t dot11f_unpack_ie_qos_caps_station(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -6350,7 +6213,6 @@ uint32_t dot11f_unpack_ie_qos_caps_station(tpAniSirGlobal pCtx,
 
 #define SigIeQOSCapsStation (0x0059)
 
-
 uint32_t dot11f_unpack_ie_qos_map_set(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
 				    uint8_t ielen,
@@ -6374,7 +6236,6 @@ uint32_t dot11f_unpack_ie_qos_map_set(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_qos_map_set. */
 
 #define SigIeQosMapSet (0x005a)
-
 
 uint32_t dot11f_unpack_ie_quiet(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
@@ -6423,7 +6284,6 @@ uint32_t dot11f_unpack_ie_quiet(tpAniSirGlobal pCtx,
 
 #define SigIeQuiet (0x005b)
 
-
 uint32_t dot11f_unpack_ie_rcpiie(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
 				 uint8_t ielen,
@@ -6446,7 +6306,6 @@ uint32_t dot11f_unpack_ie_rcpiie(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_rcpiie. */
 
 #define SigIeRCPIIE (0x005c)
-
 
 static const tFFDefn FFS_RICDataDesc[] = {
 	{ NULL, 0, 0, 0,},
@@ -6522,7 +6381,6 @@ uint32_t dot11f_unpack_ie_ric_data_desc(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ric_data_desc. */
 
 #define SigIeRICDataDesc (0x005d)
-
 
 uint32_t dot11f_unpack_ie_rsn(tpAniSirGlobal pCtx,
 			      uint8_t *pBuf,
@@ -6699,7 +6557,6 @@ uint32_t dot11f_unpack_ie_rsn(tpAniSirGlobal pCtx,
 
 #define SigIeRSN (0x005e)
 
-
 uint32_t dot11f_unpack_ie_rsniie(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
 				 uint8_t ielen,
@@ -6722,7 +6579,6 @@ uint32_t dot11f_unpack_ie_rsniie(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_rsniie. */
 
 #define SigIeRSNIIE (0x005f)
-
 
 uint32_t dot11f_unpack_ie_rsn_opaque(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
@@ -6748,7 +6604,6 @@ uint32_t dot11f_unpack_ie_rsn_opaque(tpAniSirGlobal pCtx,
 
 #define SigIeRSNOpaque (0x0060)
 
-
 uint32_t dot11f_unpack_ie_supp_channels(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint8_t ielen,
@@ -6773,7 +6628,6 @@ uint32_t dot11f_unpack_ie_supp_channels(tpAniSirGlobal pCtx,
 
 #define SigIeSuppChannels (0x0061)
 
-
 uint32_t dot11f_unpack_ie_supp_operating_classes(tpAniSirGlobal pCtx,
 					       uint8_t *pBuf,
 					       uint8_t ielen,
@@ -6797,7 +6651,6 @@ uint32_t dot11f_unpack_ie_supp_operating_classes(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_supp_operating_classes. */
 
 #define SigIeSuppOperatingClasses (0x0062)
-
 
 uint32_t dot11f_unpack_ie_supp_rates(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
@@ -6830,7 +6683,6 @@ uint32_t dot11f_unpack_ie_supp_rates(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_supp_rates. */
 
 #define SigIeSuppRates (0x0063)
-
 
 uint32_t dot11f_unpack_ie_tim(tpAniSirGlobal pCtx,
 			      uint8_t *pBuf,
@@ -6880,7 +6732,6 @@ uint32_t dot11f_unpack_ie_tim(tpAniSirGlobal pCtx,
 
 #define SigIeTIM (0x0064)
 
-
 uint32_t dot11f_unpack_ie_tpc_report(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
 				    uint8_t ielen,
@@ -6912,7 +6763,6 @@ uint32_t dot11f_unpack_ie_tpc_report(tpAniSirGlobal pCtx,
 
 #define SigIeTPCReport (0x0065)
 
-
 uint32_t dot11f_unpack_ie_tpc_request(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
 				     uint8_t ielen,
@@ -6929,7 +6779,6 @@ uint32_t dot11f_unpack_ie_tpc_request(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_tpc_request. */
 
 #define SigIeTPCRequest (0x0066)
-
 
 uint32_t dot11f_unpack_ie_time_advertisement(tpAniSirGlobal pCtx,
 					    uint8_t *pBuf,
@@ -6970,7 +6819,6 @@ uint32_t dot11f_unpack_ie_time_advertisement(tpAniSirGlobal pCtx,
 
 #define SigIeTimeAdvertisement (0x0067)
 
-
 uint32_t dot11f_unpack_ie_timeout_interval(tpAniSirGlobal pCtx,
 					  uint8_t *pBuf,
 					  uint8_t ielen,
@@ -7001,7 +6849,6 @@ uint32_t dot11f_unpack_ie_timeout_interval(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_timeout_interval. */
 
 #define SigIeTimeoutInterval (0x0068)
-
 
 uint32_t dot11f_unpack_ie_vht_ext_bss_load(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -7058,7 +6905,6 @@ uint32_t dot11f_unpack_ie_vht_ext_bss_load(tpAniSirGlobal pCtx,
 
 #define SigIeVHTExtBssLoad (0x0069)
 
-
 uint32_t dot11f_unpack_ie_vendor1_ie(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
 				    uint8_t ielen,
@@ -7076,7 +6922,6 @@ uint32_t dot11f_unpack_ie_vendor1_ie(tpAniSirGlobal pCtx,
 
 #define SigIeVendor1IE (0x006a)
 
-
 uint32_t dot11f_unpack_ie_vendor3_ie(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
 				    uint8_t ielen,
@@ -7093,7 +6938,6 @@ uint32_t dot11f_unpack_ie_vendor3_ie(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_vendor3_ie. */
 
 #define SigIeVendor3IE (0x006b)
-
 
 uint32_t dot11f_unpack_ie_wapi(tpAniSirGlobal pCtx,
 			       uint8_t *pBuf,
@@ -7209,7 +7053,6 @@ uint32_t dot11f_unpack_ie_wapi(tpAniSirGlobal pCtx,
 
 #define SigIeWAPI (0x006c)
 
-
 uint32_t dot11f_unpack_ie_wapi_opaque(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
 				     uint8_t ielen,
@@ -7233,7 +7076,6 @@ uint32_t dot11f_unpack_ie_wapi_opaque(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wapi_opaque. */
 
 #define SigIeWAPIOpaque (0x006d)
-
 
 uint32_t dot11f_unpack_ie_wfatpc(tpAniSirGlobal pCtx,
 				 uint8_t *pBuf,
@@ -7266,7 +7108,6 @@ uint32_t dot11f_unpack_ie_wfatpc(tpAniSirGlobal pCtx,
 
 #define SigIeWFATPC (0x006e)
 
-
 uint32_t dot11f_unpack_ie_wfdie_opaque(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
 				      uint8_t ielen,
@@ -7290,7 +7131,6 @@ uint32_t dot11f_unpack_ie_wfdie_opaque(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wfdie_opaque. */
 
 #define SigIeWFDIEOpaque (0x006f)
-
 
 uint32_t dot11f_unpack_ie_wmm_caps(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
@@ -7333,7 +7173,6 @@ uint32_t dot11f_unpack_ie_wmm_caps(tpAniSirGlobal pCtx,
 
 #define SigIeWMMCaps (0x0070)
 
-
 uint32_t dot11f_unpack_ie_wmm_info_ap(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
 				    uint8_t ielen,
@@ -7368,7 +7207,6 @@ uint32_t dot11f_unpack_ie_wmm_info_ap(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wmm_info_ap. */
 
 #define SigIeWMMInfoAp (0x0071)
-
 
 uint32_t dot11f_unpack_ie_wmm_info_station(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -7408,7 +7246,6 @@ uint32_t dot11f_unpack_ie_wmm_info_station(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wmm_info_station. */
 
 #define SigIeWMMInfoStation (0x0072)
-
 
 uint32_t dot11f_unpack_ie_wmm_params(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
@@ -7581,7 +7418,6 @@ uint32_t dot11f_unpack_ie_wmm_params(tpAniSirGlobal pCtx,
 
 #define SigIeWMMParams (0x0073)
 
-
 uint32_t dot11f_unpack_ie_wpa(tpAniSirGlobal pCtx,
 			      uint8_t *pBuf,
 			      uint8_t ielen,
@@ -7690,7 +7526,6 @@ uint32_t dot11f_unpack_ie_wpa(tpAniSirGlobal pCtx,
 
 #define SigIeWPA (0x0074)
 
-
 uint32_t dot11f_unpack_ie_wpa_opaque(tpAniSirGlobal pCtx,
 				    uint8_t *pBuf,
 				    uint8_t ielen,
@@ -7714,7 +7549,6 @@ uint32_t dot11f_unpack_ie_wpa_opaque(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wpa_opaque. */
 
 #define SigIeWPAOpaque (0x0075)
-
 
 static const tTLVDefn TLVS_WSC[] = {
 	{ offsetof(tDot11fIEWSC, Version), offsetof(tDot11fTLVVersion, present),
@@ -7806,7 +7640,6 @@ uint32_t dot11f_unpack_ie_wsc(tpAniSirGlobal pCtx,
 
 #define SigIeWSC (0x0076)
 
-
 static const tTLVDefn TLVS_WscAssocReq[] = {
 	{ offsetof(tDot11fIEWscAssocReq, Version), offsetof(tDot11fTLVVersion,
 	present), "Version", SigTlvVersion, DOT11F_TLV_VERSION,
@@ -7838,7 +7671,6 @@ uint32_t dot11f_unpack_ie_wsc_assoc_req(tpAniSirGlobal pCtx,
 
 #define SigIeWscAssocReq (0x0077)
 
-
 static const tTLVDefn TLVS_WscAssocRes[] = {
 	{ offsetof(tDot11fIEWscAssocRes, Version), offsetof(tDot11fTLVVersion,
 	present), "Version", SigTlvVersion, DOT11F_TLV_VERSION,
@@ -7869,7 +7701,6 @@ uint32_t dot11f_unpack_ie_wsc_assoc_res(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wsc_assoc_res. */
 
 #define SigIeWscAssocRes (0x0078)
-
 
 static const tTLVDefn TLVS_WscBeacon[] = {
 	{ offsetof(tDot11fIEWscBeacon, Version), offsetof(tDot11fTLVVersion,
@@ -7922,7 +7753,6 @@ uint32_t dot11f_unpack_ie_wsc_beacon(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wsc_beacon. */
 
 #define SigIeWscBeacon (0x0079)
-
 
 static const tTLVDefn TLVS_WscBeaconProbeRes[] = {
 	{ offsetof(tDot11fIEWscBeaconProbeRes, Version),
@@ -8001,7 +7831,6 @@ uint32_t dot11f_unpack_ie_wsc_beacon_probe_res(tpAniSirGlobal pCtx,
 
 #define SigIeWscBeaconProbeRes (0x007a)
 
-
 uint32_t dot11f_unpack_ie_wsc_ie_opaque(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
 				      uint8_t ielen,
@@ -8025,7 +7854,6 @@ uint32_t dot11f_unpack_ie_wsc_ie_opaque(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wsc_ie_opaque. */
 
 #define SigIeWscIEOpaque (0x007b)
-
 
 static const tTLVDefn TLVS_WscProbeReq[] = {
 	{ offsetof(tDot11fIEWscProbeReq, Version), offsetof(tDot11fTLVVersion,
@@ -8098,7 +7926,6 @@ uint32_t dot11f_unpack_ie_wsc_probe_req(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_wsc_probe_req. */
 
 #define SigIeWscProbeReq (0x007c)
-
 
 static const tTLVDefn TLVS_WscProbeRes[] = {
 	{ offsetof(tDot11fIEWscProbeRes, Version), offsetof(tDot11fTLVVersion,
@@ -8177,7 +8004,6 @@ uint32_t dot11f_unpack_ie_wsc_probe_res(tpAniSirGlobal pCtx,
 
 #define SigIeWscProbeRes (0x007d)
 
-
 static const tTLVDefn TLVS_WscReassocRes[] = {
 	{ offsetof(tDot11fIEWscReassocRes, Version), offsetof(tDot11fTLVVersion,
 	present), "Version", SigTlvVersion, DOT11F_TLV_VERSION,
@@ -8209,7 +8035,6 @@ uint32_t dot11f_unpack_ie_wsc_reassoc_res(tpAniSirGlobal pCtx,
 
 #define SigIeWscReassocRes (0x007e)
 
-
 uint32_t dot11f_unpack_ie_dh_parameter_element(tpAniSirGlobal pCtx,
 					       uint8_t *pBuf,
 					       uint8_t ielen,
@@ -8236,7 +8061,6 @@ uint32_t dot11f_unpack_ie_dh_parameter_element(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_dh_parameter_element. */
 
 #define SigIedh_parameter_element (0x007f)
-
 
 uint32_t dot11f_unpack_ie_ext_chan_switch_ann(tpAniSirGlobal pCtx,
 					      uint8_t *pBuf,
@@ -8285,7 +8109,6 @@ uint32_t dot11f_unpack_ie_ext_chan_switch_ann(tpAniSirGlobal pCtx,
 
 #define SigIeext_chan_switch_ann (0x0080)
 
-
 uint32_t dot11f_unpack_ie_fils_assoc_delay_info(tpAniSirGlobal pCtx,
 						 uint8_t *pBuf,
 						 uint8_t ielen,
@@ -8308,7 +8131,6 @@ uint32_t dot11f_unpack_ie_fils_assoc_delay_info(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_fils_assoc_delay_info. */
 
 #define SigIefils_assoc_delay_info (0x0081)
-
 
 uint32_t dot11f_unpack_ie_fils_hlp_container(tpAniSirGlobal pCtx,
 					     uint8_t *pBuf,
@@ -8344,7 +8166,6 @@ uint32_t dot11f_unpack_ie_fils_hlp_container(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_fils_hlp_container. */
 
 #define SigIefils_hlp_container (0x0082)
-
 
 uint32_t dot11f_unpack_ie_fils_indication(tpAniSirGlobal pCtx,
 					  uint8_t *pBuf,
@@ -8383,7 +8204,6 @@ uint32_t dot11f_unpack_ie_fils_indication(tpAniSirGlobal pCtx,
 
 #define SigIefils_indication (0x0083)
 
-
 uint32_t dot11f_unpack_ie_fils_kde(tpAniSirGlobal pCtx,
 				   uint8_t *pBuf,
 				   uint8_t ielen,
@@ -8411,7 +8231,6 @@ uint32_t dot11f_unpack_ie_fils_kde(tpAniSirGlobal pCtx,
 
 #define SigIefils_kde (0x0084)
 
-
 uint32_t dot11f_unpack_ie_fils_key_confirmation(tpAniSirGlobal pCtx,
 						 uint8_t *pBuf,
 						 uint8_t ielen,
@@ -8430,7 +8249,6 @@ uint32_t dot11f_unpack_ie_fils_key_confirmation(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_fils_key_confirmation. */
 
 #define SigIefils_key_confirmation (0x0085)
-
 
 uint32_t dot11f_unpack_ie_fils_nonce(tpAniSirGlobal pCtx,
 				     uint8_t *pBuf,
@@ -8454,7 +8272,6 @@ uint32_t dot11f_unpack_ie_fils_nonce(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_fils_nonce. */
 
 #define SigIefils_nonce (0x0086)
-
 
 uint32_t dot11f_unpack_ie_fils_public_key(tpAniSirGlobal pCtx,
 					  uint8_t *pBuf,
@@ -8483,7 +8300,6 @@ uint32_t dot11f_unpack_ie_fils_public_key(tpAniSirGlobal pCtx,
 
 #define SigIefils_public_key (0x0087)
 
-
 uint32_t dot11f_unpack_ie_fils_session(tpAniSirGlobal pCtx,
 				       uint8_t *pBuf,
 				       uint8_t ielen,
@@ -8507,7 +8323,6 @@ uint32_t dot11f_unpack_ie_fils_session(tpAniSirGlobal pCtx,
 
 #define SigIefils_session (0x0088)
 
-
 uint32_t dot11f_unpack_ie_fils_wrapped_data(tpAniSirGlobal pCtx,
 					    uint8_t *pBuf,
 					    uint8_t ielen,
@@ -8527,7 +8342,6 @@ uint32_t dot11f_unpack_ie_fils_wrapped_data(tpAniSirGlobal pCtx,
 
 #define SigIefils_wrapped_data (0x0089)
 
-
 uint32_t dot11f_unpack_ie_fragment_ie(tpAniSirGlobal pCtx,
 				      uint8_t *pBuf,
 				      uint8_t ielen,
@@ -8546,7 +8360,6 @@ uint32_t dot11f_unpack_ie_fragment_ie(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_fragment_ie. */
 
 #define SigIefragment_ie (0x008a)
-
 
 uint32_t dot11f_unpack_ie_hs20vendor_ie(tpAniSirGlobal pCtx,
 					 uint8_t *pBuf,
@@ -8604,7 +8417,6 @@ uint32_t dot11f_unpack_ie_hs20vendor_ie(tpAniSirGlobal pCtx,
 
 #define SigIehs20vendor_ie (0x008b)
 
-
 uint32_t dot11f_unpack_ie_ht2040_bss_coexistence(tpAniSirGlobal pCtx,
 						 uint8_t *pBuf,
 						 uint8_t ielen,
@@ -8634,7 +8446,6 @@ uint32_t dot11f_unpack_ie_ht2040_bss_coexistence(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_ht2040_bss_coexistence. */
 
 #define SigIeht2040_bss_coexistence (0x008c)
-
 
 uint32_t dot11f_unpack_ie_ht2040_bss_intolerant_report(tpAniSirGlobal pCtx,
 						       uint8_t *pBuf,
@@ -8668,7 +8479,6 @@ uint32_t dot11f_unpack_ie_ht2040_bss_intolerant_report(tpAniSirGlobal pCtx,
 
 #define SigIeht2040_bss_intolerant_report (0x008d)
 
-
 uint32_t dot11f_unpack_ie_osen_ie(tpAniSirGlobal pCtx,
 				  uint8_t *pBuf,
 				  uint8_t ielen,
@@ -8687,7 +8497,6 @@ uint32_t dot11f_unpack_ie_osen_ie(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_osen_ie. */
 
 #define SigIeosen_ie (0x008e)
-
 
 uint32_t dot11f_unpack_ie_sec_chan_offset_ele(tpAniSirGlobal pCtx,
 					      uint8_t *pBuf,
@@ -8711,7 +8520,6 @@ uint32_t dot11f_unpack_ie_sec_chan_offset_ele(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_sec_chan_offset_ele. */
 
 #define SigIesec_chan_offset_ele (0x008f)
-
 
 static const tFFDefn FFS_vendor_vht_ie[] = {
 	{ NULL, 0, 0, 0,},
@@ -8760,7 +8568,6 @@ uint32_t dot11f_unpack_ie_vendor_vht_ie(tpAniSirGlobal pCtx,
 } /* End dot11f_unpack_ie_vendor_vht_ie. */
 
 #define SigIevendor_vht_ie (0x0090)
-
 
 static const tFFDefn FFS_AddTSRequest[] = {
 	{ "Category", offsetof(tDot11fAddTSRequest, Category), SigFfCategory,
@@ -26099,7 +25906,6 @@ static uint32_t pack_core(tpAniSirGlobal pCtx,
 			return DOT11F_BUFFER_OVERFLOW;
 		}
 
-
 		countOffset = ((0 == pIe->arraybound) ?  1 : *(uint16_t *)(pSrc + pIe->countOffset));
 		for (i = 0; i < countOffset; ++i) {
 			len = 0U;
@@ -27664,5 +27470,4 @@ static uint32_t pack_tlv_core(tpAniSirGlobal pCtx,
 	}
 
 	return status;
-
 }

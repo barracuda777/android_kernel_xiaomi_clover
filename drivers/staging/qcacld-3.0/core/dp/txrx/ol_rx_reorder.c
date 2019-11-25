@@ -199,7 +199,6 @@ ol_rx_seq_num_check(struct ol_txrx_pdev_t *pdev,
 		return ol_rx_reorder_seq_num_check(pdev, peer, tid, seq_num);
 }
 
-
 void
 ol_rx_reorder_store(struct ol_txrx_pdev_t *pdev,
 		    struct ol_txrx_peer_t *peer,

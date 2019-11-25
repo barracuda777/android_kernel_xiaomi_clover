@@ -121,7 +121,6 @@ struct wlan_txrx_ind_req {
 	void *pUserCtxt;
 };
 
-
 /* Rx callback registered with txrx */
 typedef int (*wlan_txrx_cb_type)(void *g_cdsctx, qdf_nbuf_t buf, u8 sta_id,
 				 struct txrx_rx_metainfo *rx_meta_info);

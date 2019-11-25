@@ -27,7 +27,6 @@
 #include <cdp_txrx_cmn.h>       /* ol_txrx_pdev_t, etc. */
 #include <ol_txrx_internal.h>   /* TXRX_ASSERT */
 
-
 #define OL_TXRX_PEER_INC_REF_CNT(peer) \
 	__ol_txrx_peer_change_ref_cnt(peer, 1, __func__, __LINE__)
 

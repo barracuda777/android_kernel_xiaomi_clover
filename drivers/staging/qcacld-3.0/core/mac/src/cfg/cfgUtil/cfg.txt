@@ -171,7 +171,6 @@
 *        #define paramname_xxx    val
 *
 
-
 *
 * Station ID (changing requires restart)
 *
@@ -256,7 +255,6 @@ NONE
 V    RW    NP
 SCH
 0    65535    1
-
 
 *
 * WEP Key Length (5 or 13 bytes)
@@ -354,7 +352,6 @@ V    RW    NP
 HAL
 0    255   6
 
-
 *
 * Fragmentation Threshold
 *
@@ -366,7 +363,6 @@ HAL
 V    RW    NP
 HAL
 256    8000    8000
-
 
 *
 * Minimum Channel Time (TU)
@@ -475,7 +471,6 @@ V    RW    NP
 NONE
 0    65535    3000
 
-
 *
 * RA periodicity Timeout (TU)
 *
@@ -524,7 +519,6 @@ NV    RW    NP
 NONE
 0    1    0
 
-
 *
 * PS Data InActivity Timeout (TU)
 *
@@ -536,7 +530,6 @@ HAL
 NV    RW    NP
 NONE
 1    255    20
-
 
 *
 * RF Settling Time Clk (In US)
@@ -574,7 +567,6 @@ V    RO    NP
 NONE
 8    12 18 24 36 48 72 96 108
 
-
 *
 * PHY Mode
 *
@@ -591,7 +583,6 @@ NONE
 #ENUM  11B  1
 #ENUM  11G  2
 #ENUM  NONE 3
-
 
 *
 *The Dot11 mode can change dynamically on STA
@@ -613,11 +604,6 @@ LIM
 #ENUM  11N_ONLY      6
 #ENUM  11AC          7
 #ENUM  11AC_ONLY     8
-
-
-
-
-
 
 *
 * Operational Rate Set (goes in beacon, probe rsp and assoc req)
@@ -698,7 +684,6 @@ V    RO    NP
 NONE
 0    165    1
 
-
 *
 * For 11a or pure 11g, use 6Mbps(rateindex 11)
 * as the default beaconRateIndex and
@@ -724,7 +709,6 @@ NONE
 V    RW    NP
 NONE
 0    31    1
-
 
 * *********************************************************
 *
@@ -981,7 +965,6 @@ V    RW    NP
 NONE
 0    1    0
 
-
 *
 * ACCEPT Short Slot Association only
 *
@@ -999,7 +982,6 @@ NONE
 V    RW    NP    RESTART
 NONE
 0    1    0
-
 
 *
 * QOS Enabled (change requires restart)
@@ -1144,8 +1126,6 @@ V    RO    NP
 NONE
 6    0x4d 0x4e 0x31 0x32 0x33 0x34
 
-
-
 *
 * Model Name (from eeprom)
 * WFR4031
@@ -1159,9 +1139,6 @@ V    RO    NP
 NONE
 7    0x57 0x46 0x52 0x34 0x30 0x33 0x31
 
-
-
-
 *
 * Manufacture Product Name (from eeprom)
 *
@@ -1173,7 +1150,6 @@ NONE
 V    RO    NP
 NONE
 6    0x31 0x31 0x6e 0x2D 0x41 0x50
-
 
 *
 * Manufacture Product Version (from eeprom)
@@ -1240,7 +1216,6 @@ HAL
 #ENUM HIGH     2
 #ENUM ADAPTIVE 3
 
-
 *
 * Adaptive Threshold Algorithm
 *
@@ -1254,8 +1229,6 @@ HAL
 
 #ENUM CARRIER      1
 #ENUM CORRELATION  2
-
-
 
 *
 * Current TX Antenna
@@ -1293,11 +1266,7 @@ V    RW    NP
 NONE
 0    128    27
 
-
 *
-
-
-
 
 * Parameter to indicate or not new BSS found
 *
@@ -1310,7 +1279,6 @@ V   RW    NP
 NONE
 0    1    0
 
-
 *
 * Qualcomm Prop Rates are disabled by default
 *
@@ -1321,7 +1289,6 @@ NONE
 V    RW    NP RESTART
 NONE
 0    1    0
-
 
 *
 * AP node Name
@@ -1439,7 +1406,6 @@ LIM
 #ENUM OLBC_RIFS 14
 #ENUM OLBC_OBSS 15
 
-
 * ****************************************
 *
 * 11G Protection Enable Always
@@ -1478,11 +1444,6 @@ HAL
 #ENUM DUAL_CTS               3
 #ENUM RTS_ALWAYS             4
 #ENUM AUTO                   5
-
-
-
-
-
 
 ********************************************
 * 11G Short Preamble Enable
@@ -1547,7 +1508,6 @@ HAL
 #ENUM CAL_ON  0
 #ENUM CAL_OFF 1
 
-
 *
 * Parameter to allow 11g only STAs while operating in 11g mode
 *
@@ -1605,7 +1565,6 @@ V    RW    NP
 NONE
 0    65535    1000
 
-
  * Max SP Length indicates the max number of
  * total buffered MSDUs and MMPDUs the WMM AP
  * may deliver to WMM STA during any service period
@@ -1626,7 +1585,6 @@ NONE
 V    RW    NP
 NONE
 0    3    0
-
 
 *
 * KEEP ALIVE STA Limit Threshold , used in AP to delete the STA
@@ -1669,8 +1627,6 @@ NONE
 
 * ****************************************
 *
-
-
 
 * Background Channel List
 *   Contains pairs of {channelNumber, scanType}
@@ -1725,7 +1681,6 @@ SCH
 #ENUM CWMING_IDX 12
 #ENUM CWMAXG_IDX 14
 #ENUM TXOPG_IDX  16
-
 
 * ****************************************
 * Profile 0 (Airgo) parameters - AC_BK Local
@@ -1831,7 +1786,6 @@ V   RW  NP RESTART
 NONE
 17   0 2   0 3  0 7  100   0 7  0 15  102   0 3  0 7  100
 
-
 * ****************************************
 * Profile 1 (WME) parameters - AC_BK Local
 * ACM, AIFSN, [CWmin, CWmax, TxOp]-11A/11B/11G
@@ -1844,7 +1798,6 @@ NONE
 V   RW  NP RESTART
 NONE
 17   0 7   0 15  3 255  0   0 15  3 255  0   0 15  3 255  0
-
 
 *
 * Profile 1 (WME) parameters AC_BE Local
@@ -2017,7 +1970,6 @@ V    RW    NP  RESTART
 NONE
 0    256    60
 
-
 *************************************
 * Feature:   Channel Bonding
 *************************************
@@ -2042,7 +1994,6 @@ LIM
 #ENUM IF_NO_LEGACY_BSS 2
 #ENUM IF_NO_LEGACY_ALL 3
 #ENUM INTELLIGENT      4
-
 
 *
 *  When the channel is 40MHz wide, this CFG indicates
@@ -2123,7 +2074,6 @@ V    RW    NP
 HAL
 0    255     6
 
-
 *
 *  Trigger Station Background Scan Flag
 *
@@ -2185,7 +2135,6 @@ V    RW    NP RESTART
 LIM
 112   1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 34 1 36 1 38 1 40 1 42 1 44 1 46 1 48 1 50 1 52 0 54 0 56 0 58 0 60 0 62 0 64 0 100 0 104 0 108 0 112 0 116 0 120 0 124 0 128 0 132 0 136 0 140 0 149 1 151 1 153 1 155 1 157 1 159 1 161 1 165 1 240 1 242 1 244 1 246 1 248 1 250 1 252 1
 
-
 * ****************************************
 *
 * MIMO rates enabled (for rate adaptation, to start)
@@ -2201,8 +2150,6 @@ NIM
 
 #ENUM ENABLE  1
 #ENUM DISABLE 0
-
-
 
 *
 * BLOCK ACK Enabled (change requires restart)
@@ -2220,7 +2167,6 @@ LIM
 #ENUM DELAYED 0
 #ENUM IMMEDIATE 1
 
-
 *
 *BA Activity check global timer
 *
@@ -2232,7 +2178,6 @@ V    RW    NP
 HAL
 0    65535    1000
 
-
 *
 * Rx STBC support
 *
@@ -2243,7 +2188,6 @@ LIM
 V    RW    NP   RESTART
 LIM
 0	3	1
-
 
 *
 * 1. HT capabilities Info: 2 bytes size
@@ -2341,7 +2285,6 @@ LIM
 #ENUM HTC_SUPPORT            10
 #ENUM RD_RESPONDER           11
 #ENUM RESERVED2                12
-
 
 *
 * 5. Transmit Beam Forming Capabiliries Info: 4 bytes size
@@ -2477,8 +2420,6 @@ LIM
 V    RW    P    RESTART
 LIM
 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-
-
 
 *
 * Greenfield Capability
@@ -2873,7 +2814,6 @@ LIM
 #ENUM SHORT_3839_BYTES   0
 #ENUM LONG_7935__BYTES   1
 
-
 *
 * Minimum MPDU Start Spacing
 * Determines the minimum time between the start of adjacent MPDUs within an AMPDU.
@@ -2922,7 +2862,6 @@ V    RW    NP    RESTART
 LIM
 0    3    3
 
-
 *
 * Short GI support for the reception of 20Mhz packets
 * By default it is enabled
@@ -2935,10 +2874,8 @@ V    RW    NP    RESTART
 LIM
 0    1    1
 
-
 #ENUM ENABLE    1
 #ENUM DISABLE   0
-
 
 *
 * Short GI support for the reception of 40Mhz packets
@@ -2952,10 +2889,8 @@ V    RW    NP    RESTART
 LIM
 0    1    1
 
-
 #ENUM ENABLE    1
 #ENUM DISABLE   0
-
 
 *
 * RIFS support on TX Side
@@ -2972,7 +2907,6 @@ NONE
 #ENUM ENABLE  1
 #ENUM DISABLE 0
 
-
 * *********************************************************
 *
 * Power Save Configuration
@@ -2985,7 +2919,6 @@ NV    RW    NP
 LIM
 0     255     0
 
-
 WNI_CFG_NUM_BEACON_PER_RSSI_AVERAGE    I    4    5
 V    RW    NP
 LIM
@@ -2993,7 +2926,6 @@ LIM
 NV    RW    NP
 LIM
 1    20    20
-
 
 *
 * Period for which Firmware will collect the
@@ -3009,7 +2941,6 @@ NV    RW    NP
 LIM
 0    255    5
 
-
 WNI_CFG_MIN_RSSI_THRESHOLD    I    4    5
 V    RW    NP
 LIM
@@ -3017,7 +2948,6 @@ LIM
 NV    RW    NP
 LIM
 0    10    10
-
 
 WNI_CFG_NTH_BEACON_FILTER    I    4    5
 V    RW    NP
@@ -3027,7 +2957,6 @@ NV    RW    NP
 LIM
 0    255    10
 
-
 WNI_CFG_BROADCAST_FRAME_FILTER_ENABLE    I    4    5
 V    RW    NP
 LIM
@@ -3036,7 +2965,6 @@ NV    RW    NP
 LIM
 0    1    0
 
-
 WNI_CFG_SCAN_IN_POWERSAVE    I    4    5
 V    RW    NP
 LIM
@@ -3044,7 +2972,6 @@ LIM
 V    RW    NP
 LIM
 0    1    1
-
 
 *
 * Ignore DTIM support - If disabled(value=0), HAL will
@@ -3075,7 +3002,6 @@ NV    RW    NP
 NONE
 0     1     0
 
-
 WNI_CFG_WOWLAN_CHANNEL_SWITCH_ENABLE    I    4    5
 V    RW    NP
 NONE
@@ -3083,7 +3009,6 @@ NONE
 NV    RW    NP
 NONE
 0     1     0
-
 
 WNI_CFG_WOWLAN_DEAUTH_ENABLE    I    4    5
 V    RW    NP
@@ -3093,7 +3018,6 @@ NV    RW    NP
 NONE
 0     1     0
 
-
 WNI_CFG_WOWLAN_DISASSOC_ENABLE    I    4    5
 V    RW    NP
 NONE
@@ -3101,7 +3025,6 @@ NONE
 NV    RW    NP
 NONE
 0     1     0
-
 
 WNI_CFG_WOWLAN_MAX_MISSED_BEACON   I    4    5
 V    RW    NP
@@ -3124,7 +3047,6 @@ NV    RW    NP
 NONE
 0    65535    65535
 
-
 *
 * BA timeout in TUs, set to 1 minute = approx 58593 TUs
 * 16 bit wide
@@ -3136,7 +3058,6 @@ HAL
 V    RW    NP
 HAL
 0    0xffff    0
-
 
 *
 * This threshold is registered with a traffic monitoring interface (probably HAL),
@@ -3154,7 +3075,6 @@ V    RW    NP
 HAL
 0    0xffff    0x80
 
-
 *
 * MAX BA Buffers to be allocated.
 * This count is system wide.
@@ -3168,7 +3088,6 @@ V    RW    NP
 HAL
 0    2560    2560
 
-
 *
 * MAX BA Sessions.
 * This count is system wide.
@@ -3181,7 +3100,6 @@ HAL
 V    RW    NP
 HAL
 0    64    40
-
 
 *
 * BA setup based on Traffic
@@ -3220,7 +3138,6 @@ V    RW    NP
 LIM
 55   36 40 44 48 52 56 60 64 1 6 11 34 38 42 46 2 3 4 5 7 8 9 10 12 13 14 100 104 108 112 116 120 124 128 132 136 140 149 151 153 155 157 159 161 50 54 58 62 240 242 244 246 248 250 252
 
-
 *
 * AMPDU default TX medium Time (in us)
 *
@@ -3232,7 +3149,6 @@ V    RW    NP
 HAL
 0    65535    2048
 
-
 *
 * Maximum number of MPDUs in single A-MPDU.
 *
@@ -3243,7 +3159,6 @@ HAL
 V    RW    NP
 HAL
 0    65535    64
-
 
 *
 * Auto BSSID - When set, BSSID is generated automatically in IBSS, else BSSID in cfg will be used.
@@ -3367,7 +3282,6 @@ V    RW    NP
 NONE
 0 0
 
-
 *
 * Include Additional IEs in probe response/beacon.
 *
@@ -3379,7 +3293,6 @@ V    RW    NP
 LIM
 0 1 0
 
-
 *
 * Include Additional IEs in probe response/beacon.
 *
@@ -3390,7 +3303,6 @@ LIM
 V    RW    NP
 LIM
 0 0
-
 
 *
 * wpsApEnable and wpsStaEnable is specified in here
@@ -3851,7 +3763,6 @@ V    RW    NP
 HAL
 0    2    1
 
-
 *
 * Single RC for all TID
 *
@@ -3961,7 +3872,6 @@ HAL
 V    RW    NP
 HAL
 0    1    0
-
 
 *
 *  Config parameter for Transient LI
@@ -4292,7 +4202,6 @@ NONE
 V    RW   NP RESTART
 NONE
 10    2000 200
-
 
 *
 *MCC ENABLE/DISABLE ADAPTIVE RX Drain feature

@@ -64,7 +64,6 @@ enum essid_bcast_type {
 	eBCAST_HIDDEN = 2,
 };
 
-
 /**
  * hdd_scan_info_t - HDD scan info
  * @dev: Pointer to net device
@@ -3136,7 +3135,6 @@ static int __wlan_hdd_vendor_abort_scan(struct wiphy *wiphy,
 	return 0;
 }
 
-
 /**
  * wlan_hdd_vendor_abort_scan() - API to process vendor command for
  * abort scan
@@ -3415,7 +3413,6 @@ static int __wlan_hdd_cfg80211_sched_scan_start(struct wiphy *wiphy,
 		hdd_info("enable_connected_scan is false, Aborting scan");
 		return -EBUSY;
 	}
-
 
 	if (!sme_is_session_id_valid(pHddCtx->hHal, pAdapter->sessionId))
 		return -EINVAL;

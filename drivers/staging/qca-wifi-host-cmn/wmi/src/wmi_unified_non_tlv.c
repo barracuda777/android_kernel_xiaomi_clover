@@ -1540,7 +1540,6 @@ QDF_STATUS send_beacon_send_cmd_non_tlv(wmi_unified_t wmi_handle,
 			return QDF_STATUS_E_NOMEM;
 		}
 
-
 		cmd = (wmi_bcn_send_from_host_cmd_t *)wmi_buf_data(wmi_buf);
 		cmd->vdev_id = param->vdev_id;
 		cmd->data_len = bcn_len;
@@ -2037,7 +2036,6 @@ QDF_STATUS send_scan_chan_list_cmd_non_tlv(wmi_unified_t wmi_handle,
 	cmd = (wmi_scan_chan_list_cmd *)wmi_buf_data(buf);
 	cmd->num_scan_chans = param->nallchans;
 	OS_MEMZERO(cmd->chan_info, sizeof(wmi_channel)*cmd->num_scan_chans);
-
 
 	for (i = 0; i < param->nallchans; ++i) {
 		cmd->chan_info[i].mhz = param->ch_param[i].mhz;
@@ -2825,7 +2823,6 @@ send_mgmt_cmd_non_tlv(wmi_unified_t wmi_handle,
 	cmd->hdr.vdev_id = param->vdev_id;
 	WMI_CHAR_ARRAY_TO_MAC_ADDR(param->macaddr, &cmd->hdr.peer_macaddr);
 	cmd->hdr.buf_len = param->frm_len;
-
 
 #ifdef BIG_ENDIAN_HOST
 	{
@@ -4522,7 +4519,6 @@ send_rtt_meas_req_test_cmd_non_tlv(wmi_unified_t wmi_handle,
 	head->channel.band_center_freq1 = param->channel.cfreq1;
 	head->channel.band_center_freq2 = param->channel.cfreq2;
 
-
 	w_chan = (wmi_channel *)&head->channel;
 	WMI_SET_CHANNEL_MODE(w_chan, param->channel.phy_mode);
 	WMI_SET_CHANNEL_MIN_POWER(w_chan, param->channel.minpower);
@@ -4695,7 +4691,6 @@ send_rtt_meas_req_cmd_non_tlv(wmi_unified_t wmi_handle,
 		WMI_RTT_BW_SET(body->control_flag, WMI_RTT_BW_20);
 	WMI_RTT_PREAMBLE_SET(body->control_flag, req_preamble);
 	WMI_RTT_MEAS_NUM_SET(body->measure_info, param->num_probe_rqst);
-
 
 	ret = wmi_unified_cmd_send(wmi_handle, buf, len, WMI_RTT_MEASREQ_CMDID);
 	qdf_print("send rtt cmd to FW with length %d and return %d\n",
@@ -6431,7 +6426,6 @@ QDF_STATUS extract_single_phyerr_non_tlv(wmi_unified_t wmi_handle,
 				WMI_UNIFIED_RSSI_CHAN_GET(&ev->hdr, 3, SEC20),
 				WMI_UNIFIED_RSSI_CHAN_GET(&ev->hdr, 3, SEC40),
 				WMI_UNIFIED_RSSI_CHAN_GET(&ev->hdr, 3, SEC80));
-
 
 		qdf_print(
 			"%s: freq_info_1=0x%08x, freq_info_2=0x%08x\n",

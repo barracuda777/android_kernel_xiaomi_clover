@@ -79,7 +79,6 @@
 #define WMA_SET_VDEV_IE_SOURCE_HOST 0x0
 #define WMI_TLV_HEADER_MASK		0xFFFF0000
 
-
 static const uint8_t arp_ptrn[] = {0x08, 0x06};
 static const uint8_t arp_mask[] = {0xff, 0xff};
 static const uint8_t ns_ptrn[] = {0x86, 0xDD};
@@ -579,7 +578,6 @@ static QDF_STATUS wma_lphb_conf_hbenable(tp_wma_handle wma_handle,
 		return QDF_STATUS_E_FAILURE;
 	}
 
-
 	/* fill in values */
 	hb_enable_fp.vdev_id = ts_lphb_enable->session;
 	hb_enable_fp.enable = ts_lphb_enable->enable;
@@ -635,7 +633,6 @@ static QDF_STATUS wma_lphb_conf_tcp_params(tp_wma_handle wma_handle,
 	int status = 0;
 	tSirLPHBTcpParamStruct *ts_lphb_tcp_param;
 	wmi_hb_set_tcp_params_cmd_fixed_param hb_tcp_params_fp = {0};
-
 
 	if (lphb_conf_req == NULL) {
 		WMA_LOGE("%s : LPHB configuration is NULL", __func__);
@@ -809,7 +806,6 @@ static QDF_STATUS wma_lphb_conf_udp_pkt_filter(tp_wma_handle wma_handle,
 		ts_lphb_udp_filter->filter[0], ts_lphb_udp_filter->filter[1],
 		ts_lphb_udp_filter->filter[2], ts_lphb_udp_filter->filter[3],
 		ts_lphb_udp_filter->filter[4], ts_lphb_udp_filter->filter[5]);
-
 
 	/* fill in values */
 	hb_udp_filter_fp.vdev_id = ts_lphb_udp_filter->session;
@@ -2107,7 +2103,6 @@ QDF_STATUS wma_start_oem_data_req(tp_wma_handle wma_handle,
 }
 #endif /* FEATURE_OEM_DATA_SUPPORT */
 
-
 /**
  * dfs_phyerr_offload_event_handler() - dfs radar rx event handler
  * @handle: wma handle
@@ -2978,7 +2973,6 @@ static QDF_STATUS spectral_process_phyerr(tp_wma_handle wma, uint8_t *data,
 		params.chain_ext_rssi[2] = p_rfqual->pc_rssi_info[2].rssi_sec20;
 	}
 
-
 	/*
 	 * XXX : This actually depends on the programmed chain mask
 	 *	 For iHelium, the maximum number of chain is 2
@@ -3217,7 +3211,6 @@ QDF_STATUS wma_extract_single_phyerr_spectral(void *handle,
 				WMI_UNIFIED_RSSI_CHAN_GET(&ev->hdr, 3, SEC20),
 				WMI_UNIFIED_RSSI_CHAN_GET(&ev->hdr, 3, SEC40),
 				WMI_UNIFIED_RSSI_CHAN_GET(&ev->hdr, 3, SEC80));
-
 
 		WMA_LOGD("%s: freq_info_1=0x%08x, freq_info_2=0x%08x",
 			   __func__, ev->hdr.freq_info_1, ev->hdr.freq_info_2);
@@ -5521,7 +5514,6 @@ void wma_register_wow_default_patterns(WMA_HANDLE handle, uint8_t vdev_id)
 	}
 }
 
-
 /**
  * wma_register_wow_wakeup_events() - register vdev specific wake events with fw
  * @handle: Pointer to wma handle
@@ -6612,7 +6604,6 @@ QDF_STATUS wma_disable_wow_in_fw(WMA_HANDLE handle)
 
 	return ret;
 }
-
 
 /**
  * wma_is_wow_mode_selected() - check if wow needs to be enabled in fw
@@ -9590,7 +9581,6 @@ void wma_dfs_configure_channel(struct ieee80211com *dfs_ic,
 	return;
 }
 
-
 /**
  * wma_set_dfs_region() - set DFS region
  * @wma: wma handle
@@ -9695,7 +9685,6 @@ static int wma_get_channels(struct dfs_ieee80211_channel *ichan,
 
 	return chan_list->nchannels;
 }
-
 
 /**
  * wma_dfs_indicate_radar() - Indicate Radar to SAP/HDD
@@ -11162,7 +11151,6 @@ QDF_STATUS wma_send_udp_resp_offload_cmd(tp_wma_handle wma_handle,
 	resp_len = (response_len % 4) ?
 			(4 * ((response_len / 4) + 1)) : (response_len);
 
-
 	len = sizeof(*cmd) + udp_len + resp_len + 2 * WMI_TLV_HDR_SIZE;
 	buf = wmi_buf_alloc(wma_handle->wmi_handle, len);
 	if (!buf) {
@@ -11182,7 +11170,6 @@ QDF_STATUS wma_send_udp_resp_offload_cmd(tp_wma_handle wma_handle,
 	cmd->dest_port = udp_response->dest_port;
 	cmd->pattern_len = pattern_len;
 	cmd->response_len = response_len;
-
 
 	WMITLV_SET_HDR((A_UINT32 *)(cmd + 1),
 			WMITLV_TAG_ARRAY_BYTE,
@@ -11524,7 +11511,6 @@ int wma_rx_aggr_failure_event_handler(void *handle, u_int8_t *event_buf,
 
 	return 0;
 }
-
 
 bool wma_dual_beacon_on_single_mac_scc_capable(void)
 {

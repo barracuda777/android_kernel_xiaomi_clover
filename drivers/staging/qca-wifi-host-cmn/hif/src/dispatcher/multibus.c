@@ -172,7 +172,6 @@ void hif_bus_prevent_linkdown(struct hif_softc *hif_sc, bool flag)
 	hif_sc->bus_ops.hif_bus_prevent_linkdown(hif_sc, flag);
 }
 
-
 void hif_reset_soc(struct hif_opaque_softc *hif_ctx)
 {
 	struct hif_softc *hif_sc = HIF_GET_SOFTC(hif_ctx);
@@ -425,4 +424,3 @@ int hif_bus_reset_resume(struct hif_opaque_softc *scn)
 
 	return hif_sc->bus_ops.hif_bus_reset_resume(hif_sc);
 }
-

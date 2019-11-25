@@ -425,7 +425,6 @@ static int wlan_hdd_probe(struct device *dev, void *bdev, const struct hif_bus_i
 	mutex_unlock(&hdd_init_deinit_lock);
 	return 0;
 
-
 err_hdd_deinit:
 	pr_err("probe/reinit failure counts %hhu/%hhu",
 		probe_fail_cnt, re_init_fail_cnt);
@@ -1071,7 +1070,6 @@ process_failure:
 	return status;
 }
 
-
 /**
  * wlan_hdd_runtime_suspend() - suspend the wlan bus without apps suspend
  *
@@ -1275,7 +1273,6 @@ static int wlan_hdd_pld_resume(struct device *dev,
 	return wlan_hdd_bus_resume();
 }
 
-
 /**
  * wlan_hdd_pld_suspend_noirq() - handle suspend no irq
  * @dev: device
@@ -1364,7 +1361,6 @@ static void wlan_hdd_purge_notifier(void)
 	EXIT();
 }
 
-
 /**
  * hdd_cleanup_on_fw_down() - cleanup on FW down event
  *
@@ -1420,7 +1416,6 @@ static void wlan_hdd_pld_uevent(struct device *dev,
 	hdd_context_t *hdd_ctx;
 
 	ENTER();
-
 
 	hdd_info("pld event %d", uevent->uevent);
 

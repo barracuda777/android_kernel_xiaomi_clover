@@ -118,7 +118,6 @@
 #define RESP_TYPE_AP                         (0x3)
 #define LIM_TX_FRAMES_THRESHOLD_ON_CHIP       300
 
-
 #define HAL_TXCOMP_REQUESTED_MASK           0x1 /* bit 0 for TxComp intr requested. */
 #define HAL_USE_SELF_STA_REQUESTED_MASK     0x2 /* bit 1 for STA overwrite with selfSta Requested. */
 #define HAL_TX_NO_ENCRYPTION_MASK           0x4 /* bit 2. If set, the frame is not to be encrypted */
@@ -135,7 +134,6 @@
 #ifdef FEATURE_WLAN_TDLS
 #define HAL_TDLS_PEER_STA_MASK              0x80        /* bit 7 set for TDLS peer station */
 #endif
-
 
 /* enums used by LIM are as follows */
 
@@ -652,7 +650,6 @@ void lim_set_channel(tpAniSirGlobal pMac, uint8_t channel,
 		uint8_t ch_center_freq_seg0, uint8_t ch_center_freq_seg1,
 		enum phy_ch_width ch_width, int8_t maxTxPower,
 		uint8_t peSessionId);
-
 
 /* / Function that completes channel scan */
 void lim_complete_mlm_scan(tpAniSirGlobal, tSirResultCodes);

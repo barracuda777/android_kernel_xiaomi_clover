@@ -58,7 +58,6 @@ typedef struct sk_buff *__qdf_nbuf_t;
 #define QDF_NBUF_CB_PACKET_TYPE_ICMP   5
 #define QDF_NBUF_CB_PACKET_TYPE_ICMPv6 6
 
-
 /* mark the first packet after wow wakeup */
 #define QDF_MARK_FIRST_WAKEUP_PACKET   0x80000000
 
@@ -316,7 +315,6 @@ struct qdf_nbuf_cb {
 	(((struct qdf_nbuf_cb *)((skb)->cb))->u.tx.dev.win.fctx)
 #define QDF_NBUF_CB_TX_VDEV_CTX(skb) \
 		(((struct qdf_nbuf_cb *)((skb)->cb))->u.tx.dev.win.vdev_ctx)
-
 
 /* assume the OS provides a single fragment */
 #define __qdf_nbuf_get_num_frags(skb)		   \
@@ -723,7 +721,6 @@ static inline void __qdf_nbuf_trim_tail(struct sk_buff *skb, size_t size)
 	return skb_trim(skb, skb->len - size);
 }
 
-
 /*
  * prototypes. Implemented in qdf_nbuf.c
  */
@@ -773,7 +770,6 @@ static inline struct sk_buff *__qdf_nbuf_copy(struct sk_buff *skb)
 }
 
 #define __qdf_nbuf_reserve      skb_reserve
-
 
 /**
  * __qdf_nbuf_head() - return the pointer the skb's head pointer
@@ -1277,7 +1273,6 @@ __qdf_nbuf_queue_free(__qdf_nbuf_queue_t *qhead)
 		__qdf_nbuf_free(buf);
 	return QDF_STATUS_SUCCESS;
 }
-
 
 /**
  * __qdf_nbuf_queue_first() - returns the first skb in the queue

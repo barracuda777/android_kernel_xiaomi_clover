@@ -106,7 +106,6 @@ typedef TAILQ_HEAD(ol_tx_frms_queue_list_s, ol_tx_frms_queue_t)
 #define OL_TX_SCHED OL_TX_SCHED_WRR_ADV /* default */
 #endif
 
-
 #if OL_TX_SCHED == OL_TX_SCHED_RR
 
 #define ol_tx_sched_rr_t ol_tx_sched_t
@@ -977,7 +976,6 @@ ol_tx_sched_txq_discard_wrr_adv(
 	if (0 == txq->frms)
 		TAILQ_REMOVE(&category->state.head, txq, list_elem);
 
-
 	category->state.frms -= frames;
 	category->state.bytes -= bytes;
 	OL_TX_SCHED_WRR_ADV_CAT_STAT_INC_DISCARD(category, frames);
@@ -1112,7 +1110,6 @@ ol_tx_sched_init_wrr_adv(
 	return scheduler;
 }
 
-
 /* WMM parameters are suppposed to be passed when associate with AP.
  * According to AIFS+CWMin, the function maps each queue to one of four default
  * settings of the scheduler, ie. VO, VI, BE, or BK.
@@ -1164,7 +1161,6 @@ ol_txrx_set_wmm_param(ol_txrx_pdev_handle data_pdev,
 			ac_selected = OL_TX_SCHED_WRR_ADV_CAT_BE;
 		else
 			ac_selected = OL_TX_SCHED_WRR_ADV_CAT_BK;
-
 
 		scheduler->categories[i].specs.wrr_skip_weight =
 			def_cfg.categories[ac_selected].specs.wrr_skip_weight;
@@ -1261,7 +1257,6 @@ ol_tx_sched_discard_select(
 		/* No More pending Tx Packets in Tx Queue. Exit Discard loop */
 		return 0;
 
-
 	if (force == false) {
 		/*
 		 * Now decide how many frames to discard from this peer-TID.
@@ -1273,7 +1268,6 @@ ol_tx_sched_discard_select(
 #define OL_TX_DISCARD_QUANTUM 10
 		if (OL_TX_DISCARD_QUANTUM < frms)
 			frms = OL_TX_DISCARD_QUANTUM;
-
 
 		if (txq->frms > 1 && frms >= (txq->frms >> 1))
 			frms = txq->frms >> 1;
@@ -1544,7 +1538,6 @@ ol_tx_sched_log(struct ol_txrx_pdev_t *pdev)
 	if (credit == 0)
 		return;
 
-
 	/*
 	 * See how many TIDs are active, so queue state can be stored only
 	 * for those TIDs.
@@ -1561,7 +1554,6 @@ ol_tx_sched_log(struct ol_txrx_pdev_t *pdev)
 	/* don't bother recording state if there are no active queues */
 	if (num_cats_active == 0)
 		return;
-
 
 	ol_tx_queue_log_sched(pdev, credit, &num_cats_active,
 			      &active_bitmap, &buf);

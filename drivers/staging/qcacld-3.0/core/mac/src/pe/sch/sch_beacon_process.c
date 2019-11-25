@@ -827,7 +827,6 @@ static void __sch_beacon_process_for_session(tpAniSirGlobal mac_ctx,
 	pe_debug("RegMax = %d, MaxTx pwr = %d",
 			regMax, maxTxPower);
 
-
 	/* If maxTxPower is increased or decreased */
 	if (maxTxPower != session->maxTxPower) {
 		pe_debug(

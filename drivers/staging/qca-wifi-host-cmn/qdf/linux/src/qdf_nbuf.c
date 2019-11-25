@@ -1334,7 +1334,6 @@ uint8_t *__qdf_nbuf_get_dns_domain_name(uint8_t *data, uint32_t len)
 	return domain_name;
 }
 
-
 /**
  * __qdf_nbuf_data_is_dns_query() - check if skb data is a dns query
  * @data: Pointer to network data buffer
@@ -1575,7 +1574,6 @@ uint32_t __qdf_nbuf_get_icmpv4_tgt_ip(uint8_t *data)
 
 	return tgt_ip;
 }
-
 
 /**
  * __qdf_nbuf_data_is_ipv6_pkt() - check if it is IPV6 packet.
@@ -2506,7 +2504,6 @@ static uint8_t __qdf_nbuf_get_tso_cmn_seg_info(qdf_device_t osdev,
 	return 0;
 }
 
-
 /**
  * qdf_dmaaddr_to_32s - return high and low parts of dma_addr
  *
@@ -3306,7 +3303,6 @@ __qdf_nbuf_dmamap_set_cb(__qdf_dma_map_t dmap, void *cb, void *arg)
 	return;
 }
 qdf_export_symbol(__qdf_nbuf_dmamap_set_cb);
-
 
 #ifndef REMOVE_INIT_DEBUG_CODE
 /**

@@ -28,7 +28,6 @@
  * Are listed for each API below.
  */
 
-
 #ifndef __DFS_PHYERR_H__
 #define __DFS_PHYERR_H__
 

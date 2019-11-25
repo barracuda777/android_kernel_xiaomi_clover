@@ -64,6 +64,5 @@ A_STATUS process_rate_find(void *pdev, void *data);
 A_STATUS process_rate_update(void *pdev, void *data);
 A_STATUS process_sw_event(void *pdev, void *data);
 
-
 #endif /* REMOVE_PKT_LOG */
 #endif

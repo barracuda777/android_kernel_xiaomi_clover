@@ -144,7 +144,6 @@ static inline bool qdf_is_macaddr_equal(struct qdf_mac_addr *mac_addr1,
 	return __qdf_is_macaddr_equal(mac_addr1, mac_addr2);
 }
 
-
 /**
  * qdf_is_macaddr_zero() - check for a MacAddress of all zeros.
  * @mac_addr: pointer to the struct qdf_mac_addr to check.
@@ -175,7 +174,6 @@ static inline void qdf_zero_macaddr(struct qdf_mac_addr *mac_addr)
 	__qdf_zero_macaddr(mac_addr);
 }
 
-
 /**
  * qdf_is_macaddr_group() - check for a MacAddress is a 'group' address
  * @mac_addr1: pointer to the qdf MacAddress to check
@@ -192,7 +190,6 @@ static inline bool qdf_is_macaddr_group(struct qdf_mac_addr *mac_addr)
 {
 	return mac_addr->bytes[0] & 0x01;
 }
-
 
 /**
  * qdf_is_macaddr_broadcast() - check for a MacAddress is a broadcast address

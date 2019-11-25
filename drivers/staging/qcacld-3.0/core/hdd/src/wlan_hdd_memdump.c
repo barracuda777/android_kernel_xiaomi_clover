@@ -31,7 +31,6 @@
 #include <linux/proc_fs.h> /* Necessary because we use the proc fs */
 #include <linux/uaccess.h> /* for copy_to_user */
 
-
 #ifdef MULTI_IF_NAME
 #define PROCFS_DRIVER_DUMP_DIR "debugdriver" MULTI_IF_NAME
 #else
@@ -41,7 +40,6 @@
 #define PROCFS_DRIVER_DUMP_PERM 0444
 
 static struct proc_dir_entry *proc_file_driver, *proc_dir_driver;
-
 
 /** memdump_get_file_data() - get data available in proc file
  *
@@ -84,7 +82,6 @@ static void hdd_driver_mem_cleanup(void)
 		hdd_ctx->driver_dump_mem = NULL;
 	}
 }
-
 
 /**
  * __hdd_driver_memdump_read() - perform read operation in driver

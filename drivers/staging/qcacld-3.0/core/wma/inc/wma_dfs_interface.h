@@ -186,7 +186,6 @@ enum DFS_HWBD_ID {
 	DFS_HWBD_QCA2582 = 2,
 };
 
-
 /**
  * struct ieee80211com - per device structure
  * @ic_opmode: operation mode

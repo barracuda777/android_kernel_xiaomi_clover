@@ -2689,7 +2689,6 @@ static void hdd_tx_fail_ind_callback(uint8_t *MacAddr, uint8_t seqNo)
 	}
 }
 
-
 /**
  * hdd_ParseuserParams - return a pointer to the next argument
  * @pValue:	Input argument string
@@ -3537,7 +3536,6 @@ static int drv_cmd_set_roam_mode(hdd_adapter_t *adapter,
 			(tHalHandle)(hdd_ctx->hHal),
 			hdd_ctx->config->isRoamOffloadScanEnabled);
 	}
-
 
 exit:
 	return ret;
@@ -5023,7 +5021,6 @@ static int drv_cmd_set_ibss_beacon_oui_data(hdd_adapter_t *adapter,
 	tCsrRoamProfile *pRoamProfile;
 	hdd_wext_state_t *pWextState;
 
-
 	if (QDF_IBSS_MODE != adapter->device_mode) {
 		hdd_debug("Device_mode %s(%d) not IBSS",
 			  hdd_device_mode_to_string(adapter->device_mode),
@@ -5034,7 +5031,6 @@ static int drv_cmd_set_ibss_beacon_oui_data(hdd_adapter_t *adapter,
 	pWextState = WLAN_HDD_GET_WEXT_STATE_PTR(adapter);
 
 	hdd_debug("received command %s", ((char *)value));
-
 
 	/* validate argument of command */
 	if (strlen(value) <= command_len) {
@@ -6412,7 +6408,6 @@ static int hdd_set_rx_filter(hdd_adapter_t *adapter, bool action,
 		(adapter->device_mode == QDF_P2P_CLIENT_MODE)) &&
 		adapter->mc_addr_list.mc_cnt &&
 		hdd_conn_is_connected(WLAN_HDD_GET_STATION_CTX_PTR(adapter))) {
-
 
 		filter = qdf_mem_malloc(sizeof(*filter));
 		if (NULL == filter) {

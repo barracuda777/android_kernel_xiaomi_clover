@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -83,7 +82,6 @@
 #define QCA9984_HOST_INTEREST_ADDRESS               0x00400800
 #define IPQ4019_HOST_INTEREST_ADDRESS               0x00400800
 #define QCA9888_HOST_INTEREST_ADDRESS               0x00400800
-
 
 #define HOST_INTEREST_MAX_SIZE          0x200
 
@@ -345,7 +343,6 @@ PREPACK64 struct host_interest_s {
 #define HI_OPTION_ALL_FW_SUBMODE_MASK  0xFF00
 #define HI_OPTION_ALL_FW_SUBMODE_SHIFT 0x8
 
-
 /* hi_option_flag2 options */
 #define HI_OPTION_OFFLOAD_AMSDU     0x01
 #define HI_OPTION_DFS_SUPPORT       0x02 /* Enable DFS support */
@@ -390,7 +387,6 @@ PREPACK64 struct host_interest_s {
 
 #define GPIO_WAKEUP_ENABLED() \
     (HOST_INTEREST->hi_option_flag2 & HT_OPTION_GPIO_WAKEUP_SUPPORT)
-
 
 /* hi_reset_flag */
 #define HI_RESET_FLAG_PRESERVE_APP_START         0x01  /* preserve App Start address */
@@ -439,7 +435,6 @@ PREPACK64 struct host_interest_s {
 /* AP nart no swap descriptor flag. Decsriptors are created on the target processor. */
 #define DESC_IN_FW() \
         (HOST_INTEREST->hi_fw_swap & HI_DESC_IN_FW_BIT)
-
 
 /* redefine for hi_acs_flags since no product ever use it
  * NOTE:
@@ -501,7 +496,6 @@ PREPACK64 struct host_interest_s {
 #define HOST_INTEREST_SMPS_SET_LOWPWR_CM()   ((HOST_INTEREST->hi_smps_options & HI_SMPS_LOWPWR_CM_MASK) >> HI_SMPS_LOWPWR_CM_SHIFT)
 #define HOST_INTEREST_SMPS_SET_HIPWR_CM() ((HOST_INTEREST->hi_smps_options << HI_SMPS_HIPWR_CM_MASK) & HI_SMPS_HIPWR_CM_SHIFT)
 #define HOST_INTEREST_SMPS_IS_AUTO_MODE_DISABLED() (HOST_INTEREST->hi_smps_options & HI_SMPS_DISABLE_AUTO_MODE)
-
 
 /* WOW Extension configuration
  *

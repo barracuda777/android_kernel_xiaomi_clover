@@ -454,7 +454,6 @@ csr_issue_11d_scan(tpAniSirGlobal mac_ctx, tSmeCmd *scan_cmd,
 	mac_ctx->scan.scanProfile.numOfChannels =
 		scan_11d_cmd->u.scanCmd.u.scanRequest.ChannelInfo.numOfChannels;
 
-
 	status = csr_queue_sme_command(mac_ctx, scan_11d_cmd, false);
 	if (!QDF_IS_STATUS_SUCCESS(status)) {
 		sme_err("Failed to send message status = %d",
@@ -574,7 +573,6 @@ QDF_STATUS csr_scan_request(tpAniSirGlobal pMac, uint16_t sessionId,
 		csr_scan_2g_only_request(pMac, scan_cmd, scan_req);
 		pMac->first_scan_done = true;
 	}
-
 
 	if (cfg_prm->nInitialDwellTime) {
 		scan_req->maxChnTime = cfg_prm->nInitialDwellTime;
@@ -2549,7 +2547,6 @@ csr_parse_scan_results(tpAniSirGlobal pMac,
 	enum cds_con_mode new_mode;
 	uint8_t weight_list[QDF_MAX_NUM_CHAN];
 
-
 	csr_ll_lock(&pMac->scan.scanResultList);
 
 	if (pFilter && (0 == pFilter->BSSIDs.numOfBSSIDs)) {
@@ -3228,7 +3225,6 @@ static void csr_check_n_save_wsc_ie(tpAniSirGlobal pMac,
 	}
 }
 
-
 /**
  * csr_check_hidden_ssid_entry() - Used for checking if probersp entry for
  * hidden ssid ap has existed or not.
@@ -3261,7 +3257,6 @@ static bool csr_check_hidden_ssid_entry(tpAniSirGlobal mac_ctx,
 							&p_ies_new);
 	if (!QDF_IS_STATUS_SUCCESS(status))
 		goto free_ies;
-
 
 	if (p_ies_old->SSID.present && p_ies_new->SSID.present
 		&& csr_is_nullssid(
@@ -3734,7 +3729,6 @@ csr_remove_from_tmp_list(tpAniSirGlobal mac_ctx,
 	} /* end of loop */
 }
 
-
 static bool is_us_country(uint8_t *country_code)
 {
 	if ((country_code[0] == 'U') &&
@@ -3809,7 +3803,6 @@ algo_done:
 
 	return ctry_11d_found;
 }
-
 
 static void csr_move_temp_scan_results_to_main_list(tpAniSirGlobal pMac,
 						    uint8_t reason,
@@ -4302,7 +4295,6 @@ QDF_STATUS csr_set_country_code(tpAniSirGlobal pMac, uint8_t *pCountry)
 	return status;
 }
 
-#ifdef FEATURE_WLAN_DIAG_SUPPORT_CSR
 /* caller allocated memory for pNumChn and pChnPowerInfo */
 /* As input, *pNumChn has the size of the array of pChnPowerInfo */
 /* Upon return, *pNumChn has the number of channels assigned. */
@@ -4331,6 +4323,7 @@ static void csr_get_channel_power_info(tpAniSirGlobal pMac, tDblLinkList *list,
 
 }
 
+#ifdef FEATURE_WLAN_DIAG_SUPPORT_CSR
 static void csr_diag_apply_country_info(tpAniSirGlobal mac_ctx)
 {
 	host_log_802_11d_pkt_type *p11dLog;
@@ -5579,7 +5572,6 @@ exit:
 	return QDF_STATUS_SUCCESS;
 }
 
-
 static bool csr_scan_is_wild_card_scan(tpAniSirGlobal pMac, tSmeCmd *pCommand)
 {
 	uint8_t bssid[QDF_MAC_ADDR_SIZE] = {0};
@@ -6108,9 +6100,9 @@ send_scan_req:
 	return status;
 }
 
+#ifdef FEATURE_WLAN_DIAG_SUPPORT_CSR
 static void csr_diag_scan_channels(tpAniSirGlobal pMac, tSmeCmd *pCommand)
 {
-#ifdef FEATURE_WLAN_DIAG_SUPPORT_CSR
 	host_log_scan_pkt_type *pScanLog = NULL;
 
 	WLAN_HOST_DIAG_LOG_ALLOC(pScanLog,
@@ -6143,8 +6135,10 @@ static void csr_diag_scan_channels(tpAniSirGlobal pMac, tSmeCmd *pCommand)
 		      pScanLog->numChannel);
 	}
 	WLAN_HOST_DIAG_LOG_REPORT(pScanLog);
-#endif
 }
+#else
+#define csr_diag_scan_channels(tpAniSirGlobal pMac, tSmeCmd *pCommand) (void)0;
+#endif /* #ifdef FEATURE_WLAN_DIAG_SUPPORT_CSR */
 
 static QDF_STATUS csr_scan_channels(tpAniSirGlobal pMac, tSmeCmd *pCommand)
 {
@@ -7123,7 +7117,6 @@ static QDF_STATUS csr_ssid_scan_done_callback(tHalHandle halHandle,
 	return QDF_STATUS_SUCCESS;
 }
 
-
 /**
  * csr_scan_for_ssid() -  Function usually used for BSSs that suppresses SSID
  * @mac_ctx: Pointer to Global Mac structure
@@ -7545,7 +7538,6 @@ void csr_set_cfg_scan_control_list(tpAniSirGlobal pMac, uint8_t *countryCode,
 	} /* AllocateMemory */
 }
 
-
 /**
  * csr_scan_abort_all_scans() - Abort scan on all Sessions
  * @mac_ctx: pointer to Global Mac structure
@@ -7723,7 +7715,6 @@ void csr_remove_scan_for_ssid_from_pending_list(tpAniSirGlobal pMac,
 	}
 	csr_ll_close(&localList);
 }
-
 
 /**
  * csr_send_scan_abort() -  Sends scan abort command to firmware

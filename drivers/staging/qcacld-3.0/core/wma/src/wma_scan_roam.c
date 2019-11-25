@@ -283,7 +283,6 @@ QDF_STATUS wma_get_buf_start_scan_cmd(tp_wma_handle wma_handle,
 	 */
 	cmd->idle_time = scan_req->idle_time;
 
-
 	/* Large timeout value for full scan cycle, 30 seconds */
 	cmd->max_scan_time = WMA_HW_DEF_SCAN_MAX_DURATION;
 
@@ -319,7 +318,6 @@ QDF_STATUS wma_get_buf_start_scan_cmd(tp_wma_handle wma_handle,
 	qdf_mem_copy(cmd->mac_addr, scan_req->mac_addr, QDF_MAC_ADDR_SIZE);
 	qdf_mem_copy(cmd->mac_addr_mask, scan_req->mac_addr_mask,
 		     QDF_MAC_ADDR_SIZE);
-
 
 	if (!scan_req->p2pScanType) {
 		WMA_LOGD("Normal Scan request");
@@ -1273,7 +1271,6 @@ QDF_STATUS wma_roam_scan_offload_rssi_change(tp_wma_handle wma_handle,
 				bcn_rssi_weight, hirssi_delay_btw_scans);
 	if (status != EOK)
 		return QDF_STATUS_E_FAILURE;
-
 
 	return QDF_STATUS_SUCCESS;
 }
@@ -2231,7 +2228,6 @@ QDF_STATUS wma_process_roaming_config(tp_wma_handle wma_handle,
 			(qdf_status != QDF_STATUS_E_EMPTY))
 			break;
 
-
 		wma_roam_scan_fill_scan_params(wma_handle, pMac, roam_req,
 					       &scan_params);
 		qdf_status =
@@ -2458,7 +2454,6 @@ QDF_STATUS wma_process_roaming_config(tp_wma_handle wma_handle,
 			break;
 		}
 
-
 		/*
 		 * Runtime (after association) changes to rssi thresholds and
 		 * other parameters.
@@ -2475,7 +2470,6 @@ QDF_STATUS wma_process_roaming_config(tp_wma_handle wma_handle,
 		if ((qdf_status != QDF_STATUS_SUCCESS) &&
 			(qdf_status != QDF_STATUS_E_EMPTY))
 			break;
-
 
 		qdf_status = wma_roam_scan_offload_rssi_thresh(wma_handle,
 							       roam_req);
@@ -2984,7 +2978,6 @@ static void wma_roam_update_vdev(tp_wma_handle wma,
 	qdf_mem_free(set_link_params);
 	qdf_mem_free(add_sta_params);
 }
-
 
 /**
  * wma_roam_remove_self_reassoc() - post a message to SME module to indicate
@@ -7089,7 +7082,6 @@ int wma_roam_event_callback(WMA_HANDLE handle, uint8_t *event_buf,
 
 	return 0;
 }
-
 
 /**
  * wma_set_rssi_monitoring() - set rssi monitoring

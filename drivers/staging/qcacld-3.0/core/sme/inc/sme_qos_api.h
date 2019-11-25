@@ -231,5 +231,4 @@ QDF_STATUS sme_offload_qos_process_out_of_uapsd_mode(tpAniSirGlobal mac_ctx,
 QDF_STATUS sme_offload_qos_process_into_uapsd_mode(tpAniSirGlobal mac_ctx,
 		uint32_t session_id);
 
-
 #endif /* #if !defined( __SME_QOSAPI_H ) */

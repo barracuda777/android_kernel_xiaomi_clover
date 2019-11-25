@@ -865,7 +865,6 @@ void *hif_get_lro_info(int ctx_id, struct hif_opaque_softc *hif_hdl)
 	return data;
 }
 
-
 #endif
 
 /**
@@ -1037,7 +1036,6 @@ void hif_update_tx_ring(struct hif_opaque_softc *osc, u_int32_t num_htt_cmpls)
 
 	ce_update_tx_ring(ce_tx_hdl, num_htt_cmpls);
 }
-
 
 /**
  * hif_send_single() - API to access hif specific function

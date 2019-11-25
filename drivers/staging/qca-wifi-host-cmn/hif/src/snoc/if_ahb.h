@@ -33,7 +33,6 @@
 #define GCC_FEPLL_PLL_CLK_WIFI_1_SEL_MASK 0x00003000
 #define GCC_FEPLL_PLL_CLK_WIFI_1_SEL_SHIFT 12
 
-
 /* These registers are outsize Wifi space. */
 /* TBD: Should we add these offsets as device tree properties? */
 #define TCSR_BASE 0x1900000
@@ -46,4 +45,3 @@
 #define TCSR_WCSS1_HALTACK 0x52014
 #define ATH_AHB_RESET_WAIT_MAX 10 /* Ms */
 #endif
-

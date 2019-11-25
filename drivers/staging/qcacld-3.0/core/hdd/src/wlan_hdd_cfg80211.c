@@ -1479,7 +1479,6 @@ static void wlan_hdd_set_acs_ch_range(
 	if (vht_enabled)
 		sap_cfg->acs_cfg.hw_mode = eCSR_DOT11_MODE_11ac;
 
-
 	/* Parse ACS Chan list from hostapd */
 	if (!sap_cfg->acs_cfg.ch_list)
 		return;
@@ -1496,7 +1495,6 @@ static void wlan_hdd_set_acs_ch_range(
 			sap_cfg->acs_cfg.end_ch = sap_cfg->acs_cfg.ch_list[i];
 	}
 }
-
 
 static void wlan_hdd_cfg80211_start_pending_acs(struct work_struct *work);
 
@@ -1562,7 +1560,6 @@ static int wlan_hdd_cfg80211_start_acs(hdd_adapter_t *adapter)
 	status = wlansap_acs_chselect(
 		WLAN_HDD_GET_SAP_CTX_PTR(adapter),
 		acs_event_callback, sap_config, adapter->dev);
-
 
 	if (status) {
 		hdd_err("ACS channel select failed");
@@ -2610,7 +2607,6 @@ __wlan_hdd_cfg80211_get_features(struct wiphy *wiphy,
 			dbs_capability))
 		goto nla_put_failure;
 
-
 	if (nla_put_u32(skb,
 			QCA_WLAN_VENDOR_ATTR_MAX_CONCURRENT_CHANNELS_2_4_BAND,
 			MAX_CONCURRENT_CHAN_ON_24G))
@@ -2691,7 +2687,6 @@ wlan_hdd_cfg80211_get_features(struct wiphy *wiphy,
 	QCA_WLAN_VENDOR_ATTR_ROAMING_PARAM_ALERT_ROAM_RSSI_TRIGGER
 #define PARAM_ROAM_ENABLE \
 	QCA_WLAN_VENDOR_ATTR_ROAMING_PARAM_SET_LAZY_ROAM_ENABLE
-
 
 static const struct nla_policy
 wlan_hdd_set_roam_param_policy[MAX_ROAMING_PARAM + 1] = {
@@ -3177,7 +3172,6 @@ fail:
 #undef PARAM_ROAM_HISTERESYS
 #undef PARAM_RSSI_TRIGGER
 #undef PARAM_ROAM_ENABLE
-
 
 /**
  * wlan_hdd_cfg80211_set_ext_roam_params() - set ext scan roam params
@@ -4005,7 +3999,6 @@ static int hdd_get_station_info(hdd_context_t *hdd_ctx,
 		nl_buf_len += sizeof(hdd_sta_ctx->
 						cache_conn_info.vht_operation);
 
-
 	skb = cfg80211_vendor_cmd_alloc_reply_skb(hdd_ctx->wiphy, nl_buf_len);
 	if (!skb) {
 		hdd_err(FL("cfg80211_vendor_cmd_alloc_reply_skb failed"));
@@ -4811,7 +4804,6 @@ __hdd_cfg80211_get_station_cmd(struct wiphy *wiphy,
 	status = wlan_hdd_validate_context(hdd_ctx);
 	if (0 != status)
 		goto out;
-
 
 	status = hdd_nla_parse(tb, QCA_WLAN_VENDOR_ATTR_GET_STATION_MAX,
 			       data, data_len, hdd_get_station_policy);
@@ -5906,7 +5898,6 @@ __wlan_hdd_cfg80211_wifi_configuration_set(struct wiphy *wiphy,
 			ret_val = -EPERM;
 	}
 
-
 	if (tb[QCA_WLAN_VENDOR_ATTR_CONFIG_GUARD_TIME]) {
 		guard_time = nla_get_u32(
 			tb[QCA_WLAN_VENDOR_ATTR_CONFIG_GUARD_TIME]);
@@ -6795,7 +6786,6 @@ static int hdd_unmap_req_id_to_pattern_id(hdd_context_t *hdd_ctx,
 	return -EINVAL;
 }
 
-
 /*
  * define short names for the global vendor params
  * used by __wlan_hdd_cfg80211_offloaded_packets()
@@ -7021,7 +7011,6 @@ fail:
 	qdf_mem_free(del_req);
 	return -EINVAL;
 }
-
 
 /**
  * __wlan_hdd_cfg80211_offloaded_packets() - send offloaded packets
@@ -8023,7 +8012,6 @@ static int __wlan_hdd_cfg80211_set_ota_test(struct wiphy *wiphy,
 		return -EINVAL;
 	}
 
-
 	return 0;
 }
 
@@ -8302,7 +8290,6 @@ static int __wlan_hdd_cfg80211_conditional_chan_switch(struct wiphy *wiphy,
 	freq = nla_data(
 		tb[QCA_WLAN_VENDOR_ATTR_SAP_CONDITIONAL_CHAN_SWITCH_FREQ_LIST]);
 
-
 	for (i = 0; i < freq_len; i++) {
 		if (freq[i] == 0)
 			chans[i] = 0;
@@ -8501,7 +8488,6 @@ static int __wlan_hdd_cfg80211_p2p_lo_start(struct wiphy *wiphy,
 
 	return 0;
 }
-
 
 /**
  * wlan_hdd_cfg80211_p2p_lo_start () - start P2P Listen Offload
@@ -8968,7 +8954,6 @@ int wlan_hdd_request_pre_cac(uint8_t channel)
 		hdd_err("error in moving to DBS mode");
 		goto stop_close_pre_cac_adapter;
 	}
-
 
 	ret = wlan_hdd_set_channel(wiphy, dev, &chandef, channel_type);
 	if (0 != ret) {
@@ -9723,8 +9708,6 @@ static int wlan_hdd_cfg80211_sap_configuration_set(struct wiphy *wiphy,
 		QCA_WLAN_VENDOR_ATTR_PNO_COMPLETE_CNT
 #define PARAM_PNO_MATCH_CNT \
 		QCA_WLAN_VENDOR_ATTR_PNO_MATCH_CNT
-
-
 
 /**
  * hdd_send_wakelock_stats() - API to send wakelock stats
@@ -11683,7 +11666,6 @@ static int wlan_hdd_cfg80211_set_limit_offchan_param(struct wiphy *wiphy,
 #define CHECK_DATA_STATS_MAX \
 	QCA_ATTR_CONNECTIVITY_CHECK_DATA_STATS_MAX
 
-
 const struct nla_policy
 qca_wlan_vendor_get_nud_stats[STATS_GET_MAX + 1] = {
 	[COUNT_FROM_NETDEV] = {.type = NLA_U16 },
@@ -11967,7 +11949,6 @@ put_attr_fail:
 	return -EINVAL;
 }
 
-
 /**
  * __wlan_hdd_cfg80211_get_nud_stats() - get arp stats command to firmware
  * @wiphy: pointer to wireless wiphy structure.
@@ -12029,7 +12010,6 @@ static int __wlan_hdd_cfg80211_get_nud_stats(struct wiphy *wiphy,
 
 	arp_stats_params.pkt_type = WLAN_NUD_STATS_ARP_PKT_TYPE;
 	arp_stats_params.vdev_id = adapter->sessionId;
-
 
 	pkt_type_bitmap = adapter->pkt_type_bitmap;
 
@@ -12199,7 +12179,6 @@ void hdd_update_cca_info_cb(void *context, uint32_t congestion,
 	hdd_sta_ctx->conn_info.cca = congestion;
 	hdd_info("congestion:%d", congestion);
 }
-
 
 /**
  * wlan_hdd_is_bt_in_progress() - check if bt activity is in progress
@@ -12795,7 +12774,6 @@ error:
 	kfree_skb(skb);
 	return -EINVAL;
 }
-
 
 int wlan_hdd_send_mode_change_event(void)
 {
@@ -18629,7 +18607,6 @@ static int wlan_hdd_reassoc_bssid_hint(hdd_adapter_t *adapter,
 }
 #endif
 
-
 /**
  * wlan_hdd_check_ht20_ht40_ind() - check if Supplicant has indicated to
  * connect in HT20 mode
@@ -18898,7 +18875,6 @@ int wlan_hdd_disconnect(hdd_adapter_t *pAdapter, u16 reason)
 				     WLAN_STOP_ALL_NETIF_QUEUE_N_CARRIER,
 				     WLAN_CONTROL_PATH);
 	hdd_conn_set_connection_state(pAdapter, eConnectionState_Disconnecting);
-
 
 	INIT_COMPLETION(pAdapter->disconnect_comp_var);
 
@@ -20724,7 +20700,6 @@ int __wlan_hdd_cfg80211_set_rekey_data(struct wiphy *wiphy,
 	hdd_debug("replay counter from supplicant 0x%llx, value stored in ullKeyReplayCounter 0x%llx",
 		*((uint64_t *)data->replay_ctr),
 		hdd_sta_ctx->gtkOffloadReqParams.ullKeyReplayCounter);
-
 
 	if (hdd_ctx->hdd_wlan_suspended) {
 		/* if wlan is suspended, enable GTK offload directly from here */

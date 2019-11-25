@@ -738,16 +738,13 @@ long msm_ion_custom_ioctl(struct ion_client *client,
 		struct mm_struct *mm = current->active_mm;
 
 		if (data.flush_data.handle > 0) {
-			mutex_lock(&client->lock);
-			handle = ion_handle_get_by_id_nolock(client,
+			handle = ion_handle_get_by_id(client,
 						(int)data.flush_data.handle);
 			if (IS_ERR(handle)) {
-				mutex_unlock(&client->lock);
 				pr_info("%s: Could not find handle: %d\n",
 					__func__, (int)data.flush_data.handle);
 				return PTR_ERR(handle);
 			}
-			mutex_unlock(&client->lock);
 		} else {
 			handle = ion_import_dma_buf(client, data.flush_data.fd);
 			if (IS_ERR(handle)) {
@@ -786,15 +783,13 @@ long msm_ion_custom_ioctl(struct ion_client *client,
 		int ret;
 
 		ret = ion_walk_heaps(client, data.prefetch_data.heap_id,
-				     (enum ion_heap_type)
-				     ION_HEAP_TYPE_SECURE_DMA,
-				     (void *)data.prefetch_data.len,
-				     ion_secure_cma_prefetch);
+			ION_HEAP_TYPE_SECURE_DMA,
+			(void *)data.prefetch_data.len,
+			ion_secure_cma_prefetch);
 		if (ret)
 			return ret;
 
 		ret = ion_walk_heaps(client, data.prefetch_data.heap_id,
-				     (enum ion_heap_type)
 				     ION_HEAP_TYPE_SYSTEM_SECURE,
 				     (void *)&data.prefetch_data,
 				     ion_system_secure_heap_prefetch);
@@ -807,16 +802,14 @@ long msm_ion_custom_ioctl(struct ion_client *client,
 		int ret;
 
 		ret = ion_walk_heaps(client, data.prefetch_data.heap_id,
-				     (enum ion_heap_type)
-				     ION_HEAP_TYPE_SECURE_DMA,
-				     (void *)data.prefetch_data.len,
-				     ion_secure_cma_drain_pool);
+			ION_HEAP_TYPE_SECURE_DMA,
+			(void *)data.prefetch_data.len,
+			ion_secure_cma_drain_pool);
 
 		if (ret)
 			return ret;
 
 		ret = ion_walk_heaps(client, data.prefetch_data.heap_id,
-				     (enum ion_heap_type)
 				     ION_HEAP_TYPE_SYSTEM_SECURE,
 				     (void *)&data.prefetch_data,
 				     ion_system_secure_heap_drain);

@@ -457,7 +457,6 @@ static int __wlan_hdd_open_ll_stats_debugfs(struct inode *inode,
 	return 0;
 }
 
-
 /**
  * wlan_hdd_open_ll_stats_debugfs() - SSR wrapper function to save private
  *                                    on open

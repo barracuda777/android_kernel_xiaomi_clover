@@ -40,7 +40,6 @@ static void usb_hif_post_recv_bundle_transfers
 						int buffer_length);
 static void usb_hif_cleanup_recv_urb(struct HIF_URB_CONTEXT *urb_context);
 
-
 /**
  * usb_hif_free_urb_to_pipe() - add urb back to urb list of a pipe
  * @pipe: pointer to struct HIF_USB_PIPE
@@ -116,7 +115,6 @@ void usb_hif_enqueue_pending_transfer(struct HIF_USB_PIPE *pipe,
 	dl_list_insert_tail(&pipe->urb_pending_list, &urb_context->link);
 	qdf_spin_unlock_irqrestore(&pipe->device->cs_lock);
 }
-
 
 /**
  * usb_hif_remove_pending_transfer() - remove urb from its own list
@@ -392,7 +390,6 @@ QDF_STATUS usb_hif_setup_pipe_resources(HIF_DEVICE_USB *device)
 
 	return status;
 }
-
 
 /**
  * usb_hif_cleanup_pipe_resources() - free urb resources for all pipes

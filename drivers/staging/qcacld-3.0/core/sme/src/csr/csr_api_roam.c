@@ -1065,7 +1065,6 @@ QDF_STATUS csr_update_channel_list(tpAniSirGlobal pMac)
 				}
 			}
 
-
 			if (CHANNEL_STATE_ENABLE == channel_state)
 				pChanList->chanParam[num_channel].dfsSet =
 					false;
@@ -1894,7 +1893,6 @@ QDF_STATUS csr_create_bg_scan_roam_channel_list(tpAniSirGlobal pMac,
 		     pNeighborRoamInfo->cfgParams.channelInfo.numOfChannels);
 	return status;
 }
-
 
 #ifdef FEATURE_WLAN_ESE
 /**
@@ -7212,10 +7210,8 @@ static void csr_roam_process_start_bss_success(tpAniSirGlobal mac_ctx,
 	tDot11fBeaconIEs *ies_ptr = NULL;
 	tSirMacAddr bcast_mac = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
 	QDF_STATUS status;
-#ifdef FEATURE_WLAN_DIAG_SUPPORT_CSR
 	host_log_ibss_pkt_type *ibss_log;
 	uint32_t bi;
-#endif
 	eCsrEncryptionType encr_type;
 #ifdef FEATURE_WLAN_MCC_TO_SCC_SWITCH
 	tSirSmeHTProfile *src_profile = NULL;
@@ -7986,9 +7982,7 @@ static bool csr_roam_process_results(tpAniSirGlobal mac_ctx, tSmeCmd *cmd,
 	tCsrRoamProfile *profile = &cmd->u.roamCmd.roamProfile;
 	eRoamCmdStatus roam_status;
 	eCsrRoamResult roam_result;
-#ifdef FEATURE_WLAN_DIAG_SUPPORT_CSR
 	host_log_ibss_pkt_type *ibss_log;
-#endif
 	tSirSmeStartBssRsp  *start_bss_rsp = NULL;
 
 	if (!session) {
@@ -9516,7 +9510,6 @@ QDF_STATUS csr_roam_save_connected_infomation(tpAniSirGlobal pMac,
 
 	return status;
 }
-
 
 bool is_disconnect_pending(tpAniSirGlobal pmac,
 				uint8_t sessionid)
@@ -11067,7 +11060,6 @@ csr_update_key_cmd(tpAniSirGlobal mac_ctx, tCsrRoamSession *session,
 	} /* end of switch */
 	return QDF_STATUS_SUCCESS;
 }
-
 
 static QDF_STATUS csr_roam_issue_set_key_command(tpAniSirGlobal pMac,
 						 uint32_t sessionId,
@@ -12715,7 +12707,6 @@ process_pending_n_exit:
 	sme_process_pending_queue(mac_ctx);
 }
 
-
 static void
 csr_roam_chk_lnk_max_assoc_exceeded(tpAniSirGlobal mac_ctx, tSirSmeRsp *msg_ptr)
 {
@@ -13287,7 +13278,6 @@ QDF_STATUS csr_roam_lost_link(tpAniSirGlobal pMac, uint32_t sessionId,
 	return status;
 }
 
-
 void csr_roam_wm_status_change_complete(tpAniSirGlobal pMac)
 {
 	tListElem *pEntry;
@@ -13360,7 +13350,6 @@ end:
 		csr_roam_wm_status_change_complete(pMac);
 	}
 }
-
 
 /**
  * csr_compute_mode_and_band() - computes dot11mode
@@ -15886,7 +15875,6 @@ QDF_STATUS csr_send_join_req_msg(tpAniSirGlobal pMac, uint32_t sessionId,
 	} else {
 		pSession->disable_hi_rssi = false;
 	}
-
 
 	do {
 		pSession->joinFailStatusCode.statusCode = eSIR_SME_SUCCESS;
@@ -22617,7 +22605,6 @@ void csr_process_nss_update_req(tpAniSirGlobal mac, tSmeCmd *command)
 	tSirMsgQ msg_return;
 	struct sir_bcn_update_rsp *param;
 	tCsrRoamSession *session;
-
 
 	if (!CSR_IS_SESSION_VALID(mac, command->sessionId)) {
 		sme_err("Invalid session id %d", command->sessionId);

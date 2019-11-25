@@ -183,7 +183,6 @@ lim_process_beacon_frame_no_session(tpAniSirGlobal pMac, uint8_t *pRxPacketInfo)
 		WMA_GET_RX_MPDU_LEN(pRxPacketInfo));
 	lim_print_mac_addr(pMac, pHdr->sa, LOGD);
 
-
 	/**
 	 * No session has been established. Expect Beacon only when
 	 * 1. STA is in Scan mode waiting for Beacon/Probe response or

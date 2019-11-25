@@ -255,7 +255,6 @@ enum ds_mode {
 #define WMA_MIN_RF_CHAINS               (1)
 #define WMA_MAX_NSS               (2)
 
-
 #ifdef FEATURE_WLAN_EXTSCAN
 #define WMA_MAX_EXTSCAN_MSG_SIZE        1536
 #define WMA_EXTSCAN_REST_TIME           100
@@ -416,7 +415,6 @@ enum ds_mode {
 		(a)[0] = (u8) (((u32) (val)) & 0xff);	    \
 	} while (0)
 
-
 #define WMA_DEFAULT_MAX_PSPOLL_BEFORE_WAKE 1
 
 #define WMA_DEFAULT_QPOWER_MAX_PSPOLL_BEFORE_WAKE 1
@@ -520,7 +518,6 @@ enum ds_mode {
 #define WMA_HW_MODE_SBS_MODE_GET(hw_mode)                       \
 	((hw_mode & WMA_HW_MODE_SBS_MODE_MASK) >>               \
 		WMA_HW_MODE_SBS_MODE_BITPOS)
-
 
 #define WMA_SCAN_END_EVENT	(WMI_SCAN_EVENT_COMPLETED |	\
 				WMI_SCAN_EVENT_DEQUEUED   |	\
@@ -790,7 +787,6 @@ struct qpower_params {
 	uint32_t max_spec_nodata_ps_poll;
 };
 
-
 /**
  * struct gtx_config_t - GTX config
  * @gtxRTMask: for HT and VHT rate masks
@@ -998,7 +994,6 @@ struct roam_synch_frame_ind {
 	uint32_t reassoc_rsp_len;
 	uint8_t *reassoc_rsp;
 };
-
 
 /**
  * struct wma_txrx_node - txrx node
@@ -1303,7 +1298,6 @@ struct dual_mac_config {
 	uint32_t req_fw_mode_config;
 
 };
-
 
 /**
  * struct wma_ini_config - Structure to hold wma ini configuration
@@ -2371,7 +2365,6 @@ QDF_STATUS wma_trigger_uapsd_params(tp_wma_handle wma_handle, uint32_t vdev_id,
 
 /* added to get average snr for both data and beacon */
 QDF_STATUS wma_send_snr_request(tp_wma_handle wma_handle, void *pGetRssiReq);
-
 
 QDF_STATUS wma_update_vdev_tbl(tp_wma_handle wma_handle, uint8_t vdev_id,
 			       ol_txrx_vdev_handle tx_rx_vdev_handle,

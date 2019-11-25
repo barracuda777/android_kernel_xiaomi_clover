@@ -133,7 +133,6 @@
  */
 #define WMI_WOW_PULSE_REPEAT_CNT 0xffffffff
 
-
 /* WMA Messages */
 #define WMA_MSG_TYPES_BEGIN            SIR_HAL_MSG_TYPES_BEGIN
 #define WMA_ITC_MSG_TYPES_BEGIN        SIR_HAL_ITC_MSG_TYPES_BEGIN
@@ -542,7 +541,6 @@
 		      (channel_freq), \
 		      (rid)))
 
-
 #define WMA_SetEnableSSR(enable_ssr) ((void)enable_ssr)
 
 /**
@@ -735,7 +733,6 @@ QDF_STATUS wma_set_wlm_latency_level(void *wma_ptr,
 QDF_STATUS
 wma_ds_peek_rx_packet_info
 	(cds_pkt_t *vosDataBuff, void **ppRxHeader, bool bSwap);
-
 
 void wma_tx_abort(uint8_t vdev_id);
 

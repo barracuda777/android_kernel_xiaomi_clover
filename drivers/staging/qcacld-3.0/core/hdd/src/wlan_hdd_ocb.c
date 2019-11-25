@@ -330,7 +330,6 @@ struct hdd_ocb_set_config_priv {
 	int status;
 };
 
-
 /**
  * hdd_ocb_set_config_callback() - OCB set config callback function
  * @context_ptr: OCB call context

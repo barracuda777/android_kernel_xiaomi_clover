@@ -397,7 +397,6 @@ typedef enum HTT_STATS_FTYPE HTT_STATS_FTYPE;
          ((_var) |= ((_val) << HTT_PPDU_STATS_COMMON_TLV_QTYPE_S)); \
      } while (0)
 
-
 enum HTT_PPDU_STATS_BW {
     HTT_PPDU_STATS_BANDWIDTH_5MHZ   = 0,
     HTT_PPDU_STATS_BANDWIDTH_10MHZ  = 1,
@@ -770,7 +769,6 @@ typedef struct {
 #define HTT_PPDU_STATS_USER_RATE_TLV_RESERVED_M     0x0000ff00
 #define HTT_PPDU_STATS_USER_RATE_TLV_RESERVED_S              8
 
-
 #define HTT_PPDU_STATS_USER_RATE_TLV_SW_PEER_ID_M     0xffff0000
 #define HTT_PPDU_STATS_USER_RATE_TLV_SW_PEER_ID_S             16
 
@@ -849,7 +847,6 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_RATE_TLV_RESP_TYPE_VALID_S)); \
      } while (0)
 
-
 #define HTT_PPDU_STATS_BUF_ADDR_39_32_M     0x000000ff
 #define HTT_PPDU_STATS_BUF_ADDR_39_32_S              0
 
@@ -862,7 +859,6 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_BUF_ADDR_39_32, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_BUF_ADDR_39_32_S)); \
      } while (0)
-
 
 #define HTT_PPDU_STATS_RETURN_BUF_MANAGER_M     0x00000700
 #define HTT_PPDU_STATS_RETURN_BUF_MANAGER_S              8
@@ -877,7 +873,6 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_RETURN_BUF_MANAGER_S)); \
      } while (0)
 
-
 #define HTT_PPDU_STATS_SW_BUFFER_COOKIE_M     0xfffff800
 #define HTT_PPDU_STATS_SW_BUFFER_COOKIE_S             11
 
@@ -890,7 +885,6 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_SW_BUFFER_COOKIE, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_SW_BUFFER_COOKIE_S)); \
      } while (0)
-
 
 #define HTT_PPDU_STATS_HOST_OPAQUE_COOKIE_M     0x0000FFFF
 #define HTT_PPDU_STATS_HOST_OPAQUE_COOKIE_S              0
@@ -905,7 +899,6 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_HOST_OPAQUE_COOKIE_S)); \
      } while (0)
 
-
 #define HTT_PPDU_STATS_IS_OPAQUE_VALID_M        0x00010000
 #define HTT_PPDU_STATS_IS_OPAQUE_VALID_S                16
 
@@ -919,7 +912,6 @@ typedef struct {
          ((_var) |= ((_val) << HTT_PPDU_STATS_IS_OPAQUE_VALID_S)); \
      } while (0)
 
-
 #define HTT_PPDU_STATS_IS_STANDALONE_M          0x00020000
 #define HTT_PPDU_STATS_IS_STANDALONE_S                  17
 
@@ -932,7 +924,6 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_IS_STANDALONE, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_IS_STANDALONE_S)); \
      } while (0)
-
 
 #define HTT_PPDU_STATS_IS_BUFF_INFO_VALID_M          0x000400000
 #define HTT_PPDU_STATS_IS_BUFF_INFO_VALID_S                   18
@@ -1111,7 +1102,6 @@ typedef enum HTT_PPDU_STATS_GI HTT_PPDU_STATS_GI;
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_RATE_TLV_GI_S)); \
      } while (0)
 
-
 #define HTT_PPDU_STATS_USER_RATE_TLV_DCM_M     0x10000000
 #define HTT_PPDU_STATS_USER_RATE_TLV_DCM_S             28
 
@@ -1156,7 +1146,6 @@ typedef enum HTT_PPDU_STATS_RESP_PPDU_TYPE HTT_PPDU_STATS_RESP_PPDU_TYPE;
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_RATE_TLV_RESP_PPDU_TYPE, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_RATE_TLV_RESP_PPDU_TYPE_S)); \
      } while (0)
-
 
 typedef struct {
     htt_tlv_hdr_t tlv_hdr;
@@ -1305,7 +1294,6 @@ typedef struct {
 
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_RESERVED_M     0x0000ff00
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_RESERVED_S              8
-
 
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_SW_PEER_ID_M     0xffff0000
 #define HTT_PPDU_STATS_ENQ_MPDU_BITMAP_TLV_SW_PEER_ID_S             16
@@ -1558,7 +1546,6 @@ typedef struct {
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_RESERVED_M     0x0000ff00
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_RESERVED_S              8
 
-
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID_M     0xffff0000
 #define HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID_S             16
 
@@ -1571,7 +1558,6 @@ typedef struct {
          HTT_CHECK_SET_VAL(HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID, _val); \
          ((_var) |= ((_val) << HTT_PPDU_STATS_USER_CMPLTN_BA_BITMAP_TLV_SW_PEER_ID_S)); \
      } while (0)
-
 
 typedef struct {
     htt_tlv_hdr_t tlv_hdr;
@@ -1869,6 +1855,5 @@ typedef struct {
      */
     A_UINT32 payload[1];
 } htt_ppdu_stats_tx_mgmtctrl_payload_tlv;
-
 
 #endif //__HTT_PPDU_STATS_H__

@@ -41,7 +41,6 @@
 #define WLAN_HDD_80211_PEER_ADDR_OFFSET (WLAN_HDD_80211_FRM_DA_OFFSET + \
 					 MAC_ADDR_LEN)
 
-
 #define P2P_ROC_DURATION_MULTIPLIER_GO_PRESENT   6
 #define P2P_ROC_DURATION_MULTIPLIER_GO_ABSENT    10
 
@@ -144,7 +143,6 @@ struct wireless_dev *wlan_hdd_add_virtual_intf(struct wiphy *wiphy,
 
 int wlan_hdd_del_virtual_intf(struct wiphy *wiphy, struct wireless_dev *wdev);
 int __wlan_hdd_del_virtual_intf(struct wiphy *wiphy, struct wireless_dev *wdev);
-
 
 void wlan_hdd_cleanup_remain_on_channel_ctx(hdd_adapter_t *pAdapter);
 

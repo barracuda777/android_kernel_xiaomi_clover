@@ -476,7 +476,6 @@ struct host_shadow_regs_s {
 	uint32_t d_A_LOCAL_SHADOW_REG_ADDRESS_23;
 };
 
-
 /*
  * @d_DST_WR_INDEX_ADDRESS: Destination ring write index
  *

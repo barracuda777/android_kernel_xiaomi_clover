@@ -56,7 +56,6 @@ struct qdf_mem_multi_page_t {
 	void **cacheable_pages;
 };
 
-
 /* Preprocessor definitions and constants */
 
 typedef __qdf_mempool_t qdf_mempool_t;

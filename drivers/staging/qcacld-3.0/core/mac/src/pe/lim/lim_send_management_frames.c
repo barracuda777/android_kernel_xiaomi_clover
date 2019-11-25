@@ -297,7 +297,6 @@ lim_send_probe_req_mgmt_frame(tpAniSirGlobal mac_ctx,
 	txPower = (uint8_t) rrm_get_mgmt_tx_power(mac_ctx, pesession);
 	populate_dot11f_wfatpc(mac_ctx, &pr.WFATPC, txPower, 0);
 
-
 	if (pesession != NULL) {
 		pesession->htCapability = IS_DOT11_MODE_HT(dot11mode);
 		/* Include HT Capability IE */
@@ -1613,6 +1612,7 @@ static QDF_STATUS lim_assoc_tx_complete_cnf(tpAniSirGlobal mac_ctx,
  *
  * Return: Void
  */
+
 void
 lim_send_assoc_req_mgmt_frame(tpAniSirGlobal mac_ctx,
 			      tLimMlmAssocReq *mlm_assoc_req,
@@ -3660,7 +3660,6 @@ lim_send_extended_chan_switch_action_frame(tpAniSirGlobal mac_ctx,
 	return eSIR_SUCCESS;
 } /* End lim_send_extended_chan_switch_action_frame */
 
-
 /**
  * lim_oper_chan_change_confirm_tx_complete_cnf()- Confirmation for oper_chan_change_confirm
  * sent over the air
@@ -3803,7 +3802,6 @@ lim_p2p_oper_chan_change_confirm_action_frame(tpAniSirGlobal mac_ctx,
 	}
 		return eSIR_SUCCESS;
 }
-
 
 tSirRetStatus
 lim_send_vht_opmode_notification_frame(tpAniSirGlobal pMac,
@@ -4654,9 +4652,7 @@ static void lim_tx_mgmt_frame(tpAniSirGlobal mac_ctx,
 	struct sir_mgmt_msg *mb_msg, uint32_t msg_len,
 	void *packet, uint8_t *frame)
 {
-#ifdef WLAN_DEBUG
 	tpSirMacFrameCtl fc = (tpSirMacFrameCtl) mb_msg->data;
-#endif
 	QDF_STATUS qdf_status;
 	uint8_t sme_session_id = 0;
 	tpPESession session;

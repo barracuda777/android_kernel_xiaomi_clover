@@ -31,7 +31,6 @@
 #include "cds_utils.h"
 #include "cds_concurrency.h"
 
-
 uint8_t csr_wpa_oui[][CSR_WPA_OUI_SIZE] = {
 	{0x00, 0x50, 0xf2, 0x00}
 	,
@@ -143,7 +142,6 @@ uint8_t csr_group_mgmt_oui[][CSR_RSN_OUI_SIZE] = {
 #define ENUM_GMAC_256 2
 	{0x00, 0x0F, 0xAC, 0x0C},
 };
-
 
 /* ////////////////////////////////////////////////////////////////////// */
 
@@ -814,7 +812,6 @@ static void csr_handle_conc_chnl_overlap_for_sap_go(tpAniSirGlobal mac_ctx,
 	}
 }
 
-
 /**
  * csr_check_concurrent_channel_overlap() - To check concurrent overlap chnls
  * @mac_ctx: Pointer to mac context
@@ -1089,7 +1086,6 @@ uint8_t csr_get_connected_infra(tpAniSirGlobal mac_ctx)
 
 	return connected_session;
 }
-
 
 bool csr_is_concurrent_infra_connected(tpAniSirGlobal pMac)
 {
@@ -2614,7 +2610,6 @@ static bool csr_is_auth_wapi_psk(tpAniSirGlobal pMac,
 }
 #endif /* FEATURE_WLAN_WAPI */
 
-
 /*
  * Function for 11R FT Authentication. We match the FT Authentication Cipher
  * suite here. This matches for FT Auth with the 802.1X exchange.
@@ -2638,7 +2633,6 @@ static bool csr_is_ft_auth_rsn_psk(tpAniSirGlobal pMac,
 	return csr_is_oui_match
 		(pMac, AllSuites, cAllSuites, csr_rsn_oui[04], Oui);
 }
-
 
 #ifdef FEATURE_WLAN_ESE
 
@@ -4801,7 +4795,6 @@ static bool csr_validate_wep(tpAniSirGlobal mac_ctx,
 				CSR_RSN_OUI_SIZE));
 	}
 
-
 end:
 	if (match) {
 		if (negotiated_authtype)
@@ -5213,7 +5206,6 @@ bool csr_is_bss_type_ibss(eCsrRoamBssType bssType)
 		(eCSR_BSS_TYPE_START_IBSS == bssType
 		 || eCSR_BSS_TYPE_IBSS == bssType);
 }
-
 
 static bool csr_is_bss_type_caps_match(eCsrRoamBssType bssType,
 				       tSirBssDescription *pSirBssDesc)
@@ -6449,7 +6441,6 @@ QDF_STATUS csr_set_modify_profile_fields(tpAniSirGlobal pMac,
 
 	return QDF_STATUS_SUCCESS;
 }
-
 
 bool csr_is_set_key_allowed(tpAniSirGlobal pMac, uint32_t sessionId)
 {

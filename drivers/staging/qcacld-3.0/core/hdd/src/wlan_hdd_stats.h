@@ -127,7 +127,6 @@ int wlan_hdd_cfg80211_ll_stats_get(struct wiphy *wiphy,
 				   const void *data,
 				   int data_len);
 
-
 /**
  * wlan_hdd_cfg80211_ll_stats_clear() - clear link layer stats
  * @wiphy: Pointer to wiphy

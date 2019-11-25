@@ -906,7 +906,6 @@ typedef enum {
 
 	EVENT_WLAN_RSN_INFO = 0xC5B,
 
-
 	EVENT_MAX_ID = 0x0FFF
 } event_id_enum_type;
 

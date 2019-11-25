@@ -45,7 +45,6 @@ enum qdf_nbuf_exemption_type {
 typedef __wsum_t wsum_t;
 typedef __in6_addr_t in6_addr_t;
 
-
 #define QDF_NET_MAC_ADDR_MAX_LEN 6
 #define QDF_NET_IF_NAME_SIZE     64
 #define QDF_NET_ETH_LEN          QDF_NET_MAC_ADDR_MAX_LEN
@@ -60,7 +59,6 @@ typedef __in6_addr_t in6_addr_t;
 typedef struct qdf_net_ethaddr {
 	uint8_t addr[QDF_NET_ETH_LEN];
 } qdf_net_ethaddr_t;
-
 
 typedef struct {
 	uint16_t  source;
@@ -256,7 +254,6 @@ typedef struct {
 	uint8_t  dhcp_cookie[4];
 } qdf_net_dhcphdr_t;
 
-
 /**
  * qdf_net_vlanhdr_t - Vlan header
  */
@@ -438,7 +435,6 @@ typedef struct {
 	qdf_net_ipv6_addr_t nd_target;
 	uint8_t	nd_opt[0];
 } qdf_net_nd_msg_t;
-
 
 static inline int32_t qdf_csum_ipv6(const in6_addr_t *saddr,
 				    const in6_addr_t *daddr,

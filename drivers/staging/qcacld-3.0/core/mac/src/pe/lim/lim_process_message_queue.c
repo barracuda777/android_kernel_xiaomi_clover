@@ -570,7 +570,6 @@ __lim_pno_match_fwd_bcn_probepsp(tpAniSirGlobal pmac, uint8_t *rx_pkt_info,
 	lim_sys_process_mmh_msg_api(pmac, &mmh_msg, ePROT);
 }
 
-
 static void
 __lim_ext_scan_forward_bcn_probe_rsp(tpAniSirGlobal pmac, uint8_t *rx_pkt_info,
 					tSirProbeRespBeacon *frame,
@@ -615,7 +614,6 @@ __lim_ext_scan_forward_bcn_probe_rsp(tpAniSirGlobal pmac, uint8_t *rx_pkt_info,
 	/* Copy IE fields */
 	qdf_mem_copy((uint8_t *) &result->ap.ieData,
 			body + SIR_MAC_B_PR_SSID_OFFSET, ie_len);
-
 
 	frame_len = sizeof(*bssdescr) + ie_len - sizeof(bssdescr->ieFields[1]);
 	bssdescr = (tSirBssDescription *) qdf_mem_malloc(frame_len);

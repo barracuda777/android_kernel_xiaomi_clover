@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -54,9 +53,6 @@
 #define MSI_ASSIGN_FW         0 /* 1 MSI for firmware (errors, etc.) */
 #define MSI_ASSIGN_CE_INITIAL 1 /* 7 MSIs for Copy Engines */
 #define MSI_ASSIGN_CE_MAX     7
-
-
-
 
 /*
  * PCI-specific Target state.  Much of this may be of interest

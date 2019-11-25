@@ -20,7 +20,6 @@
  * DOC: declares vendor commands interfacing with linux kernel
  */
 
-
 #ifndef _WLAN_QCA_VENDOR_H_
 #define _WLAN_QCA_VENDOR_H_
 
@@ -2920,8 +2919,6 @@ enum qca_wlan_vendor_attr_link_properties {
 	QCA_WLAN_VENDOR_ATTR_LINK_PROPERTIES_FREQ = 3,
 	QCA_WLAN_VENDOR_ATTR_LINK_PROPERTIES_MAC_ADDR = 4,
 	QCA_WLAN_VENDOR_ATTR_LINK_PROPERTIES_STA_FLAGS = 5,
-
-
 
 	/* KEEP LAST */
 	QCA_WLAN_VENDOR_ATTR_LINK_PROPERTIES_AFTER_LAST,

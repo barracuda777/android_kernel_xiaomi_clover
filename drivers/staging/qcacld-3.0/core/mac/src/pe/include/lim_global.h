@@ -194,7 +194,6 @@ typedef enum eLimDot11hChanSwStates {
 	eLIM_11H_CHANSW_END
 } tLimDot11hChanSwStates;
 
-
 /* WLAN_SUSPEND_LINK Related */
 typedef void (*SUSPEND_RESUME_LINK_CALLBACK)(tpAniSirGlobal pMac,
 					     QDF_STATUS status,

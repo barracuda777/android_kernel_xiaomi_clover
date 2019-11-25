@@ -106,7 +106,6 @@ QDF_STATUS
 send_dbglog_cmd_tlv(wmi_unified_t wmi_handle,
 				struct dbglog_params *dbglog_param);
 
-
 QDF_STATUS send_vdev_set_param_cmd_tlv(wmi_unified_t wmi_handle,
 				struct vdev_set_params *param);
 
@@ -413,18 +412,9 @@ QDF_STATUS
 send_dfs_phyerr_filter_offload_en_cmd_tlv(wmi_unified_t wmi_handle,
 			bool dfs_phyerr_filter_offload);
 
-#ifdef REMOVE_PKT_LOG
-static inline QDF_STATUS send_pktlog_wmi_send_cmd_tlv(wmi_unified_t wmi_handle,
-				   WMI_PKTLOG_EVENT pktlog_event,
-				   WMI_CMD_ID cmd_id, uint8_t user_triggered)
-{
-	return QDF_STATUS_SUCCESS;
-}
-#else
 QDF_STATUS send_pktlog_wmi_send_cmd_tlv(wmi_unified_t wmi_handle,
 				   WMI_PKTLOG_EVENT pktlog_event,
 				   WMI_CMD_ID cmd_id, uint8_t user_triggered);
-#endif
 
 QDF_STATUS send_add_wow_wakeup_event_cmd_tlv(wmi_unified_t wmi_handle,
 					uint32_t vdev_id,
@@ -520,7 +510,6 @@ QDF_STATUS send_update_fw_tdls_state_cmd_tlv(wmi_unified_t wmi_handle,
 QDF_STATUS send_update_tdls_peer_state_cmd_tlv(wmi_unified_t wmi_handle,
 			       struct tdls_peer_state_params *peerStateParams,
 				   uint32_t *ch_mhz);
-
 
 QDF_STATUS send_process_fw_mem_dump_cmd_tlv(wmi_unified_t wmi_handle,
 					struct fw_dump_req_param *mem_dump_req);
@@ -646,4 +635,3 @@ QDF_STATUS send_set_arp_stats_req_cmd_tlv(wmi_unified_t wmi_handle,
 QDF_STATUS send_get_arp_stats_req_cmd_tlv(wmi_unified_t wmi_handle,
 					  struct get_arp_stats *req_buf);
 #endif
-

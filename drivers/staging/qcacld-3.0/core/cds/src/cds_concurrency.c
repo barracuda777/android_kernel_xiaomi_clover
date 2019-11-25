@@ -1703,7 +1703,6 @@ third_connection_pcl_nodbs_table[CDS_MAX_TWO_CONNECTION_MODE]
 	[CDS_IBSS_MODE] = {
 		CDS_MAX_PCL_TYPE, CDS_MAX_PCL_TYPE, CDS_MAX_PCL_TYPE} },
 
-
 	[CDS_P2P_CLI_SAP_SCC_24_1x1] = {
 	[CDS_STA_MODE] = {
 		CDS_MAX_PCL_TYPE, CDS_MAX_PCL_TYPE, CDS_MAX_PCL_TYPE},
@@ -4012,7 +4011,6 @@ void cds_incr_active_session(enum tQDF_ADAPTER_MODE mode,
 		break;
 	}
 
-
 	cds_debug("No.# of active sessions for mode %d = %d",
 		mode, hdd_ctx->no_of_active_sessions[mode]);
 
@@ -4245,7 +4243,6 @@ void cds_decr_session_set_pcl(enum tQDF_ADAPTER_MODE mode,
 
 	return;
 }
-
 
 /**
  * cds_decr_active_session() - decrements the number of active sessions
@@ -6417,7 +6414,6 @@ bool cds_is_concurrency_allowed(enum cds_con_mode mode,
 	hdd_context_t *hdd_ctx;
 	cds_context_type *cds_ctx;
 	bool is_sta_sap_on_dfs_chan;
-
 
 	hdd_ctx = cds_get_context(QDF_MODULE_ID_HDD);
 	if (!hdd_ctx) {
@@ -9464,7 +9460,6 @@ bool cds_concurrent_beaconing_sessions_running(void)
 	return i > 1;
 }
 
-
 /**
  * cds_max_concurrent_connections_reached() - Check if max conccurrency is
  * reached
@@ -9868,8 +9863,6 @@ QDF_STATUS cds_deregister_sap_restart_channel_switch_cb(void)
 
 #endif
 
-
-
 /**
  * cds_get_nondfs_preferred_channel() - to get non-dfs preferred channel
  *                                           for given mode
@@ -9933,7 +9926,6 @@ cds_get_nondfs_preferred_channel(enum cds_con_mode mode,
 	}
 	return channel;
 }
-
 
 /**
  * cds_is_any_nondfs_chnl_present() - Find any non-dfs channel from conc table

@@ -576,7 +576,6 @@ tpCsrNeighborRoamBSSInfo csr_neighbor_roam_next_roamable_ap(
 	return result;
 }
 
-
 /**
  * csr_neighbor_roam_request_handoff() - Handoff to a different AP
  * @mac_ctx: Pointer to Global MAC structure
@@ -671,7 +670,6 @@ void csr_neighbor_roam_request_handoff(tpAniSirGlobal mac_ctx,
 			       eCSR_ROAM_ROAMING_START, eCSR_ROAM_RESULT_NONE);
 
 }
-
 
 /**
  * csr_neighbor_roam_get_handoff_ap_info - Identifies the best AP for roaming
@@ -789,4 +787,3 @@ void csr_neighbor_roam_free_neighbor_roam_bss_node(tpAniSirGlobal pMac,
 		neighborRoamBSSNode = NULL;
 	}
 }
-

@@ -370,7 +370,6 @@ static struct ol_txrx_peer_t *ol_tx_tdls_peer_find(struct ol_txrx_pdev_t *pdev,
 	return peer;
 }
 
-
 #endif
 
 struct ol_tx_frms_queue_t *

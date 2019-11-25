@@ -185,7 +185,6 @@ ol_txrx_peer_link_status_handler(
 	u_int16_t peer_num,
 	struct rate_report_t *peer_link_status);
 
-
 #else
 static inline void ol_txrx_peer_link_status_handler(
 	ol_txrx_pdev_handle pdev,
@@ -194,7 +193,6 @@ static inline void ol_txrx_peer_link_status_handler(
 {
 }
 #endif
-
 
 #ifdef FEATURE_HL_GROUP_CREDIT_FLOW_CONTROL
 

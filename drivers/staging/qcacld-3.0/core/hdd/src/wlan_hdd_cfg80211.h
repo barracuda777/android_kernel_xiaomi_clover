@@ -258,7 +258,6 @@ typedef enum {
 /* Support Tx Power Limit setting */
 #define WIFI_FEATURE_SET_TX_POWER_LIMIT 0x4000000
 
-
 /**
  * typedef struct sHddAvoidFreqRange - avoid frequency range
  *
@@ -305,7 +304,6 @@ typedef struct sHddAvoidFreqList {
  */
 bool hdd_is_ie_valid(const uint8_t *ie, size_t ie_len);
 
-
 #define CONNECTIVITY_CHECK_SET_ARP \
 	QCA_WLAN_VENDOR_CONNECTIVITY_CHECK_SET_ARP
 #define CONNECTIVITY_CHECK_SET_DNS \
@@ -322,7 +320,6 @@ bool hdd_is_ie_valid(const uint8_t *ie, size_t ie_len);
 	QCA_WLAN_VENDOR_CONNECTIVITY_CHECK_SET_TCP_SYN_ACK
 #define CONNECTIVITY_CHECK_SET_TCP_ACK \
 	QCA_WLAN_VENDOR_CONNECTIVITY_CHECK_SET_TCP_ACK
-
 
 struct cfg80211_bss *wlan_hdd_cfg80211_update_bss_db(hdd_adapter_t *pAdapter,
 						tCsrRoamInfo *pRoamInfo);
@@ -420,7 +417,6 @@ int wlan_hdd_cfg80211_del_station(struct wiphy *wiphy,
 				  uint8_t *mac);
 #endif
 #endif /* USE_CFG80211_DEL_STA_V2 */
-
 
 #if  defined(QCA_WIFI_FTM)     && defined(CONFIG_NL80211_TESTMODE)
 void wlan_hdd_testmode_rx_event(void *buf, size_t buf_len);

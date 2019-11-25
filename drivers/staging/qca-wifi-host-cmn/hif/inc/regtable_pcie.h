@@ -497,7 +497,6 @@
 #define SI_CONFIG_ERR_INT_SET(x)       \
 	(((x) << SI_CONFIG_ERR_INT_LSB) & SI_CONFIG_ERR_INT_MASK)
 
-
 #ifdef QCA_WIFI_3_0_ADRASTEA
 #define Q6_ENABLE_REGISTER_0 \
 	(scn->targetdef->d_Q6_ENABLE_REGISTER_0)

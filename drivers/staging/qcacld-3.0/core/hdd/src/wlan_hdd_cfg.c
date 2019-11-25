@@ -336,7 +336,6 @@ cb_notify_set_roam_scan_hi_rssi_scan_params(hdd_context_t *hdd_ctx,
 		notify_id, val);
 }
 
-
 struct reg_table_entry g_registry_table[] = {
 	REG_VARIABLE(CFG_ENABLE_CONNECTED_SCAN_NAME, WLAN_PARAM_Integer,
 		     struct hdd_config, enable_connected_scan,
@@ -538,7 +537,6 @@ struct reg_table_entry g_registry_table[] = {
 		     CFG_AP_QOS_UAPSD_MODE_DEFAULT,
 		     CFG_AP_QOS_UAPSD_MODE_MIN,
 		     CFG_AP_QOS_UAPSD_MODE_MAX),
-
 
 	REG_VARIABLE(CFG_AP_ENABLE_RANDOM_BSSID_NAME, WLAN_PARAM_Integer,
 		     struct hdd_config, apRandomBssidEnabled,
@@ -1580,7 +1578,6 @@ struct reg_table_entry g_registry_table[] = {
 		     CFG_RUNTIME_PM_DELAY_MAX),
 #endif
 
-
 	REG_VARIABLE(CFG_ENABLE_HOST_NSOFFLOAD_NAME, WLAN_PARAM_Integer,
 		     struct hdd_config, fhostNSOffload,
 		     VAR_FLAGS_OPTIONAL | VAR_FLAGS_RANGE_CHECK_ASSUME_DEFAULT,
@@ -2585,7 +2582,6 @@ struct reg_table_entry g_registry_table[] = {
 		     CFG_ENABLE_VHT_FOR_24GHZ_DEFAULT,
 		     CFG_ENABLE_VHT_FOR_24GHZ_MIN,
 		     CFG_ENABLE_VHT_FOR_24GHZ_MAX),
-
 
 	REG_VARIABLE(CFG_ENABLE_VENDOR_VHT_FOR_24GHZ_NAME, WLAN_PARAM_Integer,
 		     struct hdd_config, enable_sap_vendor_vht,
@@ -3811,7 +3807,6 @@ struct reg_table_entry g_registry_table[] = {
 		CFG_WOW_PULSE_INTERVAL_HIGH_MAX),
 #endif
 
-
 	REG_VARIABLE(CFG_CE_CLASSIFY_ENABLE_NAME, WLAN_PARAM_Integer,
 		     struct hdd_config, ce_classify_enabled,
 		     VAR_FLAGS_OPTIONAL | VAR_FLAGS_RANGE_CHECK_ASSUME_DEFAULT,
@@ -4265,7 +4260,6 @@ struct reg_table_entry g_registry_table[] = {
 		CFG_ENABLE_DP_TRACE_DEFAULT,
 		CFG_ENABLE_DP_TRACE_MIN,
 		CFG_ENABLE_DP_TRACE_MAX),
-
 
 	REG_VARIABLE_STRING(CFG_ENABLE_DP_TRACE_CONFIG, WLAN_PARAM_String,
 			struct hdd_config, dp_trace_config,
@@ -7427,7 +7421,6 @@ void hdd_cfg_print(hdd_context_t *pHddCtx)
 	hdd_debug("Name = [%s] Value = [%u]",
 		   CFG_HT_MPDU_DENSITY_NAME,
 		   pHddCtx->config->ht_mpdu_density);
-
 
 #ifdef FEATURE_LFR_SUBNET_DETECTION
 	hdd_debug("Name = [%s] Value = [%d]",

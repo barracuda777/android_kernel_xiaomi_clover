@@ -620,7 +620,6 @@ void lim_deactivate_timers(tpAniSirGlobal mac_ctx)
 	tx_timer_deactivate(&lim_timer->sae_auth_timer);
 }
 
-
 /**
  * lim_cleanup_mlm() - This function is called to cleanup
  * @mac_ctx: Pointer to Global MAC structure
@@ -1716,7 +1715,6 @@ lim_decide_sta_protection_on_assoc(tpAniSirGlobal pMac,
 			(uint8_t) htInfo.lsigTXOPProtectionFullSupport;
 	}
 }
-
 
 /**
  * lim_decide_sta_11bg_protection() - decides protection related settings on sta

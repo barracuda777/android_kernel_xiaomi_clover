@@ -772,7 +772,6 @@ QDF_STATUS csr_neighbor_roam_issue_preauth_req(tpAniSirGlobal mac_ctx,
 	QDF_STATUS status = QDF_STATUS_SUCCESS;
 	tpCsrNeighborRoamBSSInfo neighbor_bss_node;
 
-
 	if (false != neighbor_roam_info->FTRoamInfo.preauthRspPending) {
 		/* This must not be true here */
 		QDF_ASSERT(neighbor_roam_info->FTRoamInfo.preauthRspPending ==
@@ -819,4 +818,3 @@ QDF_STATUS csr_neighbor_roam_issue_preauth_req(tpAniSirGlobal mac_ctx,
 
 	return status;
 }
-

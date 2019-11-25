@@ -170,7 +170,6 @@ static bool hdd_is_world_regdomain(uint32_t reg_domain)
 		 WORLD_ROAMING_PREFIX);
 }
 
-
 /**
  * hdd_update_regulatory_info() - update regulatory info
  * @hdd_ctx: hdd context
@@ -309,7 +308,6 @@ static int is_wiphy_custom_regulatory(struct wiphy *wiphy)
 	return wiphy->flags & WIPHY_FLAG_CUSTOM_REGULATORY;
 }
 #endif
-
 
 /**
  * hdd_modify_wiphy() - modify wiphy
@@ -575,7 +573,6 @@ static void hdd_set_dfs_region(hdd_context_t *hdd_ctx,
 }
 #endif
 
-
 /**
  * hdd_regulatory_init() - regulatory_init
  * @hdd_ctx: hdd context
@@ -638,7 +635,6 @@ void hdd_program_country_code(hdd_context_t *hdd_ctx)
 	}
 }
 
-
 /**
  * hdd_restore_custom_reg_settings() - restore custom reg settings
  * @wiphy: wiphy structure
@@ -682,7 +678,6 @@ static void hdd_restore_custom_reg_settings(struct wiphy *wiphy,
 	}
 }
 #endif
-
 
 /**
  * hdd_restore_reg_flags() - restore regulatory flags
@@ -822,7 +817,6 @@ void hdd_reg_notifier(struct wiphy *wiphy,
 
 		hdd_set_dfs_region(hdd_ctx,
 				   (enum dfs_region) request->dfs_region);
-
 
 		if (hdd_ctx->driver_status == DRIVER_MODULES_CLOSED) {
 			hdd_debug("Driver module is closed, apply it later");

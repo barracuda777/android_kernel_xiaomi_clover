@@ -233,7 +233,6 @@ bool hdd_is_connecting(hdd_station_ctx_t *hdd_sta_ctx);
  */
 bool hdd_is_fils_connection(hdd_adapter_t *adapter);
 
-
 /**
  * hdd_conn_is_connected() - Function to check connection status
  * @pHddStaCtx:    pointer to global HDD Station context

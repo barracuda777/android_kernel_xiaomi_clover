@@ -114,8 +114,6 @@ lim_send_sme_rsp(tpAniSirGlobal mac_ctx, uint16_t msg_type,
 	lim_sys_process_mmh_msg_api(mac_ctx, &msg, ePROT);
 }
 
-
-
 /**
  * lim_send_sme_roc_rsp() - Send Response to SME
  * @mac_ctx:          Pointer to Global MAC structure
@@ -160,7 +158,6 @@ lim_send_sme_roc_rsp(tpAniSirGlobal mac_ctx, uint16_t msg_type,
 	MTRACE(mac_trace_msg_tx(mac_ctx, sme_session_id, msg.type));
 	lim_sys_process_mmh_msg_api(mac_ctx, &msg, ePROT);
 }
-
 
 /**
  * lim_get_max_rate_flags() - Get rate flags

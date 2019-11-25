@@ -142,7 +142,6 @@ static void rrm_indicate_neighbor_report_result(tpAniSirGlobal pMac,
 	if (callback)
 		callback(callbackContext, qdf_status);
 
-
 }
 
 /**
@@ -1586,7 +1585,6 @@ QDF_STATUS rrm_close(tpAniSirGlobal pMac)
 	qdf_wake_lock_destroy(&pSmeRrmContext->scan_wake_lock);
 
 	return qdf_status;
-
 }
 
 /**
@@ -1605,4 +1603,3 @@ QDF_STATUS rrm_change_default_config_param(tpAniSirGlobal pMac,
 
 	return QDF_STATUS_SUCCESS;
 }
-

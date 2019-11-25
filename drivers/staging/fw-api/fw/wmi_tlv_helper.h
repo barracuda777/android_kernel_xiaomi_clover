@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -78,7 +77,6 @@ typedef struct {
     A_UINT32 cmd_num_tlv;
 } wmitlv_attributes_struc;
 
-
 /* Template structure definition for a variable size array of UINT32 */
 typedef struct {
     A_UINT32    tlv_header;     /* TLV tag and len; tag equals WMI_TLVTAG_ARRAY_UINT32 */
@@ -99,7 +97,6 @@ typedef struct {
 
 #define WMITLV_GET_TAG_NUM_TLV_ATTRIB(wmi_cmd_event_id)      \
        WMI_TLV_HLPR_NUM_TLVS_FOR_##wmi_cmd_event_id
-
 
 void
 wmitlv_set_static_param_tlv_buf(void *param_tlv_buf, A_UINT32 max_tlvs_accomodated);
@@ -156,4 +153,3 @@ int
 wmi_versions_are_compatible(struct _wmi_abi_version *vers1, struct _wmi_abi_version *vers2);
 
 #endif /*_WMI_TLV_HELPER_H_*/
-

@@ -63,6 +63,8 @@
 #include "cds_concurrency.h"
 #include "nan_datapath.h"
 
+#define NO_SESSION 0xff
+
 static void __lim_init_scan_vars(tpAniSirGlobal pMac)
 {
 	pMac->lim.gLimUseScanModeForLearnMode = 1;
@@ -209,7 +211,6 @@ static void __lim_init_states(tpAniSirGlobal pMac)
 static void __lim_init_vars(tpAniSirGlobal pMac)
 {
 	/* Place holder for Measurement Req/Rsp/Ind related info */
-
 
 	/* Deferred Queue Paramters */
 	qdf_mem_set(&pMac->lim.gLimDeferredMsgQ, sizeof(tSirAddtsReq), 0);
@@ -1699,7 +1700,6 @@ tSirRetStatus lim_update_short_slot(tpAniSirGlobal pMac,
 	return eSIR_SUCCESS;
 }
 
-
 void lim_send_heart_beat_timeout_ind(tpAniSirGlobal pMac, tpPESession psessionEntry)
 {
 	uint32_t statusCode;
@@ -2429,7 +2429,6 @@ void lim_update_lost_link_info(tpAniSirGlobal mac, tpPESession session,
 	lim_sys_process_mmh_msg_api(mac, &mmh_msg, ePROT);
 }
 
-#ifdef TRACE_RECORD
 QDF_STATUS pe_acquire_global_lock(tAniSirLim *psPe)
 {
 	QDF_STATUS status = QDF_STATUS_E_INVAL;
@@ -2455,7 +2454,6 @@ QDF_STATUS pe_release_global_lock(tAniSirLim *psPe)
 	}
 	return status;
 }
-#endif
 
 /**
  * lim_mon_init_session() - create PE session for monitor mode operation
@@ -2555,4 +2553,3 @@ QDF_STATUS lim_update_ext_cap_ie(tpAniSirGlobal mac_ctx,
 	(*local_ie_len) += driver_ext_cap.num_bytes;
 	return QDF_STATUS_SUCCESS;
 }
-

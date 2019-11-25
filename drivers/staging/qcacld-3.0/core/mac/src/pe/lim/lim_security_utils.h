@@ -46,7 +46,6 @@
 				 SIR_MAC_WEP_ICV_LENGTH + \
 				 SIR_MAC_CHALLENGE_ID_LEN)
 
-
 struct tLimPreAuthNode;
 
 uint8_t lim_is_auth_algo_supported(tpAniSirGlobal, tAniAuthType, tpPESession);

@@ -640,7 +640,6 @@ void lim_fill_ft_session(tpAniSirGlobal pMac,
 	pftSessionEntry->statypeForBss = STA_ENTRY_PEER;
 	pftSessionEntry->nwType = pbssDescription->nwType;
 
-
 	if (pftSessionEntry->bssType == eSIR_INFRASTRUCTURE_MODE) {
 		pftSessionEntry->limSystemRole = eLIM_STA_ROLE;
 	} else {

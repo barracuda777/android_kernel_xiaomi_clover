@@ -36,7 +36,6 @@
 #include <ol_tx_queue.h>        /* ol_tx_enqueue */
 #include <ol_tx_sched.h>      /* ol_tx_sched */
 
-
 /* internal header files relevant only for specific systems (Pronto) */
 #include <ol_txrx_encap.h>      /* OL_TX_ENCAP, etc */
 #include <ol_tx.h>
@@ -686,7 +685,6 @@ ol_tx_prepare_ll_fast(struct ol_txrx_pdev_t *pdev,
 	 * TODO : Can we remove this check and always download a fixed length ?
 	 */
 
-
 	if (QDF_NBUF_CB_TX_EXTRA_FRAG_FLAGS_EXT_HEADER(msdu))
 		pkt_download_len += sizeof(struct htt_tx_msdu_desc_ext_t);
 
@@ -803,7 +801,6 @@ ol_tx_ll_fast(ol_txrx_vdev_handle vdev, qdf_nbuf_t msdu_list,
 			if (qdf_likely(tx_desc)) {
 				struct qdf_tso_seg_elem_t *next_seg;
 
-
 				/*
 				 * if this is a jumbo nbuf, then increment the
 				 * number of nbuf users for each additional
@@ -869,7 +866,6 @@ ol_tx_ll_fast(ol_txrx_vdev_handle vdev, qdf_nbuf_t msdu_list,
 				}
 				if (msdu_info.tso_info.curr_seg)
 					msdu_info.tso_info.curr_seg = next_seg;
-
 
 				if (msdu_info.tso_info.is_tso) {
 					TXRX_STATS_TSO_INC_SEG(vdev->pdev,
@@ -1525,8 +1521,6 @@ static void merge_ocb_tx_ctrl_hdr(struct ocb_tx_ctrl_hdr_t *tx_ctrl,
 		tx_ctrl->valid_tid = 1;
 	}
 }
-
-
 
 #if defined(CONFIG_HL_SUPPORT) && defined(CONFIG_TX_DESC_HI_PRIO_RESERVE)
 

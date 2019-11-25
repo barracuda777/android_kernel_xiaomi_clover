@@ -237,7 +237,6 @@ if (cds_is_load_or_unload_in_progress() || cds_is_driver_recovering() ||
 }
 }
 
-
 /**
 * cds_is_fw_down() - Is FW down or not
 *

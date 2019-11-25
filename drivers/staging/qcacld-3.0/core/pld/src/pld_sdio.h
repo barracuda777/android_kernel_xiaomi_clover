@@ -44,7 +44,6 @@
 #define PLD_AR6320_REV3_2_VERSION           0x5030000
 #define PLD_AR6320_DEV_VERSION              0x1000000
 
-
 struct pld_fw_files fw_files_qca6174_fw_1_1 = {
 	PREFIX "qwlan11.bin", PREFIX  "bdwlan11.bin", PREFIX "otp11.bin",
 	PREFIX  "utf11.bin", PREFIX "utfbd11.bin", PREFIX "qsetup11.bin",

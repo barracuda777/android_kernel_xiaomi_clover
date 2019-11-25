@@ -344,7 +344,6 @@ bool hdd_dhcp_indication(hdd_adapter_t *adapter,
 	hdd_station_info_t *hdd_sta_info;
 	bool notify_tx_comp = false;
 
-
 	if (((adapter->device_mode == QDF_SAP_MODE) ||
 	     (adapter->device_mode == QDF_P2P_GO_MODE)) &&
 	    ((dir == QDF_TX && QDF_NBUF_CB_PACKET_TYPE_DHCP ==

@@ -64,7 +64,6 @@
 #include <cdp_txrx_cmn.h>
 #include "ol_txrx.h"
 
-
 #include "cds_concurrency.h"
 #include "wma_nan_datapath.h"
 
@@ -91,7 +90,6 @@ void *wma_find_vdev_by_addr(tp_wma_handle wma, uint8_t *addr,
 	}
 	return NULL;
 }
-
 
 /**
  * wma_is_vdev_in_ap_mode() - check that vdev is in ap mode or not
@@ -335,7 +333,6 @@ static struct wma_target_req *wma_find_remove_req_msgtype(tp_wma_handle wma,
 	return req_msg;
 }
 
-
 /**
  * wma_find_vdev_req() - find target request for vdev id
  * @wma: wma handle
@@ -465,7 +462,6 @@ static void wma_vdev_detach_callback(void *ctx)
 	param->status = QDF_STATUS_SUCCESS;
 	wma_send_del_sta_self_resp(param);
 }
-
 
 /**
  * wma_self_peer_remove() - Self peer remove handler
@@ -2182,7 +2178,6 @@ ol_txrx_vdev_handle wma_vdev_attach(tp_wma_handle wma_handle,
 	tx_aggr_sw_retry_threshold.tx_aggr_sw_retry_threshold_vo =
 				self_sta_req->tx_aggr_sw_retry_threshold_vo;
 	tx_aggr_sw_retry_threshold.vdev_id = self_sta_req->session_id;
-
 
 	switch (self_sta_req->type) {
 	case WMI_VDEV_TYPE_STA:

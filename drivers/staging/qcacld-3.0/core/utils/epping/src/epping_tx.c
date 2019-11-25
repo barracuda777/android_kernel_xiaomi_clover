@@ -325,7 +325,6 @@ void epping_tx_complete(void *ctx, HTC_PACKET *htc_pkt)
 
 	qdf_spin_lock_bh(&pAdapter->data_lock);
 
-
 	status = htc_pkt->Status;
 	eid = htc_pkt->Endpoint;
 	pktSkb = GET_HTC_PACKET_NET_BUF_CONTEXT(htc_pkt);
@@ -377,7 +376,6 @@ void epping_tx_complete(void *ctx, HTC_PACKET *htc_pkt)
 
 	epping_free_cookie(pAdapter->pEpping_ctx, cookie);
 	qdf_spin_unlock_bh(&pAdapter->data_lock);
-
 
 	/* free all skbs in our local list */
 	while (qdf_nbuf_queue_len(&skb_queue)) {

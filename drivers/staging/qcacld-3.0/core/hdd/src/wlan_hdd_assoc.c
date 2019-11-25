@@ -890,7 +890,6 @@ static void hdd_copy_vht_operation(hdd_station_ctx_t *hdd_sta_ctx,
 	hdd_vht_ops->basic_mcs_set = roam_vht_ops->basicMCSSet;
 }
 
-
 /**
  * hdd_save_bss_info() - save connection info in hdd sta ctx
  * @adapter: Pointer to adapter
@@ -2337,7 +2336,6 @@ bool hdd_is_roam_sync_in_progress(tCsrRoamInfo *roaminfo)
 }
 #endif
 
-
 /**
  * hdd_change_sta_state_authenticated()-
  * This function changes STA state to authenticated
@@ -2397,7 +2395,6 @@ static int hdd_change_sta_state_authenticated(hdd_adapter_t *adapter,
 
 	return qdf_status_to_os_return(status);
 }
-
 
 static void hdd_peer_state_transition(hdd_adapter_t *adapter,
 				tCsrRoamInfo *roam_info,
@@ -3989,9 +3986,6 @@ static QDF_STATUS hdd_tdls_connection_tracker_update(hdd_adapter_t *adapter,
 
 	return QDF_STATUS_SUCCESS;
 }
-
-
-
 
 /**
  * hdd_roam_tdls_status_update_handler() - TDLS status update handler
@@ -6023,7 +6017,6 @@ static bool hdd_check_is_owe_auth_type(tCsrRoamProfile *roam_profile,
 	return false;
 }
 #endif
-
 
 /**
  * hdd_set_csr_auth_type() - set csr auth type

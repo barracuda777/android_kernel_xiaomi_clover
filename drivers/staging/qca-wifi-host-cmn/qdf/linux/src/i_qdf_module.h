@@ -29,7 +29,6 @@
 #include <linux/moduleparam.h>
 #include <qdf_types.h>
 
-
 #define __qdf_virt_module_init(_x)  \
 	static int _x##_mod(void) \
 	{                   \

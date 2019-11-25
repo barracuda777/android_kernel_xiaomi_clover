@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -28,12 +27,9 @@
 #ifndef _WMI_SERVICES_H_
 #define _WMI_SERVICES_H_
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-
 
 typedef  enum  {
     WMI_SERVICE_BEACON_OFFLOAD=0,           /* beacon offload */
@@ -424,7 +420,6 @@ typedef  enum  {
     ( ((pwmi_svc_bmap)[(svc_id)/(sizeof(A_UINT32))] &  \
        (1 << ((svc_id)%(sizeof(A_UINT32)))) ) != 0)
 
-
 #define WMI_SERVICE_EXT_ENABLE(pwmi_svc_bmap, pwmi_svc_ext_bmap, svc_id) \
     do { \
         if (svc_id < WMI_MAX_SERVICE) { \
@@ -456,7 +451,6 @@ typedef  enum  {
             /* If service ID is in the extended range, check ext_bmap */ \
             (((pwmi_svc_ext_bmap)[((svc_id) - WMI_MAX_SERVICE) / 32] >> \
                 ((svc_id) & 0x1f)) & 0x1))
-
 
 #ifdef __cplusplus
 }

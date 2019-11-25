@@ -323,7 +323,6 @@ int hif_sdio_bus_suspend(struct hif_softc *hif_ctx)
 	return 0;
 }
 
-
 /**
  * hif_sdio_bus_resume() - hif resume API
  *
@@ -445,7 +444,6 @@ QDF_STATUS hif_sdio_enable_bus(struct hif_softc *hif_sc,
 
 	return ret;
 }
-
 
 /**
  * hif_sdio_disable_bus() - sdio disable bus

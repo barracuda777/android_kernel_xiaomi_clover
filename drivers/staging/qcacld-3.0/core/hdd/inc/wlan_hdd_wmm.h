@@ -51,7 +51,6 @@
 /*Maximum number of ACs */
 #define WLAN_MAX_AC                         4
 
-
 /* Preprocessor Definitions and Constants */
 
 /* #define HDD_WMM_DEBUG 1 */

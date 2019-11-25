@@ -34,7 +34,6 @@
 #include "lim_utils.h"
 #include "lim_ser_des_utils.h"
 
-
 /**---------------------------------------------------------------
    \fn     lim_get_session_info
    \brief  This function returns the sessionId and transactionId

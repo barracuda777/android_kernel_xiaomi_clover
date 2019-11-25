@@ -191,7 +191,6 @@ void htt_htc_misc_pkt_pool_free(struct htt_pdev_t *pdev)
 }
 #endif
 
-
 /* AR6004 don't need HTT layer. */
 #ifdef AR6004_HW
 #define NO_HTT_NEEDED true
@@ -628,7 +627,6 @@ QDF_STATUS htt_attach_target(htt_pdev_handle pdev)
 	}
 #endif /* defined(HELIUMPLUS) */
 
-
 	/*
 	 * If applicable, send the rx ring config message to the target.
 	 * The host could wait for the HTT version number confirmation message
@@ -960,4 +958,3 @@ void htt_mark_first_wakeup_packet(htt_pdev_handle pdev,
 
 	pdev->cfg.is_first_wakeup_packet = value;
 }
-

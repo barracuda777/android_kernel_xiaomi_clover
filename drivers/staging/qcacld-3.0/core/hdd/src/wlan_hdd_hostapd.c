@@ -1389,7 +1389,6 @@ static int calcuate_max_phy_rate(int mode, int nss, int ch_width,
  * Return: dot11mode.
  */
 
-
 static int hdd_convert_dot11mode_from_phymode(int phymode)
 {
 
@@ -1444,7 +1443,6 @@ static void hdd_fill_station_info(hdd_adapter_t *pHostapdAdapter,
 	hdd_station_info_t *stainfo;
 	uint8_t i = 0, oldest_disassoc_sta_idx = WLAN_MAX_STA_COUNT + 1;
 	qdf_time_t oldest_disassoc_sta_ts = 0;
-
 
 	if (event->staId >= WLAN_MAX_STA_COUNT) {
 		hdd_err("invalid sta id");
@@ -1729,7 +1727,6 @@ QDF_STATUS hdd_hostapd_sap_event_cb(tpSap_Event pSapEvent,
 		hdd_err("QDF context is null");
 		return QDF_STATUS_E_FAILURE;
 	}
-
 
 	dfs_info.channel = pHddApCtx->operatingChannel;
 	sme_get_country_code(pHddCtx->hHal, dfs_info.country_code, &cc_len);
@@ -3949,7 +3946,6 @@ static int __iw_softap_get_three(struct net_device *dev,
 	return ret;
 }
 
-
 /**
  * iw_softap_get_three() - return three value to upper layer.
  *
@@ -4422,7 +4418,6 @@ static iw_softap_set_pktlog(struct net_device *dev,
 
 	return ret;
 }
-
 
 int
 static __iw_softap_set_tx_power(struct net_device *dev,
@@ -5735,8 +5730,6 @@ iw_get_softap_linkspeed(struct net_device *dev,
 	return ret;
 }
 
-
-
 /**
  * __iw_get_peer_rssi() - get station's rssi
  * @dev: net device
@@ -6564,7 +6557,6 @@ QDF_STATUS hdd_init_ap_mode(hdd_adapter_t *pAdapter, bool reinit)
 		return qdf_status;
 	}
 
-
 	sema_init(&(WLAN_HDD_GET_AP_CTX_PTR(pAdapter))->semWpsPBCOverlapInd, 1);
 
 	/* Register as a wireless device */
@@ -6845,7 +6837,6 @@ int wlan_hdd_set_channel(struct wiphy *wiphy,
 
 	ENTER();
 
-
 	if (NULL == dev) {
 		hdd_err("Called with dev = NULL");
 		return -ENODEV;
@@ -6864,7 +6855,6 @@ int wlan_hdd_set_channel(struct wiphy *wiphy,
 	status = wlan_hdd_validate_context(pHddCtx);
 	if (status)
 		return status;
-
 
 	/*
 	 * Do freq to chan conversion
@@ -7042,7 +7032,6 @@ static void wlan_hdd_check_11gmode(u8 *pIe, u8 *require_ht, u8 *require_vht,
 		}
 	}
 }
-
 
 /**
  * wlan_hdd_add_hostapd_conf_vsie() - configure Vendor IE in sap mode
@@ -7596,7 +7585,6 @@ QDF_STATUS wlan_hdd_config_acs(hdd_context_t *hdd_ctx, hdd_adapter_t *adapter)
 			} else
 				sap_config->acs_cfg.skip_scan_status =
 							eSAP_DO_NEW_ACS_SCAN;
-
 
 			hdd_debug(FL(
 				"SecAP ACS Skip=%d, ACS CH RANGE=%d-%d, %d-%d"),
@@ -9053,7 +9041,6 @@ static void hdd_update_beacon_rate(hdd_adapter_t *adapter,
 }
 #endif
 
-
 /**
  * __wlan_hdd_cfg80211_start_ap() - start soft ap mode
  * @wiphy: Pointer to wiphy structure
@@ -9275,7 +9262,6 @@ static int __wlan_hdd_cfg80211_start_ap(struct wiphy *wiphy,
 						&(params->chandef));
 		else
 			channel_type = NL80211_CHAN_HT40PLUS;
-
 
 		wlan_hdd_set_channel(wiphy, dev,
 				     &params->chandef,

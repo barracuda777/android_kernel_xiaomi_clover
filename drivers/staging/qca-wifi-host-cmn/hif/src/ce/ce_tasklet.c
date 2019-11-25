@@ -35,7 +35,6 @@
 #include "hif_debug.h"
 #include "hif_napi.h"
 
-
 /**
  * struct tasklet_work
  *
@@ -47,7 +46,6 @@ struct tasklet_work {
 	void *data;
 	struct work_struct work;
 };
-
 
 /**
  * reschedule_ce_tasklet_work_handler() - reschedule work

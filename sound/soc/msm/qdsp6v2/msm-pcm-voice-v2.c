@@ -496,13 +496,12 @@ static int msm_voice_sidetone_put(struct snd_kcontrol *kcontrol,
 					struct snd_ctl_elem_value *ucontrol)
 {
 	int ret;
-	long value = ucontrol->value.integer.value[0];
-	bool sidetone_enable = value;
+	bool sidetone_enable = ucontrol->value.integer.value[0];
 	uint32_t session_id = ALL_SESSION_VSID;
 
-	if (value < 0) {
-		pr_err("%s: Invalid arguments sidetone enable %ld\n",
-			 __func__, value);
+	if (sidetone_enable < 0) {
+		pr_err("%s: Invalid arguments sidetone enable %d\n",
+			 __func__, sidetone_enable);
 		ret = -EINVAL;
 		return ret;
 	}
@@ -624,7 +623,7 @@ done:
 
 
 
-static const char *tty_mode[] = {"OFF", "HCO", "VCO", "FULL"};
+static const char const *tty_mode[] = {"OFF", "HCO", "VCO", "FULL"};
 static const struct soc_enum msm_tty_mode_enum[] = {
 		SOC_ENUM_SINGLE_EXT(4, tty_mode),
 };

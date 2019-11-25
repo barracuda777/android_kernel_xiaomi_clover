@@ -423,7 +423,6 @@ static bool hdd_wait_for_recovery_completion(void)
 }
 #endif
 
-
 static int __hdd_netdev_notifier_call(struct notifier_block *nb,
 				    unsigned long state, void *data)
 {
@@ -712,7 +711,6 @@ int wlan_hdd_validate_context_in_loading(hdd_context_t *hdd_ctx)
 
 	return 0;
 }
-
 
 /**
  * wlan_hdd_validate_context() - check the HDD context
@@ -1537,7 +1535,6 @@ static void hdd_update_tgt_vht_cap(hdd_context_t *hdd_ctx,
 	else
 		band_5g->vht_cap.cap |= IEEE80211_VHT_CAP_MAX_MPDU_LENGTH_3895;
 
-
 	if (cfg->supp_chan_width & (1 << eHT_CHANNEL_WIDTH_80P80MHZ)) {
 		status = sme_cfg_set_int(hdd_ctx->hHal,
 				WNI_CFG_VHT_SUPPORTED_CHAN_WIDTH_SET,
@@ -1804,7 +1801,6 @@ void hdd_update_tgt_cfg(void *context, void *param)
 			WNI_CFG_VHT_CSN_BEAMFORMEE_ANT_SUPPORTED,
 			hdd_ctx->config->txBFCsnValue) == QDF_STATUS_E_FAILURE)
 		hdd_err("fw update WNI_CFG_VHT_CSN_BEAMFORMEE_ANT_SUPPORTED to CFG fails");
-
 
 	hdd_debug("Target APF %d Host APF %d 8ss fw support %d txBFCsnValue %d",
 		cfg->apf_enabled, hdd_ctx->config->apf_packet_filter_enable,
@@ -2184,7 +2180,6 @@ void hdd_update_hw_sw_info(hdd_context_t *hdd_ctx)
 	uint8_t *buf;
 	uint32_t buf_len;
 
-
 	hif_sc = cds_get_context(QDF_MODULE_ID_HIF);
 	if (!hif_sc) {
 		hdd_err("HIF context is NULL");
@@ -2403,7 +2398,6 @@ int hdd_wlan_start_modules(hdd_context_t *hdd_ctx, hdd_adapter_t *adapter,
 			goto deregister_cb;
 		}
 
-
 		status = hdd_ipa_init(hdd_ctx);
 		if (status) {
 			ret = qdf_status_to_os_return(status);
@@ -2567,7 +2561,6 @@ static int __hdd_open(struct net_device *dev)
 		goto err_hdd_hdd_init_deinit_lock;
 	}
 
-
 	if (!test_bit(SME_SESSION_OPENED, &adapter->event_flags)) {
 		ret = hdd_start_adapter(adapter);
 		if (ret) {
@@ -2610,7 +2603,6 @@ err_hdd_hdd_init_deinit_lock:
 	mutex_unlock(&hdd_init_deinit_lock);
 	return ret;
 }
-
 
 /**
  * hdd_open() - Wrapper function for __hdd_open to protect it from SSR
@@ -3062,7 +3054,6 @@ static void __hdd_set_multicast_list(struct net_device *dev)
 		hdd_err("Driver Modules are closed, cannot set mc addr list");
 		return;
 	}
-
 
 	if (!hdd_ctx->config->fEnableMCAddrList) {
 		hdd_debug("gMCAddrListEnable ini param not enabled");
@@ -4500,7 +4491,6 @@ hdd_adapter_t *hdd_open_adapter(hdd_context_t *hdd_ctx, uint8_t session_type,
 
 		adapter->device_mode = session_type;
 
-
 		/* initialize action frame random mac info */
 		hdd_adapter_init_action_frame_random_mac(adapter);
 
@@ -5831,7 +5821,6 @@ void hdd_connect_result(struct net_device *dev, const u8 *bssid,
 }
 #endif
 
-
 #ifdef MSM_PLATFORM
 /**
  * hdd_stop_p2p_go() - call cfg80211 API to stop P2P GO
@@ -6144,7 +6133,6 @@ hdd_adapter_t *hdd_get_adapter_by_sme_session_id(hdd_context_t *hdd_ctx,
 	hdd_adapter_list_node_t *adapter_node = NULL, *next = NULL;
 	hdd_adapter_t *adapter;
 	QDF_STATUS qdf_status;
-
 
 	qdf_status = hdd_get_front_adapter(hdd_ctx, &adapter_node);
 
@@ -7044,7 +7032,6 @@ hdd_adapter_t *hdd_get_first_valid_adapter()
 		adapterNode = pNext;
 	}
 
-
 	return NULL;
 }
 
@@ -7647,7 +7634,6 @@ static uint8_t *convert_level_to_string(uint32_t level)
 	}
 }
 
-
 /**
  * wlan_hdd_display_tx_rx_histogram() - display tx rx histogram
  * @hdd_ctx: hdd context
@@ -7711,7 +7697,6 @@ void wlan_hdd_clear_tx_rx_histogram(hdd_context_t *hdd_ctx)
 	qdf_mem_zero(hdd_ctx->hdd_txrx_hist,
 		(sizeof(struct hdd_tx_rx_histogram) * NUM_TX_RX_HISTOGRAM));
 }
-
 
 /* length of the netif queue log needed per adapter */
 #define ADAP_NETIFQ_LOG_LEN ((20 * WLAN_REASON_TYPE_MAX) + 50)
@@ -8824,8 +8809,6 @@ static int ie_whitelist_attrs_init(hdd_context_t *hdd_ctx)
 	return ret;
 }
 
-
-
 /**
  * hdd_iface_change_callback() - Function invoked when stop modules expires
  * @priv: pointer to hdd context
@@ -8942,10 +8925,8 @@ static hdd_context_t *hdd_context_create(struct device *dev)
 	if (ret)
 		goto err_deinit_hdd_context;
 
-#ifdef WLAN_LOGGING_SOCK_SVC_ENABLE
 	wlan_logging_set_log_to_console(hdd_ctx->config->wlanLoggingToConsole);
 	wlan_logging_set_active(hdd_ctx->config->wlanLoggingEnable);
-#endif
 
 	hdd_ctx->is_ssr_in_progress = false;
 
@@ -9395,7 +9376,6 @@ static int hdd_update_country_code(hdd_context_t *hdd_ctx,
 					 country_code, adapter,
 					 hdd_ctx->pcds_context, true,
 					 true);
-
 
 	if (!QDF_IS_STATUS_SUCCESS(status)) {
 		hdd_err("SME Change Country code from module param fail ret=%d",
@@ -9874,7 +9854,6 @@ int hdd_pktlog_enable_disable(hdd_context_t *hdd_ctx, bool enable,
 }
 #endif /* REMOVE_PKT_LOG */
 
-
 #ifdef FEATURE_WLAN_MCC_TO_SCC_SWITCH
 /**
  * hdd_register_for_sap_restart_with_channel_switch() - Register for SAP channel
@@ -10012,7 +9991,6 @@ static int hdd_platform_wlan_mac(hdd_context_t *hdd_ctx)
 		hdd_info("provisioned MAC Addr [%d]" MAC_ADDRESS_STR, iter,
 			 MAC_ADDR_ARRAY(buf));
 	}
-
 
 	hdd_ctx->num_provisioned_addr = no_of_mac_addr;
 
@@ -10816,7 +10794,6 @@ out:
 
 }
 
-
 /**
  * hdd_features_deinit() - Deinit features
  * @hdd_ctx:	HDD context
@@ -11030,8 +11007,6 @@ static int hdd_deconfigure_cds(hdd_context_t *hdd_ctx)
 	return ret;
 }
 
-
-
 /**
  * hdd_wlan_stop_modules - Single driver state machine for stoping modules
  * @hdd_ctx: HDD context
@@ -11198,7 +11173,6 @@ done:
 
 	return ret;
 }
-
 
 /**
  * hdd_state_info_dump() - prints state information of hdd layer
@@ -11421,7 +11395,6 @@ int hdd_wlan_startup(struct device *dev)
 
 	if (hdd_ctx->config->enable_dp_trace)
 		hdd_dp_trace_init(hdd_ctx->config);
-
 
 	ret = hdd_initialize_mac_address(hdd_ctx);
 	if (ret) {
@@ -12618,7 +12591,6 @@ exit:
 	return count;
 }
 
-
 const struct file_operations wlan_hdd_state_fops = {
 	.owner = THIS_MODULE,
 	.open = wlan_hdd_state_ctrl_param_open,
@@ -12889,7 +12861,6 @@ static void hdd_stop_present_mode(hdd_context_t *hdd_ctx,
 	}
 }
 
-
 static void hdd_cleanup_present_mode(hdd_context_t *hdd_ctx,
 				    enum tQDF_GLOBAL_CON_MODE curr_mode)
 {
@@ -13078,7 +13049,6 @@ reset_flags:
 	qdf_atomic_set(&hdd_ctx->con_mode_flag, 0);
 	return ret;
 }
-
 
 static int con_mode_handler(const char *kmessage, const struct kernel_param *kp)
 {

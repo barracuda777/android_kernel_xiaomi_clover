@@ -318,7 +318,6 @@ enum __qdf_net_wireless_evcode {
 
 #if defined(QDF_COMPILER_MSC)
 
-
 /*
  * Does nothing on Windows.  packing individual structs is not
  * supported on the Windows compiler

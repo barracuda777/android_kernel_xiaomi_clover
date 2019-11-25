@@ -91,7 +91,6 @@ static void hif_target_access_log_dump(void)
 }
 #endif
 
-
 void hif_trigger_dump(struct hif_opaque_softc *hif_ctx,
 		      uint8_t cmd_id, bool start)
 {
@@ -466,7 +465,6 @@ static struct service_to_pipe target_service_to_ce_map_ar900b[] = {
 		0,
 	},
 };
-
 
 static struct service_to_pipe *target_service_to_ce_map =
 	target_service_to_ce_map_wlan;
@@ -1750,9 +1748,6 @@ static void hif_post_recv_buffers_failure(struct HIF_CE_pipe_info *pipe_info,
 
 }
 
-
-
-
 QDF_STATUS hif_post_recv_buffers_for_pipe(struct HIF_CE_pipe_info *pipe_info)
 {
 	struct CE_handle *ce_hdl;
@@ -1919,7 +1914,6 @@ static void hif_recv_buffer_cleanup_on_pipe(struct HIF_CE_pipe_info *pipe_info)
 	/* Unused Copy Engine */
 	if (buf_sz == 0)
 		return;
-
 
 	hif_state = pipe_info->HIF_CE_state;
 	if (!hif_state->started)
@@ -2535,7 +2529,6 @@ void hif_ce_ipa_get_ce_resource(struct hif_softc *scn,
 }
 #endif /* IPA_OFFLOAD */
 
-
 #ifdef ADRASTEA_SHADOW_REGISTERS
 
 /*
@@ -2871,7 +2864,6 @@ inline uint32_t DEBUG_CE_SRC_RING_READ_IDX_GET(struct hif_softc *scn,
 	return srri_from_ddr;
 }
 
-
 inline uint32_t DEBUG_CE_DEST_RING_READ_IDX_GET(struct hif_softc *scn,
 		uint32_t CE_ctrl_addr)
 {
@@ -3087,7 +3079,6 @@ struct hif_pipe_addl_info *hif_get_addl_pipe_info(struct hif_opaque_softc *osc,
 			src_ring->base_addr_owner_space;
 	}
 
-
 	if (dest_ring) {
 		hif_info->dl_pipe.nentries = dest_ring->nentries;
 		hif_info->dl_pipe.nentries_mask = dest_ring->nentries_mask;
@@ -3203,7 +3194,6 @@ irqreturn_t hif_fw_interrupt_handler(int irq, void *arg)
 }
 #endif /* #ifdef QCA_WIFI_3_0 */
 
-
 /**
  * hif_wlan_disable(): call the platform driver to disable wlan
  * @scn: HIF Context
@@ -3227,4 +3217,3 @@ void hif_wlan_disable(struct hif_softc *scn)
 
 	pld_wlan_disable(scn->qdf_dev->dev, mode);
 }
-

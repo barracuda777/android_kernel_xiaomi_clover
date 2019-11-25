@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -50,7 +49,6 @@
 extern "C" {
 #endif
 
-
 #define HTC_PROTOCOL_VERSION    0x0002
 
 #define WMI_PROTOCOL_VERSION    0x0002
@@ -58,11 +56,9 @@ extern "C" {
 #define WMI_MODE_MAX              8
 #define WMI_MAX_RATE_MASK         6
 
-
 PREPACK struct host_app_area_s {
     A_UINT32 wmi_protocol_ver;
 } POSTPACK;
-
 
 #undef MS
 #define MS(_v, _f) (((_v) & _f##_MASK) >> _f##_LSB)
@@ -118,7 +114,6 @@ typedef enum {
     WMI_IGNORE_CMDID,				//used in wlan_wmi.c
 } WMI_COMMAND_ID;
 
-
 typedef enum {
     NONE_CRYPT          = 0x01,
     WEP_CRYPT           = 0x02,
@@ -135,7 +130,6 @@ typedef enum {
  * WMI_SET_PMK_CMDID
  */
 #define WMI_PMK_LEN     32
-
 
 /*
  * WMI_ADD_CIPHER_KEY_CMDID
@@ -165,7 +159,6 @@ typedef enum {
     // END CAPABILITY
     WMI_11N_CAPABILITY_OFFSET = (WMI_11NA_CAPABILITY - WMI_11A_CAPABILITY),
 } WMI_PHY_CAPABILITY;
-
 
 /* Deprectated, need clean up */
 #define WMI_MAX_RX_META_SZ  (12)

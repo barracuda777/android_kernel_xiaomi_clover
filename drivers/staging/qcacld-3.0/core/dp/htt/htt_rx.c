@@ -2299,7 +2299,6 @@ static int htt_rx_mon_amsdu_rx_in_order_pop_ll(htt_pdev_handle pdev,
 			   HTT_RX_BUF_SIZE -
 			   (RX_STD_DESC_SIZE + len));
 
-
 		HTT_PKT_DUMP(qdf_trace_hex_dump(QDF_MODULE_ID_TXRX,
 						QDF_TRACE_LEVEL_INFO_HIGH,
 						qdf_nbuf_data(msdu),
@@ -2439,8 +2438,7 @@ htt_rx_amsdu_rx_in_order_pop_ll(htt_pdev_handle pdev,
 	paddr = htt_rx_in_ord_paddr_get(msg_word);
 	(*head_msdu) = msdu = htt_rx_in_order_netbuf_pop(pdev, paddr);
 
-	if (head_mon_msdu)
-		(*head_mon_msdu) = NULL;
+	(*head_mon_msdu) = NULL;
 
 	if (qdf_unlikely(NULL == msdu)) {
 		qdf_print("%s: netbuf pop failed!\n", __func__);
@@ -2516,7 +2514,7 @@ htt_rx_amsdu_rx_in_order_pop_ll(htt_pdev_handle pdev,
 						   HTT_RX_STD_DESC_RESERVATION);
 				qdf_nbuf_set_next(mon_msdu, NULL);
 
-				if (head_mon_msdu && !(*head_mon_msdu)) {
+				if (!(*head_mon_msdu)) {
 					*head_mon_msdu = mon_msdu;
 					mon_prev = mon_msdu;
 				} else {
@@ -3632,7 +3630,6 @@ static int htt_rx_hash_init(struct htt_pdev_t *pdev)
 		qdf_spin_lock_bh(&(pdev->rx_ring.rx_hash_lock));
 		pdev->rx_ring.hash_table[i] = allocation;
 
-
 		HTT_RX_HASH_COUNT_RESET(pdev->rx_ring.hash_table[i]);
 
 		/* initialize the hash table buckets */
@@ -3804,7 +3801,6 @@ int htt_rx_attach(struct htt_pdev_t *pdev)
 	/* Initialize the refill_lock and debt (for rx-parallelization) */
 	qdf_spinlock_create(&(pdev->rx_ring.refill_lock));
 	qdf_atomic_init(&pdev->rx_ring.refill_debt);
-
 
 	/* Initialize the Rx refill retry timer */
 	qdf_timer_init(pdev->osdev,

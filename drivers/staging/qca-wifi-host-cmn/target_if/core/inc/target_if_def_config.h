@@ -47,7 +47,6 @@
 #define TGT_WDS_ENTRIES             0
 #endif
 
-
 /* MAC DMA burst size. 0: 128B - default, 1: 256B, 2: 64B */
 #define TGT_DEFAULT_DMA_BURST_SIZE   0
 

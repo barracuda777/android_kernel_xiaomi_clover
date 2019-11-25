@@ -2928,7 +2928,6 @@ end:
 			     (uint32_t *) &mlmReassocCnf);
 }
 
-
 /**
  * lim_process_switch_channel_join_req() -Initiates probe request
  *

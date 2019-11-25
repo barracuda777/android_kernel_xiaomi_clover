@@ -46,7 +46,6 @@ typedef struct {
 	uint32_t control;
 } tCfgCtl;
 
-
 typedef struct sAniSirCfgStaticString {
 	uint16_t cfgId;
 	uint8_t  maxLen;

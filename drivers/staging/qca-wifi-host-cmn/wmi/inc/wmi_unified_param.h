@@ -285,7 +285,6 @@ typedef enum {
 	WMI_HOST_MODE_MAX	= 16
 } WMI_HOST_WLAN_PHY_MODE;
 
-
 /**
  * enum wmi_dwelltime_adaptive_mode: dwelltime_mode
  * @WMI_DWELL_MODE_DEFAULT: Use firmware default mode
@@ -737,7 +736,6 @@ struct wow_remove_wakeup_pattern_params {
 	uint32_t *mask_bytes;
 	uint32_t pattern_id;
 };
-
 
 /**
  * struct packet_enable_params - packet enable cmd parameter
@@ -1350,7 +1348,6 @@ struct p2p_ps_params {
 	uint8_t ps_selection;
 	uint8_t session_id;
 };
-
 
 /**
  * struct ta_uapsd_trig_params - uapsd trigger parameter
@@ -2481,7 +2478,6 @@ struct nlo_mawc_params {
 	uint32_t max_scan_interval;
 };
 
-
 #define WMI_WLAN_EXTSCAN_MAX_CHANNELS                 36
 #define WMI_WLAN_EXTSCAN_MAX_BUCKETS                  16
 #define WMI_WLAN_EXTSCAN_MAX_HOTLIST_APS              128
@@ -2942,7 +2938,6 @@ struct aggr_add_ts_param {
 	uint8_t vdev_id;
 };
 
-
 /**
  * struct wlm_latency_level_param - WLM parameters
  * @wlm_latency_level: wlm latency level to set
@@ -3282,7 +3277,6 @@ struct nan_req_params {
 	uint16_t request_data_len;
 	uint8_t request_data[];
 };
-
 
 /**
  * struct app_type2_params - app type2parameter
@@ -3668,7 +3662,6 @@ struct rssi_disallow_bssid {
 	uint32_t remaining_duration;
 	int8_t expected_rssi;
 };
-
 
 /**
  * struct roam_scan_filter_params - Structure holding roaming scan
@@ -5452,7 +5445,6 @@ typedef enum {
 	wmi_pdev_param_max,
 } wmi_conv_pdev_params_id;
 
-
 /**
  * Host based ENUM IDs for VDEV params to abstract target enums
  */
@@ -6447,7 +6439,6 @@ enum wmi_host_sta_powersave_param {
 #define WMI_HOST_HT_CAP_RX_STBC_1SS	0x0010   /* B4-B5 RX STBC */
 #define WMI_HOST_HT_CAP_RX_STBC_2SS	0x0020   /* B4-B5 RX STBC */
 #define WMI_HOST_HT_CAP_RX_STBC_3SS	0x0030   /* B4-B5 RX STBC */
-
 
 #define WMI_HOST_HT_CAP_DEFAULT_ALL (WMI_HOST_HT_CAP_ENABLED	| \
 	WMI_HOST_HT_CAP_HT20_SGI	| \
@@ -7809,4 +7800,3 @@ struct wmi_hw_filter_req_params {
 	struct qdf_mac_addr bssid;
 };
 #endif /* _WMI_UNIFIED_PARAM_H_ */
-

@@ -33,7 +33,6 @@
  *
  */
 
-
 // Tell framesc what types to use for...
 %8-bit-type   uint8_t  // 8,
 %16-bit-type  uint16_t // 16,
@@ -216,7 +215,6 @@ const TLV_OPERATING_CHANNEL                  =  17;
 const TLV_INVITATION_FLAGS                   =  18;
 const TLV_P2P_VENDOR_SPECIFIC                = 221;
 
-
 /////////////////////////////////////////////////////////////////////////////
 //                  MBO-OCE Attributes (0, 151-255: Reserved)              //
 /////////////////////////////////////////////////////////////////////////////
@@ -236,8 +234,6 @@ const TLV_OCE_CAP_IND_ATTR                   =   101;
 const TLV_RSSI_ASSOC_REJ_ATTR                =   102;
 const TLV_REDUCED_WAN_METRICS_ATTR           =   103;
 // 104-150 : Reserved for OCE
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Fixed Fields
@@ -576,7 +572,6 @@ TLV RFBands ( TLV_RF_BANDS ) ( 2 : 2 ) MSB
     bands, 1;
 }
 
-
 /**
  * \brief Selected Registrar
  *
@@ -776,7 +771,6 @@ TLV DevicePasswordID ( TLV_DEVICE_PASSWORD_ID ) ( 2 : 2 ) MSB
     id, 2;
 }
 
-
 /**
  * \brief Primary Device Type
  *
@@ -846,7 +840,6 @@ TLV PrimaryDeviceType ( TLV_PRIMARY_DEVICE_TYPE ) ( 2 : 2 ) MSB
     sub_category, 2;
 }
 
-
 /**
  * \brief Request Type
  *
@@ -914,7 +907,6 @@ TLV ResponseType ( TLV_RESPONSE_TYPE  ) ( 2 : 2 ) MSB
     resType, 1;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //                       WiFi Direct/P2P TLVs                            //
 ///////////////////////////////////////////////////////////////////////////
@@ -928,7 +920,6 @@ TLV P2PStatus ( TLV_P2P_STATUS ) ( 1 : 2 ) LSB
     status, 1;
 }
 
-
 /**
  * \brief Minor Reason Code Attribute
  */
@@ -937,7 +928,6 @@ TLV MinorReasonCode ( TLV_MINOR_REASON_CODE ) ( 1 : 2 ) LSB
 {
     minorReasonCode, 1;
 }
-
 
 /**
  * \brief P2P Capability Attribute
@@ -948,7 +938,6 @@ TLV P2PCapability ( TLV_P2P_CAPABILITY ) ( 1 : 2 ) LSB
     deviceCapability, 1;
     groupCapability, 1;
 }
-
 
 /**
  * \brief P2P Device Id Attribute
@@ -980,7 +969,6 @@ TLV ExtendedListenTiming ( TLV_EXTENDED_LISTEN_TIMING ) ( 1 : 2 ) LSB
     availibilityInterval, 2;
 }
 
-
 /**
  * \brief P2P Manageability Attribute
  */
@@ -989,7 +977,6 @@ TLV P2PManageability ( TLV_P2P_MANAGEABILITY ) ( 1 : 2 ) LSB
 {
     manageability, 1;
 }
-
 
 /**
  * \brief Notice of Absence
@@ -1014,7 +1001,6 @@ TLV P2PDeviceInfo ( TLV_P2P_DEVICE_INFO ) ( 1 : 2 ) LSB
     MANDATORYTLV DeviceName;
 }
 
-
 /**
  * \brief P2P Group Info Attribute
  */
@@ -1024,7 +1010,6 @@ TLV P2PGroupInfo ( TLV_P2P_GROUP_INFO ) ( 1 : 2 ) LSB
     P2PClientInfoDesc[0..1024];
 }
 
-
 /**
  * \brief P2P Interface Attribute
  */
@@ -1033,7 +1018,6 @@ TLV P2PInterface ( TLV_P2P_INTERFACE ) ( 1 : 2 ) LSB
 {
     P2PDeviceAddress[6];
 }
-
 
 /**
  * \brief Operating Channel Attribute
@@ -1785,7 +1769,6 @@ IE WMMInfoAp (EID_VENDOR_SPECIFIC) OUI(0x00, 0x50, 0xF2, 0x02, 0x00)
     }
 }
 
-
 IE WMMParams (EID_VENDOR_SPECIFIC) OUI(0x00, 0x50, 0xF2, 0x02, 0x01)
 {
     version, 1 MUSTBE 1;
@@ -2316,8 +2299,6 @@ IE PUBufferStatus (EID_PU_BUFFER_STATUS)        // 7.3.2.66
     }
 }
 
-
-
 IE VHTCaps (EID_VHT_CAPABILITIES)
 {
     //VHT Capability Info
@@ -2486,7 +2467,6 @@ IE HTInfo (EID_HT_INFO)
 
     // ahtInfoField2
 
-
     // ahtInfoField2
     {
         opMode:              2;
@@ -2495,7 +2475,6 @@ IE HTInfo (EID_HT_INFO)
         obssNonHTStaPresent:1;
         reserved:           11;
     }
-
 
     // ahtInfoField3
     {
@@ -2515,7 +2494,6 @@ IE HTInfo (EID_HT_INFO)
     rsvd[0..32];
 
 } // End IE HTInfo.
-
 
 IE OperatingMode (EID_OPERATING_MODE)
 {
@@ -2866,7 +2844,6 @@ MULTIIE WscAssocReq ( EID_VENDOR_SPECIFIC ) OUI( 0x00, 0x50, 0xF2, 0x04 )
 
 } // End Multi-IE WscAssocReq.
 
-
 MULTIIE WscAssocRes ( EID_VENDOR_SPECIFIC ) OUI( 0x00, 0x50, 0xF2, 0x04 )
 {
     MANDATORYTLV Version;                        // 0x10 = version 1.0, 0x11
@@ -3045,7 +3022,6 @@ MULTIIE P2PBeacon ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 
 } // End P2PBeacon
 
-
 MULTIIE P2PAssocReq ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 {
     MANDATORYTLV P2PCapability;                  // Contains P2P Device
@@ -3055,14 +3031,12 @@ MULTIIE P2PAssocReq ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 
 } // End P2PAssocReq
 
-
 MULTIIE P2PAssocRes ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 {
     MANDATORYTLV P2PStatus;
     OPTIONALTLV  ExtendedListenTiming;
 
 } // End P2PAssocRes
-
 
 MULTIIE P2PProbeReq ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 {
@@ -3073,7 +3047,6 @@ MULTIIE P2PProbeReq ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
     OPTIONALTLV  OperatingChannel;
 } // End P2PProbeReq
 
-
 MULTIIE P2PProbeRes ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 {
     MANDATORYTLV P2PCapability;
@@ -3083,7 +3056,6 @@ MULTIIE P2PProbeRes ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
     OPTIONALTLV  P2PGroupInfo;
 
 } // End P2PProbeRes
-
 
 MULTIIE P2PBeaconProbeRes ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 {
@@ -3096,12 +3068,10 @@ MULTIIE P2PBeaconProbeRes ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 
 } // End P2PBeaconProbeRes
 
-
 MULTIIE P2PDeAuth ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 {
    MANDATORYTLV MinorReasonCode;
 }
-
 
 MULTIIE P2PDisAssoc ( EID_VENDOR_SPECIFIC ) OUI( 0x50, 0x6F, 0x9A, 0x09 )
 {

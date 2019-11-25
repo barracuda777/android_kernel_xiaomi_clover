@@ -495,7 +495,6 @@ int wma_stats_ext_event_handler(void *handle, uint8_t *event_buf,
 }
 #endif /* WLAN_FEATURE_STATS_EXT */
 
-
 /**
  * wma_profile_data_report_event_handler() - fw profiling handler
  * @handle:     wma handle
@@ -2111,7 +2110,6 @@ void wma_register_ll_stats_event_handler(tp_wma_handle wma_handle)
 					   WMA_RX_SERIALIZER_CTX);
 }
 
-
 /**
  * wma_process_ll_stats_clear_req() - clear link layer stats
  * @wma: wma handle
@@ -2980,7 +2978,6 @@ static void wma_update_rssi_stats(tp_wma_handle wma,
 		}
 	}
 }
-
 
 /**
  * wma_link_status_event_handler() - link status event handler
@@ -4107,7 +4104,6 @@ void wma_get_stats_req(WMA_HANDLE handle,
 	struct pe_stats_req  cmd = {0};
 	uint8_t pdev_id;
 	tAniGetPEStatsRsp *pGetPEStatsRspParams;
-
 
 	WMA_LOGD("%s: Enter", __func__);
 	node = &wma_handle->interfaces[get_stats_param->sessionId];
@@ -5940,7 +5936,6 @@ int wma_rcpi_event_handler(void *handle, uint8_t *cmd_param_info,
 		break;
 	}
 
-
 	if (!QDF_IS_STATUS_SUCCESS(rcpi_status) ||
 	    (event->vdev_id != rcpi_req->session_id) ||
 	    (msmt_type != rcpi_req->measurement_type) ||
@@ -6337,7 +6332,6 @@ QDF_STATUS wma_set_vc_mode_config(void *wma_handle,
 	return QDF_STATUS_SUCCESS;
 }
 
-
 void wma_set_wow_event_bitmap(WOW_WAKE_EVENT_TYPE event,
 			      uint32_t wow_bitmap_size,
 			      uint32_t *bitmask)
@@ -6580,4 +6574,3 @@ QDF_STATUS wma_get_roam_scan_stats(WMA_HANDLE handle,
 
 	return QDF_STATUS_SUCCESS;
 }
-

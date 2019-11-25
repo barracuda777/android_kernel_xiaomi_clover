@@ -20,7 +20,6 @@
 #define __SAP_CH_SELECT_H
 
 /*===========================================================================
-
 				sapChSelect.h
 
    OVERVIEW:
@@ -58,7 +57,6 @@
 #define SOFTAP_MAX_CHNFREE      (1)
 #define SOFTAP_MIN_TXPWR        (0)
 #define SOFTAP_MAX_TXPWR        (63)
-
 
 #define SAP_DEFAULT_24GHZ_CHANNEL     (6)
 #define SAP_DEFAULT_5GHZ_CHANNEL      (40)

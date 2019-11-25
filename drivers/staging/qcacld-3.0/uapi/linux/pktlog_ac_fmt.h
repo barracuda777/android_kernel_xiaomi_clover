@@ -16,9 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef REMOVE_PKT_LOG
 #ifndef _PKTLOG_FMT_H_
 #define _PKTLOG_FMT_H_
-#ifndef REMOVE_PKT_LOG
 
 #define CUR_PKTLOG_VER          10010   /* Packet log version */
 #define PKTLOG_MAGIC_NUM        7735225
@@ -64,6 +64,26 @@ struct ath_pktlog_hdr {
 	uint32_t type_specific_data;
 #endif
 } __ATTRIB_PACK;
+
+/**
+ * enum pkt_type - packet type
+ * @START_MONITOR: indicates parser to start packetdump parsing
+ * @STOP_MONITOR: indicates parser to stop packetdump parsing
+ * @TX_MGMT_PKT: TX management Packet
+ * @TX_DATA_PKT: TX data Packet
+ * @RX_MGMT_PKT: RX management Packet
+ * @RX_DATA_PKT: RX data Packet
+ *
+ * This enum has packet types
+ */
+enum pkt_type {
+	START_MONITOR = 1,
+	STOP_MONITOR,
+	TX_MGMT_PKT,
+	TX_DATA_PKT,
+	RX_MGMT_PKT,
+	RX_DATA_PKT,
+};
 
 #define ATH_PKTLOG_HDR_FLAGS_MASK 0xffff
 #define ATH_PKTLOG_HDR_FLAGS_SHIFT 0
@@ -120,7 +140,6 @@ enum {
 #define ATH_PKTLOG_PROMISC  0x000000080
 #define ATH_PKTLOG_SW_EVENT 0x000000100
 
-
 /* Types of packet log events */
 #define PKTLOG_TYPE_TX_CTRL      1
 #define PKTLOG_TYPE_TX_STAT      2
@@ -173,7 +192,6 @@ struct msdu_id_info {
 #define MSDU_ID_INFO_NUM_MSDU_OFFSET 0 /* char offset */
 #define MSDU_ID_INFO_BOUND_BM_OFFSET offsetof(struct msdu_id_info, bound_bmap)
 #define MSDU_ID_INFO_ID_OFFSET  offsetof(struct msdu_id_info, id)
-
 
 struct ath_pktlog_txctl {
 	struct ath_pktlog_hdr pl_hdr;
@@ -319,7 +337,7 @@ enum tx_pkt_fate {
 	TX_PKT_FATE_DRV_DROP_NOBUFS,
 	TX_PKT_FATE_DRV_DROP_OTHER,
 };
-#endif /* REMOVE_PKT_LOG */
+
 /**
  * enum rx_pkt_fate - rx packet fate
  * @RX_PKT_FATE_SUCCESS: Valid and delivered to
@@ -361,23 +379,5 @@ enum rx_pkt_fate {
 	RX_PKT_FATE_DRV_DROP_OTHER,
 };
 
-/**
- * enum pkt_type - packet type
- * @START_MONITOR: indicates parser to start packetdump parsing
- * @STOP_MONITOR: indicates parser to stop packetdump parsing
- * @TX_MGMT_PKT: TX management Packet
- * @TX_DATA_PKT: TX data Packet
- * @RX_MGMT_PKT: RX management Packet
- * @RX_DATA_PKT: RX data Packet
- *
- * This enum has packet types
- */
-enum pkt_type {
-	START_MONITOR = 1,
-	STOP_MONITOR,
-	TX_MGMT_PKT,
-	TX_DATA_PKT,
-	RX_MGMT_PKT,
-	RX_DATA_PKT,
-};
 #endif /* _PKTLOG_FMT_H_ */
+#endif /* REMOVE_PKT_LOG */

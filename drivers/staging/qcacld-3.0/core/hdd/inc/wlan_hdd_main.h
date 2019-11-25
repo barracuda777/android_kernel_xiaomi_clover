@@ -299,7 +299,6 @@ static inline bool in_compat_syscall(void) { return is_compat_task(); }
 #define DNS_DOMAIN_NAME_MAX_LEN 255
 #define ICMPv6_ADDR_LEN 16
 
-
 #define HDD_MIN_TX_POWER (-100) /* minimum tx power */
 #define HDD_MAX_TX_POWER (+100) /* maximum tx power */
 

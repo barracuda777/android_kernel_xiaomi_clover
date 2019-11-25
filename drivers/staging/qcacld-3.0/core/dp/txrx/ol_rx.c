@@ -55,7 +55,6 @@
 
 #include <pld_common.h>
 
-
 #define OL_RX_INDICATION_MAX_RECORDS 2048
 
 /**
@@ -982,7 +981,6 @@ void ol_rx_mic_error_send_pktlog_event(struct ol_txrx_pdev_t *pdev,
 
 #endif
 
-
 void
 ol_rx_mic_error_handler(
 	ol_txrx_pdev_handle pdev,
@@ -1686,7 +1684,6 @@ ol_rx_in_order_deliver(struct ol_txrx_vdev_t *vdev,
 
 	ol_rx_data_process(peer, msdu_list);
 }
-
 
 #ifndef CONFIG_HL_SUPPORT
 void

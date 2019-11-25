@@ -23,8 +23,6 @@
 /*** WARNING : Add to the end of the TABLE! do not change the order ****/
 struct targetdef_s;
 
-
-
 #define ATH_UNSUPPORTED_REG_OFFSET UNSUPPORTED_REGISTER_OFFSET
 #define ATH_SUPPORTED_BY_TARGET(reg_offset) \
 	((reg_offset) != ATH_UNSUPPORTED_REG_OFFSET)

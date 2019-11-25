@@ -33,7 +33,6 @@
 #include  <i_qdf_types.h>
 #include <qdf_debugfs.h>
 
-
 /* Type declarations */
 
 #define FL(x)    "%s: %d: " x, __func__, __LINE__
@@ -82,14 +81,15 @@ typedef int (qdf_abstract_print)(void *priv, const char *fmt, ...);
 #define CLEAR_DP_TRACE_BUFFER		2
 #define DISABLE_DP_TRACE_LIVE_MODE	3
 
-
 #ifdef TRACE_RECORD
+
 #define MTRACE(p) p
+#define NO_SESSION 0xFF
+
 #else
 #define MTRACE(p) {  }
-#endif
 
-#define NO_SESSION 0xFF
+#endif
 
 /**
  * typedef struct qdf_trace_record_s - keep trace record
@@ -456,7 +456,6 @@ void qdf_trace_init(void);
 void qdf_trace_enable(uint32_t, uint8_t enable);
 void qdf_trace_dump_all(void *, uint8_t, uint8_t, uint32_t, uint32_t);
 
-
 #ifdef FEATURE_DP_TRACE
 #define QDF_DP_TRACE_RECORD_INFO_LIVE (0x1)
 #define QDF_DP_TRACE_RECORD_INFO_THROTTLED (0x1 << 1)
@@ -501,7 +500,6 @@ QDF_STATUS qdf_dpt_dump_stats_debugfs(qdf_debugfs_file_t file,
  */
 void qdf_dpt_set_value_debugfs(uint8_t proto_bitmap, uint8_t no_of_record,
 			    uint8_t verbosity);
-
 
 void qdf_dp_trace_dump_all(uint32_t count);
 
@@ -616,7 +614,6 @@ void qdf_dp_trace_clear_buffer(void)
 }
 
 #endif
-
 
 void qdf_trace_hex_dump(QDF_MODULE_ID module, QDF_TRACE_LEVEL level,
 			void *data, int buf_len);

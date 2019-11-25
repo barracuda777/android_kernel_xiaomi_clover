@@ -36,7 +36,6 @@ int ol_txrx_host_stats_get(
 	ol_txrx_vdev_handle vdev,
 	struct ol_txrx_stats_req *req);
 
-
 void
 ol_txrx_host_stats_clr(ol_txrx_vdev_handle vdev);
 

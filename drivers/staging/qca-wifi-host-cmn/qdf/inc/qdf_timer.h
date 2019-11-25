@@ -91,7 +91,6 @@ static inline bool qdf_timer_stop(qdf_timer_t *timer)
 	return __qdf_timer_stop(timer);
 }
 
-
 /**
  * qdf_timer_sync_cancel - Cancel a timer synchronously
  * The function will return after any running timer completes.
@@ -104,7 +103,6 @@ static inline bool qdf_timer_sync_cancel(qdf_timer_t *timer)
 {
 	return __qdf_timer_sync_cancel(timer);
 }
-
 
 /**
  * qdf_timer_free() - free qdf timer

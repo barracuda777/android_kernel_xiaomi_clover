@@ -625,7 +625,6 @@ static const struct seq_operations qdf_mem_seq_ops = {
 	.show  = qdf_mem_seq_show,
 };
 
-
 static int qdf_mem_debugfs_open(struct inode *inode, struct file *file)
 {
 	return seq_open(file, &qdf_mem_seq_ops);
@@ -673,7 +672,6 @@ static QDF_STATUS qdf_mem_debug_debugfs_exit(void)
 
 #endif /* MEMORY_DEBUG */
 
-
 static void qdf_mem_debugfs_exit(void)
 {
 	debugfs_remove_recursive(qdf_mem_debugfs_root);
@@ -691,7 +689,6 @@ static QDF_STATUS qdf_mem_debugfs_init(void)
 
 	if (!qdf_mem_debugfs_root)
 		return QDF_STATUS_E_FAILURE;
-
 
 	debugfs_create_atomic_t("kmalloc",
 				S_IRUSR,
@@ -718,13 +715,11 @@ static inline void qdf_mem_dma_inc(qdf_size_t size) {}
 static inline void qdf_mem_kmalloc_dec(qdf_size_t size) {}
 static inline void qdf_mem_dma_dec(qdf_size_t size) {}
 
-
 static QDF_STATUS qdf_mem_debugfs_init(void)
 {
 	return QDF_STATUS_E_NOSUPPORT;
 }
 static void qdf_mem_debugfs_exit(void) {}
-
 
 static QDF_STATUS qdf_mem_debug_debugfs_init(void)
 {
@@ -820,7 +815,6 @@ int __qdf_mempool_init(qdf_device_t osdev, __qdf_mempool_t *pool_addr,
 			(mempool_elem_t *)(aligned_pool_mem +
 			(new_pool->elem_size * i)), mempool_entry);
 
-
 	new_pool->free_cnt = elem_cnt;
 	*pool_addr = new_pool;
 	return 0;
@@ -900,7 +894,6 @@ void __qdf_mempool_free(qdf_device_t osdev, __qdf_mempool_t pool, void *buf)
 {
 	if (!pool)
 		return;
-
 
 	if (prealloc_disabled)
 		return qdf_mem_free(buf);

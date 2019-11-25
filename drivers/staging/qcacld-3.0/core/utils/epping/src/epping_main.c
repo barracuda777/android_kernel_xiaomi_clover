@@ -149,7 +149,6 @@ void epping_close(void)
 {
 	epping_context_t *to_free;
 
-
 	if (g_epping_ctx == NULL) {
 		EPPING_LOG(QDF_TRACE_LEVEL_FATAL,
 			   "%s: error: g_epping_ctx  = NULL", __func__);

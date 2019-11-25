@@ -467,7 +467,6 @@ enum _ol_hal_param_t {
 	OL_HAL_CONFIG_DMA_BEACON_RESPONSE_TIME         = 0
 };
 
-
 /* Bitmasks for stats that can block */
 #define EXT_TXRX_FW_STATS		0x0001
 #endif

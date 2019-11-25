@@ -100,7 +100,6 @@ QDF_STATUS wlansap_scan_callback(tHalHandle hal_handle,
 	QDF_STATUS sap_sm_status;
 	uint32_t event;
 
-
 	if (NULL == hal_handle) {
 		QDF_TRACE(QDF_MODULE_ID_SAP, QDF_TRACE_LEVEL_ERROR,
 					"In %s invalid hHal", __func__);
@@ -214,7 +213,6 @@ QDF_STATUS wlansap_scan_callback(tHalHandle hal_handle,
 
 	return sap_sm_status;
 } /* wlansap_scan_callback */
-
 
 /**
  * sap_config_acs_result : Generate ACS result params based on ch constraints
@@ -856,7 +854,6 @@ wlansap_roam_callback(void *ctx, tCsrRoamInfo *csr_roam_info, uint32_t roamId,
 	tpAniSirGlobal mac_ctx = NULL;
 	uint8_t intf;
 	bool sta_sap_scc_on_dfs_chan;
-
 
 	if (QDF_IS_STATUS_ERROR(wlansap_context_get((ptSapContext)ctx)))
 		return QDF_STATUS_E_FAILURE;

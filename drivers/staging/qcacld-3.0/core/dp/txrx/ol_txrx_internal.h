@@ -180,7 +180,6 @@ ol_rx_mpdu_list_next(struct ol_txrx_pdev_t *pdev,
 
 /* conditional defs based on verbosity level */
 
-
 #define TXRX_STATS_MSDU_LIST_INCR(pdev, field, netbuf_list) \
 	do { \
 		qdf_nbuf_t tmp_list = netbuf_list; \
@@ -269,7 +268,6 @@ ol_rx_mpdu_list_next(struct ol_txrx_pdev_t *pdev,
 		}                                                              \
 		TXRX_STATS_UPDATE_TX_COMP_HISTOGRAM(_pdev, _p_cntrs);          \
 	} while (0)
-
 
 /*--- txrx sequence number trace macros ---*/
 

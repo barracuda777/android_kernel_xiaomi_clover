@@ -563,7 +563,6 @@ QDF_STATUS qdf_spinlock_acquire(qdf_spinlock_t *lock)
 }
 qdf_export_symbol(qdf_spinlock_acquire);
 
-
 /**
  * qdf_spinlock_release() - release a spin lock
  * @lock: Spin lock to release

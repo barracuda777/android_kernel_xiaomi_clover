@@ -653,7 +653,6 @@ static ssize_t __wlan_hdd_read_power_debugfs(struct file *file,
 	if (!wlan_hdd_modules_are_enabled(hdd_ctx))
 		return -EINVAL;
 
-
 	request = hdd_request_alloc(&params);
 	if (!request) {
 		hdd_err("Request allocation failure");
@@ -679,7 +678,6 @@ static ssize_t __wlan_hdd_read_power_debugfs(struct file *file,
 
 	priv = hdd_request_priv(request);
 	chip_power_stats = &priv->power_stats;
-
 
 	power_debugfs_buf = qdf_mem_malloc(POWER_DEBUGFS_BUFFER_MAX_LEN);
 	if (!power_debugfs_buf) {
@@ -759,7 +757,6 @@ static int __wlan_hdd_open_power_debugfs(struct inode *inode, struct file *file)
 	file->private_data = inode->i_private;
 	return 0;
 }
-
 
 /**
  * wlan_hdd_open_power_debugfs() - SSR wrapper function to save private on open

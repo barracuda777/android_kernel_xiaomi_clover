@@ -186,7 +186,6 @@ enum log_event_host_reason_code {
 	WLAN_LOG_REASON_DISCONNECT
 };
 
-
 /**
  * enum userspace_log_level - Log level at userspace
  * @LOG_LEVEL_NO_COLLECTION: verbose_level 0 corresponds to no collection
@@ -381,7 +380,6 @@ typedef struct sAniSirLim {
 	uint32_t *gpDefdSmeMsgForNOA;
 
 	tLimMlmScanReq *gpLimMlmScanReq;
-
 
 	/* Used to store the list of legacy bss sta detected during scan on one channel */
 	uint16_t gLimRestoreCBNumScanInterval;
@@ -938,7 +936,6 @@ typedef struct sAniSirGlobal {
 
 	/* PAL/HDD handle */
 	tHddHandle hHdd;
-
 
 	tSmeStruct sme;
 	tSapStruct sap;

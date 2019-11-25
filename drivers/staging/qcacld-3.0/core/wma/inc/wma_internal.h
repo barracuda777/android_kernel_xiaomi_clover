@@ -100,7 +100,6 @@
 
 #define WMI_MAX_MHF_ENTRIES 32
 
-
 #define MAX_HT_MCS_IDX 8
 #define MAX_VHT_MCS_IDX 10
 #define INVALID_MCS_IDX 255
@@ -191,7 +190,6 @@ void wma_send_msg(tp_wma_handle wma_handle, uint16_t msg_type,
  */
 void wma_send_msg_high_priority(tp_wma_handle wma_handle, uint16_t msg_type,
 			void *body_ptr, uint32_t body_val);
-
 
 void wma_data_tx_ack_comp_hdlr(void *wma_context,
 				      qdf_nbuf_t netbuf, int32_t status);
@@ -793,7 +791,6 @@ void wma_set_resume_dtim(tp_wma_handle wma);
 /*
  * wma_data.c functions declarations
  */
-
 
 void wma_set_bss_rate_flags(struct wma_txrx_node *iface,
 				   tpAddBssParams add_bss);

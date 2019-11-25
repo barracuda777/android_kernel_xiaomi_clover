@@ -447,7 +447,6 @@ QDF_STATUS (*send_start_extscan_cmd)(wmi_unified_t wmi_handle,
 QDF_STATUS (*send_plm_stop_cmd)(wmi_unified_t wmi_handle,
 		 const struct plm_req_params *plm);
 
-
 QDF_STATUS (*send_plm_start_cmd)(wmi_unified_t wmi_handle,
 		  const struct plm_req_params *plm,
 		  uint32_t *gchannel_list);
@@ -658,7 +657,6 @@ QDF_STATUS (*send_update_fw_tdls_state_cmd)(wmi_unified_t wmi_handle,
 QDF_STATUS (*send_update_tdls_peer_state_cmd)(wmi_unified_t wmi_handle,
 			       struct tdls_peer_state_params *peerStateParams,
 				   uint32_t *ch_mhz);
-
 
 QDF_STATUS (*send_process_fw_mem_dump_cmd)(wmi_unified_t wmi_handle,
 					struct fw_dump_req_param *mem_dump_req);

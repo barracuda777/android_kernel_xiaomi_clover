@@ -856,7 +856,6 @@ QDF_STATUS sme_set_ps_preferred_network_list(tHalHandle hal_ctx,
 			 configParam.
 			 phyMode));
 
-
 	if (mac_ctx->pnoOffload) {
 		if (request_buf->enable)
 			session->pnoStarted = true;
@@ -1102,7 +1101,6 @@ QDF_STATUS sme_ps_disable_auto_ps_timer(tHalHandle hal_ctx,
 	return QDF_STATUS_SUCCESS;
 }
 
-
 QDF_STATUS sme_ps_open(tHalHandle hal_ctx)
 {
 
@@ -1116,7 +1114,6 @@ QDF_STATUS sme_ps_open(tHalHandle hal_ctx)
 	}
 	return QDF_STATUS_SUCCESS;
 }
-
 
 QDF_STATUS sme_ps_open_per_session(tHalHandle hal_ctx, uint32_t session_id)
 {
@@ -1214,4 +1211,3 @@ bool sme_is_auto_ps_timer_running(tHalHandle hal_ctx,
 
 	return status;
 }
-

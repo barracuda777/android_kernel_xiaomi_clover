@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -1385,7 +1384,6 @@ typedef enum {
     OP(WMI_PDEV_DSM_FILTER_CMDID) \
     /* add new CMD_LIST elements above this line */
 
-
 /*
  * IMPORTANT: Please add _ALL_ WMI Events Here.
  * Otherwise, these WMI TLV Functions will be process them.
@@ -1612,7 +1610,6 @@ typedef enum {
     OP(WMI_VDEV_MGMT_OFFLOAD_EVENTID) \
     /* add new EVT_LIST elements above this line */
 
-
 /* TLV definitions of WMI commands */
 
 /* Init Cmd */
@@ -1686,7 +1683,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_STA_DTIM_PS_METHOD_CMDID);
 
 WMITLV_CREATE_PARAM_STRUC(WMI_PDEV_SET_REGDOMAIN_CMDID);
 
-
 /* Peer TID ADD BA Cmd */
 #define WMITLV_TABLE_WMI_PEER_TID_ADDBA_CMDID(id,op,buf,len) \
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_peer_tid_addba_cmd_fixed_param, wmi_peer_tid_addba_cmd_fixed_param, fixed_param, WMITLV_SIZE_FIX)
@@ -1705,7 +1701,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_PEER_TID_DELBA_CMDID);
     WMITLV_ELEM(id,op,buf,len,WMITLV_TAG_ARRAY_STRUC, wmi_ba_req_ssn, ba_req_ssn_list, WMITLV_SIZE_VAR)
 
 WMITLV_CREATE_PARAM_STRUC(WMI_BA_REQ_SSN_CMDID);
-
 
 /* PDEV FTM integration Cmd */
 #define WMITLV_TABLE_WMI_PDEV_FTM_INTG_CMDID(id,op,buf,len) \
@@ -2156,7 +2151,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_WOW_ENABLE_DISABLE_WAKE_EVENT_CMDID);
 #define WMITLV_TABLE_WMI_RTT_MEASREQ_CMDID(id,op,buf,len) \
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_ARRAY_BYTE, A_UINT8, data, WMITLV_SIZE_VAR)
 
-
 WMITLV_CREATE_PARAM_STRUC(WMI_RTT_MEASREQ_CMDID);
 
 /* RTT TSF Cmd */
@@ -2293,7 +2287,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_CSA_OFFLOAD_CHANSWITCH_CMDID);
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_chatter_set_mode_cmd_fixed_param, wmi_chatter_set_mode_cmd_fixed_param, fixed_param, WMITLV_SIZE_FIX)
 
 WMITLV_CREATE_PARAM_STRUC(WMI_CHATTER_SET_MODE_CMDID);
-
 
 /* PDEV UTF Cmd */
 #define WMITLV_TABLE_WMI_PDEV_UTF_CMDID(id,op,buf,len)\
@@ -2868,7 +2861,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_TDLS_PEER_UPDATE_CMDID);
             wmi_tdls_set_offchan_mode_cmd_fixed_param, fixed_param, WMITLV_SIZE_FIX)
 WMITLV_CREATE_PARAM_STRUC(WMI_TDLS_SET_OFFCHAN_MODE_CMDID);
 
-
 /* Resmgr Enable/Disable Adaptive OCS CMD */
 #define WMITLV_TABLE_WMI_RESMGR_ADAPTIVE_OCS_ENABLE_DISABLE_CMDID(id,op,buf,len) \
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_resmgr_adaptive_ocs_enable_disable_cmd_fixed_param, \
@@ -2950,7 +2942,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_MCC_SCHED_TRAFFIC_STATS_CMDID);
 
 #define WMITLV_TABLE_WMI_BATCH_SCAN_ENABLE_CMDID(id,op,buf,len) \
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_batch_scan_enable_cmd_fixed_param, wmi_batch_scan_enable_cmd_fixed_param, fixed_param, WMITLV_SIZE_FIX)
-
 
 WMITLV_CREATE_PARAM_STRUC(WMI_BATCH_SCAN_ENABLE_CMDID);
 
@@ -3086,7 +3077,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_LPI_HANDOFF_EVENTID);
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_thermal_mgmt_cmd_fixed_param, wmi_thermal_mgmt_cmd_fixed_param, fixed_param, WMITLV_SIZE_FIX)
 
 WMITLV_CREATE_PARAM_STRUC(WMI_THERMAL_MGMT_CMDID);
-
 
 #define WMITLV_TABLE_WMI_ADD_PROACTIVE_ARP_RSP_PATTERN_CMDID(id,op,buf,len) \
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_WMI_ADD_PROACTIVE_ARP_RSP_PATTERN_CMD_fixed_param, WMI_ADD_PROACTIVE_ARP_RSP_PATTERN_CMD_fixed_param, fixed_param, WMITLV_SIZE_FIX)\
@@ -3232,7 +3222,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_HOST_AUTO_SHUTDOWN_CFG_CMDID);
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_tpc_chainmask_config_cmd_fixed_param, wmi_tpc_chainmask_config_cmd_fixed_param, fixed_param, WMITLV_SIZE_FIX)  \
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_ARRAY_STRUC, wmi_tpc_chainmask_config, config_list, WMITLV_SIZE_VAR)
 WMITLV_CREATE_PARAM_STRUC(WMI_TPC_CHAINMASK_CONFIG_CMDID);
-
 
 /* Ch avoidance update cmd */
 #define WMITLV_TABLE_WMI_CHAN_AVOID_UPDATE_CMDID(id,op,buf,len) \
@@ -3978,7 +3967,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_PDEV_PKTLOG_FILTER_CMDID);
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_ARRAY_STRUC, wmi_pdev_set_rap_config_on_sta_ps_tlv_param, rap_param, WMITLV_SIZE_VAR)
 WMITLV_CREATE_PARAM_STRUC(WMI_PDEV_SET_RAP_CONFIG_CMDID);
 
-
 /************************** TLV definitions of WMI events *******************************/
 
 /* Service Ready event */
@@ -4314,7 +4302,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_CSA_HANDLING_EVENTID);
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_rfkill_event_fixed_param, wmi_rfkill_mode_param, fixed_param, WMITLV_SIZE_FIX)
 WMITLV_CREATE_PARAM_STRUC(WMI_RFKILL_STATE_CHANGE_EVENTID);
 
-
 /* Debug Message Event */
 #define WMITLV_TABLE_WMI_DEBUG_MESG_EVENTID(id,op,buf,len)\
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_ARRAY_BYTE, A_UINT8, bufp, WMITLV_SIZE_VAR)
@@ -4427,7 +4414,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_HOST_SWBA_EVENTID);
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_ARRAY_STRUC, wmi_p2p_noa_info, p2p_noa_info, WMITLV_SIZE_VAR)
 
 WMITLV_CREATE_PARAM_STRUC(WMI_HOST_SWBA_V2_EVENTID);
-
 
 /* HOST SWFDA Event  requesting host to queue a FILS Discovery frame for transmission */
 #define WMITLV_TABLE_WMI_HOST_SWFDA_EVENTID(id,op,buf,len) \
@@ -5296,7 +5282,6 @@ WMITLV_CREATE_PARAM_STRUC(WMI_PDEV_CTL_FAILSAFE_CHECK_EVENTID);
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_ARRAY_BYTE, A_UINT8, bufp, WMITLV_SIZE_VAR)
 WMITLV_CREATE_PARAM_STRUC(WMI_UNIT_TEST_EVENTID);
 
-
 /* enabling TWT complete Event */
 #define WMITLV_TABLE_WMI_TWT_ENABLE_COMPLETE_EVENTID(id,op,buf,len) \
     WMITLV_ELEM(id,op,buf,len, WMITLV_TAG_STRUC_wmi_twt_enable_complete_event_fixed_param, wmi_twt_enable_complete_event_fixed_param, fixed_param, WMITLV_SIZE_FIX)
@@ -5384,4 +5369,3 @@ WMITLV_CREATE_PARAM_STRUC(WMI_VDEV_MGMT_OFFLOAD_EVENTID);
 #endif
 
 #endif /*_WMI_TLV_DEFS_H_*/
-

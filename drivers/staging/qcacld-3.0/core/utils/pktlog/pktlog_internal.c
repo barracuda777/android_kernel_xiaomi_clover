@@ -262,7 +262,6 @@ fill_ieee80211_hdr_data(struct ol_txrx_pdev_t *txrx_pdev,
 	qdf_nbuf_t netbuf;
 	uint32_t len;
 
-
 	pl_msdu_info->num_msdu = *msdu_id_info;
 	pl_msdu_info->priv_size = sizeof(uint32_t) *
 				 pl_msdu_info->num_msdu + sizeof(uint32_t);

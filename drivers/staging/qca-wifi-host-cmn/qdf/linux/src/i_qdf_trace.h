@@ -59,23 +59,10 @@
 						##__VA_ARGS__);\
 	} while (0)
 #else
-static inline void __printf(3, 4) no_qdf_trace_msg(QDF_MODULE_ID module, QDF_TRACE_LEVEL level,
-		   char *str_format, ...)
-{
-}
-static inline void no_qdf_vtrace_msg(QDF_MODULE_ID module, QDF_TRACE_LEVEL level,
-		    char *str_format, va_list val)
-{
-}
-static inline void no_qdf_trace_hex_dump(QDF_MODULE_ID module, QDF_TRACE_LEVEL level,
-			void *data, int buf_len)
-{
-}
-#define QDF_TRACE no_qdf_trace_msg
-#define QDF_VTRACE no_qdf_vtrace_msg
-#define QDF_TRACE_HEX_DUMP no_qdf_trace_hex_dump
-#define QDF_TRACE_RATE_LIMITED(rate, module, level, format, ...) \
-	no_qdf_trace_msg(module, level, format, ##__VA_ARGS__)
+#define QDF_TRACE(arg ...)
+#define QDF_VTRACE(arg ...)
+#define QDF_TRACE_HEX_DUMP(arg ...)
+#define QDF_TRACE_RATE_LIMITED(arg ...)
 #endif
 #else
 
@@ -96,7 +83,6 @@ static inline void no_qdf_trace_hex_dump(QDF_MODULE_ID module, QDF_TRACE_LEVEL l
 
 #ifdef QDF_ENABLE_TRACING
 
-#ifdef WLAN_WARN_ON_ASSERT
 #define QDF_ASSERT(_condition) \
 	do { \
 		if (!(_condition)) { \
@@ -105,14 +91,6 @@ static inline void no_qdf_trace_hex_dump(QDF_MODULE_ID module, QDF_TRACE_LEVEL l
 			WARN_ON(1); \
 		} \
 	} while (0)
-#else
-#define QDF_ASSERT(_condition) \
-	do { \
-		if (!(_condition)) { \
-			/* no-op */ \
-		} \
-	} while (0)
-#endif /* WLAN_WARN_ON_ASSERT */
 
 #else
 

@@ -282,5 +282,4 @@ typedef struct tagSmeStruct {
 			struct wmi_apf_read_memory_resp_event_params *params);
 } tSmeStruct, *tpSmeStruct;
 
-
 #endif /* #if !defined( __SMEINTERNAL_H ) */

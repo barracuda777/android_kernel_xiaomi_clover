@@ -240,7 +240,6 @@ typedef struct _HTC_TARGET {
 	A_BOOL is_nodrop_pkt;
 } HTC_TARGET;
 
-
 #ifdef RX_SG_SUPPORT
 #define RESET_RX_SG_CONFIG(_target) \
 do { \

@@ -514,9 +514,7 @@ int ol_copy_ramdump(struct hif_opaque_softc *scn)
 
 void ramdump_work_handler(void *data)
 {
-#ifdef WLAN_DEBUG
 	int ret;
-#endif
 	uint32_t host_interest_address;
 	uint32_t dram_dump_values[4];
 	uint32_t target_type;
@@ -732,7 +730,6 @@ static QDF_STATUS ol_set_lpass_support(struct ol_context *ol_ctx)
 }
 
 #endif
-
 
 QDF_STATUS ol_configure_target(struct ol_context *ol_ctx)
 {

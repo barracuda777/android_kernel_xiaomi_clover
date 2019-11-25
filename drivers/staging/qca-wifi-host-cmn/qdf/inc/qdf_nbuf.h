@@ -974,7 +974,6 @@ qdf_nbuf_copy_bits(qdf_nbuf_t nbuf, uint32_t offset, uint32_t len, void *to)
 	return __qdf_nbuf_copy_bits(nbuf, offset, len, to);
 }
 
-
 /* nbuf manipulation routines */
 
 /**
@@ -1441,7 +1440,6 @@ static inline void qdf_nbuf_reg_trace_cb(qdf_nbuf_trace_update_t cb_func_ptr)
 {
 	__qdf_nbuf_reg_trace_cb(cb_func_ptr);
 }
-
 
 /**
  * qdf_nbuf_set_tx_parallel_dnload_frm() - set tx parallel download

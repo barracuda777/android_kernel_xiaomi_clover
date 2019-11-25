@@ -22,7 +22,6 @@
 #include "wlan_hdd_main.h"
 #include "sir_api.h"
 
-
 #ifdef WLAN_FEATURE_DISA
 /**
  * wlan_hdd_cfg80211_encrypt_decrypt_msg () - Encrypt/Decrypt msg

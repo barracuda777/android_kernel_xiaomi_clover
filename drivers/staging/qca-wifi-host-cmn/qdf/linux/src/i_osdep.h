@@ -101,7 +101,6 @@ typedef void (*os_mesg_handler_t)(void *ctx, uint16_t mesg_type,
 				  uint16_t mesg_len,
 				  void *mesg);
 
-
 /**
  * typedef os_mesg_queue_t - Object to maintain message queue
  * @dev_handle: OS handle

@@ -3005,7 +3005,6 @@ static void hif_fastpath_resume(struct hif_opaque_softc *hif_ctx)
 static void hif_fastpath_resume(struct hif_opaque_softc *hif_ctx) {}
 #endif
 
-
 /**
  * hif_runtime_resume() - do the bus resume part of a runtime resume
  *
@@ -3765,7 +3764,6 @@ int hif_pm_runtime_put(struct hif_opaque_softc *hif_ctx)
 
 	return 0;
 }
-
 
 /**
  * __hif_pm_runtime_prevent_suspend() - prevent runtime suspend for a protocol

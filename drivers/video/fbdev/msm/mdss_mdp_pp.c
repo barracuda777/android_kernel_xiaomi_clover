@@ -4081,8 +4081,7 @@ int mdss_mdp_igc_lut_config(struct msm_fb_data_type *mfd,
 		if (config->len != IGC_LUT_ENTRIES) {
 			pr_err("invalid len for IGC table for read %d\n",
 			       config->len);
-			ret = -EINVAL;
-			goto igc_config_exit;
+			return -EINVAL;
 		}
 		ret = pp_get_dspp_num(disp_num, &dspp_num);
 		if (ret) {
@@ -4148,8 +4147,7 @@ clock_off:
 		if (config->len != IGC_LUT_ENTRIES) {
 			pr_err("invalid len for IGC table for write %d\n",
 			       config->len);
-			ret = -EINVAL;
-			goto igc_config_exit;
+			return -EINVAL;
 		}
 		if (copy_from_kernel) {
 			memcpy(&mdss_pp_res->igc_lut_c0c1[disp_num][0],
@@ -6922,7 +6920,7 @@ static int is_valid_calib_dspp_addr(char __iomem *ptr)
 			ret = MDP_PP_OPS_READ | MDP_PP_OPS_WRITE;
 			break;
 		/* Dither enable/disable */
-		} else if (ptr == base + MDSS_MDP_REG_DSPP_DITHER_DEPTH) {
+		} else if ((ptr == base + MDSS_MDP_REG_DSPP_DITHER_DEPTH)) {
 			ret = MDP_PP_OPS_READ | MDP_PP_OPS_WRITE;
 			break;
 		/* Six zone and mem color */

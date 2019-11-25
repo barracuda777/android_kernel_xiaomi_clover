@@ -479,7 +479,6 @@ enum data_stall_log_event_type {
 	DATA_STALL_LOG_NUD_FAILURE,
 };
 
-
 /**
  * enum data_stall_log_recovery_type - data stall recovery type
  * @DATA_STALL_LOG_RECOVERY_NONE,
@@ -493,7 +492,6 @@ enum data_stall_log_recovery_type {
 	DATA_STALL_LOG_RECOVERY_CONNECT_DISCONNECT,
 	DATA_STALL_LOG_RECOVERY_TRIGGER_PDR,
 };
-
 
 /**
  * struct data_stall_event_info - data stall info
@@ -513,7 +511,6 @@ struct data_stall_event_info {
 
 struct data_stall_event_info;
 typedef struct data_stall_event_info *data_stall_event_info_handle;
-
 
 typedef void (*data_stall_detect_cb)(data_stall_event_info_handle);
 
@@ -640,5 +637,3 @@ ol_pdev_handle
 ol_txrx_get_ctrl_pdev_from_vdev(ol_txrx_vdev_handle vdev);
 
 #endif /* _CDP_TXRX_CMN_H_ */
-
-

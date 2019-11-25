@@ -51,8 +51,6 @@
 
 #if defined(CONFIG_HL_SUPPORT)
 
-
-
 /**
  * htt_rx_frag_set_last_msdu() - set last msdu bit in rx descriptor
  *				 for recieved frames

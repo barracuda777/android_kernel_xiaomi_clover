@@ -1649,7 +1649,6 @@ static bool qdf_log_arp_pkt(uint8_t session_id, struct sk_buff *skb,
 	return false;
 }
 
-
 /**
  * qdf_dp_trace_log_pkt() - log packet type enabled through iwpriv
  * @session_id: vdev_id
@@ -2493,7 +2492,6 @@ void qdf_dpt_set_value_debugfs(uint8_t proto_bitmap, uint8_t no_of_record,
 	}
 }
 qdf_export_symbol(qdf_dpt_set_value_debugfs);
-
 
 /**
  * qdf_dp_trace_dump_all() - Dump data from ring buffer via call back functions

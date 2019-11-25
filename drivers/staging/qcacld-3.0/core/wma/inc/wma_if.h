@@ -23,7 +23,6 @@
 #include "sir_api.h"
 #include "sir_params.h"
 
-
 /*
  * Validate the OS Type being built
  */
@@ -56,7 +55,6 @@
 #error "NONE of the ANI_COMPILER_TYPE_xxx are defined for this build"
 
 #endif
-
 
 #define WMA_CONFIG_PARAM_UPDATE_REQ    SIR_CFG_PARAM_UPDATE_IND
 
@@ -103,7 +101,6 @@
 /* Max number of bytes required for stations bitmap aligned at 4 bytes boundary
  */
 #define HALMSG_NUMBYTES_STATION_BITMAP(x) (((x / 32) + ((x % 32) ? 1 : 0)) * 4)
-
 
 #define HAL_MAX_SUPP_CHANNELS     128
 #define HAL_MAX_SUPP_OPER_CLASSES 32
@@ -978,7 +975,6 @@ typedef struct {
 #endif /* WLAN_FEATURE_ROAM_OFFLOAD */
 } tDelTsParams, *tpDelTsParams;
 
-
 #define HAL_QOS_NUM_TSPEC_MAX 2
 #define HAL_QOS_NUM_AC_MAX 4
 
@@ -999,7 +995,6 @@ typedef struct {
 	uint8_t sessionId;
 	uint8_t vdev_id;
 } tAggrAddTsParams, *tpAggrAddTsParams;
-
 
 typedef tSirRetStatus (*tHalMsgCallback)(tpAniSirGlobal pMac, uint32_t mesgId,
 					 void *mesgParam);
@@ -1376,7 +1371,6 @@ typedef struct tHalHiddenSsidVdevRestart {
 	uint8_t sessionId;
 	uint16_t pe_session_id;
 } tHalHiddenSsidVdevRestart, *tpHalHiddenSsidVdevRestart;
-
 
 extern void sys_process_mmh_msg(tpAniSirGlobal pMac, tSirMsgQ *pMsg);
 

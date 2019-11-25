@@ -39,7 +39,6 @@ ol_tx_desc_alloc_wrapper(struct ol_txrx_pdev_t *pdev,
 			 struct ol_txrx_vdev_t *vdev,
 			 struct ol_txrx_msdu_info_t *msdu_info);
 
-
 /**
  * @brief Allocate and initialize a tx descriptor for a LL system.
  * @details
@@ -63,7 +62,6 @@ struct ol_tx_desc_t *ol_tx_desc_ll(struct ol_txrx_pdev_t *pdev,
 				   qdf_nbuf_t netbuf,
 				   struct ol_txrx_msdu_info_t *msdu_info);
 
-
 /**
  * @brief Allocate and initialize a tx descriptor for a HL system.
  * @details
@@ -86,7 +84,6 @@ ol_tx_desc_hl(
 		struct ol_txrx_vdev_t *vdev,
 		qdf_nbuf_t netbuf,
 		struct ol_txrx_msdu_info_t *msdu_info);
-
 
 /**
  * @brief Use a tx descriptor ID to find the corresponding desriptor object.
@@ -287,7 +284,6 @@ void ol_tx_put_desc_global_pool(struct ol_txrx_pdev_t *pdev,
 	pdev->tx_desc.num_free++;
 }
 
-
 #ifdef QCA_LL_TX_FLOW_CONTROL_V2
 int ol_tx_free_invalid_flow_pool(struct ol_tx_flow_pool_t *pool);
 /**
@@ -465,6 +461,5 @@ ol_tx_get_ext_header_type(struct ol_txrx_vdev_t *vdev,
 	qdf_nbuf_t netbuf);
 enum extension_header_type
 ol_tx_get_wisa_ext_type(qdf_nbuf_t netbuf);
-
 
 #endif /* _OL_TX_DESC__H_ */

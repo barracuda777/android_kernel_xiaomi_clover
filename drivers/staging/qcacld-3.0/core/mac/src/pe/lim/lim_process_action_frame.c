@@ -1278,7 +1278,6 @@ __lim_process_sm_power_save_update(tpAniSirGlobal pMac, uint8_t *pRxPacketInfo,
 				 pSta->staAddr, psessionEntry->smeSessionId);
 }
 
-
 static void
 __lim_process_radio_measure_request(tpAniSirGlobal pMac, uint8_t *pRxPacketInfo,
 				    tpPESession psessionEntry)
@@ -1425,7 +1424,6 @@ __lim_process_neighbor_report(tpAniSirGlobal pMac, uint8_t *pRxPacketInfo,
 
 	qdf_mem_free(pFrm);
 }
-
 
 #ifdef WLAN_FEATURE_11W
 /**

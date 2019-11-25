@@ -233,7 +233,6 @@ void dot11f_pack_ff_current_ap_address(tpAniSirGlobal,
 				     tDot11fFfCurrentAPAddress *,
 				     uint8_t *);
 
-
 typedef struct sDot11fFfDialogToken {
 	uint8_t token;
 } tDot11fFfDialogToken;
@@ -294,7 +293,6 @@ void dot11f_unpack_ff_num_of_repetitions(tpAniSirGlobal, uint8_t *,
 void dot11f_pack_ff_num_of_repetitions(tpAniSirGlobal,
 				     tDot11fFfNumOfRepetitions *,
 				     uint8_t *);
-
 
 typedef struct sDot11fFfOperatingMode {
 	uint8_t  chanWidth:2;
@@ -528,7 +526,6 @@ void dot11f_pack_ff_vht_membership_status_array(tpAniSirGlobal,
 					     tDot11fFfVhtMembershipStatusArray *,
 					     uint8_t *);
 
-
 typedef struct sDot11fFfVhtUserPositionArray {
 	uint8_t userPositionArray[16];
 } tDot11fFfVhtUserPositionArray;
@@ -541,7 +538,6 @@ void dot11f_unpack_ff_vht_user_position_array(tpAniSirGlobal, uint8_t *,
 void dot11f_pack_ff_vht_user_position_array(tpAniSirGlobal,
 					 tDot11fFfVhtUserPositionArray *,
 					 uint8_t *);
-
 
 typedef struct sDot11fFfext_chan_switch_ann_action {
 	uint32_t   switch_mode:8;
@@ -558,7 +554,6 @@ void dot11f_unpack_ff_ext_chan_switch_ann_action(tpAniSirGlobal, uint8_t *,
 void dot11f_pack_ff_ext_chan_switch_ann_action(tpAniSirGlobal,
 					       tDot11fFfext_chan_switch_ann_action *,
 					       uint8_t *);
-
 
 #define EXT_CHAN_SWITCH_ANN_ACTION_SWITCH_MODE_OFFSET  0
 #define EXT_CHAN_SWITCH_ANN_ACTION_SWITCH_MODE_WIDTH   8
@@ -594,11 +589,9 @@ void dot11f_pack_ff_p2p_action_subtype(tpAniSirGlobal,
 				       tDot11fFfp2p_action_subtype *,
 				       uint8_t *);
 
-
 /*********************************************************************
  * TLVs                                                              *
  ********************************************************************/
-
 
 /* ID 1 (0x0001) */
 typedef struct sDot11fTLVAuthorizedMACs {
@@ -2460,7 +2453,6 @@ uint32_t dot11f_get_packed_tlv_P2PManageability(
 /*********************************************************************
  * Information Elements                                              *
  ********************************************************************/
-
 
 /* EID 2 (0x02) */
 typedef struct sDot11fIEGTK {

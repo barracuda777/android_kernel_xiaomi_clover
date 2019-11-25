@@ -121,8 +121,6 @@ struct hostdef_s *MY_HOST_DEF = &my_host_def;
 #else /* MY_HOST_DEF */
 #endif /* MY_HOST_DEF */
 
-
-
 #if defined(MY_HOST_SHADOW_REGS)
 struct host_shadow_regs_s my_host_shadow_regs = {
 	.d_A_LOCAL_SHADOW_REG_VALUE_0 = A_LOCAL_SHADOW_REG_VALUE_0;

@@ -57,7 +57,6 @@ static wmitlv_cmd_param_info *g_wmi_static_cmd_param_info_buf;
 A_UINT32 g_wmi_static_max_cmd_param_tlvs;
 #endif
 
-
 /**
  * wmitlv_set_static_param_tlv_buf() - tlv helper function
  * @param_tlv_buf: tlv buffer parameter

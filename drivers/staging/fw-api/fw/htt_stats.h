@@ -284,7 +284,6 @@ enum htt_dbg_ext_stats_type {
      */
     HTT_DBG_EXT_STATS_LATENCY_PROF_STATS = 25,
 
-
     /* keep this last */
     HTT_DBG_NUM_EXT_STATS = 256,
 };
@@ -3929,6 +3928,5 @@ typedef struct {
     htt_latency_prof_ctx_tlv latency_ctx_stat;
     htt_latency_prof_cnt_tlv latency_cnt_stat;
 } htt_soc_latency_stats_t;
-
 
 #endif /* __HTT_STATS_H__ */

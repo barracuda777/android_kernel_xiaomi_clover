@@ -311,7 +311,6 @@ uint8_t ol_tx_get_is_mgmt_over_wmi_enabled(void)
 	return pdev->is_mgmt_over_wmi_enabled;
 }
 
-
 #ifdef QCA_SUPPORT_TXRX_LOCAL_PEER_ID
 ol_txrx_peer_handle
 ol_txrx_find_peer_by_addr_and_vdev(ol_txrx_pdev_handle pdev,
@@ -668,7 +667,6 @@ void ol_txrx_update_tx_queue_groups(
 		/* Update Credit Only */
 		goto credit_update;
 
-
 	/*
 	 * membership (vdev id mask and ac mask) is not matching
 	 * TODO: ignoring ac mask for now
@@ -931,7 +929,6 @@ static inline void
 ol_txrx_pdev_txq_log_destroy(struct ol_txrx_pdev_t *pdev)
 {
 }
-
 
 #endif
 
@@ -1354,7 +1351,6 @@ static int ol_txrx_conv_str_to_int_debugfs(char *buf, qdf_size_t len,
 	}
 	return 0;
 }
-
 
 /**
  * ol_txrx_write_dpt_buff_debugfs() - set dp trace parameters
@@ -3852,7 +3848,6 @@ QDF_STATUS ol_txrx_clear_peer(uint8_t sta_id)
 		return QDF_STATUS_E_INVAL;
 	}
 
-
 	peer = ol_txrx_peer_find_by_local_id(pdev, sta_id);
 
 	/* Return success, if the peer is already cleared by
@@ -3889,7 +3884,6 @@ void peer_unmap_timer_handler(unsigned long data)
 		WMA_LOGE("%s: Recovery is in progress, ignore!", __func__);
 	}
 }
-
 
 /**
  * ol_txrx_peer_detach() - Delete a peer's data object.
@@ -6858,7 +6852,6 @@ out:
 	return;
 }
 
-
 /**
  * ol_register_data_stall_detect_cb() - register data stall callback
  * @data_stall_detect_callback: data stall callback function
@@ -6984,7 +6977,6 @@ bool ol_txrx_fwd_desc_thresh_check(struct ol_txrx_vdev_t *vdev)
 	return true;
 }
 #endif
-
 
 /**
  * ol_txrx_get_vdev_from_vdev_id() - get vdev from vdev_id

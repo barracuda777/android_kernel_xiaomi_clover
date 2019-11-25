@@ -142,7 +142,6 @@ enum suspend_resume_state {
 	 HDD_WLAN_RESUME
 };
 
-
 /* SSR shutdown & re-init functions */
 QDF_STATUS hdd_wlan_shutdown(void);
 QDF_STATUS hdd_wlan_re_init(void);

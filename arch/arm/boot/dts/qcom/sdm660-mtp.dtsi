@@ -15,8 +15,8 @@
 / {
 	mtp_batterydata: qcom,battery-data {
 		qcom,batt-id-range-pct = <15>;
-//		#include "fg-gen3-batterydata-itech-3000mah.dtsi"
-//		#include "fg-gen3-batterydata-ascent-3450mah.dtsi"
+		#include "fg-gen3-batterydata-itech-3000mah.dtsi"
+		#include "fg-gen3-batterydata-ascent-3450mah.dtsi"
 		#include "batterydata-zql5018-6000mah.dtsi"
 		#include "batterydata-zql6019-8600mah.dtsi"
 	};
@@ -305,43 +305,8 @@
 	};
 };
 
-&tlmm {
-	hall_int_active:hall_int_active {
-		mux {
-		          pins = "gpio76";
-		          function = "gpio";
-		};
-		config{
-		          pins = "gpio76";
-	                  drive-strength = <6>;
-	                  bias-pull-up;
-	            };
-        };
-	hall_int_suspend: hall_int_suspend {
-		mux {
-		          pins = "gpio76";
-		          function = "gpio";
-		};
-		config{
-		          pins = "gpio76";
-		          drive-strength = <6>;
-		          bias-pull-up;
-		};
-        };
-};
-
 &soc {
-		hall_switch {
-
-			compatible = "hall-switch,och175";
-			pinctrl-names = "hall_active","hall_suspend";
-			pinctrl-0 = <&hall_int_active>;
-			pinctrl-1 = <&hall_int_suspend>;
-			vdd-io-supply= <&pm660_l8>;
-			interrupt-names = "hall_irq";
-	     	   hall,irq-gpio = <&tlmm 75 0x0>;
-		};
-		i2c@c177000 {
+	i2c@c177000 {
 		status = "ok";
 		focaltech@38 {
 			compatible = "focaltech,fts";
@@ -453,15 +418,9 @@
 				rom-addr = /bits/ 8 <0xA1>;
 				rom-val = /bits/ 8 <0x5F>; /* max current 23.5mA */
 			};
-			/* remove A2=21 , fix MIC recording 10KHz noise
-			rom_A2h {
-				rom-addr = /bits/ 8 <0xA2>;
-				rom-val = /bits/ 8 <0x21>;
-			};
-			*/
 			rom_A3h {
 				rom-addr = /bits/ 8 <0xA3>;
-				rom-val = /bits/ 8 <0x0E>; /* Select brightness change transition duration 000 = 0 ms (immediate change)*/
+				rom-val = /bits/ 8 <0x0E>; /* Select brightness change transition duration 000 = 0 ms (immediate change) */
 			};
 			rom_A5h {
 				rom-addr = /bits/ 8 <0xA5>;

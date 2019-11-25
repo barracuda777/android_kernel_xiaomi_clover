@@ -1151,7 +1151,6 @@ static void sme_register_debug_callback(void)
 	qdf_register_debug_callback(QDF_MODULE_ID_SME, &sme_state_info_dump);
 }
 
-
 /* Global APIs */
 
 /**
@@ -4905,7 +4904,6 @@ void sme_deregister11d_scan_done_callback(tHalHandle h_hal)
 	pmac->scan.callback11dScanDone = NULL;
 }
 
-
 #ifdef FEATURE_OEM_DATA_SUPPORT
 /**
  * sme_register_oem_data_rsp_callback() - Register a routine of
@@ -5317,7 +5315,6 @@ QDF_STATUS sme_roam_set_default_key_index(tHalHandle hal, uint8_t session_id,
 
 	return QDF_STATUS_SUCCESS;
 }
-
 
 /*
  * sme_get_rssi() -
@@ -6951,7 +6948,6 @@ QDF_STATUS sme_remain_on_channel(tHalHandle hHal, uint8_t session_id,
 	uint32_t san_req_id, scan_count;
 	struct ani_roc_req *roc_msg;
 	cds_msg_t msg;
-
 
 	MTRACE(qdf_trace(QDF_MODULE_ID_SME,
 			 TRACE_CODE_SME_RX_HDD_REMAIN_ONCHAN, session_id, 0));
@@ -10116,7 +10112,6 @@ QDF_STATUS sme_set_neighbor_scan_max_chan_time(tHalHandle hHal, uint8_t
 		}
 		sme_release_global_lock(&pMac->sme);
 	}
-
 
 	return status;
 }
@@ -13732,7 +13727,6 @@ void sme_stats_ext_deregister_callback(tHalHandle h_hal)
 	pmac->sme.StatsExtCallback = NULL;
 }
 
-
 /**
  * sme_stats_ext_request() - Function called when HDD receives STATS EXT vendor
  * command from userspace
@@ -13848,7 +13842,6 @@ QDF_STATUS sme_update_dfs_scan_mode(tHalHandle hHal, uint8_t sessionId,
 		}
 		sme_release_global_lock(&pMac->sme);
 	}
-
 
 	return status;
 }
@@ -17164,7 +17157,6 @@ QDF_STATUS sme_apf_offload_deregister_callback(tHalHandle h_hal)
 	return status;
 }
 
-
 /**
  * sme_create_mon_session() - post message to create PE session for monitormode
  * operation
@@ -17978,7 +17970,6 @@ void sme_set_5g_band_pref(tHalHandle hal_handle,
 			  "Unable to acquire global sme lock");
 }
 
-
 bool sme_neighbor_roam_is11r_assoc(tHalHandle hal_ctx,
 			uint8_t session_id)
 {
@@ -18726,7 +18717,6 @@ QDF_STATUS sme_get_chain_rssi(tHalHandle phal,
 	}
 	sme_release_global_lock(&pmac->sme);
 
-
 	return status;
 }
 
@@ -18893,7 +18883,6 @@ QDF_STATUS sme_ipa_uc_stat_request(tHalHandle hal, uint32_t vdev_id,
 
 	return status;
 }
-
 
 int sme_cli_set_command(int vdev_id, int param_id, int sval, int vpdev)
 {
@@ -19373,7 +19362,6 @@ bool sme_is_conn_state_connected(tHalHandle hal, uint8_t session_id)
 
 	return csr_is_conn_state_connected(mac_ctx, session_id);
 }
-
 
 #ifdef WLAN_FEATURE_ROAM_OFFLOAD
 QDF_STATUS sme_fast_reassoc(tHalHandle hal, tCsrRoamProfile *profile,

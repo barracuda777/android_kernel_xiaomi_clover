@@ -243,7 +243,6 @@ enum channel_state cds_get_channel_state(uint32_t chan_num)
 		return reg_channels[chan_enum].state;
 }
 
-
 /**
  * cds_search_5g_bonded_chan_array() - get ptr to bonded channel
  * @oper_ch: operating channel number
@@ -869,4 +868,3 @@ uint16_t cds_bw_value(enum phy_ch_width bw)
 		return 0;
 	}
 }
-

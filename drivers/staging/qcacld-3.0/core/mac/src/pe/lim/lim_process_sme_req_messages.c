@@ -52,7 +52,6 @@
 
 #include "sap_api.h"
 
-
 #include <lim_ft.h>
 #include "cds_regdomain.h"
 #include "lim_process_fils.h"
@@ -821,7 +820,6 @@ __lim_handle_sme_start_bss_request(tpAniSirGlobal mac_ctx, uint32_t *msg_buf)
 		case eSIR_NDI_MODE:
 			session->limSystemRole = eLIM_NDI_ROLE;
 			break;
-
 
 		/*
 		 * There is one more mode called auto mode.
@@ -6337,5 +6335,4 @@ static void lim_process_set_ie_req(tpAniSirGlobal mac_ctx, uint32_t *msg_buf)
 	status = lim_send_ext_cap_ie(mac_ctx, msg->session_id, NULL, false);
 	if (QDF_STATUS_SUCCESS != status)
 		pe_err("Unable to send ExtCap to FW");
-
 }

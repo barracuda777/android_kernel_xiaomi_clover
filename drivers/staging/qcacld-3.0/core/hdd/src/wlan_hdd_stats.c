@@ -125,7 +125,6 @@ static int rssi_mcs_tbl[][10] = {
 	{-76, -73, -71, -68, -64, -60, -59, -58, -53, -51} /* 80 */
 };
 
-
 #ifdef WLAN_FEATURE_LINK_LAYER_STATS
 
 /**
@@ -4620,7 +4619,6 @@ static int __wlan_hdd_cfg80211_get_station(struct wiphy *wiphy,
 #endif
 	}
 #endif
-
 
 	MTRACE(qdf_trace(QDF_MODULE_ID_HDD,
 			 TRACE_CODE_HDD_CFG80211_GET_STA,

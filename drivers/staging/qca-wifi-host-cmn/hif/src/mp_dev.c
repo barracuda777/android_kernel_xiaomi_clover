@@ -52,13 +52,11 @@
 #define BB_watchdog_ctrl_2       0x1a7c8
 #define BB_watchdog_status_B     0x1a7e0
 
-
 #define PHY_BB_CHN_TABLES_INTF_ADDR 0x19894
 #define PHY_BB_CHN_TABLES_INTF_DATA 0x19898
 
 #define PHY_BB_CHN1_TABLES_INTF_ADDR 0x1a894
 #define PHY_BB_CHN1_TABLES_INTF_DATA 0x1a898
-
 
 struct priv_ctrl_ctx {
 	uint32_t chaninfo_ctrl_orig;

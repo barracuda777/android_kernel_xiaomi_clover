@@ -1645,7 +1645,6 @@ QDF_STATUS csr_neighbor_roam_sssid_scan_done(tpAniSirGlobal pMac,
 	return QDF_STATUS_SUCCESS;
 }
 
-
 /**
  * csr_neighbor_roam_handoff_req_hdlr - Processes handoff request
  * @mac_ctx  Pointer to mac context
@@ -1763,7 +1762,4 @@ QDF_STATUS csr_neighbor_roam_start_lfr_scan(tpAniSirGlobal pMac,
 			      REASON_NO_CAND_FOUND_OR_NOT_ROAMING_NOW);
 
 	return QDF_STATUS_SUCCESS;
-
-
-
 }

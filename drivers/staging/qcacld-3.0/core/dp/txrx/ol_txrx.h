@@ -154,7 +154,6 @@ ol_txrx_update_last_real_peer(
 void
 ol_txrx_dump_pkt(qdf_nbuf_t nbuf, uint32_t nbuf_paddr, int len);
 
-
 /**
  * ol_txrx_post_data_stall_event() - post data stall event
  * @indicator: Module triggering data stall

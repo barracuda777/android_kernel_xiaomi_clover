@@ -75,7 +75,6 @@ typedef struct qdf_mc_timer_s {
 	uint32_t cookie;
 } qdf_mc_timer_t;
 
-
 void qdf_try_allowing_sleep(QDF_TIMER_TYPE type);
 
 /* Function declarations and documenation */

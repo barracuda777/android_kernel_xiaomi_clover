@@ -297,7 +297,6 @@ static void hif_sdio_remove_callbacks(void)
 	qdf_mem_zero(&osdrv_callbacks, sizeof(osdrv_callbacks));
 }
 
-
 /**
  * hif_init() - Initializes the driver callbacks
  * @callbacks: pointer to driver callback structure
@@ -938,7 +937,6 @@ static QDF_STATUS reinit_sdio(struct hif_sdio_dev *device)
 	host->ios.clock = clock;
 	host->ops->set_ios(host, &host->ios);
 
-
 	if (card->host->caps & MMC_CAP_4_BIT_DATA) {
 		/* CMD52: Set bus width & disable card detect resistor */
 		err = func0_cmd52_write_byte(card, SDIO_CCCR_IF,
@@ -1037,7 +1035,6 @@ static int sdio_enable4bits(struct hif_sdio_dev *device, int enable)
 
 	return ret;
 }
-
 
 /**
  * power_state_change_notify() - SDIO bus power notification handler
@@ -2511,7 +2508,6 @@ static void hif_device_removed(struct sdio_func *func)
 		device->is_disabled = false;
 	else
 		status = hif_disable_func(device, func);
-
 
 	del_hif_device(device);
 	if (status != QDF_STATUS_SUCCESS)

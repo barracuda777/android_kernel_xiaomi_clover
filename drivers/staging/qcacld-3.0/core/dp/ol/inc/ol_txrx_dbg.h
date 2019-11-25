@@ -76,7 +76,6 @@ void ol_txrx_stats_display(ol_txrx_pdev_handle pdev,
 
 void ol_txrx_stats_clear(ol_txrx_pdev_handle pdev);
 
-
 /*--- txrx protocol analyzer debug feature ---*/
 
 /* uncomment this to enable the protocol analzyer feature */
@@ -149,7 +148,6 @@ void ol_tx_queue_log_clear(ol_txrx_pdev_handle pdev)
 {
 }
 #endif /* defined(DEBUG_HL_LOGGING) && defined(CONFIG_HL_SUPPORT) */
-
 
 /*----------------------------------------*/
 

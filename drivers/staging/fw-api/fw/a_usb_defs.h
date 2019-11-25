@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -66,7 +65,6 @@
 #define USB_CONTROL_REQ_DIAG_CMD            3
 #define USB_CONTROL_REQ_DIAG_RESP           4
 
-
 //#define USB_CONTROL_MAX_BMI_TRANSFER_SIZE   64
 #define USB_CONTROL_MAX_BMI_TRANSFER_SIZE   252
 
@@ -74,8 +72,6 @@
 
 #define USB_HS_BULK_MAXP_SIZE   0x200  //512 Bytes Maxp for High Speed for BULK EP
 #define USB_FS_BULK_MAXP_SIZE   0x40   //64 Bytes Maxp for Full Speed for BULK EP
-
-
 
 /* diagnostic command defnitions */
 #define USB_CTRL_DIAG_CC_READ       0

@@ -101,7 +101,6 @@ int cds_set_cpus_allowed_ptr(struct task_struct *task, unsigned long cpu)
 	return set_cpus_allowed_ptr(task, cpumask_of(cpu));
 }
 
-
 /**
  * cds_sched_find_attach_cpu - find available cores and attach to required core
  * @pSchedContext:	wlan scheduler context

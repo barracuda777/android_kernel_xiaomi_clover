@@ -21,7 +21,6 @@
 #include <qdf_mem.h>            /* qdf_mem_malloc */
 #include <qdf_nbuf.h>           /* qdf_nbuf_t */
 
-
 /* #define USB_HIF_SINGLE_PIPE_DATA_SCHED */
 /* #ifdef USB_HIF_SINGLE_PIPE_DATA_SCHED */
 #define DATA_EP_SIZE 4
@@ -197,7 +196,6 @@ static void send_packet_completion(HTC_TARGET *target, HTC_PACKET *pPacket)
 		EpTxComplete(pEndpoint->EpCallBacks.pContext, pPacket);
 	else
 		qdf_nbuf_free(pPacket->pPktContext);
-
 
 }
 

@@ -879,7 +879,6 @@ QDF_STATUS wmi_unified_set_smps_params(void *wmi_hdl, uint8_t vdev_id,
 	return QDF_STATUS_E_FAILURE;
 }
 
-
 /**
  * wmi_set_p2pgo_oppps_req() - send p2p go opp power save request to fw
  * @wmi_hdl: wmi handle
@@ -1206,7 +1205,6 @@ QDF_STATUS wmi_unified_set_thermal_mgmt_cmd(void *wmi_hdl,
 
 	return QDF_STATUS_E_FAILURE;
 }
-
 
 /**
  * wmi_unified_lro_config_cmd() - process the LRO config command
@@ -1724,8 +1722,6 @@ QDF_STATUS wmi_unified_extscan_stop_change_monitor_cmd(void *wmi_hdl,
 
 	return QDF_STATUS_E_FAILURE;
 }
-
-
 
 /**
  * wmi_unified_extscan_start_change_monitor_cmd() - start change monitor cmd
@@ -2937,7 +2933,6 @@ QDF_STATUS wmi_unified_send_regdomain_info_to_fw_cmd(void *wmi_hdl,
 
 	return QDF_STATUS_E_FAILURE;
 }
-
 
 /**
  * wmi_unified_set_tdls_offchan_mode_cmd() - set tdls off channel mode
@@ -4997,7 +4992,6 @@ uint32_t wmi_ready_extract_init_status(void *wmi_hdl, void *ev)
 		return wmi_handle->ops->ready_extract_init_status(wmi_handle,
 			ev);
 
-
 	return 1;
 
 }
@@ -5018,7 +5012,6 @@ QDF_STATUS wmi_ready_extract_mac_addr(void *wmi_hdl, void *ev, uint8_t *macaddr)
 		return wmi_handle->ops->ready_extract_mac_addr(wmi_handle,
 			ev, macaddr);
 
-
 	return QDF_STATUS_E_FAILURE;
 }
 
@@ -5038,7 +5031,6 @@ uint8_t *wmi_extract_dbglog_data_len(void *wmi_hdl, void *evt_buf,
 	if (wmi_handle->ops->extract_dbglog_data_len)
 		return wmi_handle->ops->extract_dbglog_data_len(wmi_handle,
 			evt_buf, len);
-
 
 	return NULL;
 }
@@ -5285,7 +5277,6 @@ wmi_send_set_atf_grouping_cmd(void *wmi_hdl,
 	return QDF_STATUS_E_FAILURE;
 
 }
-
 
 /* Extract - APIs */
 /**
@@ -5697,7 +5688,6 @@ QDF_STATUS wmi_extract_mgmt_tx_compl_param(void *wmi_hdl, void *evt_buf,
 	if (wmi_handle->ops->extract_mgmt_tx_compl_param)
 		return wmi_handle->ops->extract_mgmt_tx_compl_param(wmi_handle,
 				evt_buf, param);
-
 
 	return QDF_STATUS_E_FAILURE;
 }

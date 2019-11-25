@@ -50,5 +50,4 @@ extern struct ce_reg_def *QCA9888_CE_TARGETdef;
 extern struct ce_reg_def *IPQ4019_CE_TARGETdef;
 #endif
 
-
 #endif

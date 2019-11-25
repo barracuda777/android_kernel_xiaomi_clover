@@ -89,10 +89,8 @@ void ol_ll_pdev_tx_unlock(void *pdev);
 
 #endif /* !QCA_OL_TX_PDEV_LOCK */
 
-
 extern int ol_txrx_is_target_ar900b(ol_txrx_vdev_handle vdev);
 #define OL_TXRX_IS_TARGET_AR900B(vdev)  ol_txrx_is_target_ar900b(vdev)
-
 
 /* WIN */
 int
@@ -132,7 +130,6 @@ void
 ol_txrx_set_drop_unenc(
 	ol_txrx_vdev_handle vdev,
 	u_int32_t val);
-
 
 /**
  * @brief set the Tx encapsulation type of the VDEV
@@ -233,7 +230,6 @@ void
 ol_txrx_mark_peer_inact(
 	ol_txrx_peer_handle peer,
 	bool inactive);
-
 
 /* Should be ol_txrx_ctrl_api.h */
 void ol_txrx_set_mesh_mode(ol_txrx_vdev_handle vdev, u_int32_t val);

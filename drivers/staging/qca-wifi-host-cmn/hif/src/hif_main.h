@@ -67,7 +67,6 @@
 #define HAS_FW_INDICATOR 1
 #endif
 
-
 #define AR9888_DEVICE_ID (0x003c)
 #define AR6320_DEVICE_ID (0x003e)
 #define AR6320_FW_1_1  (0x11)

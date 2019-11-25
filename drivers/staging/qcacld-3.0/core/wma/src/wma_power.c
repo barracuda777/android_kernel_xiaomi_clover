@@ -1965,7 +1965,6 @@ void wma_set_suspend_dtim(tp_wma_handle wma)
 	}
 }
 
-
 /**
  * wma_configure_vdev_resume_params() - set resume related parameters in fw
  * @wma: wma handle

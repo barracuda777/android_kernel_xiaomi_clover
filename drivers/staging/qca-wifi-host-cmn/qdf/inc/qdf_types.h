@@ -87,7 +87,6 @@ typedef void *qdf_drv_handle_t;
 typedef void *qdf_os_handle_t;
 typedef void *qdf_pm_t;
 
-
 /**
  * typedef qdf_handle_t - handles opaque to each other
  */
@@ -381,7 +380,6 @@ enum tQDF_GLOBAL_CON_MODE {
 };
 
 #define  QDF_IS_EPPING_ENABLED(mode) (mode == QDF_GLOBAL_EPPING_MODE)
-
 
 #ifdef CONFIG_MCL
 /**

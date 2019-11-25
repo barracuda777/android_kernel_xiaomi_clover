@@ -543,7 +543,6 @@ int pktlog_enable(struct hif_opaque_softc *scn, int32_t log_state,
 	if (!pl_info)
 		return 0;
 
-
 	mutex_lock(&pl_info->pktlog_mutex);
 	error = __pktlog_enable(scn, log_state, ini_triggered,
 				user_triggered, is_iwpriv_command);

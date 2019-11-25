@@ -249,7 +249,6 @@ void
 htt_rx_ind_legacy_rate(htt_pdev_handle pdev, qdf_nbuf_t rx_ind_msg,
 		       uint8_t *legacy_rate, uint8_t *legacy_rate_sel);
 
-
 void
 htt_rx_ind_timestamp(htt_pdev_handle pdev, qdf_nbuf_t rx_ind_msg,
 		     uint32_t *timestamp_microsec,
@@ -260,7 +259,6 @@ htt_rx_ind_tsf32(htt_pdev_handle pdev, qdf_nbuf_t rx_ind_msg);
 
 uint8_t
 htt_rx_ind_ext_tid(htt_pdev_handle pdev, qdf_nbuf_t rx_ind_msg);
-
 
 /*==================== rx MPDU descriptor access methods ====================*/
 

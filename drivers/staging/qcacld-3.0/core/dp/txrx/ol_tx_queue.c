@@ -366,7 +366,6 @@ ol_tx_queue_free(
 	TX_SCHED_DEBUG_PRINT("Leave %s\n", __func__);
 }
 
-
 /*--- queue pause / unpause functions ---------------------------------------*/
 
 /**
@@ -416,7 +415,6 @@ ol_txrx_peer_pause_but_no_mgmt_q_base(
 		ol_txrx_peer_tid_pause_base(pdev, peer, i);
 }
 #endif
-
 
 /**
  * ol_txrx_peer_pause_base() - suspend/pause all txqs for a given peer
@@ -575,7 +573,6 @@ ol_txrx_vdev_pause(ol_txrx_vdev_handle vdev, uint32_t reason)
 	/* acquire the mutex lock, since we'll be modifying the queues */
 	TX_SCHED_DEBUG_PRINT("Enter %s\n", __func__);
 
-
 	/* use peer_ref_mutex before accessing peer_list */
 	qdf_spin_lock_bh(&pdev->peer_ref_mutex);
 	qdf_spin_lock_bh(&pdev->tx_queue_spinlock);
@@ -588,7 +585,6 @@ ol_txrx_vdev_pause(ol_txrx_vdev_handle vdev, uint32_t reason)
 	TX_SCHED_DEBUG_PRINT("Leave %s\n", __func__);
 }
 
-
 void ol_txrx_vdev_unpause(ol_txrx_vdev_handle vdev, uint32_t reason)
 {
 	struct ol_txrx_pdev_t *pdev = vdev->pdev;
@@ -597,8 +593,6 @@ void ol_txrx_vdev_unpause(ol_txrx_vdev_handle vdev, uint32_t reason)
 	/* TO DO: log the queue unpause */
 	/* acquire the mutex lock, since we'll be modifying the queues */
 	TX_SCHED_DEBUG_PRINT("Enter %s\n", __func__);
-
-
 
 	/* take peer_ref_mutex before accessing peer_list */
 	qdf_spin_lock_bh(&pdev->peer_ref_mutex);
@@ -712,7 +706,6 @@ ol_txrx_peer_bal_remove_limit_peer(struct ol_txrx_pdev_t *pdev,
 			peer = ol_txrx_peer_find_by_id(pdev, peer_id);
 			if (peer)
 				peer->tx_limit_flag = false;
-
 
 			TX_SCHED_DEBUG_PRINT(
 				"Remove one peer from limitq, peer_id %d, cur peer num %d\n",
@@ -1045,7 +1038,6 @@ ol_txrx_peer_link_status_handler(
 
 /*--- ADDBA triggering functions --------------------------------------------*/
 
-
 /*=== debug functions =======================================================*/
 
 /*--- queue event log -------------------------------------------------------*/
@@ -1131,7 +1123,6 @@ ol_tx_queue_log_oldest_update(struct ol_txrx_pdev_t *pdev, int offset)
 		 */
 		return;
 
-
 	if (offset > pdev->txq_log.offset) {
 		/*
 		 * not wraparound -
@@ -1146,7 +1137,6 @@ ol_tx_queue_log_oldest_update(struct ol_txrx_pdev_t *pdev, int offset)
 	} else
 		/* wraparound */
 		oldest_record_offset = 0;
-
 
 	while (oldest_record_offset < offset) {
 		int size, align, align_pad;
@@ -1214,7 +1204,6 @@ ol_tx_queue_log_alloc(
 	/* sanity check that the log is large enough to hold this entry */
 	if (pdev->txq_log.size <= size + 1 + align_pad)
 		return NULL;
-
 
 alloc_found:
 	ol_tx_queue_log_oldest_update(pdev, offset + size + 1 + align_pad);

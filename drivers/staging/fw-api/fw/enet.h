@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -34,7 +33,6 @@
 #include <a_types.h> /* A_UINT8 */
 #endif
 
-
 #define ETHERNET_ADDR_LEN 6 /* bytes */
 #define ETHERNET_TYPE_LEN 2 /* bytes - length of the Ethernet type field */
 
@@ -50,7 +48,6 @@ struct ethernet_hdr_t {
 #define ETHERNET_MAX_LEN  1518  /* bytes */
 
 #define ETHERNET_MTU (ETHERNET_MAX_LEN - (ETHERNET_HDR_LEN + ETHERNET_CRC_LEN))
-
 
 struct llc_snap_hdr_t {
     A_UINT8 dsap;
@@ -134,7 +131,6 @@ struct ethernet_vlan_hdr_t {
 #define BTEP_SNAP_ORGCODE_0 0x00
 #define BTEP_SNAP_ORGCODE_1 0x00
 #define BTEP_SNAP_ORGCODE_2 0xf8
-
 
 #define IS_SNAP(_llc) ((_llc)->dsap == LLC_SNAP_LSAP && \
                        (_llc)->ssap == LLC_SNAP_LSAP && \

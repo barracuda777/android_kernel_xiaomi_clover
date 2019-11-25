@@ -6,8 +6,6 @@ else
 	KERNEL_BUILD := 0
 endif
 
-TARGET_BUILD_VARIANT := user
-
 ifeq ($(CONFIG_CLD_HL_SDIO_CORE), y)
 	CONFIG_QCA_WIFI_SDIO := 1
 endif
@@ -246,6 +244,25 @@ endif
 
 endif
 
+# As per target team, build is done as follows:
+# Defconfig : build with default flags
+# Slub      : defconfig  + CONFIG_SLUB_DEBUG=y +
+#	      CONFIG_SLUB_DEBUG_ON=y + CONFIG_PAGE_POISONING=y
+# Perf      : Using appropriate msmXXXX-perf_defconfig
+#
+# Shipment builds (user variants) should not have any debug feature
+# enabled. This is identified using 'TARGET_BUILD_VARIANT'. Slub builds
+# are identified using the CONFIG_SLUB_DEBUG_ON configuration. Since
+# there is no other way to identify defconfig builds, QCOMs internal
+# representation of perf builds (identified using the string 'perf'),
+# is used to identify if the build is a slub or defconfig one. This
+# way no critical debug feature will be enabled for perf and shipment
+# builds. Other OEMs are also protected using the TARGET_BUILD_VARIANT
+# config.
+ifneq ($(TARGET_BUILD_VARIANT),user)
+	CONFIG_FEATURE_PKTLOG := y
+endif
+
 #enable spectral scan feature
 CONFIG_WLAN_SPECTRAL_SCAN := y
 
@@ -285,25 +302,22 @@ CONFIG_WLAN_BEACON_REPORTING := y
 BUILD_DEBUG_VERSION := 0
 
 #Enable this flag to build driver in diag version
-BUILD_DIAG_VERSION := 0
+BUILD_DIAG_VERSION := 1
 
 #Do we panic on bug?  default is to warn
 ifeq ($(CONFIG_SLUB_DEBUG), y)
-	PANIC_ON_BUG := 1
-	WLAN_WARN_ON_ASSERT := 1
+	PANIC_ON_BUG := 0
 else ifeq ($(CONFIG_PERF_DEBUG), y)
-	PANIC_ON_BUG := 1
-	WLAN_WARN_ON_ASSERT := 1
+	PANIC_ON_BUG := 0
 else
 	PANIC_ON_BUG := 0
-	WLAN_WARN_ON_ASSERT := 0
 endif
 
 #Enable OL debug and wmi unified functions
 CONFIG_ATH_PERF_PWR_OFFLOAD := 1
 
 #Disable packet log
-CONFIG_REMOVE_PKT_LOG := 1
+CONFIG_REMOVE_PKT_LOG := 0
 
 #Whether have QMI support
 CONFIG_QMI_SUPPORT := 1
@@ -584,7 +598,6 @@ EPPING_OBJS := $(EPPING_SRC_DIR)/epping_main.o \
 		$(EPPING_SRC_DIR)/epping_rx.o \
 		$(EPPING_SRC_DIR)/epping_helper.o \
 
-
 ############ MAC ############
 MAC_DIR :=	core/mac
 MAC_INC_DIR :=	$(MAC_DIR)/inc
@@ -723,12 +736,10 @@ SME_CSR_OBJS := $(SME_SRC_DIR)/csr/csr_api_roam.o \
 		$(SME_SRC_DIR)/csr/csr_neighbor_roam.o \
 		$(SME_SRC_DIR)/csr/csr_util.o \
 
-
 ifeq ($(CONFIG_QCACLD_WLAN_LFR2),y)
 SME_CSR_OBJS += $(SME_SRC_DIR)/csr/csr_roam_preauth.o \
 		$(SME_SRC_DIR)/csr/csr_host_scan_roam.o
 endif
-
 
 ifeq ($(CONFIG_QCOM_TDLS),y)
 SME_CSR_OBJS += $(SME_SRC_DIR)/csr/csr_tdls_process.o
@@ -863,7 +874,6 @@ CDS_OBJS :=	$(CDS_SRC_DIR)/cds_api.o \
 		$(CDS_SRC_DIR)/cds_concurrency.o \
 		$(CDS_SRC_DIR)/cds_utils.o \
 		$(CDS_SRC_DIR)/cds_mc_timer.o
-
 
 ########### BMI ###########
 BMI_DIR := core/bmi
@@ -1212,7 +1222,9 @@ ifeq ($(CONFIG_REMOVE_PKT_LOG), 0)
 INCS +=		$(PKTLOG_INC)
 endif
 
+ifeq ($(BUILD_DIAG_VERSION), 1)
 INCS +=		$(HOST_DIAG_LOG_INC)
+endif
 
 OBJS :=		$(HDD_OBJS) \
 		$(EPPING_OBJS) \
@@ -1227,6 +1239,7 @@ OBJS :=		$(HDD_OBJS) \
 OBJS +=		$(WMA_OBJS) \
 		$(TXRX_OBJS) \
 		$(WMI_OBJS) \
+		$(FWLOG_OBJS) \
 		$(HTC_OBJS) \
 		$(DFS_OBJS)
 
@@ -1234,11 +1247,7 @@ OBJS +=		$(HIF_OBJS) \
 		$(BMI_OBJS) \
 		$(HTT_OBJS)
 
-ifeq ($(BUILD_DEBUG_VERSION), 1)
-OBJS +=		$(WLAN_LOGGING_OBJS) \
-		$(FWLOG_OBJS)
-endif
-
+OBJS +=		$(WLAN_LOGGING_OBJS)
 OBJS +=		$(NLINK_OBJS)
 OBJS +=		$(PTT_OBJS)
 
@@ -1266,7 +1275,6 @@ CDEFINES :=	-DANI_LITTLE_BYTE_ENDIAN \
 		-DANI_OS_TYPE_ANDROID=6 \
 		-DPTT_SOCK_SVC_ENABLE \
 		-Wall\
-		-Werror\
 		-D__linux__ \
 		-DHAL_SELF_STA_PER_BSS=1 \
 		-DFEATURE_WLAN_WAPI \
@@ -1298,9 +1306,7 @@ CDEFINES :=	-DANI_LITTLE_BYTE_ENDIAN \
 		-DMWS_COEX
 
 ifneq ($(CONFIG_HIF_USB), 1)
-ifeq ($(BUILD_DEBUG_VERSION), 1)
 CDEFINES += -DWLAN_LOGGING_SOCK_SVC_ENABLE
-endif
 endif
 
 ifeq ($(CONFIG_WLAN_FEATURE_FILS),y)
@@ -1404,7 +1410,6 @@ CDEFINES += -DQDF_LOCK_STATS_LIST=1
 CDEFINES += -DQDF_LOCK_STATS_LIST_SIZE=256
 endif
 
-
 ifeq ($(HAVE_CFG80211),1)
 CDEFINES += -DWLAN_FEATURE_P2P
 CDEFINES += -DWLAN_FEATURE_WFD
@@ -1488,7 +1493,7 @@ ifeq ($(CONFIG_WLAN_FEATURE_LPSS),y)
 CDEFINES += -DWLAN_FEATURE_LPSS
 endif
 
-ifeq ($(CONFIG_QCA_CLD_DEBUG),y)
+ifneq ($(TARGET_BUILD_VARIANT),user)
 CDEFINES += -DDESC_DUP_DETECT_DEBUG
 CDEFINES += -DDEBUG_RX_RING_BUFFER
 endif
@@ -1942,6 +1947,10 @@ EXTRA_CFLAGS += -Wmissing-prototypes
 ifeq ($(call cc-option-yn, -Wheader-guard),y)
 EXTRA_CFLAGS += -Wheader-guard
 endif
+
+# To build without debug just ignore not used code.
+EXTRA_CFLAGS += $(call cc-disable-warning,unused-variable,)
+EXTRA_CFLAGS += $(call cc-disable-warning,unused-function,)
 
 # If the module name is not "wlan", then the define MULTI_IF_NAME to be the
 # same a the QCA CHIP name. The host driver will then append MULTI_IF_NAME to

@@ -532,7 +532,6 @@ void dfs_detach(struct ieee80211com *ic)
 	ic->ic_dfs = NULL;
 }
 
-
 #ifdef ATH_ENABLE_AR
 bool is_dfs_radar_enable(struct ieee80211com *ic)
 {

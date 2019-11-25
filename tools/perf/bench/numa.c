@@ -32,10 +32,6 @@
 #include <numa.h>
 #include <numaif.h>
 
-#ifndef RUSAGE_THREAD
-# define RUSAGE_THREAD 1
-#endif
-
 /*
  * Regular printout to the terminal, supressed if -q is specified:
  */

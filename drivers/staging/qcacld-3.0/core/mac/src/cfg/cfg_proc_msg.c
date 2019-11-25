@@ -1190,7 +1190,6 @@ cgstatic cfg_static[CFG_PARAM_MAX_NUM] = {
 	 0, 0, 0},
 };
 
-
 cfgstatic_string cfg_static_string[CFG_MAX_STATIC_STRING] = {
 
 	{WNI_CFG_STA_ID,

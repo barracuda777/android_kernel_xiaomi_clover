@@ -591,7 +591,6 @@ fail:
 	return ret;
 }
 
-
 /**
  * wlan_hdd_cfg80211_apf_offload() - Set/Reset to APF Offload
  * @wiphy:    wiphy structure pointer

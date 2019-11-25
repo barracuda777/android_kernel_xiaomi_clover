@@ -38,7 +38,6 @@ u_int8_t ol_txrx_monitor_get_filter_mcast_data(
 u_int8_t ol_txrx_monitor_get_filter_non_data(
 				ol_txrx_vdev_handle vdev_txrx_handle);
 
-
 int ol_txrx_reset_monitor_mode(ol_txrx_pdev_handle pdev);
 
 #endif

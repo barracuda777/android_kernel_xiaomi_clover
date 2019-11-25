@@ -1531,7 +1531,6 @@ static int wlan_hdd_send_ext_scan_capability(hdd_context_t *hdd_ctx)
 		return -ENOMEM;
 	}
 
-
 	hdd_debug("Req Id %u", data->requestId);
 	hdd_debug("Status %u", data->status);
 	hdd_debug("Scan cache size %u",
@@ -2120,7 +2119,6 @@ int wlan_hdd_cfg80211_extscan_set_bssid_hotlist(struct wiphy *wiphy,
 
 	return ret;
 }
-
 
 /**
  * __wlan_hdd_cfg80211_extscan_set_significant_change() - set significant change
@@ -3332,7 +3330,6 @@ int wlan_hdd_cfg80211_extscan_start(struct wiphy *wiphy,
 	return ret;
 }
 
-
 /*
  * define short names for the global vendor params
  * used by __wlan_hdd_cfg80211_extscan_stop()
@@ -3446,7 +3443,6 @@ fail:
 #undef PARAM_MAX
 #undef PARAM_REQUEST_ID
 
-
 /**
  * wlan_hdd_cfg80211_extscan_stop() - stop extscan
  * @wiphy: Pointer to wireless phy.
@@ -3468,7 +3464,6 @@ int wlan_hdd_cfg80211_extscan_stop(struct wiphy *wiphy,
 
 	return ret;
 }
-
 
 /**
  * __wlan_hdd_cfg80211_extscan_reset_bssid_hotlist() - reset bssid hotlist
@@ -3728,7 +3723,6 @@ int wlan_hdd_cfg80211_extscan_reset_significant_change(struct wiphy *wiphy,
 
 	return ret;
 }
-
 
 /**
  * hdd_extscan_epno_fill_network_list() - epno fill network list

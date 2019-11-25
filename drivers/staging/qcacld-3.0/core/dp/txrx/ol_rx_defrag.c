@@ -61,7 +61,6 @@
 #include <qdf_time.h>           /* qdf_system_time */
 #include <htt_internal.h>
 
-
 #define DEFRAG_IEEE80211_ADDR_EQ(a1, a2) \
 	(!qdf_mem_cmp(a1, a2, IEEE80211_ADDR_LEN))
 

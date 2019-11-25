@@ -535,10 +535,8 @@ static int rk_gmac_init(struct platform_device *pdev, void *priv)
 	int ret;
 
 	ret = phy_power_on(bsp_priv, true);
-	if (ret) {
-		gmac_clk_enable(bsp_priv, false);
+	if (ret)
 		return ret;
-	}
 
 	ret = gmac_clk_enable(bsp_priv, true);
 	if (ret)

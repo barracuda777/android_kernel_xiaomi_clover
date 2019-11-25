@@ -94,7 +94,6 @@ tSapChanMatrixInfo ht80_chan[] = {
 	  {144, SAP_TX_LEAKAGE_MIN}
 	  } },
 
-
 	{56,
 	 {{36, 171}, {40, 178},
 	  {44, 171}, {48, 178},
@@ -1011,7 +1010,6 @@ sap_mark_leaking_ch(ptSapContext sap_ctx,
 	}
 
 	mac = PMAC_STRUCT(hal);
-
 
 	/* traverse target_chan_matrix and */
 	for (i = 0; i < NUM_5GHZ_CHANNELS ; i++) {
@@ -5320,7 +5318,6 @@ static int sap_stop_dfs_cac_timer(ptSapContext sapContext)
 
 	return 0;
 }
-
 
 /**
  * sap_is_channel_bonding_etsi_weather_channel() - check weather chan bonding.

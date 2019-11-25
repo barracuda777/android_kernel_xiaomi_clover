@@ -791,7 +791,6 @@ void csr_get_vdev_type_nss(tpAniSirGlobal mac_ctx,
 #define WLAN_SECURITY_EVENT_SET_BCAST_REQ    12
 #define WLAN_SECURITY_EVENT_SET_BCAST_RSP    13
 
-
 #define AUTH_OPEN       0
 #define AUTH_SHARED     1
 #define AUTH_WPA_EAP    2

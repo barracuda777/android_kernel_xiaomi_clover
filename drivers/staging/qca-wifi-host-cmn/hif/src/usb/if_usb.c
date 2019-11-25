@@ -36,8 +36,6 @@
 uint32_t fw_stack_addr;
 void *fw_ram_seg_addr[FW_RAM_SEG_CNT];
 
-
-
 static int hif_usb_unload_dev_num = -1;
 struct hif_usb_softc *g_usb_sc;
 
@@ -51,7 +49,6 @@ static inline QDF_STATUS
 hif_usb_diag_write_cold_reset(struct hif_softc *scn)
 {
 	struct hif_opaque_softc *hif_hdl = GET_HIF_OPAQUE_HDL(scn);
-
 
 	HIF_DBG("%s: resetting SOC", __func__);
 
@@ -255,7 +252,6 @@ err_usb:
 	usb_put_dev(usbdev);
 	return ret;
 }
-
 
 /**
  * hif_usb_close(): close bus, delete hif_sc
@@ -487,7 +483,6 @@ void hif_usb_get_hw_info(struct hif_softc *hif_ctx)
 	hif_usb_reg_tbl_attach(hif_ctx);
 }
 
-
 /**
  * hif_bus_configure() - configure the bus
  * @scn: pointer to the hif context.
@@ -713,4 +708,3 @@ int hif_check_fw_reg(struct hif_opaque_softc *scn)
 	return 0;
 }
 #endif
-

@@ -27,8 +27,6 @@
 
 #include <athdefs.h>            /* uint64_t */
 
-
-
 struct ol_txrx_stats_elem {
 	uint64_t pkts;
 	uint64_t bytes;

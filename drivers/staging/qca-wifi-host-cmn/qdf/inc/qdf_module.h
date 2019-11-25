@@ -45,7 +45,6 @@ typedef uint32_t (*module_init_func_t)(void);
  */
 #define qdf_virt_module_name(_name)      __qdf_virt_module_name(_name)
 
-
 /**
  * qdf_export_symbol - Export a symbol from a module.
  */

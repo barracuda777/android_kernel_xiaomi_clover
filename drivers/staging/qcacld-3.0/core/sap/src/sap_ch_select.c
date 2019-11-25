@@ -1617,12 +1617,10 @@ static void sap_compute_spect_weight(tSapChSelSpectInfo *pSpectInfoParams,
 		vhtSupport = 0;
 		centerFreq = 0;
 
-
 		ieLen = GET_IE_LEN_IN_BSS(
 				pScanResult->BssDescriptor.length);
 		qdf_mem_set((uint8_t *) pBeaconStruct,
 				   sizeof(tSirProbeRespBeacon), 0);
-
 
 		if ((sir_parse_beacon_ie
 		     (pMac, pBeaconStruct, (uint8_t *)

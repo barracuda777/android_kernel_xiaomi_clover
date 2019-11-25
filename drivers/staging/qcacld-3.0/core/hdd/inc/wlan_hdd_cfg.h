@@ -2576,7 +2576,6 @@ enum hdd_dot11_mode {
 #define CFG_IBSS_ATIM_WIN_SIZE_MAX                 (50)
 #define CFG_IBSS_ATIM_WIN_SIZE_DEFAULT             (0)
 
-
 /*
  * <ini>
  * gIbssIsPowerSaveAllowed - Indicates if IBSS Power Save is
@@ -6004,8 +6003,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_ENABLE_PACKET_LOG_DEFAULT    (0)
 #endif
 
-
-
 /* gFwDebugLogType takes values from enum dbglog_process_t,
  * make default value as DBGLOG_PROCESS_NET_RAW to give the
  * logs to net link since cnss_diag service is started at boot
@@ -6288,7 +6285,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_ENABLE_SAP_MANDATORY_CHAN_LIST_MAX   (1)
 #define CFG_ENABLE_SAP_MANDATORY_CHAN_LIST_DEFAULT (0)
 
-
 /*
  * <ini>
  * gSkipDfsChannelInP2pSearch - Skip DFS Channel in case of P2P Search
@@ -6568,7 +6564,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_BAD_PEER_TX_CTL_TX_LIMIT_LEVEL_IEEEAC_MAX     (50)
 #define CFG_BAD_PEER_TX_CTL_TX_LIMIT_LEVEL_IEEEAC_DEFAULT (3)
 #endif
-
 
 /*
  * Enable/Disable Thermal Mitigation feature
@@ -7000,7 +6995,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_TDLS_IDLE_TIMEOUT_MIN                   (500)
 #define CFG_TDLS_IDLE_TIMEOUT_MAX                   (40000)
 #define CFG_TDLS_IDLE_TIMEOUT_DEFAULT               (5000)
-
 
 /*
  * <ini>
@@ -7437,7 +7431,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_TDLS_DISCOVERY_WAKE_TIMEOUT_MIN        (0)
 #define CFG_TDLS_DISCOVERY_WAKE_TIMEOUT_MAX        (2000)
 #define CFG_TDLS_DISCOVERY_WAKE_TIMEOUT_DEFAULT    (200)
-
 
 #endif
 
@@ -8356,7 +8349,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_ENABLE_MEMORY_DEBUG_DEFAULT          (1)
 #endif
 
-
 /*
  * <ini>
  * gInitialDwellTime - Used to set initial dwell time
@@ -8515,7 +8507,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_ENABLE_TCP_DELACK_MIN                  (0)
 #define CFG_ENABLE_TCP_DELACK_MAX                  (1)
 
-
 /*
  * <ini>
  * gTcpDelAckThresholdHigh - High Threshold inorder to trigger TCP Del Ack
@@ -8588,7 +8579,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_TCP_DELACK_TIMER_COUNT_DEFAULT         (30)
 #define CFG_TCP_DELACK_TIMER_COUNT_MIN             (1)
 #define CFG_TCP_DELACK_TIMER_COUNT_MAX             (1000)
-
 
 /*
  * <ini>
@@ -9061,7 +9051,6 @@ enum hdd_link_speed_rpt_type {
 #define CFG_AP_SCAN_BURST_DURATION_VAL_MAX             (32)
 #define CFG_AP_SCAN_BURST_DURATION_VAL_DEFAULT         (0)
 
-
 #ifdef FEATURE_AP_MCC_CH_AVOIDANCE
 /*
  * <ini>
@@ -9155,7 +9144,6 @@ enum hdd_link_speed_rpt_type {
 #else
 #define CFG_MULTICAST_HOST_FW_MSGS_DEFAULT  (1)
 #endif
-
 
 /*
  * <ini>
@@ -10645,7 +10633,6 @@ enum restart_beaconing_on_ch_avoid_rule {
 #define CFG_CE_SERVICE_MAX_RX_IND_FLUSH_MAX      (32)
 #define CFG_CE_SERVICE_MAX_RX_IND_FLUSH_DEFAULT  (32)
 
-
 /* List of RPS CPU maps for different rx queues registered by WLAN driver
  * Ref - Kernel/Documentation/networking/scaling.txt
  * RPS CPU map for a particular RX queue, selects CPU(s) for bottom half
@@ -10788,7 +10775,6 @@ enum restart_beaconing_on_ch_avoid_rule {
 #define CFG_SAP_TX_LEAKAGE_THRESHOLD_MIN     (100)
 #define CFG_SAP_TX_LEAKAGE_THRESHOLD_MAX     (1000)
 #define CFG_SAP_TX_LEAKAGE_THRESHOLD_DEFAULT (310)
-
 
 /*
  * Enable filtering of replayed multicast packets
@@ -11804,7 +11790,6 @@ enum restart_beaconing_on_ch_avoid_rule {
 #define CFG_EXTWOW_TCP_RX_TIMEOUT_DEFAULT          (200)
 #endif
 
-
 /*
  * <ini>
  * gEnableFastPwrTransition - Configuration for fast power transition
@@ -12045,7 +12030,6 @@ enum hw_filter_mode {
 #define CFG_ARP_AC_CATEGORY_MIN            (0)
 #define CFG_ARP_AC_CATEGORY_MAX            (3)
 #define CFG_ARP_AC_CATEGORY_DEFAULT        (3)
-
 
 /*
  * <ini>
@@ -13178,7 +13162,6 @@ enum hw_filter_mode {
 #define CFG_TX_ORPHAN_ENABLE_MIN     (0)
 #define CFG_TX_ORPHAN_ENABLE_MAX     (1)
 
-
 /*
  * <ini>
  * gEnableNDIMacRandomization - When enabled this will randomize NDI Mac
@@ -13990,7 +13973,6 @@ enum hw_filter_mode {
 #define CFG_ESP_QBSS_SCORE_IDX7_TO_4_MIN       (0x00000000)
 #define CFG_ESP_QBSS_SCORE_IDX7_TO_4_MAX       (0x64646464)
 
-
 /*
  * <ini>
  * esp_qbss_score_idx11_to_8 - percentage for  esp/qbss load for slots 8-11
@@ -14021,7 +14003,6 @@ enum hw_filter_mode {
 #define CFG_ESP_QBSS_SCORE_IDX11_TO_8_DEFAULT   (0x00000000)
 #define CFG_ESP_QBSS_SCORE_IDX11_TO_8_MIN       (0x00000000)
 #define CFG_ESP_QBSS_SCORE_IDX11_TO_8_MAX       (0x64646464)
-
 
 /*
  * <ini>
@@ -14417,7 +14398,6 @@ enum hw_filter_mode {
 #define CFG_ENABLE_ESP_FEATURE_MAX     (1)
 #define CFG_ENABLE_ESP_FEATURE_DEFAULT (0)
 
-
 /*
  * <ini>
  * tx_chain_mask_2g - tx chain mask for 2g
@@ -14447,7 +14427,6 @@ enum hw_filter_mode {
 #define CFG_TX_CHAIN_MASK_2G_MIN     (0)
 #define CFG_TX_CHAIN_MASK_2G_MAX     (3)
 #define CFG_TX_CHAIN_MASK_2G_DEFAULT (0)
-
 
 /*
  * <ini>
@@ -14479,7 +14458,6 @@ enum hw_filter_mode {
 #define CFG_TX_CHAIN_MASK_5G_MAX     (3)
 #define CFG_TX_CHAIN_MASK_5G_DEFAULT (0)
 
-
 /*
  * <ini>
  * rx_chain_mask_2g - rx chain mask for 2g
@@ -14509,7 +14487,6 @@ enum hw_filter_mode {
 #define CFG_RX_CHAIN_MASK_2G_MIN     (0)
 #define CFG_RX_CHAIN_MASK_2G_MAX     (3)
 #define CFG_RX_CHAIN_MASK_2G_DEFAULT (0)
-
 
 /*
  * <ini>

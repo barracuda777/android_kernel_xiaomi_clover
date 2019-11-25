@@ -69,7 +69,6 @@ void sme_nan_deregister_callback(tHalHandle h_hal)
 	pmac->sme.nanCallback = NULL;
 }
 
-
 /**
  * sme_nan_request() -
  * This function gets called when HDD receives NAN vendor command

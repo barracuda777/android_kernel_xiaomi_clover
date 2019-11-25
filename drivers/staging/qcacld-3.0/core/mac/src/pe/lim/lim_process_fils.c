@@ -85,7 +85,6 @@ static uint8_t lim_get_auth_tag_len(enum fils_erp_cryptosuite crypto_suite)
 	}
 }
 
-
 /**
  * lim_get_crypto_type()- This API returns crypto type based on akm suite used
  * @akm: akm used for authentication

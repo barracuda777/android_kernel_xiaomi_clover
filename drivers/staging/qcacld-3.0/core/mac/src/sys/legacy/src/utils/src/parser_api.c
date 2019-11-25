@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2019 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2012-2018 The Linux Foundation. All rights reserved.
  *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
@@ -1215,9 +1215,6 @@ populate_dot11f_ext_cap(tpAniSirGlobal pMac,
 	if (psessionEntry && psessionEntry->enable_bcast_probe_rsp)
 		p_ext_cap->fils_capability = 1;
 
-	if (pMac->roam.configParam.btm_offload_config & BTM_OFFLOAD_ENABLED_MASK)
-		p_ext_cap->bss_transition = 1;
-
 	/* Need to calulate the num_bytes based on bits set */
 	if (pDot11f->present)
 		pDot11f->num_bytes = lim_compute_ext_cap_ie_length(pDot11f);
@@ -1816,7 +1813,6 @@ populate_dot11f_rates_tdls(tpAniSirGlobal p_mac,
 
 } /* End populate_dot11f_rates_tdls */
 
-
 tSirRetStatus
 populate_dot11f_tpc_report(tpAniSirGlobal pMac,
 			   tDot11fIETPCReport *pDot11f, tpPESession psessionEntry)
@@ -2194,7 +2190,6 @@ sir_convert_probe_req_frame2_struct(tpAniSirGlobal pMac,
 	return eSIR_SUCCESS;
 } /* End sir_convert_probe_req_frame2_struct. */
 
-
 /**
  * sir_validate_and_rectify_ies() - API to check malformed frame
  * @mac_ctx: mac context
@@ -2362,7 +2357,6 @@ void populate_dot11f_fils_params(tpAniSirGlobal mac_ctx,
 			     fils_info->key_auth, fils_info->key_auth_len);
 	}
 }
-
 
 /**
  * update_fils_data: update fils params from beacon/probe response
@@ -2765,8 +2759,6 @@ tSirRetStatus sir_convert_probe_frame2_struct(tpAniSirGlobal pMac,
 
 } /* End sir_convert_probe_frame2_struct. */
 
-
-
 tSirRetStatus
 sir_convert_assoc_req_frame2_struct(tpAniSirGlobal pMac,
 				    uint8_t *pFrame,
@@ -3093,7 +3085,6 @@ sir_convert_assoc_resp_frame2_struct(tpAniSirGlobal pMac,
 		qdf_mem_free(ar);
 		return status;
 	}
-
 
 	/* Capabilities */
 	pAssocRsp->capabilityInfo.ess = ar->Capabilities.ess;
@@ -5931,7 +5922,6 @@ tSirRetStatus populate_dot11_assoc_res_p2p_ie(tpAniSirGlobal pMac,
 	}
 	return eSIR_SUCCESS;
 }
-
 
 tSirRetStatus populate_dot11f_wfatpc(tpAniSirGlobal pMac,
 				     tDot11fIEWFATPC *pDot11f, uint8_t txPower,

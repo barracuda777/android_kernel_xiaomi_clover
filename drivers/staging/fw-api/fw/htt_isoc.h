@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -161,7 +160,6 @@ enum {
 enum {
     HTT_ISOC_TID_MGMT = 7
 };
-
 
 /*=== definitions for specific messages =====================================*/
 
@@ -335,7 +333,6 @@ typedef struct htt_isoc_t2h_peer_info_s {
 #define HTT_ISOC_T2H_PEER_INFO_MAC_ADDR_U32_M          0xffffffff
 #define HTT_ISOC_T2H_PEER_INFO_MAC_ADDR_U32_S          0
 
-
 /* general field access macros */
 
 #define HTT_ISOC_T2H_PEER_INFO_FIELD_SET(field, msg_addr, value) \
@@ -472,7 +469,6 @@ typedef struct htt_isoc_t2h_peer_unmap_s {
 #define HTT_ISOC_T2H_PEER_UNMAP_PEER_ID_OFFSET32        0
 #define HTT_ISOC_T2H_PEER_UNMAP_PEER_ID_M               0x0007ff00
 #define HTT_ISOC_T2H_PEER_UNMAP_PEER_ID_S               8
-
 
 /* general field access macros */
 
@@ -821,7 +817,6 @@ typedef struct htt_isoc_t2h_sec_ind_s {
 #define HTT_ISOC_T2H_SEC_IND_MIC2_M                  0xffffffff
 #define HTT_ISOC_T2H_SEC_IND_MIC2_S                  0
 
-
 /* general field access macros */
 #define HTT_ISOC_T2H_SEC_IND_FIELD_SET(field, msg_addr, value) \
     htt_isoc_t2h_field_set(                                      \
@@ -905,7 +900,6 @@ typedef struct htt_isoc_t2h_peer_tx_ready_s {
 #define HTT_ISOC_T2H_PEER_TX_READY_PEER_ID_M               0x0007ff00
 #define HTT_ISOC_T2H_PEER_TX_READY_PEER_ID_S               8
 
-
 /* general field access macros */
 
 #define HTT_ISOC_T2H_PEER_TX_READY_FIELD_SET(field, msg_addr, value) \
@@ -931,7 +925,6 @@ A_COMPILE_TIME_ASSERT(HTT_ISOC_T2H_PEER_TX_READY_PEER_ID_M_Size_Check, (HTT_ISOC
     HTT_ISOC_T2H_PEER_TX_READY_FIELD_SET(PEER_ID, msg_addr, value)
 #define HTT_ISOC_T2H_PEER_TX_READY_PEER_ID_GET(msg_addr) \
     ((A_UINT16)(HTT_ISOC_T2H_PEER_TX_READY_FIELD_GET(PEER_ID, msg_addr)))
-
 
 /*=== RX_ERR message ===*/
 
@@ -1076,7 +1069,6 @@ typedef struct htt_isoc_t2h_rx_err_s {
 #define HTT_ISOC_T2H_RX_ERR_CNT_M                     0xff000000
 #define HTT_ISOC_T2H_RX_ERR_CNT_S                     24
 
-
 /* general field access macros */
 
 #define HTT_ISOC_T2H_RX_ERR_FIELD_SET(field, msg_addr, value) \
@@ -1178,7 +1170,6 @@ typedef struct htt_isoc_t2h_tx_compl_s {
 #define HTT_ISOC_T2H_TX_COMPL_IND_STATUS_M               0x0007ff00
 #define HTT_ISOC_T2H_TX_COMPL_IND_STATUS_S               8
 
-
 /* general field access macros */
 
 #define HTT_ISOC_T2H_TX_COMPL_IND_FIELD_SET(field, msg_addr, value) \
@@ -1247,7 +1238,6 @@ typedef struct htt_isoc_t2h_nlo_ind_s {
 #define HTT_ISOC_T2H_NLO_IND_VDEVID_M                   0x0000ff00
 #define HTT_ISOC_T2H_NLO_IND_VDEVID_S                   8
 
-
 /* general field access macros */
 
 #define HTT_ISOC_T2H_NLO_IND_FIELD_SET(field, msg_addr, value)  \
@@ -1271,6 +1261,5 @@ typedef struct htt_isoc_t2h_nlo_ind_s {
     HTT_ISOC_T2H_NLO_IND_FIELD_SET(VDEVID, msg_addr, value)
 #define HTT_ISOC_T2H_NLO_IND_VDEVID_GET(msg_addr) \
     HTT_ISOC_T2H_NLO_IND_FIELD_GET(VDEVID, msg_addr)
-
 
 #endif /* _HTT_ISOC_H_ */

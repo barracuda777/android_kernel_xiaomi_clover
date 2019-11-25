@@ -946,7 +946,6 @@ void htc_dump_bundle_stats(HTC_HANDLE HTCHandle)
 					  total), "%"));
 	}
 
-
 	total = 0;
 	for (i = 0; i < HTC_MAX_MSG_PER_BUNDLE_TX; i++)
 		total += target->tx_bundle_stats[i];

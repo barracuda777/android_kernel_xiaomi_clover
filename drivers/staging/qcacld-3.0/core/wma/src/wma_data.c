@@ -1792,7 +1792,6 @@ QDF_STATUS wma_process_init_bad_peer_tx_ctl_info(tp_wma_handle wma,
 }
 #endif /* defined(CONFIG_HL_SUPPORT) && defined(QCA_BAD_PEER_TX_FLOW_CL) */
 
-
 /**
  * wma_process_init_thermal_info() - initialize thermal info
  * @wma: Pointer to WMA handle
@@ -1973,7 +1972,6 @@ QDF_STATUS wma_process_set_thermal_level(tp_wma_handle wma,
 
 	return QDF_STATUS_SUCCESS;
 }
-
 
 /**
  * wma_set_thermal_mgmt() - set thermal mgmt command to fw

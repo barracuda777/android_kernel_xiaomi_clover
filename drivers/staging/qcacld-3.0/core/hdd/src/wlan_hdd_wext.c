@@ -983,7 +983,6 @@ static const struct ccp_freq_chan_map freq_chan_map[] = {
 */
 #define WE_SET_WOW_DATA_INACTIVITY_TO    90
 
-
 /*
  * <ioctl>
  * setModDTIM - Change Modulated DTIM
@@ -1993,7 +1992,6 @@ static const struct ccp_freq_chan_map freq_chan_map[] = {
  * </ioctl>
  */
 
-
 #define WE_TDLS_CONFIG_PARAMS   5
 #endif
 /*
@@ -2022,7 +2020,6 @@ static const struct ccp_freq_chan_map freq_chan_map[] = {
 
 #define WE_MTRACE_DUMP_CMD    8
 #define WE_MTRACE_SELECTIVE_MODULE_LOG_ENABLE_CMD    9
-
 
 #ifdef WLAN_FEATURE_GPIO_LED_FLASHING
 #define WE_LED_FLASHING_PARAM    10
@@ -2482,7 +2479,6 @@ static const struct ccp_freq_chan_map freq_chan_map[] = {
 #define WLAN_SET_PACKET_FILTER_PARAMS (SIOCIWFIRSTPRIV + 23)
 #endif
 
-
 #ifdef FEATURE_WLAN_SCAN_PNO
 /* Private ioctl to get the statistics */
 #define WLAN_SET_PNO (SIOCIWFIRSTPRIV + 24)
@@ -2726,7 +2722,6 @@ int hdd_priv_get_data(struct iw_point *p_priv_data, union iwreq_data *wrqu)
 
 	return 0;
 }
-
 
 /**
  * hdd_wlan_get_stats() - Get txrx stats in SAP mode
@@ -3781,7 +3776,6 @@ int wlan_hdd_get_peer_rssi(hdd_adapter_t *adapter,
 
 	return ret;
 }
-
 
 /**
  * hdd_statistics_cb() - "Get statistics" callback function
@@ -5491,7 +5485,6 @@ static int __iw_get_range(struct net_device *dev, struct iw_request_info *info,
 
 	wrqu->data.length = sizeof(struct iw_range);
 	memset(range, 0, sizeof(struct iw_range));
-
 
 	/*Get the phy mode */
 	if (sme_cfg_get_int(hHal,
@@ -9435,7 +9428,6 @@ static int __iw_get_char_setnone(struct net_device *dev,
 			pHddStaCtx =
 				WLAN_HDD_GET_STATION_CTX_PTR(useAdapter);
 
-
 			buf =
 				scnprintf(extra + len, WE_MAX_STR_LEN - len,
 					  "\n HDD Conn State - %s "
@@ -10304,7 +10296,6 @@ static int __iw_set_var_ints_getnone(struct net_device *dev,
 		}
 	}
 	break;
-
 
 #ifdef FEATURE_WLAN_TDLS
 	case WE_TDLS_CONFIG_PARAMS:
@@ -11399,7 +11390,6 @@ static int iw_set_packet_filter_params(struct net_device *dev,
 	return ret;
 }
 #endif
-
 
 static int __iw_get_statistics(struct net_device *dev,
 			       struct iw_request_info *info,

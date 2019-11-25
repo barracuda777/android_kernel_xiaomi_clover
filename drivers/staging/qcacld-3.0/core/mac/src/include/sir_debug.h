@@ -77,5 +77,4 @@
 #define PE_ENTER() pe_logfl(QDF_TRACE_LEVEL_DEBUG, "enter")
 #define PE_EXIT() pe_logfl(QDF_TRACE_LEVEL_DEBUG, "exit")
 
-
 #endif

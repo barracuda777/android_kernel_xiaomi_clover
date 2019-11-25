@@ -30,7 +30,6 @@
 #include "pld_internal.h"
 #include "pld_sdio.h"
 
-
 #ifdef CONFIG_SDIO
 /* SDIO manufacturer ID and Codes */
 #define MANUFACTURER_ID_AR6320_BASE        0x500
@@ -71,7 +70,6 @@ static int pld_sdio_probe(struct sdio_func *sdio_func,
 out:
 	return ret;
 }
-
 
 /**
  * pld_sdio_remove() - Remove function for SDIO device

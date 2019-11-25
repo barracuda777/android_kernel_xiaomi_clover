@@ -38,7 +38,6 @@
 #include "sch_api.h"
 #include "lim_send_messages.h"
 
-
 static struct sDphHashNode
 	g_dph_node_array[SIR_MAX_SUPPORTED_BSS][CFG_SAP_MAX_NO_PEERS_MAX + 1];
 
@@ -231,7 +230,6 @@ static void pe_reset_protection_callback(void *ptr)
 		sch_set_fixed_beacon_fields(mac_ctx, pe_session_entry);
 		lim_send_beacon_params(mac_ctx, &beacon_params, pe_session_entry);
 	}
-
 
 	pe_session_entry->old_protection_state = current_protection_state;
 restart_timer:

@@ -47,7 +47,9 @@
 
 #include "cds_utils.h"
 
+#if !defined(REMOVE_PKT_LOG)
 #include "pktlog_ac.h"
+#endif /* REMOVE_PKT_LOG */
 
 #include "dbglog_host.h"
 #include "csr_api.h"
@@ -2383,8 +2385,6 @@ static QDF_STATUS wma_unified_bcn_tmpl_send(tp_wma_handle wma,
 	wh = (struct ieee80211_frame *)frm;
 	A_MEMCPY(&wh[1], &adjusted_tsf_le, sizeof(adjusted_tsf_le));
 
-
-
 	params.vdev_id = vdev_id;
 	params.tim_ie_offset = bcn_info->timIeOffset - bytes_to_strip;
 	params.tmpl_len = tmpl_len;
@@ -3133,7 +3133,6 @@ void wma_process_update_opmode(tp_wma_handle wma_handle,
 	struct wma_txrx_node *iface;
 	wmi_channel_width ch_width;
 
-
 	iface = &wma_handle->interfaces[update_vht_opmode->smesessionId];
 	if (iface == NULL)
 		return;
@@ -3271,7 +3270,6 @@ QDF_STATUS wma_set_cts2self_for_p2p_go(void *wma_handle,
 	return QDF_STATUS_SUCCESS;
 }
 
-
 /**
  * wma_set_htconfig() - set ht config parameters to target
  * @vdev_id: vdev id
@@ -3372,7 +3370,6 @@ void wma_hidden_ssid_vdev_restart(tp_wma_handle wma_handle,
 					WMA_TARGET_REQ_TYPE_VDEV_STOP);
 	}
 }
-
 
 #ifdef WLAN_FEATURE_11W
 
@@ -4062,7 +4059,6 @@ static int wma_mgmt_rx_process(void *handle, uint8_t *data,
 		rx_pkt->pkt_meta.rssi_raw = hdr->rssi;
 	else
 		rx_pkt->pkt_meta.rssi_raw = rx_pkt->pkt_meta.rssi;
-
 
 	/*
 	 * FIXME: Assigning the local timestamp as hw timestamp is not

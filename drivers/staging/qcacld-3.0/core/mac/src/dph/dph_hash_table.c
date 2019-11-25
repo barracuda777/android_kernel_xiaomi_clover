@@ -419,5 +419,3 @@ tSirRetStatus dph_delete_hash_entry(tpAniSirGlobal pMac, tSirMacAddr staAddr,
 
 	return eSIR_SUCCESS;
 }
-
-

@@ -101,7 +101,6 @@ enum {
 	DFS_RADAR_SUMMARY_REPORT_VERSION_3 = 2,
 };
 
-
 /*
  * Constants to use for chirping detection.
  *

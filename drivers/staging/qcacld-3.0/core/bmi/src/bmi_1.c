@@ -192,7 +192,6 @@ bmi_execute(uint32_t address, A_UINT32 *param, struct ol_context *ol_ctx)
 	qdf_mem_set(bmi_cmd_buff, 0, size);
 	qdf_mem_set(bmi_rsp_buff, 0, size);
 
-
 	BMI_DBG("BMI Execute: device: 0x%pK, address: 0x%x, param: %d",
 						scn, address, *param);
 

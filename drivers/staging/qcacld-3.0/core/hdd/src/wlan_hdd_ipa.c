@@ -804,7 +804,6 @@ static inline bool hdd_ipa_uc_sta_is_enabled(hdd_context_t *hdd_ctx)
 	return HDD_IPA_IS_CONFIG_ENABLED(hdd_ctx, HDD_IPA_UC_STA_ENABLE_MASK);
 }
 
-
 /**
  * hdd_ipa_uc_sta_only_offload_is_enabled()
  *
@@ -1682,7 +1681,6 @@ static int hdd_ipa_wdi_conn_pipes(struct hdd_ipa_priv *hdd_ipa,
 		stat = QDF_STATUS_E_FAILURE;
 		goto fail_return;
 	}
-
 
 	qdf_mem_zero(&hdd_ipa->cons_pipe_in, sizeof(struct ipa_wdi_in_params));
 	qdf_mem_zero(&hdd_ipa->prod_pipe_in, sizeof(struct ipa_wdi_in_params));
@@ -3936,7 +3934,6 @@ static void hdd_ipa_uc_handle_last_discon(struct hdd_ipa_priv *hdd_ipa)
 	HDD_IPA_LOG(QDF_TRACE_LEVEL_DEBUG, "exit: IPA WDI Pipes deactivated");
 }
 
-
 /**
  * hdd_ipa_uc_op_metering() - IPA uC operation for stats and quota limit
  * @hdd_ctx: Global HDD context
@@ -4633,7 +4630,6 @@ static void hdd_ipa_uc_op_cb(struct op_msg_type *op_msg, void *usr_ctxt)
 
 	qdf_mem_free(op_msg);
 }
-
 
 /**
  * hdd_ipa_uc_offload_enable_disable() - wdi enable/disable notify to fw
@@ -7565,7 +7561,6 @@ QDF_STATUS hdd_ipa_init(hdd_context_t *hdd_ctx)
 
 	return ret;
 }
-
 
 /**
  * __hdd_ipa_flush - flush IPA exception path SKB's

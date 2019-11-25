@@ -790,7 +790,6 @@ static int wlan_logging_thread(void *Arg)
 		if (gwlan_logging.exit)
 			break;
 
-
 		if (test_and_clear_bit(HOST_LOG_DRIVER_MSG,
 					&gwlan_logging.eventFlag)) {
 			ret = send_filled_buffers_to_user();
@@ -897,7 +896,6 @@ int wlan_logging_sock_init_svc(void)
 	INIT_LIST_HEAD(&gwlan_logging.pkt_stat_free_list);
 	INIT_LIST_HEAD(&gwlan_logging.pkt_stat_filled_list);
 	spin_unlock_irqrestore(&gwlan_logging.pkt_stats_lock, irq_flag);
-
 
 	for (i = 0; i < MAX_PKTSTATS_BUFF; i++) {
 		gpkt_stats_buffers[i].skb = dev_alloc_skb(MAX_PKTSTATS_LENGTH);
@@ -1227,7 +1225,6 @@ static void driver_hal_status_map(uint8_t *status)
 	}
 }
 
-
 /*
  * send_packetdump() - send packet dump
  * @netbuf: netbuf
@@ -1284,7 +1281,6 @@ static void send_packetdump(qdf_nbuf_t netbuf, uint8_t status,
 
 	wlan_pkt_stats_to_logger_thread(&pktlog_hdr, &pd_hdr, netbuf->data);
 }
-
 
 /*
  * send_packetdump_monitor() - sends start/stop packet dump indication
@@ -1391,7 +1387,6 @@ static void tx_packetdump_cb(qdf_nbuf_t netbuf, uint8_t status,
 	send_packetdump(netbuf, status, vdev_id, type);
 }
 
-
 /*
  * rx_packetdump_cb() - rx packet dump callback
  * @netbuf: netbuf
@@ -1416,7 +1411,6 @@ static void rx_packetdump_cb(qdf_nbuf_t netbuf, uint8_t status,
 
 	send_packetdump(netbuf, status, vdev_id, type);
 }
-
 
 /**
  * wlan_register_txrx_packetdump() - tx/rx packet dump

@@ -22,7 +22,6 @@ QDF_STATUS hif_usb_open(struct hif_softc *hif_ctx,
 			 enum qdf_bus_type bus_type);
 void hif_usb_close(struct hif_softc *hif_ctx);
 
-
 void hif_usb_disable_isr(struct hif_softc *hif_ctx);
 void hif_usb_nointrs(struct hif_softc *scn);
 QDF_STATUS hif_usb_enable_bus(struct hif_softc *ol_sc,

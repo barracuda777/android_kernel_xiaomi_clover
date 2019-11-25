@@ -83,7 +83,6 @@ struct wma_caps_per_phy {
 	uint32_t rx_chain_mask_5G;
 };
 
-
 #define VDEV_CMD 1
 #define PDEV_CMD 2
 #define GEN_CMD  3
@@ -132,7 +131,6 @@ enum peer_debug_op {
 #define DEBUG_INVALID_VDEV_ID 0xff
 
 typedef void (*wma_peer_authorized_fp) (uint32_t vdev_id);
-
 
 QDF_STATUS wma_pre_start(void *cds_context);
 

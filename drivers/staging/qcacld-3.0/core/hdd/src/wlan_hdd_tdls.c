@@ -41,8 +41,6 @@
 #include "cds_concurrency.h"
 #include "wlan_hdd_scan.h"
 
-
-
 static int32_t wlan_hdd_tdls_peer_reset_discovery_processed(tdlsCtx_t *
 							    pHddTdlsCtx);
 static void wlan_hdd_tdls_timers_destroy(tdlsCtx_t *pHddTdlsCtx);
@@ -2396,7 +2394,6 @@ hddTdlsPeer_t *wlan_hdd_tdls_find_peer(hdd_adapter_t *pAdapter,
 	tdlsCtx_t *pHddTdlsCtx;
 	hdd_context_t *pHddCtx = WLAN_HDD_GET_CTX(pAdapter);
 
-
 	if (0 != (wlan_hdd_validate_context(pHddCtx)))
 		return NULL;
 
@@ -2798,7 +2795,6 @@ void wlan_hdd_tdls_decrement_peer_count(hdd_adapter_t *pAdapter)
 
 	EXIT();
 }
-
 
 /**
  * wlan_hdd_tdls_find_progress_peer() - find peer if TDLS is ongoing
@@ -4684,7 +4680,6 @@ int wlan_hdd_tdls_extctrl_config_peer(hdd_adapter_t *pAdapter,
 		wlan_hdd_tdls_implicit_enable(tdls_ctx);
 	mutex_unlock(&pHddCtx->tdls_lock);
 
-
 	return status;
 rel_lock:
 	mutex_unlock(&pHddCtx->tdls_lock);
@@ -5720,7 +5715,6 @@ void wlan_hdd_tdls_update_rx_pkt_cnt(hdd_adapter_t *adapter,
 			mac_addr, QDF_MAC_ADDR_SIZE) == 0)
 		return;
 
-
 	qdf_spin_lock_bh(&hdd_ctx->tdls_ct_spinlock);
 	valid_mac_entries = hdd_ctx->valid_mac_entries;
 
@@ -6015,7 +6009,6 @@ static void tdls_ct_process_idle_and_discovery(hddTdlsPeer_t *curr_peer,
 	}
 }
 
-
 /**
  * tdls_ct_process_connected_link() - process the traffic
  * @curr_peer: tdls peer needs to be examined
@@ -6161,7 +6154,6 @@ static void wlan_hdd_tdls_ct_process_cap_unknown(hddTdlsPeer_t *curr_peer,
 		}
 	}
 }
-
 
 /**
  * wlan_hdd_tdls_ct_process_peers() - process the peer
@@ -6473,7 +6465,6 @@ void hdd_tdls_notify_p2p_roc(hdd_context_t *hdd_ctx,
 		connectedTdlsPeers = hdd_ctx->connected_peer_count;
 		if (!connectedTdlsPeers)
 			goto start_timer;
-
 
 		enable_tdls_scan =
 			wlan_hdd_tdls_check_enable_tdls_scan(hdd_ctx);

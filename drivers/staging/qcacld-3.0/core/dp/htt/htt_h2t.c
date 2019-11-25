@@ -64,7 +64,6 @@ do {                                                             \
 	htc_send_pkt(pdev->htc_pdev, &pkt->htc_pkt);
 #endif
 
-
 static void
 htt_h2t_send_complete_free_netbuf(void *pdev, QDF_STATUS status,
 				  qdf_nbuf_t netbuf, uint16_t msdu_id)
@@ -463,7 +462,6 @@ QDF_STATUS htt_h2t_rx_ring_cfg_msg_ll(struct htt_pdev_t *pdev)
 			tmp &= 0x01f;
 		}
 
-
 		msg_word++;
 		HTT_RX_RING_CFG_BASE_PADDR_HI_SET(*msg_word, tmp);
 	}
@@ -786,7 +784,6 @@ htt_h2t_dbg_stats_get(struct htt_pdev_t *pdev,
 	 */
 	pkt->msdu_id = HTT_TX_COMPL_INV_MSDU_ID;
 	pkt->pdev_ctxt = NULL;  /* not used during send-done callback */
-
 
 	msg = qdf_nbuf_alloc(pdev->osdev,
 			     HTT_MSG_BUF_SIZE(HTT_H2T_STATS_REQ_MSG_SZ),

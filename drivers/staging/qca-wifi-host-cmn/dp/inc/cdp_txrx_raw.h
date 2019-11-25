@@ -24,7 +24,6 @@
 #ifndef _CDP_TXRX_RAW_H_
 #define _CDP_TXRX_RAW_H_
 
-
 /* TODO: adf need to be replaced with qdf */
 extern int ol_txrx_get_nwifi_mode(ol_txrx_vdev_handle vdev);
 #define OL_TXRX_GET_NWIFI_MODE(vdev)  ol_txrx_get_nwifi_mode(vdev)

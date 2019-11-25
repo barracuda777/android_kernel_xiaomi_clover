@@ -29,7 +29,6 @@
 #ifndef __SIR_API_H
 #define __SIR_API_H
 
-
 /* Take care to avoid redefinition of this type, if it is */
 /* already defined in "halWmmApi.h" */
 #if !defined(_HALMAC_WMM_API_H)
@@ -723,7 +722,6 @@ struct sir_vht_config {
 	uint32_t         tx_antpattern:1;
 	uint32_t            unused:2;
 };
-
 
 typedef struct sSirAddIeParams {
 	uint16_t probeRespDataLen;
@@ -1801,7 +1799,6 @@ struct sir_sme_discon_done_ind {
 	tSirMacAddr        peer_mac;
 };
 
-
 /* / Definition for Deauthetication request */
 typedef struct sSirSmeDeauthReq {
 	uint16_t messageType;   /* eWNI_SME_DEAUTH_REQ */
@@ -2361,7 +2358,6 @@ typedef struct sSirAggrQosRsp {
 	uint8_t sessionId;
 	tSirAggrQosRspInfo aggrInfo;
 } tSirAggrQosRsp, *tpSirAggrQosRsp;
-
 
 typedef struct sSirQosMapSet {
 	uint8_t present;
@@ -3146,7 +3142,6 @@ typedef struct sAniIbssRouteTable {
 /* PNO Messages */
 /* */
 
-
 /* Set PNO */
 #define SIR_PNO_MAX_PLAN_REQUEST   2
 #define SIR_PNO_MAX_NETW_CHANNELS  26
@@ -3283,7 +3278,6 @@ typedef struct {
 	uint8_t data[1];
 } tSirPrefNetworkFoundInd, *tpSirPrefNetworkFoundInd;
 #endif /* FEATURE_WLAN_SCAN_PNO */
-
 
 /*
  * ALLOWED_ACTION_FRAMES_BITMAP
@@ -3499,7 +3493,6 @@ struct roam_ext_params {
 #define MAX_INDEX_SCORE 100
 #define MAX_INDEX_PER_INI 4
 
-
 #define WLAN_GET_BITS(_val, _index, _num_bits)                         \
 	    (((_val) >> (_index)) & ((1 << (_num_bits)) - 1))
 
@@ -3512,8 +3505,6 @@ struct roam_ext_params {
 	WLAN_GET_BITS(value32, (8 * (bw_index)), 8)
 #define WLAN_SET_SCORE_PERCENTAGE(value32, score_pcnt, bw_index) \
 	WLAN_SET_BITS(value32, (8 * (bw_index)), 8, score_pcnt)
-
-
 
 /**
  * struct sir_weight_config - weight params to
@@ -3601,7 +3592,6 @@ struct sir_score_config {
 	uint32_t nss_weight_per_index;
 	uint32_t band_weight_per_index;
 };
-
 
 /**
  * struct pmkid_mode_bits - Bit flags for PMKID usage in RSN IE
@@ -3734,7 +3724,6 @@ typedef struct sSirRoamOffloadScanRsp {
 	uint8_t sessionId;
 	uint32_t reason;
 } tSirRoamOffloadScanRsp, *tpSirRoamOffloadScanRsp;
-
 
 #ifdef WLAN_FEATURE_PACKET_FILTERING
 /*---------------------------------------------------------------------------
@@ -3901,7 +3890,6 @@ struct sir_wifi_start_log {
 	int size;
 	bool is_pktlog_buff_clear;
 };
-
 
 /**
  * enum hw_mode_bandwidth - bandwidth of wifi channel.
@@ -5248,7 +5236,6 @@ struct extscan_cached_scan_results {
 	uint32_t    num_scan_ids;
 	struct extscan_cached_scan_result  *result;
 };
-
 
 /**
  * struct tSirWifiFullScanResultEvent - extscan full scan event

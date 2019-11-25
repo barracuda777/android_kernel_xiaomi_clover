@@ -477,7 +477,6 @@ static inline void ol_txrx_peer_find_add_id(struct ol_txrx_pdev_t *pdev,
 			   peer_id_ref_cnt,
 			   peer_ref_cnt);
 
-
 	if (status) {
 		/* TBDXXX: assert for now */
 		qdf_assert(0);
@@ -803,7 +802,6 @@ struct ol_txrx_peer_t *ol_txrx_assoc_peer_find(struct ol_txrx_vdev_t *vdev)
 	qdf_spin_unlock_bh(&vdev->pdev->last_real_peer_mutex);
 	return peer;
 }
-
 
 /*=== function definitions for debug ========================================*/
 

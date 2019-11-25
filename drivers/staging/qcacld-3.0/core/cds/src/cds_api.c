@@ -2329,7 +2329,6 @@ bool cds_is_fatal_event_enabled(void)
 		return false;
 	}
 
-
 	return p_cds_context->enable_fatal_event;
 }
 

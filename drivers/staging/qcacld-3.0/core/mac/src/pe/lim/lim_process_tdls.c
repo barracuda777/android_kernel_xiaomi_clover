@@ -70,6 +70,8 @@
 #include "cds_regdomain.h"
 #include "cds_utils.h"
 
+#define NO_SESSION 0xff
+
 /* define NO_PAD_TDLS_MIN_8023_SIZE to NOT padding: See CR#447630
    There was IOT issue with cisco 1252 open mode, where it pads
    discovery req/teardown frame with some junk value up to min size.
@@ -2974,7 +2976,6 @@ tSirRetStatus lim_process_sme_tdls_add_sta_req(tpAniSirGlobal pMac,
 		goto lim_tdls_add_sta_error;
 	}
 
-
 	/* To start with, send add STA request to HAL */
 	if (eSIR_FAILURE == lim_tdls_setup_add_sta(pMac, pAddStaReq, psessionEntry)) {
 		pe_err("Add TDLS Station request failed");
@@ -3434,6 +3435,5 @@ skip_event:
 	qdf_mem_free(del_sta_params);
 	lim_msg->bodyptr = NULL;
 }
-
 
 #endif

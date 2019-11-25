@@ -3,7 +3,6 @@
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
- *
  * Permission to use, copy, modify, and/or distribute this software for
  * any purpose with or without fee is hereby granted, provided that the
  * above copyright notice and this permission notice appear in all
@@ -86,11 +85,8 @@ enum htt_rx_ind_mpdu_status {
 #define HTT_TX_EXT_TID_INVALID             HTT_INVALID_TID
 #define HTT_TX_EXT_TID_NONPAUSE            19
 
-
-
 #define HTT_TX_L3_CKSUM_OFFLOAD      1
 #define HTT_TX_L4_CKSUM_OFFLOAD      2
-
 
 /**
  * @brief General specification of the tx frame contents

@@ -106,7 +106,6 @@
 #define OS_MEMSET(_buf, _ch, _len)        qdf_mem_set(_buf, _len, _ch)
 #define OS_MEMCMP(_mem1, _mem2, _len)     qdf_mem_cmp(_mem1, _mem2, _len)
 
-
 /*
  * System time interface
  */

@@ -70,7 +70,6 @@ typedef enum {
 	REGDOMAIN_COUNT
 } v_REGDOMAIN_t;
 
-
 /**
  * enum channel_enum: channel enumeration
  * @CHAN_ENUM_1: channel number 1

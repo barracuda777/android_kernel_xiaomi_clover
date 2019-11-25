@@ -271,7 +271,6 @@ void ol_tx_dump_flow_pool_info(void)
 	struct ol_tx_flow_pool_t *pool = NULL, *pool_prev = NULL;
 	struct ol_tx_flow_pool_t tmp_pool;
 
-
 	ol_txrx_log(QDF_TRACE_LEVEL_INFO, "Global Pool");
 	if (!pdev) {
 		ol_txrx_err("ERROR: pdev NULL");
@@ -404,7 +403,6 @@ static int ol_tx_move_desc_n(struct ol_tx_flow_pool_t *src_pool,
 	return count;
 }
 
-
 /**
  * ol_tx_distribute_descs_to_deficient_pools() - Distribute descriptors
  * @src_pool: source pool
@@ -464,7 +462,6 @@ ol_tx_distribute_descs_to_deficient_pools(struct ol_tx_flow_pool_t *src_pool)
 
 	return 0;
 }
-
 
 /**
  * ol_tx_create_flow_pool() - create flow pool
@@ -606,7 +603,6 @@ static struct ol_tx_flow_pool_t *ol_tx_get_flow_pool(uint8_t flow_pool_id)
 	return pool;
 }
 
-
 /**
  * ol_tx_flow_pool_vdev_map() - Map flow_pool with vdev
  * @pool: flow_pool
@@ -678,7 +674,6 @@ void ol_tx_flow_pool_map_handler(uint8_t flow_id, uint8_t flow_type,
 	struct ol_tx_flow_pool_t *pool;
 	uint8_t pool_create = 0;
 	enum htt_flow_type type = flow_type;
-
 
 	ol_txrx_dbg(
 		"%s: flow_id %d flow_type %d flow_pool_id %d flow_pool_size %d\n",
@@ -779,5 +774,3 @@ void ol_tx_flow_pool_unmap_handler(uint8_t flow_id, uint8_t flow_type,
 	 */
 	ol_tx_dec_pool_ref(pool, false);
 }
-
-

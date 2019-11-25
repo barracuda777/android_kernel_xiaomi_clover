@@ -430,7 +430,3 @@ obj-y += msm_sdw/
 
 # Tas2557
 obj-$(CONFIG_SND_SOC_TAS2557_STEREO) += tas2557/
-
-# TODO: remove me b/62058353
-subdir-ccflags-y += \
-	-Wno-enum-conversion

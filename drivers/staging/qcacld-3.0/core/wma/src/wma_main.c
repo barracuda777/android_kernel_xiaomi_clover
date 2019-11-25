@@ -71,7 +71,9 @@
 #define WMA_LOG_COMPLETION_TIMER 3000 /* 3 seconds */
 
 #define WMI_TLV_HEADROOM 128
+#ifdef TRACE_RECORD
 uint8_t *mac_trace_get_wma_msg_string(uint16_t wmaMsg);
+#endif
 static uint32_t g_fw_wlan_feat_caps;
 /**
  * wma_get_fw_wlan_feat_caps() - get fw feature capablity
@@ -951,7 +953,6 @@ static void wma_override_listen_interval(tp_wma_handle wma,
 		WMA_LOGE("Failed to Set to Normal DTIM policy");
 
 }
-
 
 /**
  * wma_process_cli_set_cmd() - set parameters to fw
@@ -2517,7 +2518,6 @@ QDF_STATUS wma_open(void *cds_context,
 	olCfg.uc_rx_indication_ring_count = cds_cfg->uc_rxind_ringcount;
 	olCfg.uc_tx_partition_base = cds_cfg->uc_tx_partition_base;
 
-
 	wma_handle->tx_chain_mask_cck = cds_cfg->tx_chain_mask_cck;
 	wma_handle->self_gen_frm_pwr = cds_cfg->self_gen_frm_pwr;
 
@@ -2767,7 +2767,6 @@ QDF_STATUS wma_open(void *cds_context,
 					   WMI_VDEV_GET_ARP_STAT_EVENTID,
 					   wma_get_arp_stats_handler,
 					   WMA_RX_SERIALIZER_CTX);
-
 
 #ifdef WLAN_POWER_DEBUGFS
 	/* register for Chip Power stats event */
@@ -3111,7 +3110,6 @@ void wma_send_msg_by_priority(tp_wma_handle wma_handle, uint16_t msg_type,
 	}
 }
 
-
 void wma_send_msg(tp_wma_handle wma_handle, uint16_t msg_type,
 			 void *body_ptr, uint32_t body_val)
 {
@@ -3125,8 +3123,6 @@ void wma_send_msg_high_priority(tp_wma_handle wma_handle, uint16_t msg_type,
 	wma_send_msg_by_priority(wma_handle, msg_type,
 				body_ptr, body_val, HIGH_PRIORITY);
 }
-
-
 
 /**
  * wma_set_base_macaddr_indicate() - set base mac address in fw
@@ -4449,7 +4445,6 @@ static inline void wma_update_target_vht_cap(tp_wma_handle wh,
 	else
 		cfg->vht_max_mpdu = 0;
 
-
 	if (wh->vht_cap_info & WMI_VHT_CAP_CH_WIDTH_80P80_160MHZ) {
 		cfg->supp_chan_width = 1 << eHT_CHANNEL_WIDTH_80P80MHZ;
 		cfg->supp_chan_width |= 1 << eHT_CHANNEL_WIDTH_160MHZ;
@@ -5650,7 +5645,6 @@ bool wma_is_rx_ldpc_supported_for_channel(uint32_t channel,
 	return status;
 }
 
-
 /**
  * wma_print_populate_soc_caps() - Prints all the caps populated per hw mode
  * @wma_handle: pointer to wma_handle
@@ -6724,7 +6718,6 @@ static QDF_STATUS wma_update_tx_fail_cnt_th(tp_wma_handle wma,
 	WMA_LOGD("Set TX pkt fail count threshold  vdevId %d count %d",
 			vdev_id, tx_fail_disconn_th);
 
-
 	ret = wma_vdev_set_param(wma->wmi_handle, vdev_id,
 			WMI_VDEV_PARAM_DISCONNECT_TH,
 			tx_fail_disconn_th);
@@ -6864,10 +6857,8 @@ void wma_update_sta_inactivity_timeout(tp_wma_handle wma,
 
 #ifdef WLAN_FEATURE_WOW_PULSE
 
-
 #define WMI_WOW_HOSTWAKEUP_GPIO_CMD_FIXED_PARAM \
 WMI_WOW_HOSTWAKEUP_GPIO_PIN_PATTERN_CONFIG_CMD_fixed_param
-
 
 #define WMITLV_TAG_HOSTWAKEUP_GPIO_CMD_FIXED_PARAM \
 WMITLV_TAG_STRUC_wmi_wow_hostwakeup_gpio_pin_pattern_config_cmd_fixed_param
@@ -6931,7 +6922,6 @@ static inline QDF_STATUS wma_send_wow_pulse_cmd(tp_wma_handle wma_handle,
 	return QDF_STATUS_E_FAILURE;
 }
 #endif
-
 
 /**
  * wma_process_power_debug_stats_req() - Process the Chip Power stats collect
@@ -7357,7 +7347,6 @@ static QDF_STATUS wma_set_rx_blocksize(tp_wma_handle wma_handle,
 
 	return QDF_STATUS_SUCCESS;
 }
-
 
 /**
  * wma_process_set_limit_off_chan() - set limit off chanel parameters
@@ -8762,7 +8751,6 @@ QDF_STATUS wma_configure_smps_params(uint32_t vdev_id, uint32_t param_id,
 
 	return status;
 }
-
 
 void wma_ipa_uc_stat_request(wma_cli_set_cmd_t *privcmd)
 {

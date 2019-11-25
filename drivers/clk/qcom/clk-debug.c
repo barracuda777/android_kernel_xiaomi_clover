@@ -177,10 +177,13 @@ static int clk_debug_mux_set_parent(struct clk_hw *hw, u8 index)
 
 		regval |= (meas->parent[index].next_sel & meas->mask);
 
-		if (!meas->parent[index].en_mask)
-			regval |= meas->en_mask;
-		else if (meas->parent[index].en_mask != 0xFF)
+		if (meas->parent[index].en_mask == 0xFF)
+			/* Skip en_mask */
+			regval = regval;
+		else if (meas->parent[index].en_mask)
 			regval |= meas->parent[index].en_mask;
+		else
+			regval |= meas->en_mask;
 
 		regmap_write(meas->regmap[dbg_cc], 0x0, regval);
 	}
@@ -271,3 +274,4 @@ int clk_register_debug(struct clk_hw *hw)
 	return 0;
 }
 EXPORT_SYMBOL(clk_register_debug);
+

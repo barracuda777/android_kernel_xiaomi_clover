@@ -26,7 +26,6 @@
  * These are used by hdd_napi.
  */
 
-
 /* CLD headers */
 #include <hif.h> /* struct hif_opaque_softc; */
 

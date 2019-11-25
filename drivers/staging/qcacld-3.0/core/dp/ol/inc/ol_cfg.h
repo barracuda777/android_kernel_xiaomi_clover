@@ -26,7 +26,6 @@
 #include "target_if_def_config.h"
 #include "ol_txrx_ctrl_api.h"   /* txrx_pdev_cfg_param_t */
 
-
 /**
  * @brief format of data frames delivered to/from the WLAN driver by/to the OS
  */
@@ -396,7 +395,6 @@ int ol_cfg_is_ip_tcp_udp_checksum_offload_enabled(ol_pdev_handle pdev)
 
 	return cfg->ip_tcp_udp_checksum_offload;
 }
-
 
 #ifdef QCA_LL_TX_FLOW_CONTROL_V2
 int ol_cfg_get_tx_flow_stop_queue_th(ol_pdev_handle pdev);

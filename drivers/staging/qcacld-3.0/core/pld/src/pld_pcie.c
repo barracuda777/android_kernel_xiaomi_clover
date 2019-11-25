@@ -70,7 +70,6 @@ out:
 	return ret;
 }
 
-
 /**
  * pld_pcie_remove() - Remove function for PCIE device
  * @pdev: PCIE device

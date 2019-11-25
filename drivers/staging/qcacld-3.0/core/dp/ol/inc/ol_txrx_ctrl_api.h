@@ -196,7 +196,6 @@ ol_txrx_set_wmm_param(ol_txrx_pdev_handle data_pdev,
 void
 ol_txrx_peer_tid_unpause(ol_txrx_peer_handle data_peer, int tid);
 
-
 /**
  * @brief Tell a paused peer to release a specified number of tx frames.
  * @details
@@ -234,7 +233,6 @@ void ol_txrx_tx_release(ol_txrx_peer_handle peer,
  */
 void
 ol_txrx_throttle_pause(ol_txrx_pdev_handle data_pdev);
-
 
 /**
  * @brief Resume all tx data per thermal event/timer for the
@@ -577,7 +575,6 @@ ol_txrx_bad_peer_txctl_update_threshold(
 {
 }
 #endif /* defined(CONFIG_HL_SUPPORT) && defined(QCA_BAD_PEER_TX_FLOW_CL) */
-
 
 void ol_txrx_set_ocb_peer(struct ol_txrx_pdev_t *pdev,
 			  struct ol_txrx_peer_t *peer);

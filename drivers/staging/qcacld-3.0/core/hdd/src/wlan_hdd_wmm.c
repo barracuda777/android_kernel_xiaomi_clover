@@ -1553,7 +1553,6 @@ uint16_t hdd_get_queue_index(uint16_t up, bool is_eapol)
 }
 #endif
 
-
 /**
  * hdd_hostapd_select_queue() - Function which will classify the packet
  *       according to linux qdisc expectation.

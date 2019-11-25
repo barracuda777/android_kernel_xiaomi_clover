@@ -2639,7 +2639,6 @@ lim_del_sta(tpAniSirGlobal pMac,
 	return retCode;
 }
 
-
 /**
  * lim_add_sta_self()
  *
@@ -3177,7 +3176,6 @@ lim_check_and_announce_join_success(tpAniSirGlobal mac_ctx,
 		session_entry->defaultAuthFailureTimeout = 0;
 	}
 
-
 	/*
 	 * Check if MBO Association disallowed subattr is present and post
 	 * failure status to LIM if present
@@ -3477,7 +3475,6 @@ static void lim_update_vht_oper_assoc_resp(tpAniSirGlobal mac_ctx,
 	}
 	pe_debug("Updating VHT Operation in assoc Response");
 }
-
 
 /**
  * limSendAddBss()
@@ -4195,7 +4192,6 @@ tSirRetStatus lim_sta_send_add_bss_pre_assoc(tpAniSirGlobal pMac, uint8_t update
 			vht_oper = &pBeaconStruct->vendor_vht_ie.VHTOperation;
 			pe_debug("VHT Operation is present in vendor Specfic IE");
 		}
-
 
 		if ((vht_oper != NULL) &&
 			vht_oper->chanWidth &&

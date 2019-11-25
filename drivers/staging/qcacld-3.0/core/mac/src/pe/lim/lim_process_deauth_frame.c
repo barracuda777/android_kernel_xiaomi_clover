@@ -314,7 +314,6 @@ lim_process_deauth_frame(tpAniSirGlobal pMac, uint8_t *pRxPacketInfo,
 	lim_perform_deauth(pMac, psessionEntry, reasonCode, pHdr->sa,
 			   frame_rssi);
 
-
 } /*** end lim_process_deauth_frame() ***/
 
 void lim_perform_deauth(tpAniSirGlobal mac_ctx, tpPESession pe_session,
@@ -574,5 +573,4 @@ void lim_perform_deauth(tpAniSirGlobal mac_ctx, tpPESession pe_session,
 	/* send eWNI_SME_DEAUTH_IND to SME */
 	lim_send_sme_deauth_ind(mac_ctx, sta_ds, pe_session);
 	return;
-
 }

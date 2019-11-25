@@ -364,7 +364,6 @@ err_cleanup1:
 	return ret;
 }
 
-
 /**
  * hif_reset_soc() - reset soc
  *
@@ -380,7 +379,6 @@ void hif_ahb_reset_soc(struct hif_softc *hif_ctx)
 {
 	hif_ahb_device_reset(hif_ctx);
 }
-
 
 /**
  * hif_nointrs() - disable IRQ
@@ -419,5 +417,4 @@ void hif_ahb_irq_enable(struct hif_softc *scn, int ce_id)
  */
 void hif_ahb_irq_disable(struct hif_softc *scn, int ce_id)
 {
-
 }

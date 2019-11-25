@@ -76,7 +76,6 @@ struct htc_tx_packet_info {
 /* Tag packet for runtime put after sending */
 #define HTC_TX_PACKET_TAG_RUNTIME_PUT  (HTC_TX_PACKET_TAG_USER_DEFINED + 3)
 
-
 #define HTC_TX_PACKET_FLAG_FIXUP_NETBUF (1 << 0)
 
 /**

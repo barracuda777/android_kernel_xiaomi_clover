@@ -534,7 +534,6 @@ QDF_STATUS sme_roam_set_key(tHalHandle, uint8_t sessionId,
 		tCsrRoamSetKey *pSetKey, uint32_t *pRoamId);
 QDF_STATUS sme_get_country_code(tHalHandle hHal, uint8_t *pBuf, uint8_t *pbLen);
 
-
 void sme_apply_channel_power_info_to_fw(tHalHandle hHal);
 
 /* some support functions */
@@ -1759,7 +1758,6 @@ QDF_STATUS sme_send_coex_config_cmd(struct coex_config_params *coex_cfg_params);
 
 void sme_set_cc_src(tHalHandle hal_handle, enum country_src);
 
-
 #ifdef WLAN_FEATURE_WOW_PULSE
 QDF_STATUS sme_set_wow_pulse(struct wow_pulse_mode *wow_pulse_set_info);
 #endif
@@ -1773,7 +1771,6 @@ QDF_STATUS sme_get_nud_debug_stats(tHalHandle hal,
 QDF_STATUS sme_set_nud_debug_stats_cb(tHalHandle hal,
 			void (*cb)(void *, struct rsp_stats *, void *context),
 			void *context);
-
 
 #ifdef WLAN_FEATURE_UDP_RESPONSE_OFFLOAD
 QDF_STATUS sme_set_udp_resp_offload(struct udp_resp_offload *pudp_resp_cmd);

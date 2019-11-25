@@ -1260,7 +1260,6 @@ failure:
 	kfree_skb(vendor_event);
 }
 
-
 /**
  * hdd_ndp_initiator_rsp_handler() - NDP initiator response handler
  * @adapter: pointer to adapter context
@@ -2399,7 +2398,6 @@ int hdd_init_nan_data_mode(struct hdd_adapter_s *adapter)
 			PDEV_CMD);
 	if (0 != ret_val)
 		hdd_err("WMI_PDEV_PARAM_BURST_ENABLE set failed %d", ret_val);
-
 
 	ndp_ctx->state = NAN_DATA_NDI_CREATING_STATE;
 	return ret_val;

@@ -49,7 +49,6 @@ struct htt_host_fw_desc_base {
 	} u;
 };
 
-
 /*
  * This struct defines the basic descriptor information used by host,
  * which is written either by the 11ac HW MAC into the host Rx data
@@ -634,7 +633,6 @@ htt_tx_credit_update(struct htt_pdev_t *pdev)
 	return 0;
 }
 #endif
-
 
 #ifdef FEATURE_HL_GROUP_CREDIT_FLOW_CONTROL
 

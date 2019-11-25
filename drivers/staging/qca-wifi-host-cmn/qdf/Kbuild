@@ -41,7 +41,6 @@ linux/src/qdf_threads.o
 #linux/src/qdf_net_ioctl.o
 #linux/src/qdf_net_wext.o
 
-
 ifeq ($(BUILD_ADF_NET_IOCTL),1)
 EXTRA_CFLAGS+= -DADF_NET_IOCTL_SUPPORT
 #adf-objs += os/linux/adf_os_netlink_pvt.o \

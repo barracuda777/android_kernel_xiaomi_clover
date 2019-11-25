@@ -28,7 +28,6 @@
 #include "a_osapi.h"
 #include "hif_internal.h"
 
-
 #define AR6320_HEADERS_DEF
 
 #define ATH_DBG_DEFAULT   0

@@ -486,7 +486,6 @@ qdf_dma_addr_t htt_tx_get_paddr(htt_pdev_handle pdev,
 	return 0;
 }
 
-
 #else
 
 int htt_tx_attach(struct htt_pdev_t *pdev, int desc_pool_elems)
@@ -793,7 +792,6 @@ int htt_tx_send_std(htt_pdev_handle pdev, qdf_nbuf_t msdu, uint16_t msdu_id)
 
 	if (QDF_NBUF_CB_TX_EXTRA_FRAG_FLAGS_EXT_HEADER(msdu))
 		download_len += sizeof(struct htt_tx_msdu_desc_ext_t);
-
 
 	QDF_NBUF_UPDATE_TX_PKT_COUNT(msdu, QDF_NBUF_TX_PKT_HTT);
 	DPTRACE(qdf_dp_trace(msdu, QDF_DP_TRACE_HTT_PACKET_PTR_RECORD,
@@ -1424,7 +1422,6 @@ int htt_tx_ipa_uc_attach(struct htt_pdev_t *pdev,
 	pdev->ipa_uc_tx_rsc.alloc_tx_buf_cnt = htt_tx_ipa_uc_wdi_tx_buf_alloc(
 		pdev, uc_tx_buf_sz, uc_tx_buf_cnt, uc_tx_partition_base);
 
-
 	return 0;
 
 free_tx_comp_base:
@@ -1944,4 +1941,3 @@ void htt_tx_group_credit_process(struct htt_pdev_t *pdev, u_int32_t *msg_word)
 	ol_tx_update_group_credit_stats(pdev->txrx_pdev);
 }
 #endif
-

@@ -304,7 +304,6 @@ void ol_cfg_set_tx_free_at_download(ol_pdev_handle pdev)
 	cfg->tx_free_at_download = 1;
 }
 
-
 #ifdef CONFIG_HL_SUPPORT
 uint16_t ol_cfg_target_tx_credit(ol_pdev_handle pdev)
 {

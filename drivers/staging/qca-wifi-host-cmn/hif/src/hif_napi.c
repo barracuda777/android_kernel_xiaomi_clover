@@ -266,7 +266,6 @@ int hif_napi_destroy(struct hif_opaque_softc *hif_ctx,
 			return -EINVAL;
 		}
 
-
 		if (hif->napi_data.state == HIF_NAPI_CONF_UP) {
 			if (force) {
 				napi_disable(&(napii->napi));
@@ -634,7 +633,6 @@ int hif_napi_event(struct hif_opaque_softc *hif_ctx, enum qca_napi_event event,
 	} /* default */
 	}; /* switch */
 
-
 	switch (blacklist_pending) {
 	case BLACKLIST_ON_PENDING:
 		/* assume the control of WLAN IRQs */
@@ -730,7 +728,6 @@ inline void hif_napi_enable_irq(struct hif_opaque_softc *hif, int id)
 
 	hif_irq_enable(scn, NAPI_ID2PIPE(id));
 }
-
 
 /**
  * hif_napi_schedule() - schedules napi, updates stats
@@ -1551,7 +1548,6 @@ hncm_return:
 	hnc_dump_cpus(napid);
 	return rc;
 }
-
 
 /**
  * hif_napi_bl_irq() - calls irq_modify_status to enable/disable blacklisting

@@ -432,8 +432,6 @@ static struct CE_pipe_config target_ce_config_wlan_ar900b[] = {
 #endif
 };
 
-
-
 static struct CE_attr *host_ce_config;
 static struct CE_pipe_config *target_ce_config;
 static int target_ce_config_sz;

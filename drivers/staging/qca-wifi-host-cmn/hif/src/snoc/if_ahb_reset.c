@@ -81,7 +81,6 @@ static int clk_enable_disable(struct device *dev, const char *str, int enable)
 	return 0;
 }
 
-
 /**
  * hif_ahb_clk_enable_disable() - Enable/disable ahb clock
  * @dev : pointer to device structure
@@ -280,7 +279,6 @@ void hif_ahb_device_reset(struct hif_softc *scn)
 	uint32_t reg_value;
 	int wait_limit = ATH_AHB_RESET_WAIT_MAX;
 
-
 	wifi_core_id = hif_read32_mb(sc->mem + WLAN_SUBSYSTEM_CORE_ID_ADDRESS);
 	glb_cfg_offset = (wifi_core_id == 0) ? TCSR_WIFI0_GLB_CFG :
 							TCSR_WIFI1_GLB_CFG;
@@ -389,6 +387,3 @@ void hif_ahb_device_reset(struct hif_softc *scn)
 		  __func__, __LINE__);
 }
 #endif
-
-
-

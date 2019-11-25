@@ -103,7 +103,6 @@ struct hif_ce_desc_event {
 qdf_atomic_t hif_ce_desc_history_index[CE_COUNT_MAX];
 struct hif_ce_desc_event hif_ce_desc_history[CE_COUNT_MAX][HIF_CE_HISTORY_MAX];
 
-
 /**
  * get_next_record_index() - get the next record index
  * @table_index: atomic index variable to increment
@@ -749,7 +748,6 @@ int ce_send_fast(struct CE_handle *copyeng, qdf_nbuf_t msdu,
 
 	Q_TARGET_ACCESS_END(scn);
 
-
 	/* sent 1 packet */
 	return 1;
 }
@@ -779,7 +777,6 @@ static bool ce_is_fastpath_handler_registered(struct CE_state *ce_state)
 	else
 		return false;
 }
-
 
 #else
 static inline bool ce_is_fastpath_enabled(struct hif_softc *scn)
@@ -881,7 +878,6 @@ qdf_nbuf_t ce_batch_send(struct CE_handle *ce_tx_hdl,  qdf_nbuf_t msdu,
 
 		src_desc[1] = ((uint32_t *)&lsrc_desc)[1];
 
-
 		src_ring->per_transfer_context[write_index] = msdu;
 		write_index = CE_RING_IDX_INCR(nentries_mask, write_index);
 
@@ -891,7 +887,6 @@ qdf_nbuf_t ce_batch_send(struct CE_handle *ce_tx_hdl,  qdf_nbuf_t msdu,
 		msdu = tempnext;
 
 	}
-
 
 	src_ring->write_index = write_index;
 	war_ce_src_ring_write_idx_set(scn, ctrl_addr, write_index);
@@ -978,7 +973,6 @@ int ce_send_single(struct CE_handle *ce_tx_hdl, qdf_nbuf_t msdu,
 	lsrc_desc.gather    = 0; /* For the last one, gather is not set */
 
 	src_desc[1] = ((uint32_t *)&lsrc_desc)[1];
-
 
 	src_ring->per_transfer_context[write_index] = msdu;
 	write_index = CE_RING_IDX_INCR(nentries_mask, write_index);
@@ -1691,7 +1685,6 @@ more_data:
 		if (qdf_unlikely(nbytes == 0))
 			break;
 
-
 		/*
 		 * Build the nbuf list from valid completions
 		 */
@@ -2349,4 +2342,3 @@ void ce_ipa_get_resource(struct CE_handle *ce,
 			SR_WR_INDEX_ADDRESS;
 }
 #endif /* IPA_OFFLOAD */
-

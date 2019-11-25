@@ -88,7 +88,6 @@ do { \
 	BEFORE_LOCK_time = qdf_get_log_timestamp(); \
 	do {} while (0)
 
-
 #define AFTER_LOCK(lock, func) \
 	lock->stats.acquired_by = func; \
 	AFTER_LOCK_time = qdf_get_log_timestamp(); \
@@ -222,7 +221,6 @@ struct qdf_spinlock {
  * @brief Platform spinlock object
  */
 typedef struct qdf_spinlock qdf_spinlock_t;
-
 
 /**
  * @brief Platform mutex object

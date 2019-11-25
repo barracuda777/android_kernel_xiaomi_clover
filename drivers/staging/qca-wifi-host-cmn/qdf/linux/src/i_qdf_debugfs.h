@@ -21,7 +21,6 @@
  * Linux specific implementation for debug filesystem APIs.
  */
 
-
 #ifndef _I_QDF_DEBUGFS_H
 #define _I_QDF_DEBUGFS_H
 

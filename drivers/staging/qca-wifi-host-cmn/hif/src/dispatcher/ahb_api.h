@@ -23,7 +23,6 @@ QDF_STATUS hif_ahb_open(struct hif_softc *hif_ctx,
 			 enum qdf_bus_type bus_type);
 void hif_ahb_close(struct hif_softc *hif_ctx);
 
-
 void hif_ahb_disable_isr(struct hif_softc *hif_ctx);
 void hif_ahb_nointrs(struct hif_softc *scn);
 void hif_ahb_reset_soc(struct hif_softc *hif_ctx);

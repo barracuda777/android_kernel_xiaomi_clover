@@ -615,7 +615,6 @@ tpPESession pe_find_session_by_sta_id(tpAniSirGlobal pMac, uint8_t staid,
  */
 void pe_delete_session(tpAniSirGlobal pMac, tpPESession psessionEntry);
 
-
 /**
  * pe_find_session_by_sme_session_id() - looks up the PE session for given sme
  * session id

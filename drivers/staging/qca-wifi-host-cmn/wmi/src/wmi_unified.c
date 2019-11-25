@@ -291,7 +291,6 @@ wmi_diag_rx_event_log_buffer[WMI_DIAG_RX_EVENT_DEBUG_MAX_ENTRY];
 	h->log_info.wmi_diag_event_log_buf_info.length++;		\
 }
 
-
 /* These are defined to made it as module param, which can be configured */
 uint32_t wmi_log_max_entry = WMI_EVENT_DEBUG_MAX_ENTRY;
 uint32_t wmi_mgmt_log_max_entry = WMI_MGMT_EVENT_DEBUG_MAX_ENTRY;
@@ -1284,7 +1283,6 @@ static uint8_t *wmi_id_to_name(uint32_t wmi_command)
 	return "Invalid WMI cmd";
 }
 #endif
-
 
 #ifndef WMI_NON_TLV_SUPPORT
 static inline void wmi_log_cmd_id(uint32_t cmd_id, uint32_t tag)

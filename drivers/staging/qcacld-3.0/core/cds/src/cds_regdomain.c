@@ -466,7 +466,6 @@ static const struct reg_dmn g_reg_dmns[] = {
 	{WORC_WORLD, NO_CTL},
 };
 
-
 struct reg_dmn_tables g_reg_dmn_tbl = {
 	g_reg_dmn_pairs,
 	g_all_countries,
@@ -883,7 +882,6 @@ uint16_t cds_reg_dmn_get_chanwidth_from_opclass(uint8_t *country,
 
 	return 0;
 }
-
 
 /**
  * cds_reg_dmn_get_opclass_from_channel() - get operating class from channel

@@ -783,7 +783,6 @@ typedef enum {
 #define CSR_CB_CENTER_CHANNEL_OFFSET    2
 #define CSR_SEC_CHANNEL_OFFSET    4
 
-
 /* WEP keysize (in bits) */
 typedef enum {
 	/* 40 bit key + 24bit IV = 64bit WEP */

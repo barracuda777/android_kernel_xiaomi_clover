@@ -66,7 +66,6 @@ static inline void qdf_list_create(__qdf_list_t *list, uint32_t max_size)
 	__qdf_list_create(list, max_size);
 }
 
-
 /**
  * qdf_list_destroy() - Destroy the list
  * @list: object of list
