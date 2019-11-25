@@ -2713,8 +2713,8 @@
 		input-device-name = "fpc1020";
 		interrupt-parent = <&tlmm>;
 		interrupts = <71 0x0>;
-		fpc,gpio_rst = <&tlmm 108 0>;
-		fpc,gpio_irq = <&tlmm 71 0>;
+		fpc,gpio_rst    = <&tlmm 108 0>;
+		fpc,gpio_irq    = <&tlmm 71 0>;
 
 		clock-names = "iface_clk", "core_clk";
 		clocks = <&clock_gcc GCC_BLSP2_AHB_CLK>,
