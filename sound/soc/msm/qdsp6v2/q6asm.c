@@ -2179,8 +2179,8 @@ static int32_t q6asm_callback(struct apr_client_data *data, void *priv)
 			buf_index = asm_token._token.buf_index;
 			if (buf_index < 0 ||
 					buf_index >= port->max_buf_cnt) {
-				pr_err("%s: Invalid buffer index %u\n",
-					__func__, buf_index);
+				pr_debug("%s: Invalid buffer index %u\n",
+				__func__, buf_index);
 				spin_unlock_irqrestore(&port->dsp_lock,
 								dsp_flags);
 				spin_unlock_irqrestore(
@@ -2299,8 +2299,8 @@ static int32_t q6asm_callback(struct apr_client_data *data, void *priv)
 			spin_lock_irqsave(&port->dsp_lock, dsp_flags);
 			buf_index = asm_token._token.buf_index;
 			if (buf_index < 0 || buf_index >= port->max_buf_cnt) {
-				pr_err("%s: Invalid buffer index %u\n",
-					__func__, buf_index);
+				pr_debug("%s: Invalid buffer index %u\n",
+				__func__, buf_index);
 				spin_unlock_irqrestore(&port->dsp_lock,
 								dsp_flags);
 				spin_unlock_irqrestore(
@@ -7949,7 +7949,7 @@ fail_cmd:
 int q6asm_audio_map_shm_fd(struct audio_client *ac, struct ion_client **client,
 			struct ion_handle **handle, int fd)
 {
-	ion_phys_addr_t paddr;
+	ion_phys_addr_t paddr = 0;
 	size_t pa_len = 0;
 	int ret;
 	int sz = 0;

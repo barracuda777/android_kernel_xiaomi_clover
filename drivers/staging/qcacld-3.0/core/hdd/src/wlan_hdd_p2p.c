@@ -2326,7 +2326,7 @@ static int __wlan_hdd_mgmt_tx(struct wiphy *wiphy, struct wireless_dev *wdev,
 						 msecs_to_jiffies
 							 (WAIT_CHANGE_CHANNEL_FOR_OFFCHANNEL_TX));
 		if (!rc) {
-			hdd_err("wait on offchannel_tx_event timed out");
+			hdd_debug("wait on offchannel_tx_event timed out");
 			goto err_rem_channel;
 		}
 	} else if (offchan) {
@@ -2974,6 +2974,7 @@ struct wireless_dev *__wlan_hdd_add_virtual_intf(struct wiphy *wiphy,
 		}
 	}
 
+	pAdapter = NULL;
 	ret = wlan_hdd_add_monitor_check(pHddCtx, &pAdapter, type, name,
 					 true, name_assign_type);
 	if (ret)
@@ -3553,6 +3554,7 @@ static void process_tdls_rx_action_frame(hdd_adapter_t *adapter,
 static bool process_rx_public_action_frame(hdd_adapter_t *adapter,
 					   uint8_t *pb_frames,
 					   hdd_cfg80211_state_t *cfg_state,
+					   enum action_frm_type frm_type,
 					   uint32_t frm_len, uint16_t freq,
 					   int8_t rx_rssi)
 {
@@ -3619,6 +3621,7 @@ void __hdd_indicate_mgmt_frame(hdd_adapter_t *adapter, uint32_t frm_len,
 	uint16_t freq;
 	uint8_t type = 0;
 	uint8_t sub_type = 0;
+	enum action_frm_type frm_type;
 	hdd_cfg80211_state_t *cfg_state;
 	hdd_context_t *hdd_ctx;
 	uint8_t broadcast = 0;
@@ -3693,7 +3696,7 @@ void __hdd_indicate_mgmt_frame(hdd_adapter_t *adapter, uint32_t frm_len,
 		bool processed;
 
 		processed = process_rx_public_action_frame(adapter, pb_frames,
-							   cfg_state,
+							   cfg_state, frm_type,
 							   frm_len, freq,
 							   rx_rssi);
 		if (!processed) {
