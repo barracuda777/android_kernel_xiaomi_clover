@@ -3290,6 +3290,7 @@ static int hdmi_tx_power_off(struct hdmi_tx_ctrl *hdmi_ctrl)
 
 	hdmi_ctrl->panel_power_on = false;
 	hdmi_ctrl->dc_support = false;
+	hdmi_ctrl->vic = 0;
 
 	if (hdmi_ctrl->hpd_off_pending || hdmi_ctrl->panel_suspend)
 		hdmi_tx_hpd_off(hdmi_ctrl);
@@ -3991,6 +3992,16 @@ static int hdmi_tx_evt_handle_check_param(struct hdmi_tx_ctrl *hdmi_ctrl)
 		rc = 1;
 		DEV_DBG("%s: res change %d ==> %d\n", __func__,
 			hdmi_ctrl->vic, new_vic);
+	}
+
+	/*
+	 * Since bootloader doesn't support DC return 1
+	 * for panel reconfig.
+	 */
+	if (hdmi_ctrl->panel_data.panel_info.cont_splash_enabled
+			&& hdmi_tx_dc_support(hdmi_ctrl)) {
+		rc = 1;
+		DEV_DBG("%s: Bitdepth changed\n", __func__);
 	}
 end:
 	return rc;

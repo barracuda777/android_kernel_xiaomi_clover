@@ -451,8 +451,6 @@ static bool android_fence_signaled(struct fence *fence)
 	int ret;
 
 	ret = parent->ops->has_signaled(pt);
-	if (!ret && parent->destroyed)
-		ret = -ENOENT;
 	if (ret < 0)
 		fence->status = ret;
 	return ret;

@@ -770,7 +770,7 @@ static int __check_input_term(struct mixer_build *state, int id,
 				struct uac3_input_terminal_descriptor *d = p1;
 
 				err = __check_input_term(state,
-							 d->bCSourceID, term);
+							d->bCSourceID, term);
 				if (err < 0)
 					return err;
 
@@ -828,7 +828,7 @@ static int __check_input_term(struct mixer_build *state, int id,
 				struct uac_selector_unit_descriptor *d = p1;
 				/* call recursively to retrieve channel info */
 				err = __check_input_term(state,
-							 d->baSourceID[0], term);
+							d->baSourceID[0], term);
 				if (err < 0)
 					return err;
 				/* virtual type */
@@ -1126,8 +1126,7 @@ static int get_min_max_with_quirks(struct usb_mixer_elem_info *cval,
 		if (cval->min + cval->res < cval->max) {
 			int last_valid_res = cval->res;
 			int saved, test, check;
-			if (get_cur_mix_raw(cval, minchn, &saved) < 0)
-				goto no_res_check;
+			get_cur_mix_raw(cval, minchn, &saved);
 			for (;;) {
 				test = saved;
 				if (test < cval->max)
@@ -1147,7 +1146,6 @@ static int get_min_max_with_quirks(struct usb_mixer_elem_info *cval,
 			snd_usb_set_cur_mix_value(cval, minchn, 0, saved);
 		}
 
-no_res_check:
 		cval->initialized = 1;
 	}
 
@@ -1198,7 +1196,7 @@ static int mixer_ctl_feature_info(struct snd_kcontrol *kcontrol,
 		if (!cval->initialized) {
 			get_min_max_with_quirks(cval, 0, kcontrol);
 			if (cval->initialized && cval->dBmin >= cval->dBmax) {
-				kcontrol->vd[0].access &=
+				kcontrol->vd[0].access &= 
 					~(SNDRV_CTL_ELEM_ACCESS_TLV_READ |
 					  SNDRV_CTL_ELEM_ACCESS_TLV_CALLBACK);
 				snd_ctl_notify(cval->head.mixer->chip->card,
@@ -1731,7 +1729,7 @@ static int parse_audio_feature_unit(struct mixer_build *state, int unitid,
 	}
 
 	/* determine the input source type and name */
-	err = __check_input_term(state, hdr->bSourceID, &iterm);
+	err = check_input_term(state, hdr->bSourceID, &iterm);
 	if (err < 0)
 		return err;
 
@@ -1925,7 +1923,7 @@ static int parse_audio_mixer_unit(struct mixer_build *state, int unitid,
 		/* no bmControls field (e.g. Maya44) -> ignore */
 		if (desc->bLength <= 10 + input_pins)
 			continue;
-		err = __check_input_term(state, desc->baSourceID[pin], &iterm);
+		err = check_input_term(state, desc->baSourceID[pin], &iterm);
 		if (err < 0)
 			return err;
 		num_ins += iterm.channels;

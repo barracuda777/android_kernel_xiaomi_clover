@@ -988,14 +988,13 @@ retry:
 			 * still busy.
 			 */
 			if (!(io_data->read && ep->is_busy)) {
-				ep->is_busy = true;
 				ret = usb_ep_queue(ep->ep, req, GFP_ATOMIC);
+				ep->is_busy = true;
 			}
 
 			spin_unlock_irq(&epfile->ffs->eps_lock);
 
 			if (unlikely(ret < 0)) {
-				ep->is_busy = false;
 				ret = -EIO;
 			} else if (unlikely(
 				   wait_for_completion_interruptible(done))) {
